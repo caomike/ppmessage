@@ -9,11 +9,13 @@ Open source online customer service system
 * Pip
 * Manual download
   * Geolite2 DB
-  
 
-### Config
 
 ### Bootstrap
+
+#### Bootstrap Config
+
+#### Bootstrap Scripts
 
 dist.sh bootstrap
 
@@ -24,5 +26,25 @@ dist.sh bootstrap
 * dist.sh log
 
 
+## Linux (Debian jessie/8.3)
+
+### Requirements
+
+* Pip
+* Manual download
+  * Geolite2 DB
+
+
+### Bootstrap
+
+#### Bootstrap Config
+
+#### Bootstrap Scripts
+
+### Start/Stop/Log
+
+* dist.sh start
+* dist.sh stop
+* dist.sh log
 
 
