@@ -23,7 +23,17 @@ BOOTSTRAP_CONFIG = {
     "user_fullname": "Guijin Ding",
     "user_status": "OWNER_2",
     
-    # email is the account name
+    # email is account name
     "user_email": "dingguijin@gmail.com",
     "user_password": "123",
+
+    # db config
+    "db_host": "127.0.0.1",
+    "db_user": "root",
+    "db_pass": "test",
+    "db_name": "ppmessage",
+
+
+    # cert config
+
 }
