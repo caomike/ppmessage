@@ -1,0 +1,159 @@
+angular.module("this_app")
+    .controller("ApplicationProfileCtrl", function($scope, $stateParams, $state, $translate, $timeout, yvTransTags, yvAjax, yvUtil, yvUser, yvDebug) {
+
+        var team_name = "";
+        
+        $scope.can_delete = false;
+        $scope.team_info = {
+            key: "",
+            secret: "",
+            name: "",
+        };
+
+        $scope.show_remove_modal = function() {
+            jQuery('#remove_app').modal({show:true});
+        };
+
+        var _note = function(index, tag) {
+            $scope.set_flash_style(index);
+            $scope.set_update_string($scope.lang[tag]);
+        };
+        
+        $scope.remove_app = function() {
+            
+            var app_info = {
+                "user_uuid": yvUser.get_uuid(),
+                "app_uuid": yvUser.get_team().uuid,
+            };
+            yvAjax.remove_app(app_info)
+                .success(function(data) {
+                    console.log("remove app info back",data);
+                    jQuery('#remove_app').modal('hide');
+                    if(data.error_code == 0) {
+                        _note("flash-notice", "application.profile.REMOVE_APP_SUCCESS_TAG");
+                        var team_uuid = '';
+                        yvUser.set_team_uuid(team_uuid);
+                        $scope.team_info = {
+                            key: "",
+                            secret: "",
+                            name: "",
+                        };
+                    }else if(data.error_code == -1){
+                        // params miss
+                        _note(1, "application.profile.UPDATE_APP_LACK_PARAMS_TAG");
+                    }else if(data.error_code == 1){
+                        //no such app
+                        _note(1, "application.profile.UPDATE_APP_NOT_EXIST_TAG");
+                    }else if(data.error_code == 2){
+                        //not app owner
+                        _note(2, "application.profile.PERMISSION_DENIED_TAG");
+                    }else {
+                        //encounter an error
+                        _note(1, "application.profile.UPDATE_FAILED_TAG");
+                    };
+                })
+                .error(function(data) {
+                    jQuery('#remove_app').modal('hide');
+                    _note(2, "application.profile.UPDATE_FAILED_TAG");
+                });
+        };
+
+        var modify_check = function() {
+            if(team_name == $scope.team_info.name) {
+                _note("flash-error", "application.profile.NO_CHANGE_TAG");
+                $scope.team_info.name = team_name;
+                return false;
+            };
+            if(!yvUtil.regexp_check($scope.team_info.name)) {
+                _note(1, "application.profile.NOT_REGULAR_WORDS_TAG");
+                $scope.team_info.name = team_name;
+                return false;
+            };
+            if(String($scope.team_info.name).length>63) {
+                _note(1, "application.profile.WORDS_OUT_OF_LENGTH_TAG");
+                $scope.team_info.name = team_name;
+                return false;
+            };
+            return true;
+        }
+            
+        $scope.modify = function() {
+            console.log("$scope.team_info is",$scope.team_info);
+            if(!modify_check()) {
+                return;
+            };
+            var update = {
+                "app_uuid": yvUser.get_team().uuid,
+                "app_name": $scope.team_info.name,
+            };
+            yvAjax.update_app_info(update)
+                .success(function(data) {
+                    console.log("update team info back",data);
+                    if(data.error_code == 0) {
+                        $scope.team_info.name = data.app_name;
+                        team_name = data.app_name;
+                        yvUser && yvUser.get_team() && ( yvUser.get_team().app_name = team_name );
+                        _note(0, "application.profile.UPDATE_SUCCESSFULLY_TAG");
+                    }else if(data.error_code == -1) {
+                        _note(1, "application.profile.UPDATE_APP_LACK_PARAMS_TAG");
+                    }else if(data.error_code == 1) {
+                        _note(1, "application.profile.UPDATE_APP_NOT_EXIST_TAG");
+                    }else{
+                        _note(1, "application.profile.UPDATE_FAILED_TAG");
+                    }
+                })
+                .error(function(data) {
+                    console.log("error data is",data);
+                    _note(2, "application.profile.UPDATE_FAILED_TAG");
+                });
+        };
+
+        var _team = function() {
+            var _own_team = yvUser.get_team();
+            if (_own_team == null) {
+                console.error("no team info");
+                return;
+            }
+            $scope.team_info.key = _own_team.app_key;
+            $scope.team_info.secret = _own_team.app_secret;
+            $scope.team_info.name = _own_team.app_name;
+        };
+        
+        var _logined = function() {
+            if(yvUser.get_status() != "OWNER_2") {
+                console.error("should not be here");
+                return;
+            };
+
+            if(!yvUser.get_team()) {
+                var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
+                _get.success(function(data) {
+                    yvUser.set_team(data.app);
+                    _team();
+                });
+            } else {
+                _team();
+            }
+            
+        };
+
+        var _translate = function() {
+            var _tag_list = [];
+            for (var i in yvTransTags.en.application.profile) {
+                var _t = "application.profile." + i;
+                _tag_list.push(_t);
+            };
+            $scope.translate = function() {
+            };
+            yvUtil.translate($scope, 'lang', _tag_list, $scope.translate);
+        };
+        
+        var _init = function() {
+            $scope.refresh_settings_menu();
+            _translate();
+            yvAjax.check_logined(_logined, null);
+        };
+        _init();
+
+        yvDebug.attach( 'yvBasicInfo', { yvUser: yvUser } );
+    }); 

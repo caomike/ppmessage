@@ -1,0 +1,80 @@
+<ion-side-menus eable-menu-with-back-views="false"  delegate-handle="left-sidemenu" ng-style="getAppBodyStyle()" ng-if="!isInMobile()">
+
+  <!-- Left menu -->
+  <ion-side-menu class="yv-sidemenu" side="left" width="300" expose-aside-when="large">
+    
+    <div class="yv-sidemenu-header-outer">
+      <yv-sidemenu-header></yv-sidemenu-header>
+    </div>
+    
+    <ion-tabs class="tabs-top tabs-color-active-balanced yv-tabs-dark tabs-icon-only">
+      
+      <ion-tab title="{{ 'app.messages.CONVERSATIONS_TAG' | translate }}" icon-off="ion-ios-chatbubble-outline" icon-on="ion-ios-chatbubble"
+               ui-sref="app.conversation-list" badge="getUnread()" badge-style="badge-assertive">
+        <ion-nav-view name="app-conversation-list" class="yv-sidemenu-view"></ion-nav-view>
+      </ion-tab>
+      
+      <ion-tab title="{{ 'app.contact.CONTACT_TAG' | translate }}" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" ui-sref="app.contact-list">
+        <ion-nav-view name="app-contact-list" class="yv-sidemenu-view"></ion-nav-view>
+      </ion-tab>
+            
+      <ion-tab title="{{ 'app.settings.SETTINGS_TAG' | translate }}" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" ui-sref="app.setting-list">
+        <ion-nav-view name="app-setting-list" class="yv-sidemenu-view"></ion-nav-view>
+      </ion-tab>
+
+    </ion-tabs>
+    
+  </ion-side-menu>
+  
+  <!-- App content -->
+  <ion-side-menu-content class="yv-sidemenu-right-content" drag-content="true" edge-drag-threshold="0">
+    <ion-nav-bar align-title="center" class="bar-stable" no-tap-scroll="true">
+      <ion-nav-buttons side="left">
+        <div class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-if="showNavButton()"></div>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    
+    <ion-nav-view name="side-menu-content"></ion-nav-view>
+    
+    <yv-text-modal></yv-text-modal>
+    <yv-image-modal></yv-image-modal>
+    <yv-add-member-modal></yv-add-member-modal>
+
+  </ion-side-menu-content>
+  
+</ion-side-menus>
+
+
+<!-- In Mobile -->
+
+<ion-view  ng-style="getAppBodyStyle()" ng-if="isInMobile()">
+  <ion-nav-bar class="bar-dark" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  
+  <ion-tabs class="tabs-icon-only tabs-bottom tabs-color-active-balanced">
+    
+    <ion-tab title="{{ 'app.messages.CONVERSATIONS_TAG' | translate }}" ui-sref="app.conversation-list-mobile"
+             icon-off="ion-ios-chatbubble-outline" icon-on="ion-ios-chatbubble"
+             badge="getUnread()" badge-style="badge-assertive">
+      <ion-nav-view name="app-conversation-list"></ion-nav-view>
+    </ion-tab>
+    
+    <ion-tab title="{{ 'app.contact.CONTACT_TAG' | translate }}" ui-sref="app.contact-list-mobile"
+             icon-off="ion-ios-people-outline" icon-on="ion-ios-people">
+      <ion-nav-view name="app-contact-list"></ion-nav-view>
+    </ion-tab>
+    
+    <ion-tab title="{{ 'app.settings.SETTINGS_TAG' | translate }}" ui-sref="app.setting-list-mobile"
+             icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear">
+      <ion-nav-view name="app-setting-list"></ion-nav-view>
+    </ion-tab>
+    
+  </ion-tabs>
+
+  <yv-search-modal></yv-search-modal>
+  <yv-text-modal></yv-text-modal>
+  <yv-image-modal></yv-image-modal>
+  <yv-add-member-modal></yv-add-member-modal>
+
+</ion-view>

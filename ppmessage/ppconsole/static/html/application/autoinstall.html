@@ -1,0 +1,172 @@
+<div class="container">
+  <div style="width:610px;" class="panel panel-info">
+	<div style="background-color:#f7f7f7;" class="panel-heading"><span ng-click="go_back_integrate()" style="color:#2a90d4;cursor:pointer;">应用集成</span>/一键安装助手
+	  <span style="float:right;">遇到问题？<span ng-click="go_to_introduce()" style="cursor:pointer;">新手引导</span></span>
+	</div>
+	<div class="panel-body">
+	  <form class="form-horizontal" name="ppParams" novalidate ng-submit="submit()">
+		<fieldset>
+		  <div>
+			<legend>相关参数
+              <div style="float:right;">
+                <span style="font-size:14px;color:#31708f;">登录方式:</span>
+				<input type="radio" ng-model="pp.login_type" name="login_type" value="FTP" ng-disabled="form_disabled" style="margin:auto 10px;position:relative;top:-3px;" >FTP</input>
+				<input type="radio" ng-model="pp.login_type" name="login_type" value="SSH" ng-disabled="form_disabled" style="margin:auto 10px;position:relative;top:-3px;" >SSH</input>
+              </div>
+            </legend>
+	      </div>
+		  <div class="form-group" style="height:40px;">
+			<label for="host" class="col-sm-3 control-label">主机:</label>
+			<div class="col-sm-5">
+			  <input type="text" class="form-control" name="host" ng-maxlength="50" ng-model="pp.host" required placeholder="请输入主机地址" ng-disabled="form_disabled" />
+			</div>
+
+			<div class="col-sm-3 alert alert-danger" style="padding-top:5px; padding-bottom:5px;" role="alert" ng-show="ppParams.host.$invalid && ppParams.submitted" >
+              参数格式错误
+			</div>
+		  </div>
+		  <div class="form-group" style="height:40px;">
+
+			<label for="user" class="col-sm-3 control-label">用户名:</label>
+			<div class="col-sm-5">
+			  <input type="text" class="form-control" name="user" ng-maxlength="20" ng-model="pp.user"
+					 required placeholder="请输入用户名" ng-disabled="form_disabled" />
+			</div>
+
+			<div class="col-sm-3 alert alert-danger" style="padding-top:5px; padding-bottom:5px;" role="alert" ng-show="ppParams.user.$invalid && ppParams.submitted">
+              参数格式错误
+			</div>
+		  </div>
+		  <div class="form-group" style="height:40px;">
+
+			<label for="pwd" class="col-sm-3 control-label">密码:</label>
+			<div class="col-sm-5">
+			  <input type="password" class="form-control" name="pwd" ng-maxlength="20" ng-model="pp.pwd" required placeholder="请输入密码" ng-disabled="form_disabled"/>
+			</div>
+			<div class="col-sm-3 alert alert-danger" style="padding-top:5px; padding-bottom:5px;" role="alert" ng-show="ppParams.pwd.$invalid && ppParams.submitted">
+              参数格式错误
+			</div>
+		  </div>
+		  <div class="form-group" style="height:40px;">
+			<label for="ppkey" class="col-sm-3 control-label">团队 Key:</label>
+			<div class="col-sm-5">
+			  <input type="text" class="form-control" name="ppkey" ng-maxlength="40" ng-model="pp.ppkey"
+					 required placeholder="请输入PP Key" ng-disabled="true" />
+			</div>
+			<div class="col-sm-3 alert alert-danger" style="padding-top:5px; padding-bottom:5px;" role="alert" ng-show="ppParams.ppkey.$invalid && ppParams.submitted" >
+              参数格式错误
+			</div>
+		  </div>
+		  <div class="form-group" style="height:40px;">
+			<label for="ppsecret" class="col-sm-3 control-label">团队 Secret:</label>
+			<div class="col-sm-5">
+			  <input type="text" class="form-control" name="ppsecret" ng-maxlength="40" ng-model="pp.ppsecret" required placeholder="请输入PP Secret" ng-disabled="true" />
+			</div>
+			<div class="col-sm-3 alert alert-danger" style="padding-top:5px; padding-bottom:5px;" role="alert" ng-show="ppParams.ppsecret.$invalid && ppParams.submitted">
+              参数格式错误
+			</div>
+		  </div>
+		  <div class="col-sm-offset-3 col-sm-5" style="padding-left:8px; padding-right:8px;">
+			<div class="alert" ng-class="{'alert-info': info_show, 'alert-danger': danger_show, 'alert-warning': warning_show}" style="padding-top:5px; padding-bottom:5px;" ng-hide="alert_hide" ng-bind="alert_information">
+			  
+			</div>
+		  </div>
+		  <div class="col-sm-offset-3 col-sm-2">
+			<button type="submit" class="btn btn-lg btn-info form-control" style="background-position: initial;" ng-disabled="sub_disabled">连接</button>
+		  </div>
+		  <div class="col-sm-2" >
+			<button type="button" class="btn btn-lg btn-info" ng-click="cut()" ng-hide="cut_hide" ng-disabled="cut_disabled">断开</button>
+		  </div>
+		</fieldset>
+	  </form>
+	</div>
+  </div>
+
+  <div style="width:610px;" class="panel panel-info" ng-hide="autoInstall_hide">
+	<div style="background-color:#f7f7f7" class="panel-heading">
+	  <strong>自动安装</strong>&nbsp;&nbsp; 系统会把您选中的文件夹或文件装上代码 &nbsp;&nbsp;
+	  <div class="TipWindow">
+		<small ng-mouseover="support_show=true" ng-mouseleave="support_show=false">查看目前支持的文件类型</small>
+		<div class="divType" ng-show="support_show">目前支持 .html, .htm, .shtml, .xhtml, .rhtml, .php, .jsp, .asp, .aspx, .tpl, .master等文件</div>
+	  </div>
+	  <div class="TipWindow">
+		<small ng-mouseover="notice_show=true" ng-mouseleave="notice_show=false" style="margin-right:10px;">安装须知</small>
+		<div class="divType" ng-show="notice_show">
+		  <p>
+			<span>1. 安装期间请不要修改您的账户密码.</span>
+			<span>2. 安装前请您在本地备份文件</span>
+		  </p>
+		</div>
+	  </div>
+	</div>
+	<div class="panel-body">
+	  <div>
+		<ol class="breadcrumb" style="margin-bottom:3px;">
+		  <span>当前路径: &nbsp;</span>
+		  <span class="glyphicon glyphicon-folder-open" style="margin-right:5px;"></span>
+
+		  <span id="init-path"></span>
+	      <!-- 					<li ng-repeat="path in paths"></li>-->
+
+		  <li ng-repeat="path in paths track by $index" ng-bind="path"></li>
+		</ol>
+	  </div>
+	  <div>
+		<div style="margin:3px 5px 3px 5px;">
+		  <input type="checkbox" ng-click="selectAll()" ng-model="selectall_checked">&nbsp;全选
+		  <a class="glyphicon glyphicon-level-up" href ng-click="back()" style="float:right;">回到上一级</a>
+		</div>
+
+		<div>
+		  <div class="panel panel-default" style="margin-bottom:10px;">
+			<div class="panel-heading">
+			  <div class="row">
+				<p class="col-sm-8 col-sm-offset-1" style="margin-bottom:0px;">&nbsp;&nbsp;&nbsp;名称</p>
+				<p class="col-sm-2" style="margin-bottom:0px; padding-left:0px;">&nbsp;类型</p>
+			  </div>
+            </div>
+            <div class="panel-body list-group" style="height:250px; overflow-y:auto; position:relative;" >
+              <div id="load-catalog" ng-show="bg_load_catalog"></div>
+              <div id="load-catalog-info" class="alert alert-info" ng-show="tg_load_catalog">Loading...</div>
+              <li class="list-group-item row" ng-repeat="item in serverlist track by $index" ng-click="list_li_click($event, item)">
+            	<div class="col-sm-1" ng-hide="item.isFile">
+            	  <input type="checkbox" role="input" ng-model="item.select" ng-click="pitch()">&nbsp;&nbsp;<!-- <span class="glyphicon glyphicon-folder-open"></span> -->
+            	</div>
+            	<div class="col-sm-1" ng-hide="item.isDir">
+            	  <input type="checkbox" role="input" ng-model="item.select" ng-click="pitch()">&nbsp;&nbsp;<!-- <span class="glyphicon glyphicon-file"></span> -->
+            	</div>
+            	<div class="col-sm-8">
+                  <!--           								<span role="name"></span>-->
+				  <span role="name" ng-bind="item.name"></span>
+            	</div>
+            	<div class="col-sm-2" ng-hide="item.isFile">
+            	  <span role="type">文件夹</span>
+            	</div>
+            	<div class="col-sm-2" ng-hide="item.isDir">
+            	  <span role="type">文件</span>
+            	</div>
+              </li>
+            </div>
+		  </div>
+
+		</div>
+	  </div>
+	  <button class="btn btn-info" ng-click="install();" ng-disabled="install_disabled">开始安装</button>
+	</div>
+  </div>  
+  
+</div>
+
+<div id="bg-window" ng-show="bg_window_show"></div>
+
+<div id="waiting-dialog" class="modal fade">
+  <div class="modal-content">
+	<div class="modal-header" style="padding:0px; padding-top:5px;">
+	  <h4>正在安装</h4>
+	</div>
+	<div class="modal-body">
+	  <p>请等待，我们的后台正在为您安装中</p>
+	  <p>安装期间您可以关闭此页面</p>
+	</div>
+  </div>
+</div>

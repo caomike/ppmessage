@@ -1,0 +1,70 @@
+<style type="text/css">
+.information{
+	background-color: #54C6D6 !important;
+	width: 300px;
+	height:500px;
+	position: relative;
+	top: 100px;
+	left: 10px;
+}
+.information .content{
+	background-color: #eceef1;
+	position: absolute;
+	width: 200px;
+	height: 400px;
+	top: 50px;
+	left: 50px;
+
+}
+.information .content li{
+	list-style-type: none;
+	margin: 10px;
+}
+.information .content ul a{
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.information .content ul a:hover{
+	text-decoration: none;
+	color: #54C6D6;
+	font-size: 25px;
+}
+</style>
+<div style="width:100%;">
+
+	<div class="information">
+		<div class="content">
+			<ul>
+				<li><a href="javascript:void(0);" ng-click="basicInformation();"><span>个人信息</span></a></li>
+				<li><a href="javascript:void(0);" ng-click="modifyBasicInformation();"><span>修改个人信息</span></a></li>
+				<li><a href="javascript:void(0);" ng-click="modifyPassword();"><span>修改密码</span></a></li>
+				<li><a href="javascript:void(0);" ng-click="appInformation();"><span>App信息</span></a></li>
+				<li><a href="javascript:void(0);" ng-click="addApp();"><span>添加App</span></a></li>
+				<li><a href="javascript:void(0);" ng-click="invitation();"><span>邀请成员加入</span></a></li>
+				<li><a href="javascript:void(0);"><span>PPmessage</span></a></li>
+				<li><a href="javascript:void(0);" ng-click="main();"><span>回到主页</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="login" style="height:500px;">
+		<div class="content" style="padding-top:0px;margin-top:80px;">
+			<form class="register-form" name="registerForm" ng-submit="signup(user)" novalidate>
+				
+				<p class="hint">
+					受邀人邮箱：
+				</p>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9">请输入受邀人邮箱</label>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="请输入受邀人邮箱"/>
+				</div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-success" style="position:relative;left:120px;">确认邀请</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>

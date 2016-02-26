@@ -1,0 +1,40 @@
+<div class="yv-chat-tool-new" ng-class="getPlatformClass()">
+  
+  <!-- toolbar -->
+  <div class="toolbar">
+    <div class="tool">
+      <a class="ion-ios-folder-outline"></a>
+      <input type="file" nv-file-select uploader="uploader" options="uploaderOptions">
+    </div>
+    
+    <!-- <div class="tool"> -->
+    <!--   <yv-send-location></yv-send-location> -->
+    <!--   <a class="ion-ios-location-outline" ng-click="sendLocation()"></a> -->
+    <!-- </div> -->
+    
+    <div class="button button-light send-button" ng-click="prepareText()" ng-if="inMobileChrome()" ng-disabled="!textarea.text">
+      {{ "app.messageThread.SEND" | translate }}
+    </div>
+  </div>
+  
+  <!-- textarea content -->
+  <textarea class="content" form="upload_txt" name="content_txt" ng-model="textarea.text" ng-keypress="onKeyPress($event)"
+            ng-focus="onFocus()" placeholder="{{ 'app.messageThread.TEXTAREA_TIP' | translate }}">
+  </textarea>
+  
+  <form id="upload_txt" action="/ppkefu/upload/" method="post" enctype="multipart/form-data" target="uploadtxtframe">
+    <input type="hidden" name="upload_type" value="content_txt">
+    <iframe id="iframe_txt" name="uploadtxtframe" style="display: none;"></iframe>
+  </form>
+  
+  <!-- footer -->
+  <div class="footer" ng-if="! inMobileChrome()">
+    <div class="button button-light send-button" ng-click="prepareText()" ng-disabled="! textarea.text">
+      {{ "app.messageThread.SEND" | translate }}
+    </div>
+    <p class="send-tip">{{ "app.messageThread.SEND_TIP" | translate }}</p>
+  </div>
+  
+  <div class="footer" ng-if="inMobileChrome()"></div>
+</div>
+

@@ -1,0 +1,28 @@
+<script id="add-member-modal.html" type="text/ng-template">
+  <ion-modal-view class="add-member-modal-view">
+    
+    <ion-header-bar align-title="center" class="bar-stable" no-tap-scroll="true">
+      <h1 class="title">{{ "app.GLOBAL.ADD_MEMBER" | translate }}</h1>
+      <div class="buttons">
+        <button class="button button-icon ion-ios-close-empty" ng-click="closeModal()"></button>
+      </div>
+    </ion-header-bar>
+    
+    <ion-header-bar class="bar-stable bar-subheader add-member-subtitle">
+      <div class="button-bar">
+        <a class="button button-clear" ng-click="toggleAddMode('contact')" ng-class="getSubtitleClass('contact')">
+          {{ "app.GLOBAL.ADD_BY_CONTACT" | translate }}
+        </a>
+        <a class="button button-clear" ng-click="toggleAddMode('group')" ng-class="getSubtitleClass('group')">
+          {{ "app.GLOBAL.ADD_BY_GROUP" | translate }}
+        </a>
+      </div>
+    </ion-header-bar>
+    
+    <div class="has-header has-subheader modal-content">      
+      <yv-add-member-by-contact ng-if="addByContact && !addByGroup"></yv-add-member-by-contact>
+      <yv-add-member-by-group ng-if="!addByContact && addByGroup"></yv-add-member-by-group>
+    </div>
+    
+  </ion-modal-view>
+</script>

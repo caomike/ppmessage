@@ -1,0 +1,61 @@
+<ion-view view-title="{{ 'app.settings.SETTINGS_TAG' | translate }}" hide-tab-bar>
+
+  <ion-content class="yv-sidemenu-left-content">    
+    
+    <div class="list yv-setting-list">
+      
+      <a class="item item-icon-right padding-25" yv-change-avatar ng-click="changeAvatar()">
+        <h2>{{ "app.settings.profile_photo.PROFILE_PHOTO_TAG" | translate }}</h2>
+        <img class="icon-50-right" ng-src="{{ getDeviceUserIcon() }}">
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+
+      <a class="item item-icon-right" ui-sref="{{ 'app.change-fullname' + uiPostfix }}">
+        <h2>{{ "app.settings.name.NAME_TAG" | translate }}</h2>
+        <h2 class="yv-text-right">{{ getDeviceUserFullName() }}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+
+      <a class="item item-icon-right" ui-sref="{{ 'app.change-signature' + uiPostfix }}">
+        <h2>{{ "app.settings.signature.SIGNATURE_TAG" | translate }}</h2>
+        <h2 class="yv-text-right user-signature">{{ getSignature() }}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+      
+      <!-- <a class="item item-icon-right" ui-sref="{{ 'app.change-password' + uiPostFix }}"> -->
+      <!--   <h2>{{ "app.settings.password.PASSWORD_TAG" | translate }}</h2> -->
+      <!--   <i class="icon ion-chevron-right icon-accessory"></i> -->
+      <!-- </a> -->
+
+      <div class="item item-divider yv-divider"></div>
+
+      <a class="item item-icon-right" ui-sref="{{ 'app.push-notification' + uiPostfix }}">
+        <h2>{{ "app.settings.push_noti.PUSH_NOTIFICATION_TAG" | translate }}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a> 
+      
+      <a class="item item-icon-right" ui-sref="{{ 'app.switch-language' + uiPostfix }}">
+        <h2>{{ "app.settings.language.LANGUAGE_TAG" | translate }}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a> 
+      
+      <!-- <a class="item item-icon-right" ui-sref="{{ 'app.switch-app' + uiPostfix }}"> -->
+      <!--   <h2>{{ "app.settings.app.APP_TAG" | translate }}</h2> -->
+      <!--   <i class="icon ion-chevron-right icon-accessory"></i> -->
+      <!-- </a> -->
+     
+      <a class="item item-icon-right" ui-sref="{{ 'app.about' + uiPostfix }}">
+        <h2>{{ "app.settings.about.ABOUT_TAG" | translate }}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+
+      <div class="item item-divider yv-divider"></div>
+
+      <div class="button button-block button-assertive yv-logout-button" ng-click="logoutDeviceUser()">
+        {{ "app.settings.LOG_OUT_TAG" | translate }}
+      </div>
+      
+    </div>
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<div class="yv-add-page yv-top-background" ng-style="getAddPageStyle()">
+
+  <ion-slide-box show-pager="false">
+    <ion-slide>
+      <div class="row" ng-repeat="fourbuttons in adding.buttonrows">
+        <div class="col col-25" ng-repeat="button in fourbuttons">
+          <div class="outer">
+            <img class="adding" ng-src="{{ button.image }}" ng-click="clickButton(button)">
+            <p ng-click="clickButton(button)">{{ buttonName(button) }}</p>
+            <input type="file" class="upload" name="upload_file" nv-file-select uploader="uploader" options="uploaderOption(button)"
+                   ng-if="hasUploader(button)" >
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slide-box>
+
+  <yv-send-location></yv-send-location>
+  <yv-filechooser-modal></yv-filechooser-modal>
+  
+</div>

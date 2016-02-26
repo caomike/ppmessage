@@ -1,0 +1,22 @@
+<div class="has-header conversation-member">
+
+  <!-- current members -->
+  <div class="scroll-outer">
+    <ion-scroll>
+      <div class="all-members">
+        <div class="member">
+          <i class="add-member" ng-click="addMember()"></i>
+        </div>
+        <div class="member">
+          <i class="remove-member" ng-click="toggleRemoveMode()"></i>
+        </div>
+        <div class="member" ng-repeat="member in members">
+          <i class="remove-badge top-right" ng-if="removeMode && !isMe(member)" ng-click="removeMember(member)"></i>
+          <img class="member-avatar" ng-src="{{ getAvatar(member) }}">
+          <p>{{ getFullname(member) }}</p>
+        </div>
+      </div>
+    </ion-scroll>
+  </div>
+    
+</div>

@@ -1,0 +1,35 @@
+.yv-setting-list {
+    
+    .item-divider {
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    .user-sinature {
+        
+    }
+    
+    .yv-logout-button {
+        margin: 0 10px;
+    }
+}
+
+.yv-sidemenu .yv-setting-list {
+    
+    .item {
+        background-color: $sidemenu-content-bgcolor;
+        border-color: #292c33;
+    }
+    
+    h2, p, span{
+        color: white;
+    }
+    
+}
+
+.noti-settings-note {
+    color: grey;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 6px;
+}

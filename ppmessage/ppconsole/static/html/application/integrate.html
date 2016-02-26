@@ -1,0 +1,41 @@
+<div class="boxed-group">
+  <h3>嵌入代码</h3>
+  <div class="boxed-group-inner">
+    <ul class="install_body">
+      <li class="ib">
+        <p class="common_w">我是技术开发人员</p>
+        <div class="ff">
+          <p class="method">方案一：代码部署</p></br>
+          <span class="shortcut">需将代码置于&lt;body&gt;标签元素之前</span></br>
+          <p class="m_btn" ng-click="manual_install()">代码部署</p>
+          <p class="method">方案二：一键安装</p></br>
+          <span class="shortcut">需填入服务器ftp账号及密码，或请联系您的服务器提供商</span></br>
+          <p class="m_btn" ng-click="auto_install()">一键安装</p>
+        </div>
+      </li>
+      <li class="ib">
+        <p class="common_w">我需要技术支持</p></br>
+        <div class="ff" style="margin-top:30px;">
+          <span class="shortcut">请点击右下角的客服图标咨询，或留下您的联系方式。我们的技术顾问将为您提供一对一的全程技术指导</span>
+          <form ng-submit="get_support(user)">
+            <input ng-model="user.user_name" type="text" name="full_name" placeholder="真实姓名" class="first-name half" style="width:100%;margin-bottom:10px;">
+            <input ng-model="user.user_phone" type="text" name="email" placeholder="联系邮箱" style="margin-bottom:10px;width:100%;">
+            <button type="submit" class="m_btn" >获得免费指导</button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <h3 style="margin-top: 30px;">生成链接</h3>
+  <div class="boxed-group-inner clearfix">
+    <p class="integrate_toast" style="display: inline-block; padding-top: 20px; padding-bottom: 10px; padding-left: 10px; margin:0px;">下面的网页链接，PPMESSAGE在线服务已经部署
+    </p>
+    <a data-clipboard-target="link_clip_target" data-clipboard-text="clip error!" id="link_clip_action" class="btn btn-primary" style="display: inline-block; float: right; padding-bottom: 10px; padding-right:10px; padding-top:10px; cursor: pointer; margin-left: 0px; margin-right:10px; margin-top: 10px; margin-bottom: 10px;"> 复制到剪贴板 </a>
+    <div style="height: auto; width: auto; margin:10px;">
+      <textarea id="link_clip_target" style="height:180px; width: 100%">{{ enterprise.link }}</textarea>
+    </div>
+    <a type="button" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 20px; float: right; margin-right: 10px;" ng-href="{{ enterprise.link }}" yv-href-blank >马上看看</a>
+  </div>
+  
+</div>

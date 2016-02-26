@@ -1,0 +1,17 @@
+<ion-view view-title="{{ 'app.settings.language.LANGUAGE_TAG' | translate }}">
+  <ion-content>
+    <ion-list>
+      
+      <label class="item item-radio" ng-repeat="language in languageList" item="language" ng-click="select(language)">
+        <input type="radio" name="group" ng-checked="language.is_selected">
+        <div class="radio-content">
+          <div class="item-content" translate="{{language.display_name}}"></div>
+          <i class="radio-icon ion-checkmark"></i>
+        </div>
+      </label>
+      
+    </ion-list>
+  </ion-content>
+  
+</ion-view>
+    

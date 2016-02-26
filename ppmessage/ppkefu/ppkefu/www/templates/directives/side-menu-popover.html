@@ -1,0 +1,22 @@
+<div class="list yv-sidemenu-popover">
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      {{ "app.settings.APPLICATION_TAG" | translate }}
+    </div>
+    <select yv-no-close ng-options="app.app_name for app in popover.apps" ng-model="popover.active_app">
+    </select>
+  </label>
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      {{ "app.settings.language.LANGUAGE_TAG" | translate }}
+    </div>
+    <select yv-no-close ng-options="language.display_name for language in popover.languages" ng-model="popover.active_language">
+    </select>
+  </label>
+
+  <div class="item" yv-no-close ng-click="logout()">
+    {{ "app.settings.LOG_OUT_TAG" | translate }}
+  </div>
+</div>

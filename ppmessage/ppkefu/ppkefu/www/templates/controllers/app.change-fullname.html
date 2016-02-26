@@ -1,0 +1,27 @@
+<ion-view view-title="{{ 'app.settings.name.NAME_TAG' | translate }}">
+  
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" ng-click="save()" ng-disabled="shouldShowSave()">{{ "app.common.SAVE_TAG" | translate }}</button>
+  </ion-nav-buttons>
+
+  <!--
+  <ion-nav-title>
+    <h1 class="title">{{ pageTitle }}</h1>
+  </ion-nav-title>
+
+  <ion-nav-title>
+    <h1 class="title">{{ "app.settings.name.NAME_TAG" | translate }}</h1>
+  </ion-nav-title>
+  -->
+  
+  <ion-content>
+    <form novalidate>
+      <div class="list list-inset">
+        <label class="item item-input" style="padding: 6px 5px 5px 8px;">
+          <input type="text" style="font-family: Helvetica; padding-right: 1px;" placeholder="{{ 'app.settings.name.INPUT_NEW_NAME_TAG' | translate }}" ng-model="fullname.text" />
+        </label>
+      </div>
+    </form>
+  </ion-content>
+  
+</ion-view>

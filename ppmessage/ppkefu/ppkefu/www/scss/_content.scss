@@ -1,0 +1,9 @@
+
+/* setting content begin */
+
+.yv-blank-setting-content {
+    background-color: $stable;
+    .yv-setting-tip {
+        @include yv-tip();
+    }
+}

@@ -1,0 +1,24 @@
+<div class="yv-record-status">
+  <div class="outer"> 
+
+    <div class="cancel-icon" ng-if="showCancel()">
+      <div class="cancel-inner">
+        <i class="ion-arrow-return-left"></i>
+      </div>
+    </div>
+
+    <div class="pressure-icon" ng-if="showPressure()">
+      <div class="pressure-background"></div>
+      <div class="pressure-height" ng-style="record.pressureHeight"></div>
+    </div>
+
+    <div class="record-duration">
+      <h2>{{ record.duration + "''" }}</h2>
+    </div>
+    
+    <div class="record-note">
+      <p>{{ record.note }}</p>
+    </div>
+    
+  </div>
+</div>

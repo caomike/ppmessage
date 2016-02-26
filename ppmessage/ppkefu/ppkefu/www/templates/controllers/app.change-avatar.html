@@ -1,0 +1,27 @@
+<ion-view class="change-avatar-view" view-title="{{ 'app.settings.profile_photo.PROFILE_PHOTO_TAG' | translate }}">
+
+  <ion-nav-buttons side="primary">
+    <button class="button button-clear" ng-click="restore()" ng-disabled="!isDirty">
+      {{ "app.common.RESTORE_TAG" | translate }}
+    </button>
+  </ion-nav-buttons>
+  
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" ng-click="save()" ng-disabled="!isDirty">
+      {{ "app.common.SAVE_TAG" | translate }}
+    </button>
+  </ion-nav-buttons>
+  
+  <ion-content delegate-handle="change-avatar">
+    
+    <yv-crop-image img-src="imgSrc" is-dirty="isDirty"></yv-crop-image>
+    
+    <div class="choose-photo">
+      <button class="button button-block button-stable" ng-click="choosePhoto()">
+        {{ "app.settings.profile_photo.CHOOSE_FROM_PHOTOS_TAG" | translate }}
+      </button>
+      <input type="file" class="hiden" id="upload-avatar" nv-file-select uploader="uploader" options="uploaderOptions">
+    </div>
+        
+  </ion-content>
+</ion-view>

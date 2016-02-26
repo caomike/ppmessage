@@ -1,0 +1,47 @@
+<div class="modal fade" id="set-user-info" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+					<h4 class="modal-title">用户信息</h4>
+				</div>
+
+				<div class="modal-body">
+					<form class="form-horizontal" novalidate>
+						<fieldset>
+							<div class="form-group">
+								<label class="control-label col-sm-3">姓名:</label>
+								<div class="col-sm-8">
+									<input type="text" ng-model="userinfo.name" class="form-control" maxlength="20">
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-sm-3">电话:</label>
+								<div class="col-sm-8">
+									<input type="text" ng-model="userinfo.tel" class="form-control" maxlength="20">
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-sm-3">QQ:</label>
+								<div class="col-sm-8">
+									<input type="text" ng-model="userinfo.qq" class="form-control" maxlength="20">
+								</div>
+							</div>	
+							<div class="form-group">
+								<label class="control-label col-sm-3">其它:</label>
+								<div class="col-sm-8">
+									<textarea rows="4" class="form-control" maxlength="200" style="resize:none;overflow:hidden;" placeholder="最多200个字" ng-model="userinfo.other"></textarea>
+								</div>
+							</div>	
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="modal-footer">
+					<button class="btn btn-primary" ng-click="sub_user_info()">保存</button>
+				</div>
+			</div>
+		</div>
+	</div>	

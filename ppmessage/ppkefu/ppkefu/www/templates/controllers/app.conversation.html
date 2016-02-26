@@ -1,0 +1,43 @@
+<ion-view>
+  
+  <ion-nav-title>
+    <h1 class="title">
+      {{ typingTitle || title }}
+      <i class="toggle-conversation-member" ng-if="valid && !inMobile" ng-class="titleClass" ng-click="toggleShowMember()"></i>
+    </h1>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-plus-empty toggle-conversation-member" ng-if="valid && inMobile" ng-click="toggleShowMember()">
+    </button>
+  </ion-nav-buttons>
+  
+  <ion-content class="yv-chat-content" ng-style="getContentBottomStyle()" delegate-handle="conversation-scroll"
+               ng-class="valid ? 'valid': ''">
+    
+    <div class="yv-conversation-tip" ng-if="!valid && !inMobile">
+      <div class="tip-content">
+        <div class="tip-icon icon ion-ios-chatbubble"></div>
+        <p class="tip-note">
+          {{ "app.GLOBAL.NO_CONVERSATION_SELECTED" | translate }}
+        </p>
+      </div>
+    </div>
+    
+    <ion-refresher pulling-text="{{ 'app.messageThread.PULL_TO_LOAD_MORE' | translate }}" on-refresh="doRefresh()" ng-if="valid">
+    </ion-refresher>
+    
+    <div class="list yv-chat-list" ng-if="valid">
+      
+      <yv-message ng-repeat="message in messages" play-status="playStatus" message="message" is-last="$last" ng-if="showMessage(message)">
+      </yv-message>
+      
+    </div>
+    
+  </ion-content>
+  
+  <yv-new-chat-tool ng-if="valid && !inMobile"></yv-new-chat-tool>
+  <yv-chat-tool ng-if="valid && inMobile"></yv-chat-tool>
+  <yv-conversation-member ng-if="showMember" class="yv-fade"></yv-conversation-member>
+  
+</ion-view>

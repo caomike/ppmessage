@@ -1,0 +1,37 @@
+
+<!-- NOTE: THIS IS FOR statistics/historymessage.js -->
+
+<div class="item yv-chat-item" ng-class="getMessageClass(message)" ng-style="getFontStyle()">
+  
+  <!-- timestamp -->
+  <div class="yv-chat-timestamp" ng-if="shouldShowTimestamp(message)">
+    <span ng-bind="getTimestamp(message)" class="time"></span>
+  </div>
+  
+  <!-- profile icon -->
+  <img class="yv-chat-icon" ng-src="{{ getUserIcon(message) }}" ng-click="viewProfile(message)">
+  
+  <!-- profile view 
+       <yv-view-profile ng-if="message.show_profile"></yv-view-profile>
+  -->
+  <!-- message body -->
+  <div class="yv-chat-body" ng-click="click(message, $event)" on-hold="hold(message)" yv-double-click="dbclick(message)">
+    
+    <!-- status mark -->
+    <span ng-if="showAlertIcon(message)" class="ion-alert-circled yv-chat-alert"></span>
+    
+    <!-- mouth -->
+    <span class="yv-chat-mouth-outer" ng-if="showMouth(message)"></span>
+    <span class="yv-chat-mouth-inner" ng-if="showMouth(message)"></span> 
+    
+    <yv-text-message ng-if="isTextMessage(message)" message="message"></yv-text-message>
+    <yv-txt-message ng-if="isTxtMessage(message)" message="message"></yv-txt-message>
+    <yv-image-message ng-if="isImageMessage(message)" message="message"></yv-image-message>
+    <yv-file-message ng-if="isFileMessage(message)" message="message" lang="lang" ></yv-file-message>
+    <yv-audio-message ng-if="isAudioMessage(message)" message="message"></yv-audio-message>
+    
+    <!-- <yv-location-message ng-if="isGPSLocationMessage(message)" message="message"></yv-location-message> -->
+    <!-- <yv-card-message ng-if="isAudioMessage(message)" message="message"></yv-card-message> -->
+    
+  </div>    
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+  <!--<![endif]-->
+  <!-- BEGIN HEAD -->
+  <head>
+    <title>WEB_TITLE</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    
+    <link rel="stylesheet" type="text/css" href="/WEB_ROLE/static/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/WEB_ROLE/static/bower_components/bootstrap-colorpickersliders/dist/bootstrap.colorpickersliders.min.css" />
+    <link rel="stylesheet" type="text/css" href="/WEB_ROLE/static/bower_components/bootstrap-daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/WEB_ROLE/static/dist/ppconsole-WEB_ROLE.min.css" />
+    <link rel="shortcut icon" href="/WEB_ROLE/static/img/favicon.ico" />
+  </head>
+
+  <!-- END HEAD -->
+  
+  <!-- BEGIN BODY -->
+  <body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <ui-view autoscroll="false">
+    </ui-view>
+      
+    <script>
+    WebRole = 'WEB_ROLE';
+
+    // is IE8
+    ( function() {
+
+    var ua = navigator.userAgent,
+        msie = ua.indexOf('MSIE '),
+        ieVersion = ( msie > 0 ) && parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+
+    if ( typeof ieVersion === 'number' && ieVersion <= 8 ) {
+        alert( 'PPMessage: 请在IE10或者更高版本的浏览器中打开此网页. Please use IE10 or higher version.' );
+    }
+    
+    } )();
+
+    </script>
+
+<script src="/WEB_ROLE/static/bower_components/js-sha1/build/sha1.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/moment/min/moment-with-locales.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/zeroclipboard/dist/ZeroClipboard.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/tinycolor/tinycolor.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/bootstrap-colorpickersliders/dist/bootstrap.colorpickersliders.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="/WEB_ROLE/static/bower_components/Chart.js/Chart.min.js"></script>
+<script src="/WEB_ROLE/static/bower_components/moment-range/dist/moment-range.min.js"></script>
+
+<script src="/WEB_ROLE/static/bower_components/angular/angular.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-cookies/angular-cookies.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-file-upload/dist/angular-file-upload.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-block-ui/dist/angular-block-ui.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-utils-pagination/dirPagination.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-translate/angular-translate.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+<script src="/WEB_ROLE/static/bower_components/angular-base64/angular-base64.min.js" type="text/javascript"></script>
+
+<script src="/WEB_ROLE/static/dist/ppconsole-WEB_ROLE.min.js" type="text/javascript"></script>
+
+<script src="/ppcom/assets/pp-library.min.js" type="text/javascript"></script>
+
+</body>
+<!-- END BODY -->
+</html>

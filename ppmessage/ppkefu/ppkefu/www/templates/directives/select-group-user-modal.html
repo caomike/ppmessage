@@ -1,0 +1,34 @@
+<script id="select-group-user-modal.html" type="text/ng-template">
+  <ion-modal-view class="add-conversation-member-modal-view">
+
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="closeModal()">Close</button>
+      </div>
+      <h1 class="title">select member</h1>
+      <div class="buttons">
+        <button class="button button-clear button-positive" ng-click="save()" ng-disabled="disableSave()">
+          Save({{ getSelectedNumber() }})
+        </button>
+      </div>
+    </ion-header-bar>
+    
+    <div class="has-header modal-content">
+
+      <div class="display-contacts-scroll">
+        <ion-scroll>
+          <div class="display-contacts">
+            <ion-checkbox ng-repeat="user in users" ng-model="user.is_selected">
+              <div class="item item-avatar yv-contact-item" >
+                <img ng-src="{{ getAvatar(user) }}">
+                <h2>{{ getFullname(user) }}</h2>
+              </div>
+            </ion-checkbox>
+          </div>
+        </ion-scroll>
+      </div>
+      
+    </div>
+    
+  </ion-modal-view>
+</script>

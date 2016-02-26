@@ -1,0 +1,145 @@
+<html lang="zh-CN">
+  
+  <head>
+    <title>PPMessage Test</title>
+
+    <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- no-cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="shortcut icon" href="http://192.168.0.206:8080/ppcom/assets/img/favicon.ico" />
+    <link rel="bookmark" href="http://192.168.0.206:8080/ppcom/assets/img/favicon.ico" />
+
+    <!-- http://192.168.0.212:8081/client/#anonymous -->
+    <!-- <script src='http://192.168.0.212:8081/target/target-script-min.js#anonymous'></script> -->
+
+    <!-- <link rel="stylesheet" href="http://192.168.0.204:8001/assets/js/qunit-1.20.0.css"> -->
+    <!-- <script src='http://192.168.0.204:8001/assets/js/qunit-1.20.0.js' ></script> -->
+    <script src='http://192.168.0.206:8080/ppcom/assets/pp-library.min.js'></script>
+    <script src="http://192.168.0.206:8001/assets/ppdebug.js"></script>
+    <!-- <script src="http://192.168.0.212:8001/assets/test-function.js"></script> -->
+    <!-- <script src="http://192.168.0.212:8001/assets/historytimestamp.js"></script> -->
+    <!-- <script src='http://192.168.0.204:8001/assets/js/view/test-element.js'></script> -->
+    <!-- <script src='http://192.168.0.204:8001/assets/js/service/test-constants.js'></script> -->
+
+    <!-- <script src="http://192.168.0.212:8001/assets/js/intercom-imageviewer.js"></script> -->
+    <style type="text/css" >
+      * { font-size: 18px; } 
+    </style>
+    
+  </head>
+
+  <body style="background-color:#FF9898;">
+    <!-- <h2 style="float:right; margin-right:200px; z-index: 237498237">Hello World of intercom test</h2> -->
+
+    <!-- <div>another div element</div> -->
+
+    <div id="qunit"></div>
+
+    <div style="width: 3000px; height: 1500px;">
+      
+    </div>
+
+    <script>
+
+      window.intercomSettings={app_id:"tx2p130c"};
+
+      if (window.Intercom) {
+      Intercom('boot', intercomSettings);
+      }
+      
+      window.ppSettings = {
+  <!-- user_email: "somebody.web@yvertical.com", -->
+
+  <!-- user_name: "haha", -->
+  <!-- user_icon: "http://image14-c.poco.cn/mypoco/myphoto/20130403/23/66466712201304032308109278389151053_000_640.jpg?1024x1024_120", //"http://img.name2012.com/uploads/allimg/2015-06/30-023131_451.jpg", -->
+      
+      app_secret: "85c8f661-91b2-11e5-91b4-58b035f16bf4",
+      app_key: "7a7e3542-91b2-11e5-8db8-58b035f16bf4",
+      
+          <!-- language: 'en', //"zh-CN", -->
+      view: {
+      launcher_is_show: true,
+      <!-- launcher_right_margin: '100px' -->
+          }
+      };
+
+if (window.PP) {
+      PP.boot(window.ppSettings, function() {
+
+      PPDebug.show();
+      
+        var fn = window.PP.fn;
+        window.View = fn.View;
+        window.Service = fn.Service;
+        window.Controller = fn.Controller;
+        window.Modal = fn.Modal;
+      window.$ = fn.$;
+
+      window.onMessage = function(ti) {
+
+      var pid = Service.$tools.getUUID(),
+      id = Service.$tools.getUUID(),
+      ts = + (new Date()) / 1000,
+      groupId = ti,
+      content = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'][Math.floor(Math.random() * 26)];
+      
+      Service.$notification.onMessageArrived({"ci": "a1a98ed1-a6f2-11e5-b3bb-0c4de9b21073", "ft": "DU", "from_user": {"user_company": null, "user_mute_other_mobile_device": null, "create_status": null, "user_wechat": null, "mobile_device_uuid": null, "user_firstname": null, "user_status": "ANONYMOUS", "ppcom_browser_device_uuid": "4db07d82-a6f1-11e5-83b8-0c4de9b21073", "uuid": "75d348cf-a6ee-11e5-a94f-0c4de9b21073", "user_lastname": null, "user_qq": null, "user_icon": "http://192.168.0.212:8080/identicon/75d348cf-a6ee-11e5-a94f-0c4de9b21073.png", "user_defined": null, "user_mobile": null, "is_email_verified": false, "browser_device_uuid": null, "user_name": "\u672c\u673a\u7528\u6237", "is_anonymous_user": true, "ppcom_trace_uuid": "32524793-3048-48c0-b889-bae5d3796654", "user_language": "zh_cn", "latest_send_message_time": "2015-12-20 16:38:08 000000", "updatetime": "2015-12-20 17:26:18 472732", "user_silence_notification": false, "is_mobile_verified": false, "user_fullname": "\u672c\u673a\u7528\u6237", "ppcom_mobile_device_uuid": null, "user_mute_notification": false, "createtime": "2015-12-20 15:51:22 000000", "user_email": "ppmessage-75d348"}, "tt": "OG", "bo": content, "pid": pid, "ts": ts, "mt": "NOTI", "tl": null, "ms": "TEXT", "ti": groupId, "fi": "75d348cf-a6ee-11e5-a94f-0c4de9b21073", "id": id, "ct": "P2S"});
+      };
+
+      // -------ONTYPING---FUNCION
+      window.onTypingMessage = function(conversation_uuid) {
+
+      var typingMessage = "{\"type\": \"typing\", \"conversation_uuid\": \"" + conversation_uuid + "\"}"
+      console.log(typingMessage);
+      
+      Service.$notification.onWebSocketMessage({ data: typingMessage });
+      };
+      // -------ONTYPING---FUNCION----
+
+
+      // ---------ONLINE------OFFLINE----------
+      window.onlineMessage = function ( user_uuid, online ) {
+      
+      var onlineMessage = {
+      type: 'online',
+      user_uuid: user_uuid,
+      online: online
+      };
+
+      Service.$notification.onWebSocketMessage( { data: onlineMessage } );
+      
+      };
+
+      // --------USER_ICON___USER_NAME___CHANGE_________
+      // http://img4.imgtn.bdimg.com/it/u=3519646454,1343974698&fm=21&gp=0.jpg
+      window.userInfoChange = function ( user_uuid, icon ) {
+
+      var newInfo = {
+      user_uuid: user_uuid,
+      user_avatar: icon
+      }
+
+      Service.$users.getUser ( user_uuid ).update( newInfo );
+      
+      };
+
+
+      window.$d = Service.$debug;
+      
+    });
+  }
+  
+    </script>
+
+    <!-- <script src="http://www.sobot.com/chat/pc/pc.min.js?sysNum=c79a1d38c86e49c1a50764430385dc82" id="zhichiload" ></script> -->
+    <!-- <script src="http://www.sobot.com/chat/h5/h5.min.js?sysNum=c79a1d38c86e49c1a50764430385dc82" id="zhichiload" ></script> -->
+    
+  </body>
+  
+</html>

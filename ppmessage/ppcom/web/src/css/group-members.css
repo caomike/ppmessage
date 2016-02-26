@@ -1,0 +1,62 @@
+.pp-container .group-members {
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    display: none;
+    max-height:    -moz-calc(100% - 48px);   /* Gecko 2.0 (Firefox 4) and above, experimental, will be dropped */
+    max-height: -webkit-calc(100% - 48px);   /* WebKit 536.3 (Chrome 19) and above, experimental */
+    max-height:         calc(100% - 48px); 
+    opacity: .0;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    position: relative;
+    right: 0px;
+    width: 100%;
+}
+
+.pp-container .group-members-container {
+    max-height: 100%;
+    width: 320px;
+    margin: 0 auto;
+}
+
+.pp-container .group-members .member {
+    float: left;
+    height: 101px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+}
+
+.pp-container .group-members .pp-wrapper {
+    position: relative;
+}
+
+.pp-container .group-members img.pp-avatar {
+    border-radius: 50%;
+    border: 2px solid #3F65D6;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+}
+
+.pp-container .group-members img.pp-state {
+    bottom: 5px;
+    display: none;
+    position: absolute;
+    right: 5px;
+}
+
+.pp-container .group-members img.pp-state.pp-active {
+    display: block;
+}
+
+.pp-container .group-members .member .name {
+    color: #888;
+    font-size: 14px;
+    max-height: 20px;
+    max-width: 60px;
+    overflow: hidden;
+    padding-top: 5px;
+    text-align: center;
+    text-overflow: ellipsis;
+}

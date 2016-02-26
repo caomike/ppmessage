@@ -1,0 +1,95 @@
+.yv-chat-tool-new {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: $stable;
+    border-width: 1px;
+    border-top: solid 1px $bar-light-border;
+    
+    .toolbar {
+        border-bottom: solid 1px $bar-light-border;
+        margin-right: 14px;
+        height: $chat-tool-toolbar-height;
+        padding: 5px 0px 5px 10px;
+        
+        .tool {
+            float: left;
+            position: relative;
+            margin-right: 15px;
+            padding: 1px;
+            
+            >a {
+                font-size: 30px;
+                cursor: pointer;
+                color: #000;
+            }
+            
+            >input{
+                cursor: pointer;
+                opacity: 0;
+                font-size: 0; /* make 'cursor: pointer' work */
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .send-button {
+            @include send-button;
+        }
+
+    }
+    
+    .content{
+        width: 100%;
+        color: black;
+        background-color: $stable;
+        resize: none;
+        font-size: 14px;
+        line-height: 1.6;
+        padding-left: 10px;
+        padding-right: 14px;
+    }
+
+    .footer {
+        margin-right: 14px;
+        
+        .send-button {
+            @include send-button;
+        }
+
+        .send-tip {
+            float: right;
+            margin-right: 5px;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+    }
+}
+
+.yv-mobile.yv-chat-tool-new {
+    height: $mobile-chat-tool-height;
+    
+    .content {
+        height: $mobile-chat-tool-content-height;
+    }
+    
+    .footer {
+        height: $mobile-chat-tool-footer-height;
+    }
+}
+
+.yv-pc.yv-chat-tool-new {
+    height: $pc-chat-tool-height;
+    
+    .content {
+        height: $pc-chat-tool-content-height;
+    }
+    
+    .footer {
+        height: $pc-chat-tool-footer-height;
+    }
+}    

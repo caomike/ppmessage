@@ -1,0 +1,12 @@
+{
+    "osx" : {
+        "title": "ppmessage",
+        "background": "assets/osx/background.png",
+        "icon": "assets/osx/ppmessage.icns",
+        "icon-size": 80,
+        "contents": [
+            { "x": 242, "y": 344, "type": "link", "path": "/Applications" },
+            { "x": 242, "y": 144, "type": "file" }
+        ]
+    }
+}

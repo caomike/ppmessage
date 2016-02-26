@@ -1,0 +1,815 @@
+/* ======================payment.hmtl==================== */
+.payment_main {
+    padding-bottom: 50px;
+}
+
+.payment_casher_w {
+    width: 990px;
+    margin: 0 auto;
+}
+
+.payment_casher {
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.payment_casher_div {
+    height: 60px;
+    width: 300px;
+    position: relative;
+}
+
+.payment_casher_logo {
+    background-image: url("/portal/static/yvertical/img/payment/casher.png");
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 52px;
+}
+
+.payment_w {
+    width: 990px;
+    margin: 0 auto;
+}
+
+.payment_order {
+    position: relative;
+}
+
+.payment_order_left {
+    float: left;
+    width: 640px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+}
+
+.payment_order_title {
+    line-height: 26px;
+    height: 26px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.payment_order_tips {
+    line-height: 20px;
+    height: 20px;
+}
+
+.payment_order_right {
+    float: right;
+    width: 290px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 25px;
+    overflow: hidden;
+}
+
+.payment_order_price {
+    text-align: right;
+    line-height: 26px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+ }
+
+.payment_order_detail {
+    text-align: right;
+    line-height: 20px;
+    color: #2ea7e7;
+}
+
+.payment_order_clr {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+}
+
+.payment_order_list {
+    padding: 12px 0 25px;
+    margin: 0 30px;
+    border-top: 1px solid #ddd;
+}
+
+.payment_order_list_info {
+    line-height: 24px;
+}
+
+.pay ment_order_d {
+        margin-right: 10px;
+}
+
+.payment_font_red {
+    color:#ff5d5b;
+}
+
+.payment {
+    border-top: 4px solid #4b5b78;
+    background-color: #fff;
+    padding: 30px 30px 30px;
+    height: 300px;
+}
+
+.payment_choose {
+    height: 40px;
+}
+
+.payment_font {
+    /* border: 1px solid #332; */
+    /* width: 31px; */
+}
+
+.payment_span {
+    font-size: 18px;
+}
+
+.payment_hr {
+    margin-top: 0px;
+}
+
+.payment_notify {
+    height:30px;
+}
+
+.payment_list {
+    margin-top: 30px;
+    height: 100px;
+}
+
+.payment_wrap {
+    list-style: none;
+    overflow:hidden;
+    zoom: 1;
+    margin-left: 92.5px;
+}
+
+.payment_item {
+    width: 168px;
+    position: relative;
+    _zoom: 1;
+    float: left;
+    background-color: #fff;
+    padding: 5px 0;
+    height: 60px;
+    width: 195px;
+    margin-right: 80px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid #b0c2e1;
+    border-radius: 10px;
+    -webkit-transition: border-color .2s;
+    -moz-transition: border-color .2s;
+    -ms-transition: border-color .2s;
+    transition: border-color .2s;
+}
+
+.payment_item:hover {
+    border:1px solid red;
+}
+
+.payment_item_cover {
+    
+}
+
+.payment_item_p {
+    width: 170px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.payment_pay_logo {
+    width: 100%;
+    height: 100%;
+    margin-top: 4px;
+}
+
+.payment_change {
+    
+}
+
+.payment_back {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 auto;
+}
+
+.payment_b_ii {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.payment_b_div {
+    float: left;
+    width: 100px;
+}
+
+.payment_b_line {
+    float: right;
+    width: 450px;
+    
+}
+
+.payment_footer {
+    margin-top: -17px;
+    margin-left: 80px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.payment_b_icon {
+    width: 100%;
+    height: 100%;
+}
+
+.payment_back_font {
+    float: left;
+    margin-left: 2px;
+    color: #2ea7e7;
+}
+
+/* =============psuccess.html css================== */
+
+.payment_status {
+    position: relative;
+    width: 60%;
+    float: right;
+    background-color: #efefef;
+    color: #6e8792;
+}
+
+.payment_status_w {
+    width: 990px;
+    margin: 50px auto 0;
+    height: 350px;
+    border-top: 5px solid #d9d9d9;
+}
+
+.payment_oki {
+    width: 40%;
+    float: left;
+    height: 300px;
+    background-color: #efefef;
+    background-image: url("/portal/static/yvertical/img/payment/ok.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.payment_okif {
+    width: 40%;
+    float: left;
+    height: 300px;
+    background-color: #efefef;
+    background-image: url("/portal/static/yvertical/img/payment/fail.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.payment_okii {
+    width: 70%;
+    height: 70%;
+    margin: 45px auto 0;
+    border-bottom: 2px solid #000;
+    border-right: 3px solid #000;
+    border-radius: 50%;
+}
+
+.payment_ok_b {
+    width: 80%;
+    height: 80%;
+    margin: 36px auto;
+    border-right: 1px solid #6E8792;
+}
+
+.payment_status_h3 {
+    line-hight: 28px;
+    height: 28px;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.payment_status_table {
+    padding: 30px 30px 30px;
+    height: 300px;
+}
+
+.payment_status_note {
+    margin: 80px auto;
+}
+
+.payment_status_pp {
+    text-align: center;
+    font-size: 20px;
+}
+
+.payment_status_notice {
+    margin: 40px 0 0 30px;
+    height: 30px;
+}
+
+/* ================payment failed================ */
+.payment_status_title {
+    
+}
+
+.payment_status_con {
+    padding-left: 20px;
+}
+
+.payment_status_ul {
+    
+}
+
+.payment_status_ul li:before {
+    color: black;
+    content: "\13C5";
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.payment_status_li {
+
+}
+/* ================payment failed================ */
+
+/* ================wechat payment type====================== */
+
+.pw_page {
+    border-top: 4px solid #4b5b78;
+    background-color: #fff;
+    padding: 20px 30px 30px;
+    height: 600px;
+}
+
+.pw_head {
+    height: 30px;
+}
+
+.pw_h3 {
+    margin: 0 0 20px;
+}
+
+.pw_bd {
+    padding-left: 140px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 400px;
+}
+
+.pw_box {
+    float: left;
+    width: 300px;
+}
+
+.pw_qrcode {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid #d9d9d9;
+}
+
+.pw_qrcode_size {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.pw_bu {
+    width: 300px;
+    height: 60px;
+    margin: 10px auto;
+    background-color: #ff5d5b;
+}
+
+.pw_bu_l {
+    width: 56px;
+    height: 56px;
+    float: left;
+    margin: 2px 0 2px 30px;
+}
+
+.pw_bu_r {
+    float: right;
+    margin-right: 30px;
+}
+
+.pw_bu_top {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.pw_bu_bottom {
+    color: white;
+    margin: 0 auto;
+    padding-left: 35px;
+    font-size: 15px;
+}
+
+.payment_qr_icon {
+    wigth: 100%;
+    height: 100%;
+}
+
+.pw_ibu {
+    width: 100%;
+    height: 100%;
+}
+
+.pw_phone {
+    float: left;
+    width: 429px;
+    height: 421px;
+    padding-left: 100px;
+    margin: -30px auto 0;
+}
+
+.pw_scan_phone {
+    width: 100%;
+    height: 100%;
+}
+
+.pay_other {
+    padding: 0px;
+    margin: 0px;
+    height: 20px;
+}
+
+.pay_other_icon {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+.pay_other_img {
+    width: 100%;
+    height: 100%;
+}
+
+.pay_other_font {
+    margin-left: 3px;
+    float: left;
+    padding-top: 3px;
+}
+
+.pay_other_info {
+    color: #2ea7e7;
+    cursor: pointer;
+}
+
+/* ================pay================= */
+/* =============pay==================== */
+.p_content {
+    height: 1100px;
+    width: 100%;
+}
+
+.p_intro {
+    width: 100%;
+    height: 400px;
+    background-image: url("/portal/static/yvertical/img/payment/bg.svg");
+    background-position: center 40%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.p_title {
+    padding-top: 140px;
+}
+
+.p_p1 {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+
+.p_p2 {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.p_note {
+    margin-top: 137px;
+}
+
+.p_p3 {
+    text-align: center;
+}
+
+.p_s1 {
+    color: white;
+    background-color: #57b386;
+    font-size: 28px;
+    letter-spacing: 6px;
+    border-radius: 20px;
+}
+
+.p_plan {
+    width: 1200px;
+    margin: -150px auto 0;
+    height: 500px;
+}
+
+.p_divt {
+    float: left;
+    width: 900px;
+    height: 250px;
+    /* background-color: #fafafa; */
+}
+
+.p_tl {
+    float: left;
+    width: 30px;
+    height: 200px;
+    margin: 25px 1px 25px 20px;
+    background-color: #d9d9d9;
+    border-left: 5px solid #43bfe3;
+}
+
+.p_span1 {
+    letter-spacing: 10px;
+    color: #999;
+    font-size: 18px;
+    display:block;
+    padding: 50px 0 0 4px;
+}
+
+.p_tr {
+    float: left;
+    height: 200px;
+    margin: 25px 10px 25px -1px;
+    background-color: #EFEFEF;
+    width: 800px;
+}
+
+.p_p4 {
+    text-align: left;
+    margin: 30px;
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 1px;
+}
+
+.p_spanl {
+    float: right;
+    font-size: 20px;
+    padding: 20px 10px 0 10px;
+    color: black;
+}
+
+.p_divd {
+    height: 100px;
+    width: 100%;
+}
+
+.p_divd_note {
+    margin-left: 20px;
+    color: white;
+}
+
+.p_divd_p {
+    padding: 3px 10px;
+    margin: -20px 250px 0 0;
+    background-color: #43bfe3;
+    visibility: hidden;
+    box-shadow: 1px 1px #999;
+    border-radius: 4px;
+}
+
+.p_divd_pf {
+    padding: 3px 10px;
+    margin: -20px 20px 20px 10px;
+    background-color: #43bfe3;
+    visibility: hidden;
+    box-shadow: 1px 1px #999;
+    border-radius: 4px;
+}
+
+.p_divdl {
+    float: left;
+    width: 100px;
+    text-align: center;
+    margin:  20px 10px;
+    cursor: pointer;
+}
+
+.p_divdlf {
+    float: left;
+    width: 100px;
+    text-align: center;
+    margin:  0 10px;
+    cursor: pointer;
+}
+
+.p_ds {
+    font-size: 16px;
+    color: #999;
+}
+
+.p_ds_note {
+    color: #999;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 1px 1px 0 0;
+}
+
+/* .p_ds_note:hover {cursor:help;} */
+
+.p_dsm {
+    font-size: 12px;
+    color: #999;
+}
+
+.p_divdr {
+    float: left;
+    width: 615px;
+    height: 60px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.p_divdrf {
+    float: left;
+    width: 615px;
+    height: 60px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+/* =======slider bar============= */
+ul,li{ padding:0; margin:0;list-style-type:none;}
+.clearfix:after { display: block; content: ""; clear: both; }
+
+.slider-date{ height:60px; line-height:60px; background: #e8e8e8; display:inline-block; position:relative;}
+.slider-date .slider-bg li{ position:relative; float:left; width:50px; border-left:solid 1px #ddd; font-size:12px; text-align:center;}
+.slider-date .slider-bg span{ display:none;}
+
+.slider-date .slider-bg li:first-child{border-left:none;}
+.slider-date .slider-bar{ position:absolute; top:-2px; left:0; overflow:hidden; height:70px; width:50px;}
+.slider-date .slider-bar ul{ margin-top:1px; background: #43bfe3; color:#fff; height:60px; width:1000px;}
+.slider-date .slider-bar-btn{ line-height:40px; text-align:center; position:absolute; top:-2px; right:0px; display:block; width:16px; height:64px; background: #2dacd1; color:#fff;cursor:col-resize;}
+.slider-date .slider-bar-btn i{display: inline-block; margin:12px 2px; width: 2px; height: 44px; background: #68c3de;}
+
+/* =======slider bar============= */
+
+.p_divr {
+    float: right;
+    width: 300px;
+    background-color: #EFEFEF;
+    margin-top: 40px;
+}
+
+.p_divrt {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 30px;
+    float: right;
+    background-color: #43bfe3;
+}
+
+/* ===============nav bar=========== */
+.p_divrt  *{margin:0;padding:0;list-style:none;}
+
+.pnav{width:50%;height:100%;text-align:center;float:left;}
+
+.pnav p{display:block;padding-left:10px;line-height:30px;color:white;cursor:pointer;}
+
+.set{background:url("/portal/static/yvertical/img/payment/arrow_down.png") 130px 10px no-repeat;}
+
+.select{background:url("/portal/static/yvertical/img/payment/arrow_up.png") 130px 10px no-repeat;}
+
+.new{width:198px;position:absolute;border:1px solid #CCC;display:none;}
+
+.pnav ul li{line-height:40px;background-color:#43bfe3;color:white;border-bottom:1px solid white;letter-spacing:1px;}
+
+.pnav ul li:hover{background:#CCC;color:#FFF;}
+
+/* ===============nav bar============ */
+
+.p_bill {
+    width: 100%;
+    height: 200px;
+    margin-top: 40px;
+}
+
+.p_bill_t {
+    padding: 10px 0 0 30px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.p_bill_agent {
+    color: #999;
+    margin-left: 40px;
+}
+
+.p_bill_num {
+    color: red;
+    font-size: 20px;
+}
+
+.p_bill_amount {
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    color: #999;
+    text-align: center;
+}
+
+.p_bill_money {
+    color: red;
+    font-size: 30px;
+}
+
+.p_bill_buy {
+    width: 70%;
+    height: 50px;
+    background-color: #e42e2e;
+    margin: 0 auto 10px;
+    border-radius: 70px;
+}
+
+.p_bill_go {
+    float: left;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.p_bill_go_f {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.p_bill_note {
+    padding: 5px;
+}
+
+.p_bill_note_info {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #999;
+}
+
+.p_divrtp {
+    float: left;
+    margin: 2px 0 0 30px;
+    font-size: 18px;
+}
+
+.p_divb {
+    height: 250px;
+    width: 900px;
+    margin-top: 250px;
+}
+
+.p_triangle1 {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 42px solid #43bfe3;
+    position: relative;
+    right: -55px;
+    top: 34px;
+    visibility: hidden;
+}
+
+.p_triangle2 {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 35px solid #43bfe3;
+    position: relative;
+    right: -65px;
+    top: 12px;
+    visibility: hidden;
+}
+
+#agent_notice .agent_choose {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+    background-color: #60b044;
+    background-image: -webkit-linear-gradient(#8add6d, #60b044);
+    background-image: linear-gradient(#8add6d, #60b044);
+    border-color: #5ca941;
+    font-size: 18px;
+    border-radius: 4px;
+    margin-right: 10px;
+}

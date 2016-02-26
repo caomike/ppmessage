@@ -1,0 +1,31 @@
+<div>
+  <div ng-if="isSingleCardMessage(message)" ng-style="getCardStyle(message)">
+    <div class="item item-body" style="clear: both; padding: 7px; border-radius: 10px;">
+      <div style="position: relative; text-align: center;" ng-click="viewCard(single_card)">
+        <h2 style="text-align: left; font-family: Helvetica;"> {{ getCardTitle(single_card) }} </h2>
+        <div style="height:1px;background-color:silver;margin-top:10px;margin-bottom:10px;"></div>
+        <img ng-src=" {{ getCardCover(single_card) }} " style="height:160px; width: 100%;" />
+        <div style="text-align: left; padding-top:10px; padding-left:3px;">
+          {{ getCardAbstract(single_card) }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="isMultipleCardMessage(message)" ng-style="getCardStyle(message)" >
+    <div class="item item-body" style="clear: both; padding: 7px; border-radius: 10px 10px 0 0;">
+      <div style="position: relative; background-color: #ddd; text-align: center; height: 160px;" ng-click="viewCard(caption_card)">
+        <img ng-src="{{ getCardCover(caption_card) }}" style="height: 160px; width: 100%;" />
+        <div style="position: absolute; bottom: 0px; right: 0; left: 0; padding: 0px 5px 3px; background: rgba(0,0,0,0.75);text-align: left;">
+          <h2 style="font-family: Helvetica; color: white; margin-top: 5px;"> {{ getCardTitle(caption_card) }} </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="item item-avatar" style="padding: 10px 80px 10px 20px;" ng-repeat="sub_card in sub_cards" ng-click="viewCard(sub_card)" ng-style="getSubCardStyle($last)">
+      <img ng-src="{{ getCardCover(sub_card) }}"  style="right: 15px; left: inherit; border-radius: 4px;">
+      <p style="white-space: normal;"> {{ getCardTitle(sub_card) }} </p>
+    </div>
+  </div>
+  
+</div>

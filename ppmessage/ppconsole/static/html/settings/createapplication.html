@@ -1,0 +1,11 @@
+<div class="boxed-group">
+  <h3>创建客服团队</h3>
+  <form class="boxed-group-inner" ng-submit="create_team(team_name)">
+    <div class="create_form">
+      <input type="text" ng-model="team_name" placeholder="客服团队名称" class="team_name">
+      <input type="text" ng-model="verify_code" placeholder="验证码" class="email_verify_code">
+      <span class="send_verify_email">发送邮箱验证码</span>
+      <button class="confirm_create_button" tabindex="2" type="submit">创建客服团队</button>
+    </div>
+  </form>
+</div>

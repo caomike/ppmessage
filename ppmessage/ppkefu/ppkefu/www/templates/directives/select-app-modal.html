@@ -1,0 +1,40 @@
+<script id="select-app-modal.html" type="text/ng-template">
+  <ion-modal-view ng-style="getAppBodyStyle()">
+    
+    <ion-header-bar class="bar-dark has-footer" align-title="center">
+      <button class="button button-clear button-assertive" ng-click="quit()">
+        {{ "app.GLOBAL.QUIT" | translate }}
+      </button>
+      <h1 class="title">{{ "app.GLOBAL.SELECT_APP" | translate }}</h1>
+      <button class="button button-clear button-positive" ng-disabled="isPreceedDisabled()" ng-click="preceed()">
+        {{ "app.GLOBAL.PRECEED" | translate }}
+      </button>
+    </ion-header-bar>
+    
+    <ion-content class="has-header">
+
+      <ion-list>
+        <label class="item item-radio yv-item-radio" ng-repeat="app in apps" ng-click="selectApp(app)">
+          <input type="radio" name="group" ng-checked="isAppChecked(app)">
+          <div class="radio-content">
+            <div class="item-content" >{{ app.app_name }}</div>
+            <i class="radio-icon ion-checkmark"></i>
+          </div>
+        </label>
+      </ion-list>
+      
+    </ion-content>
+    
+    <ion-footer-bar>
+      <ul class="list">
+        <li class="item item-checkbox yv-item-checkbox">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="checkbox.selected">
+          </label>
+          {{ "app.GLOBAL.REMEMBER_MY_CHOICE" | translate }}
+        </li>
+      </ul>
+    </ion-footer-bar>
+    
+  </ion-modal-view>
+</script>

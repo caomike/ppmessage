@@ -1,0 +1,43 @@
+<div style="position:relative;">
+  <div class="notification error" ng-if="should_show_error()"><span> {{ get_error_string() }} </span></div>
+  <div class="signup_body">
+    <div class="processor_bar">
+      <ul class="ul">
+        <li class="status choose">
+          <h4 class="h4">
+            1 注册
+          </h4>
+        </li>
+        <li class="status is">
+          <h4 class="h4">
+            2 创建客服团队
+          </h4>
+        </li>
+        <li class="status us">
+          <h4 class="h4">
+            3 开始使用
+          </h4>
+        </li>
+      </ul>
+    </div>
+    <div class="auth-form">
+      <form accept-charset="UTF-8" ng-submit="signup(user)">
+        <div class="auth-form-header">
+          <h1>注册</h1>
+        </div>
+        <div class="signup-form-body">
+          <input ng-model="user.user_fullname" type="text" name="full_name" placeholder="真实姓名" class="first-name half" style="width:100%;">
+          <input ng-model="user.user_email" type="text" name="email" placeholder="登录邮箱">
+          <input ng-model="user.user_password" type="password" name="password" placeholder="登录密码">
+          <input ng-model="user.user_password_repeat" type="password" name="password" placeholder="确认密码">
+          <p>注册并登录意味着同意本网站 <a ui-sref="app.policy.termofservice" target="_blank">《服务条款》</a>.</p>
+          <button type="submit" class="btn-blue" >注册</button>
+          
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+

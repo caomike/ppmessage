@@ -1,0 +1,39 @@
+<ion-view view-title="{{ 'noapp.loginWithUser.LOGIN_TAG' | translate }}">
+  
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="nouser()">{{ "noapp.loginWithUser.SWITCH_USER_TAG" | translate }}</button>
+  </ion-nav-buttons>
+  
+  <ion-nav-buttons side="right">
+    <button class="button icon ion-monitor button-clear" ui-sref="noapp.switch-server" ng-if="showServerButton()"></button>
+  </ion-nav-buttons>
+  
+  <ion-content>
+    <div class="list">
+      <div class="item no-border yv-login-with-user-icon">
+        <div class="inner" ng-style="{ 'background-image': 'url(' + getDeviceUserIcon() + ')' }">
+        </div>
+        <h2>{{ user.user_email }}</h2>
+      </div>
+    </div>
+
+    <form novalidate ng-submit="deviceUserLogin()">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <i class="icon ion-ios-locked placeholder-icon"></i>
+          <!-- don't add 'autofocus' attribute to input element, which results in keyboard issue in iOS Safari -->
+          <input type="password" placeholder="{{ 'noapp.loginWithUser.LOGIN_PASSWORD_TAG' | translate }}" ng-model="user.user_password" name="password">
+        </label>
+        <button type="submit" class="button button-block button-balanced" ng-disabled="disableLogin()">
+          {{ "noapp.loginWithUser.LOGIN_TAG" | translate }}
+        </button>
+      </div>
+    </form>
+    
+    <!-- This div make the content auto scroll up when keyboard shows, don't know why though :/ -->
+    <div style="height: 1px; width: 100%;"></div>
+
+  </ion-content>
+    
+</ion-view>
+

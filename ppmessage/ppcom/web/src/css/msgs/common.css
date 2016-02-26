@@ -1,0 +1,4 @@
+.pp-container .pp-conversation-part-error {
+    color: red;
+    display: block;
+}

@@ -1,0 +1,35 @@
+<div class="boxed-group">
+  <a class="btn btn-sm boxed-group-action" ui-sref="app.settings.createapplication">创建PPMESSAGE应用</a>
+  <h3>PPMESSAGE应用</h3>
+  <div class="boxed-group-inner">
+    <ul class="boxed-group-list standalone">
+      <li class="clearfix" ng-repeat="app in apps">
+        <strong><a ui-sref="app.application.profile({app_uuid:app.uuid,is_owner_user:app.is_owner_user})">{{app.app_name}}</a></strong>
+        <span style="display:none;">{{app.uuid}}</span> 
+        <a class="btn btn-sm right" ng-show="{{!app.is_owner_user}}" ng-click="show_leave_modal(app.uuid)">退出</a>
+        <a class="btn btn-sm right" ng-show="{{app.is_owner_user}}" ng-disabled="{{app.is_owner_user}}">退出</a>
+        <span class="right" style="padding:0 20px;" ng-show="{{app.is_owner_user}}">拥有者</span>
+        <span class="right" style="padding:0 20px;" ng-show="{{!app.is_owner_user}}">成员</span>
+      </li>
+    </ul>
+  </div>
+  <div class="modal fade" id="leave_app">
+    <div class="modal-dialog" style="margin-top: 300px;width: 400px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><strong>退出该应用</strong></h4>
+        </div>
+        <div class="modal-body" style="color: #D03F3F;">
+          <p>退出该应用意味着将失去该应用服务者的身份.</p>
+          <p>确定真的要退出该应用吗?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancle</button>
+          <button type="button" class="btn btn-danger" style="background-image: linear-gradient(#C16552, #E24215);"
+          ng-click="leave_app()">退出</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

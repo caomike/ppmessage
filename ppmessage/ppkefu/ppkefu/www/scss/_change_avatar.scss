@@ -1,0 +1,49 @@
+// for templates/controller/app.change-avatar.html
+
+$previewHeight: 160px;
+$thumbSize: 140px;
+
+.crop-image {
+    margin-top: 20px;
+    text-align: -webkit-center;
+    
+    .preview {
+        margin-top: 20px;
+        text-align: center;
+        padding-bottom: 20px;
+        height: $previewHeight;
+
+        img.user-icon {
+            height: $thumbSize;
+            width: $thumbSize;
+        }
+    }
+    
+    .jcrop-thumb {
+        top: -$previewHeight;
+        left: calc(50% - #{$thumbSize / 2});
+    }
+    
+    img#target-image {
+        display: none !important;
+    }
+}
+
+.change-avatar-view {
+    
+    .choose-photo {
+        margin: 0 10px;
+        
+        input#upload-avatar {
+            display: none;
+        }
+    }
+}
+
+.change-avatar-action-sheet {
+    
+    .button-text {
+        color: $positive;
+        text-align: center;
+    }
+}

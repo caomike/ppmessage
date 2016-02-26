@@ -1,0 +1,26 @@
+<!-- Public Profile -->
+<div class="boxed-group">
+  <h3>基本信息</h3>
+  <div class="boxed-group-inner clearfix">
+    <form accept-charset="UTF-8" class="columns" ng-submit="submit(user)">
+
+      <div class="column two-thirds">
+        <dl class="form">
+          <dt><label for="user_profile_firstname">邮箱</label></dt>
+          <dd>
+            <span id="user_email" style="background:transparent; width:30px; height:20px; display:block;" > {{ user.email }}</span>
+          </dd>
+        </dl>
+        
+        <dl class="form">
+          <dt><label for="user_profile_lastname">姓名</label></dt>
+          <dd>
+            <input id="user_fullname" style="background:transparent;border:1" size="30" type="text" tabindex="1" ng-model="user.fullname" required="required" />
+          </dd>
+      
+        </dl>
+        <p><button type="submit" class="btn btn-primary" tabindex="2" >确认修改</button></p>
+      </div>
+    </form>
+  </div>
+</div>

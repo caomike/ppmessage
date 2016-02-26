@@ -1,0 +1,100 @@
+.yv-big-mic {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    text-align: center;
+    background-color: $stable;
+
+    .big-mic {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        position: relative;
+        top:25px;
+        background-color: green;
+        border-radius:50%;
+
+        .mic-button {
+            color: white;
+            position:relative;
+            top:50px;
+            font-size: 40px;
+        }
+    }
+}
+
+.yv-record-status {
+    position: absolute;
+    bottom: 280px;
+    width: 100%;
+
+    .outer {
+        width: 150px;
+        margin: 0 auto;
+        background-color: rgba(0,0,0,0.75);
+        border-radius: 10px;
+        position: relative;
+        padding-top: 10px;
+
+        .cancel-icon {
+            min-height: 56px;
+            position: relative;
+            margin: 10px 0 15px 10px;
+
+            .cancel-inner {
+                width: 40px;
+                min-height: 40px;
+                color: white;
+                font-size: 30px;
+                -webkit-transform: rotate(-90deg);
+            }
+        }
+        
+        .pressure-icon {
+            width: 40px;
+            position: relative;
+            margin: 10px 0 15px 10px;
+
+            .pressure-background {
+                min-height: 56px;
+                background-image: url("../../img/voice_recording_bg.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            .pressure-height {
+                width: 40px;
+                position: absolute;
+                bottom: 0px;
+                background-image: url("../../img/voice_preasure_bg.png");
+                background-size: cover;
+                background-position: bottom center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .record-duration {
+            position: absolute;
+            top: 25px;
+            right: 13px;
+
+            >h2 {
+                color: white;
+            }
+        }
+
+        .record-note {
+            color: white;
+            clear: both;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 5px;
+
+            >p {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+.yv-chat-tool.yv-mobile-browser .inner {
+    .yv-mic-button {
+        display: none !important;
+    }
+    .yv-textarea-outer {
+        margin-left: 10px;
+        margin-right: 55px;
+        width: calc(100% - 65px);
+    }
+
+}
+
+.yv-chat-tool {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    min-height: 49px;
+    display: block;
+    background-color: $stable;
+
+    .inner {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 49px;
+        
+        .yv-mic-button, .yv-plus-button {
+            position: absolute;
+            bottom: 0px;
+            border: none;
+            font-size: 28px;
+        }
+        
+        .yv-mic-button {
+            left: 10px;
+        }
+        
+        .yv-plus-button {
+            right: 10px;
+        }
+        
+        .yv-textarea-outer {
+            padding-top: 11px;
+            padding-bottom: 12px;
+            
+            margin-left: 45px;
+            margin-right: 55px;
+            width: calc(100% - 100px);
+            
+            >textarea {
+                width: 100%;
+                color: black;
+                padding: 3px 8px 3px 6px;
+                font-size: 16px;
+                line-height: 18px;
+                background-color: $stable;
+                border-bottom: solid 1px #b2b2b2;
+            }
+        }
+        
+        .yv-send-button {
+            z-index: 1;
+            position: absolute;
+            right: 5px;
+            bottom: 12px;
+            height:100%;
+            min-width: 45px;
+            width: 45px;
+            min-height: 30px;
+            height: 30px;
+            padding: 2px 4px 1px;
+            border: none;
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+}

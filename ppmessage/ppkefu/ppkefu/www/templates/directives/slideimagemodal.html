@@ -1,0 +1,31 @@
+<script id="slide-image-modal.html" type="text/ng-template">
+  <ion-modal-view ng-class="hide.bars ? 'content-dark' : 'content-light'">
+    
+    <ion-header-bar class="bar-light animate-hide" no-tap-scroll="true" ng-hide="hide.bars">
+      <button class="button button-clear button-primary" ng-click="closeModal()">
+        <span class="icon ion-ios-close-outline"></span>
+      </button>
+    </ion-header-bar>
+
+    <ion-slide-box show-pager="false" active-slide="0">
+      <!--
+      <ion-slide ng-if="show_progress">
+        <div style="text-align:center;">
+          <ion-spinner icon="ios"></ion-spinner>
+        </div>
+      </ion-slide>
+      -->
+      <ion-slide ng-repeat="image in collection" ng-if="!show_progress">
+        <ion-scroll direction="xy" locking="false" zooming="true" min-zoom="1" on-tap="hide.bars = !hide.bars"
+                    class="animate-hide"
+                    ng-class="hide.bars ? 'content-dark full' : 'content-light has-header has-footer'">
+          <img ng-src="{{ image.src }}" class="modal-img" style="display: block; width: 100%; height: auto;">
+        </ion-scroll>
+      </ion-slide>
+      
+    </ion-slide-box>
+    
+    <ion-footer-bar class="bar-light animate-hide" ng-hide="hide.bars"></ion-footer-bar>
+    
+  </ion-modal-view>
+</script>

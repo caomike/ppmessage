@@ -1,0 +1,80 @@
+<div style="padding-top:0">
+  
+  <!-- Change Password -->
+  <div class="boxed-group">
+    <h3>修改密码</h3>
+    <div class="boxed-group-inner" style="padding-left:20px;">
+      <form accept-charset="UTF-8" class="edit_user" ng-submit="changepassword(user)">
+        <dl class="form password-confirmation-form">
+          <dt><label for="user_old_password">现有密码</label></dt>
+          <dd><input id="user_old_password" ng-model="user.oldpassword" required="required" tabindex="1" type="password"></dd>
+        </dl>
+        <dl class="form password-confirmation-form">
+          <dt><label for="user_new_password">新密码</label></dt>
+          <dd><input id="user_new_password" ng-model="user.newpassword" required="required" tabindex="2" type="password"></dd>
+        </dl>
+        <dl class="form password-confirmation-form">
+          <dt><label for="user_confirm_new_password">确认新密码</label></dt>
+          <dd><input id="user_confirm_new_password"  ng-model="user.confirmnewpassword" required="required" tabindex="3" type="password"></dd>
+        </dl>
+        <p>
+          <button class="btn btn-primary" tabindex="4">确认修改</button>
+          <span style="margin-left:10px;"><a href="javascript:void(0);" ng-click="resetpassword();">忘记密码</a></span>
+        </p>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Delete Account -->
+  <!-- <div class="boxed-group dangerzone"> -->
+  <!--   <h3>注销账号</h3> -->
+  <!--   <div class="boxed-group-inner"> -->
+  <!--     <p>注销须知：注销账号会销毁所有与该账号关联的信息包括应用及数据，该过程不可逆，请确保充分理解该操作的含义.该操作带来的后果及影响由操作者个人承担，本网站不承担任何责任。如有疑问请点击右下角图标咨询客服。</p> -->
+  <!--     <p> -->
+  <!--       <\!-- Button trigger modal -\-> -->
+  <!--       <button type="button" class="btn btn-danger" ng-click="show_delete_modal()"> -->
+  <!--       确认注销 -->
+  <!--       </button> -->
+  <!--     </p> -->
+
+  <!--     <\!-- Modal -\-> -->
+  <!--     <div class="modal fade" id="delete-account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> -->
+  <!--       <div class="modal-dialog modal-dialog-github" role="document"> -->
+  <!--         <div class="modal-content modal-content-github"> -->
+  <!--           <div class="modal-header modal-header-github"> -->
+  <!--             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+  <!--             <h4 class="modal-title" id="myModalLabel">您真的了解该操作的意义吗?</h4> -->
+  <!--           </div> -->
+  <!--           <div class="modal-body modal-body-github"> -->
+  <!--             <div class="facebox-danger"> -->
+  <!--               <span class="glyphicon glyphicon-warning-sign"></span> -->
+  <!--               {{ promote_string }} -->
+  <!--             </div> -->
+  <!--             <p>我们会<strong>立刻删除该账户所关联的所有信息</strong>, 包括应用数据. -->
+  <!--             </p> -->
+  <!--             <p>该账户下面关联的应用将不再能够使用我们的服务，该账号将向所有人重新开放. -->
+  <!--             </p> -->
+  <!--             <p>对于更多问题，请查看我们的论坛文章"<a href="https://help.github.com/articles/deleting-your-user-account">注销账号</a>". -->
+  <!--             </p> -->
+  <!--             <hr/> -->
+  <!--             <form accept-charset="UTF-8" ng-submit="delete_portal_user(user)"> -->
+  <!--               <p> -->
+  <!--                 <label for="sudo_email">输入邮箱:</label> -->
+  <!--                 <input type="email" id="sudo_email" name="sudo_email" ng-model="user.email" ng-change="change(user)" class="input-block" required="required"> -->
+  <!--               </p> -->
+  <!--               <p> -->
+  <!--                 <label for="sudo_password"> -->
+  <!--                   输入密码: -->
+  <!--                 </label> -->
+  <!--                 <input class="input-block" id="sudo_password" name="sudo_password" type="password" required="required" ng-model="user.password" ng-change="change(user)"> -->
+  <!--               </p> -->
+  <!--               <button type="submit" class="btn btn-block btn-danger" ng-disabled="disabled">注销账号及所有数据</button> -->
+  <!--           </form> -->
+  <!--           </div> -->
+  <!--         </div> -->
+  <!--       </div> -->
+  <!--     </div> -->
+  <!--   </div> -->
+  <!-- </div> -->
+  
+</div>

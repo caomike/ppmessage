@@ -1,0 +1,54 @@
+<div style="position:relative;">
+  <div class="notification error" ng-if="should_show_error()"><span> {{ get_error_string() }} </span></div>
+  <div class="signup_body">
+    <div class="processor_bar">
+      <ul class="ul">
+        <li class="status">
+          <h4 class="h4">
+            1 注册
+          </h4>
+        </li>
+        <li class="status us">
+          <h4 class="h4">
+            2 创建客服团队
+          </h4>
+        </li>
+        <li class="status choose white">
+          <h4 class="h4">
+            3 开始使用
+          </h4>
+        </li>
+      </ul>
+    </div>
+    <div class="auth-form" style="margin:40px;width:50%;">
+      <form accept-charset="UTF-8" ng-submit="luanch_team()">
+        <div class="auth-form-header">
+          <h1>开始使用</h1>
+        </div>
+        <div class="signup-form-body">
+          <p class="start_try_slogan">恭喜您，客服团队创建成功! </p>
+          <div class="start_try_div">
+            <p>您将体验</p>
+            <ul class="start_try_list">
+              <li>不限流量</li>
+              <li>不限消息</li>
+            </ul>
+          </div>
+          <button type="submit" class="btn-blue" >开始使用</button>
+          
+        </div>
+      </form>
+
+    </div>
+    <div class="choose_ways">
+      <p>开始使用，您可以：</p>
+      <ul>
+        <li>代码部署</li>
+        <li>添加客服</li>
+        <li>修改信息</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

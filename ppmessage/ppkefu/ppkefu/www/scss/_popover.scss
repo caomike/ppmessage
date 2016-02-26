@@ -1,0 +1,28 @@
+.yv-sidemenu-popover {
+    z-index: 11;
+    width: 220px;
+    position: absolute;
+    right: 12px;
+    top: 44px;
+    border-color: darkgrey;
+    border-width: 1px;
+    border-style: solid;
+    background-color: $light;
+}
+
+.yv-conversation-popover {
+    width: 180px;
+    position: absolute;
+    right: 12px;
+    top: 44px;
+    border-color: darkgrey;
+    border-width: 1px;
+    border-style: solid;
+    background-color: $light;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) {
+    .yv-sidemenu-popover, .yv-conversation-popover {
+        top: 64px;
+    }
+}

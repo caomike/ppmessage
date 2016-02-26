@@ -1,0 +1,7 @@
+{
+    "win" : {
+        "title" : "ppmessage",
+        "icon" : "electron/assets/win/ppmessage.ico",
+        "nsiTemplate" : "electron/assets/win/installer-win64.tpl"
+    }
+}

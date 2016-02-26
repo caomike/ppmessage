@@ -1,0 +1,17 @@
+<div class="yv-chat-audio-outer" ng-style="getAudioWidth()">
+  <div class="yv-chat-audio item" ng-if="isLeftAudioMessage(message)">
+    <img src="img/qvip_bubble_aio_ptt_action_l_0.png" ng-if="play_flag_0">
+    <img src="img/qvip_bubble_aio_ptt_action_l_1.png" ng-if="play_flag_1">
+    <img src="img/qvip_bubble_aio_ptt_action_l_2.png" ng-if="play_flag_2">
+    <img src="img/qvip_bubble_aio_ptt_record_friend_nor.png" ng-if="play_flag_3">
+    <p>{{ getAudioDuration(message) }}</p>
+    <i class="ion-record" ng-if="isAudioUnread(message)"></i>
+  </div>
+  <div class="yv-chat-audio item" ng-if="isRightAudioMessage(message)">
+    <p>{{ getAudioDuration(message) }}</p>
+    <img src="img/qvip_bubble_aio_ptt_action_r_0.png" ng-if="play_flag_0">
+    <img src="img/qvip_bubble_aio_ptt_action_r_1.png" ng-if="play_flag_1">
+    <img src="img/qvip_bubble_aio_ptt_action_r_2.png" ng-if="play_flag_2">
+    <img src="img/qvip_bubble_aio_ptt_record_user_nor.png" ng-if="play_flag_3">
+  </div>
+</div>

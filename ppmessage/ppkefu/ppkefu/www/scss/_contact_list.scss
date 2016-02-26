@@ -1,0 +1,6 @@
+.yv-sidemenu .yv-contact-list {
+    
+    .yv-contact-item {
+        @include yv-item();
+    }
+}

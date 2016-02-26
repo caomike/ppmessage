@@ -1,0 +1,184 @@
+.pp-container .group-member-hovercard {
+    background-color: #fafafb;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.1);
+    left: 42px;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    position: absolute;
+    width: 260px;
+    -webkit-box-sizing: initial !important;
+    -moz-box-sizing: initial !important;
+    box-sizing: initial !important;
+}
+
+.pp-container .group-member-hovercard .body {
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #dfe0e1;
+    box-shadow: 0 1px 1px #f0f0f1;
+    padding: 13px 10px 1px 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pp-container .group-member-hovercard .img-container {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    cursor: pointer;
+    width: 60px;
+    position: relative;
+    float: left;
+    height: 50px;
+    padding-bottom: 35px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pp-container .group-member-hovercard img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.pp-container .group-member-hovercard .info {
+    float: right;
+    width: 164px;
+    cursor: pointer;
+}
+
+.pp-container .group-member-hovercard .name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #37474f;
+    margin-bottom: 7px;
+    cursor: pointer;    
+}
+
+.pp-container .group-member-hovercard .signature {
+    font-size: 12px;
+    color: #78909c;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.pp-container .group-member-hovercard .textarea-container {
+    padding: 9px 8px;
+    font-size: 16px;
+    border-radius: 0 0 5px 5px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.pp-container .group-member-hovercard textarea {
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-weight: 400;
+    color: #455a64;
+    resize: none;
+    border: 1px solid #cfd8dc;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 7px 35px 5px 10px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.pp-container .group-member-hovercard textarea:focus {
+    border-color: #74BEFF;
+    box-shadow: 0px 0px 4px 0px rgba(75, 171, 255, 0.38);
+}
+
+.pp-container .group-member-hovercard .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 8px solid black;
+    display: inline-block;
+    right: 10px;
+}
+
+.pp-container .group-member-hovercard .arrow-up {
+    width: 0; 
+	height: 0; 
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+	
+	border-bottom: 8px solid black;
+}
+
+.pp-container .group-member-hovercard *,
+.pp-container .group-member-hovercard:after,
+.pp-container .group-member-hovercard:before {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+
+.pp-container .group-member-hovercard textarea {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;    
+}
+
+/* the following css style make arrow-down  */
+
+/* .pp-container .group-member-hovercard:after, */
+/* .pp-container .group-member-hovercard:before { */
+/*     top: 100%; */
+/*     right: 20px; */
+/*     border: solid transparent; */
+/*     content: " "; */
+/*     height: 0; */
+/*     width: 0; */
+/*     position: absolute; */
+/*     pointer-events: none; */
+/* } */
+
+/* .pp-container .group-member-hovercard:before { */
+/*     border-color: rgba(204, 204, 204, 0); */
+/*     border-top-color: rgba(0, 0, 0, 0.14); */
+/*     border-width: 9px; */
+/*     margin-left: -6px; */
+/* } */
+
+/* .pp-container .group-member-hovercard:after { */
+/*     border-color: rgba(250, 250, 251, 0); */
+/*     border-top-color: #fafafb; */
+/*     border-width: 8px; */
+/*     margin-left: -5px; */
+/*     right: 21px; */
+/* } */
+
+/* the following css style make arrow-up  */
+
+/* .pp-container .group-member-hovercard:after, .pp-container .group-member-hovercard:before { */
+/*     top: -16px; */
+/*     right: 40px; */
+/*     border: solid transparent; */
+/*     content: ' '; */
+/*     height: 0; */
+/*     width: 0; */
+/*     position: absolute; */
+/*     pointer-events: none; */
+/* } */
+
+/* .pp-container .group-member-hovercard:before { */
+/*     border-color: rgba(204,204,204,0); */
+/*     border-bottom-color: rgba(0,0,0,0.07); */
+/*     border-width: 9px; */
+/*     margin-left: -5px; */
+/*     top: -18px; */
+/* } */
+
+/* .pp-container .group-member-hovercard:after { */
+/*     border-color: rgba(250,250,251,0); */
+/*     border-bottom-color: #fff; */
+/*     border-width: 9px; */
+/*     margin-left: -6px; */
+/* } */

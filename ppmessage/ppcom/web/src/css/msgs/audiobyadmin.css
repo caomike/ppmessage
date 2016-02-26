@@ -1,0 +1,88 @@
+.pp-container .msg-audio-admin {
+}
+
+.pp-container .msg-audio-admin .pp-avatar {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+}
+
+.pp-container .msg-audio-admin .pp-content {
+    float: left;
+    width: 80%;
+    margin-left: 5px;
+    margin-bottom: 16px;
+}
+
+.pp-container .msg-audio-admin .pp-name {
+    color: #455A64;
+    display: block;
+    font-size: 12px;
+    text-align: left;
+}
+
+.pp-container .msg-audio-admin .pp-voice {
+    position: relative;
+}
+
+.pp-container .msg-audio-admin .pp-body {
+    border-color: #dadee2;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    max-width: 80%;
+    display: inline-block;
+    background-color: #fff;
+    color: #455A64;
+    top: 3px;
+}
+
+.pp-container .msg-audio-admin .pp-triangle {
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid #dadee2;
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    margin-right: -1px;
+    top: 3px;
+}
+
+.pp-container .msg-audio-admin i {
+    width: 23px;
+    height: 23px;
+    vertical-align: middle;
+    display: inline-block;    
+}
+
+.pp-container .msg-audio-admin .pp-dura {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.pp-container .msg-audio-admin .pp-unread {
+    border-radius: 50%;
+    background-color: red;
+    display: inline-block;
+    width: 7px;
+    height: 7px;   
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
+.pp-container .msg-audio-admin .pp-desc {
+    display: block;
+    font-size: 12px;
+    margin-left: 5px;
+    display: block;
+    margin-top: 5px;
+}

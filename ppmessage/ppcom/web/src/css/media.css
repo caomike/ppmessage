@@ -1,0 +1,110 @@
+/*
+ * http://viewportsizes.com/
+ *
+ * iPhone 3G ~ iPhone 4S: 480
+ * iPhone 5, 5c, 5s: 568
+ * iPhone 6: 667
+ * iPhone 6 Plus: 736
+ */
+@media (max-width:736px) {
+    .pp-messenger-panel {
+        /* position:absolute; */
+        width:100%; /* fix width */
+        right:0;
+        top:0;
+        bottom:0;
+        background-color:white;
+        border-left: 1px solid #e7e7e7;
+        z-index:2147483646
+    }
+    .pp-sheet-header {
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+        background: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%; /* fix width */
+        border-bottom: 1px solid #e7e7e7;
+        border-left: 1px solid #e7e7e7;
+        z-index:2147483647;
+    }
+    .pp-sheet-header-button {
+        position: relative;
+        margin: 0 0 0 0;
+        height: 48px;
+        width: 48px;
+        float: right;
+    }
+    .pp-sheet-header-button-icon {
+        background-size: 13px 13px;
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 100%;
+        background-position: center center;
+        margin: auto;
+    }
+    .pp-conversation-part-welcome-outer-2 {
+        border-top:0px;
+        padding: 0 20px 20px;
+        border-image: initial;
+    }
+    .pp-emoji-icon {
+        font-family: 'AppleColorEmoji';
+        margin: 6px 6px 6px 6px;
+        width: 30px;
+        line-height:30px;
+        display:inline-table;
+        text-align:center;
+        cursor:pointer;
+        text-align:center;
+        font-size:21px;
+    }
+    .pp-composer-container {
+        width: 100%;
+        background: transparent;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        padding: 5px;
+    }
+    .pp-no-conversations-icon {
+        background-color: white;
+    }
+    
+    /* hide powered by in mobile : height: 30px */
+    .pp-powered-by {
+        display: none;
+    }
+
+    /** because we has hide powered-by element, so make 79px --> 49px **/
+    .pp-conversation-content {
+        bottom: 49px;
+    }
+
+    /* set max-width: 100% to expand textarea */
+    .pp-composer {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+}
+
+/* iphone4, 4s, mi2a */
+@media (max-width:480px) {
+    .pp-emoji-selector {
+        max-width: 280px;
+        width:100%;
+        height: 175px;
+    }
+    .pp-emoji-selector-content {
+        max-width: 270px;
+        width: 100%;
+        height: 130px;
+    }
+    .pp-emoji-selector-panel-header {
+        max-width: 280px;
+        width: 100%;
+    }
+    .pp-emoji-selector-sibling {
+        height: 177px;
+    }
+}

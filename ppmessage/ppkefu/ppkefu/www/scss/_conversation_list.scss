@@ -1,0 +1,18 @@
+.yv-conversation-list-view {
+    .status-bar {
+        position: absolute;
+        width: 100%;
+        top: 49px;
+    }
+
+    .yv-conversation-list {
+        top: 87px !important;
+    }
+}
+
+.yv-sidemenu .yv-conversation-list {
+    
+    .yv-conversation-item {
+        @include yv-item();
+    }
+}

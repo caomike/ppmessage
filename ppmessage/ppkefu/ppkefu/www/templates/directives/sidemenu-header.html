@@ -1,0 +1,50 @@
+<div class="yv-sidemenu-header">
+
+  <a class="item item-avatar">
+    <img ng-src="{{ getUserIcon() }}">
+    <h2>{{ getUserFullname() }}</h2>
+    <p>{{ getCurrentAppName() }}</p>
+    <div class="button button-icon icon ion-log-out" title="{{ 'app.settings.LOG_OUT_TAG' | translate }}" ng-click="logout()"></div>
+  </a>
+
+  <!-- <yv-sidemenu-popover ng-if="page.show_popover"></yv-sidemenu-popover> -->
+
+  <div class="item item-divider yv-searchbar">
+    <label class="item item-input yv-search-label">
+      <i class="icon ion-ios-search"></i>
+      <input type="search"  maxlength="15" class="yv-search-input" placeholder="{{ 'app.contact.SEARCH_TAG' | translate }}"
+             ng-change="startSearch()" ng-model="search.searchKey">
+    </label>
+    <button class="button button-clear ion-close-circled yv-search-clear" ng-click="clearSearchKey()" ng-if="search.searchKey">
+    </button>
+  </div>
+
+  <div class="yv-search-result" ng-if="search.searchKey">
+    <ion-scroll>
+      <div class="list">
+        
+        <div class="result-conversations" ng-if="search.conversations.length">
+          <div class="item item-divider">{{ "app.GLOBAL.CONVERSATIONS" | translate }}</div>
+          <div ng-click="clickItem()">
+            <yv-conversation ng-repeat="conversation in search.conversations" conversation="conversation">
+            </yv-conversation>
+          </div>
+        </div>
+        
+        <div class="result-contacts" ng-if="search.contacts.length">
+          <div class="item item-divider">{{ "app.GLOBAL.CONTACTS" | translate }}</div>
+          <div  ng-click="clickItem()">
+            <yv-contact ng-repeat="contact in search.contacts" contact="contact">
+            </yv-contact>
+          </div>
+        </div>
+        
+        <div class="item item-divider" ng-if="!search.conversations.length && !search.contacts.length">
+          {{ "app.GLOBAL.NO_MATCH_RESULTS" | translate }}
+        </div>
+      </div>
+      
+    </ion-scroll>
+  </div>
+  
+</div>

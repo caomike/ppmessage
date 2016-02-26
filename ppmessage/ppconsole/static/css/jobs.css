@@ -1,0 +1,121 @@
+.jobs_main {
+    width: 911px;
+    margin: 0 auto;
+    height: 800px;
+}
+
+.jobs_main .jobs_slogan {
+    margin: 20px;
+    font-size: 26px;
+    text-align: center;
+    color: #999;
+}
+
+.jobs_main .jobs_list {
+    
+}
+
+.jobs_main .jobs_list hr:first-child {
+    position: relative;
+    top: -10px;
+}
+
+.jobs_main .jobs_list hr:last-child {
+    position: relative;
+    top: -20px;
+}
+
+.jobs_main .jobs_list .list {
+    width: 100%;
+    height: 150px;
+}
+
+.jobs_main .jobs_list .list ul {
+    list-style: none;
+}
+
+.jobs_main .jobs_list .list ul li {
+    background-color: #4d9de0;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid;
+}
+
+.jobs_main .jobs_list .list ul li:hover {
+    background-color: white;
+    border: 2px solid #4d9de0;
+    color: #4d9de0;
+}
+
+.jobs_main .info .main {
+    
+}
+
+.jobs_main .info .main h2 {
+    
+}
+
+.jobs_main .info .main h4 .l {
+    font-size: 22px;
+    color: #999;
+}
+
+.jobs_main .info .main h4 .span1 {
+    font-size: 10px;
+    margin-left: 100px;
+    color: #999;
+}
+
+.jobs_main .info .main h4 .span2 {
+    border-radius: 5px;
+    background-color: #4d9de0;
+    color: white;
+    padding: 5px;
+    margin: auto 5px;
+    font-size: 14px;
+}
+
+.jobs_main .info .main h4 .span3 {
+    background-color: #4d9de0;
+    color: white;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.jobs_main .info .main h4 .span3:hover {
+    background-color: white;
+    color: #4d9de0;
+    border: 1px solid #4d9de0;
+    border-radius: 50%;
+}
+
+.jobs_main .info .main h4 .span3:before {
+    content: "\2709";
+    font-size: 30px;
+    vertical-align: sub;
+}
+
+.jobs_main .info .main ol {
+    list-style: none;
+    margin-bottom: 50px;
+    color: #999;
+}
+
+.jobs_main .info .main ol li {
+    margin-bottom: 6px;
+}
+
+.jobs_main .info .main ol li:before {
+    color: white;
+    background: #4d9de0;
+    content: "\13C5";
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

@@ -1,0 +1,69 @@
+.yv-sidemenu-left-content {
+    background-color: $stable;
+    
+    .yv-no-conversation, .yv-no-contact {
+        @include yv-tip(50px, #fff);
+    }
+    
+}
+
+.yv-sidemenu-right-content {
+    max-width: 768px;
+    
+    ion-header-bar {
+        border-bottom: solid 1px #ddd !important;
+    }
+}
+
+.yv-sidemenu {
+    background-color: $sidemenu-bgcolor;
+    
+    .tabs-top>.tabs {
+        top: $sidemenu-header-height - 1px;
+    }
+    
+    .yv-tabs-dark .tabs, .yv-tabs-dark>.tabs {
+        background-color: $sidemenu-bgcolor;
+        /* background-image: linear-gradient(0deg, #24272c, #24272c 50%,transparent 50%); */
+        background-image: none;
+        border-bottom: solid 1px #24272c;
+    }
+
+    .yv-tabs-dark .tabs .tab-item:after, .yv-tabs-dark>.tabs .tab-item:after {
+        content: '';
+        position: absolute;
+        top: 14px;
+        right: 0;
+        width: 0;
+        height: 20px;
+        border-right: 1px solid #24272C;
+    }
+
+    ion-tabs.yv-tabs-dark.tabs-color-active-balanced .tab-item {
+        color: white;
+        opacity: 1;
+        position: relative;
+    }
+
+    ion-tabs.yv-tabs-dark.tabs-color-active-balanced .tab-item.tab-item-active {
+        color: $balanced;
+    }
+
+    .yv-sidemenu-view {
+        height: calc(100% - #{$sidemenu-header-height} + 1px);
+        background-color: $sidemenu-content-bgcolor;
+
+        >ion-view.pane {
+            background-color: $sidemenu-content-bgcolor;
+        }
+    }
+
+    .yv-sidemenu-left-content {
+        background-color: $sidemenu-content-bgcolor;
+        
+        &.has-tabs-top {
+            top: 49px;
+        }    
+    }
+
+}

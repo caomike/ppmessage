@@ -1,0 +1,21 @@
+
+.yv-change-signature-view {
+
+    label.item-input {
+        padding: 6px 5px 5px 8px;
+    }
+    
+    .signature-textarea {
+        width: 100%;
+        resize: none;
+        height: 100px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .signature-length {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+    }
+}

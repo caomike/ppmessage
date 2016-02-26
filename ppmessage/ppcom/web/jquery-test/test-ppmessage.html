@@ -1,0 +1,196 @@
+<html>
+  
+  <head>
+    <title>PPMessage Test</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link rel="stylesheet" type="text/css" href="/libs/css/pp-main.css" />
+    
+    <script src='/libs/lib/jquery/js/jquery-1.11.3.min.js' ></script>
+
+    <script src='/src/main/pp.js' ></script>
+    <script src='/src/main/extend.js' ></script>
+    <script src='/src/main/version.js' ></script>
+    <script src='/src/main/configuration.js' ></script>
+    <script src='/src/jQuery/pp-jquery.js' ></script>
+
+    <script src='/src/view/pp-view2.js' ></script>
+    <script src='/src/view/pp-view-settings.js' ></script>
+    <script src='/src/view/pp-view-element.js' ></script>
+    <script src='/src/view/pp-view-element-css.js' ></script>
+    <script src='/src/view/pp-view-element-div.js' ></script>
+    <script src='/src/view/pp-view-element-sheetheader.js' ></script>
+    <script src='/src/view/pp-view-element-loading.js' ></script>
+    <script src='/src/view/pp-view-element-launcher.js' ></script>
+    <script src='/src/view/pp-view-element-container.js' ></script>
+    <script src='/src/view/pp-view-element-launcherpreview.js' ></script>
+    <script src='/src/view/pp-view-element-messenger.js' ></script>
+    <script src='/src/view/pp-view-element-poweredby.js' ></script>
+    <script src='/src/view/pp-view-element-conversation.js' ></script>
+    <script src='/src/view/pp-view-element-composercontainer.js' ></script>
+    <script src='/src/view/pp-view-element-conversationcontent.js' ></script>
+    <script src='/src/view/pp-view-element-uploadingbar.js' ></script>
+    <script src='/src/view/pp-launcher-hovercard.js' ></script>
+    <script src='/src/view/pp-app-profile-container.js' ></script>
+    <script src='/src/view/pp-app-profile-container-activeadmin.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpart.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartemojibyadmin.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartemojibyuser.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartfilebyadmin.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartfilebyuser.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartimagebyadmin.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartimagebyuser.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationparttextbyadmin.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationparttextbyuser.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationparttimestamp.js' ></script>
+    <script src='/src/view/conversationpart/pp-view-element-conversationpartwelcome.js' ></script>
+    <script src='/src/view/emoji/pp-view-element-emojiselectorgroupicon.js' ></script>
+    <script src='/src/view/emoji/pp-view-element-emojiselectorpanelheader.js' ></script>
+    <script src='/src/view/emoji/pp-view-element-emojiicon.js' ></script>
+    <script src='/src/view/emoji/pp-view-element-emojiselectorcontent.js' ></script>
+    <script src='/src/view/emoji/pp-view-element-emojiselector.js' ></script>
+    <script src='/src/view/service/pp-view-texturlchecker.js' ></script>
+    <script src='/src/view/service/pp-view-basestyle.js' ></script>
+
+    <script src='/src/controller/pp-controller2.js' ></script>
+    <script src='/src/controller/pp-controller-basectrl.js' ></script>
+    <script src='/src/controller/pp-controller-composercontainerctrl.js' ></script>
+    <script src='/src/controller/pp-controller-containerctrl.js' ></script>
+    <script src='/src/controller/pp-controller-conversationcontentctrl.js' ></script>
+    <script src='/src/controller/pp-controller-conversationctrl.js' ></script>
+    <script src='/src/controller/pp-controller-conversationpartctrl.js' ></script>
+    <script src='/src/controller/pp-controller-emojiselectorctrl.js' ></script>
+    <script src='/src/controller/pp-controller-launcherctrl.js' ></script>
+    <script src='/src/controller/pp-controller-launcherpreviewctrl.js' ></script>
+    <script src='/src/controller/pp-controller-poweredby.js' ></script>
+    <script src='/src/controller/pp-controller-sheetheaderctrl.js' ></script>
+    <script src='/src/controller/pp-controller-uploadingbar.js' ></script>
+    <script src='/src/controller/pp-controller-launcher-hovercardctrl.js' ></script>
+    <script src='/src/controller/pp-controller-appprofilecontainerctrl.js' ></script>
+
+    <script src='/src/modal/pp-modal2.js' ></script>
+    <script src='/src/modal/pp-modal-basemodal.js' ></script>
+    <script src='/src/modal/pp-modal-conversationcontentmodal.js' ></script>
+    <script src='/src/modal/pp-modal-conversationmodal.js' ></script>
+    <script src='/src/modal/pp-modal-launchermodal.js' ></script>
+    <script src='/src/modal/pp-modal-launcherpreviewmodal.js' ></script>
+    <script src='/src/modal/pp-modal-sheetheadermodal.js' ></script>
+
+    <script src='/src/service/pp-service2.js' ></script>
+    <script src='/src/service/pp-service-baseservice.js' ></script>
+    <script src='/src/service/pp-service-api.js' ></script>
+    <script src='/src/service/pp-service-cookies.js' ></script>
+    <script src='/src/service/pp-service-encryption.js' ></script>
+    <script src='/src/service/pp-service-errorhint.js' ></script>
+    <script src='/src/service/pp-service-user.js' ></script>
+    <script src='/src/service/pp-service-constants.js' ></script>
+    <script src='/src/service/pp-service-debug.js' ></script>
+    <script src='/src/service/pp-service-device.js' ></script>
+    <script src='/src/service/pp-service-emoji.js' ></script>
+    <script src='/src/service/pp-service-encryption.js' ></script>
+    <script src='/src/service/pp-service-fileuploader.js' ></script>
+    <script src='/src/service/pp-service-language.js' ></script>
+    <script src='/src/service/pp-service-message.js' ></script>
+    <script src='/src/service/pp-service-messagesender.js' ></script>
+    <script src='/src/service/pp-service-notification.js' ></script>
+    <script src='/src/service/pp-service-tools.js' ></script>
+    <script src='/src/service/pp-service-startup.js' ></script>
+    <script src='/src/service/pp-service-public-api.js' ></script>
+    <script src='/src/service/pp-service-basestorage.js' ></script>
+    <script src='/src/service/pp-service-custominfostorage.js' ></script>
+
+    <script src='/src/factory/pp-factory.js' ></script>
+    <script src='/src/factory/pp-factory-settings.js' ></script>
+    <script src='/src/factory/pp-factory-message.js' ></script>
+
+<script src='/src/startup/run.js' ></script>
+
+<!-- <script src='/src/pp-lib.min.js' ></script> -->
+<!-- <script src='http://localhost:8934/pp-library.js' ></script> -->
+
+  </head>
+
+  <body style="background-color:white">
+    <!-- <h2 style="float:right; margin-right:200px; z-index: 237498237">Hello World of intercom test</h2> -->
+
+    <!-- <div>another div element</div> -->
+
+    <div style="height:40px;"></div>
+    <p style="font-family: HelveticaNeue, Helvetica, Arial, sans-serif; font-weight: 300; font-size:18px">The easiest way to add rich-communications to any product.</p>
+    <div style="font-family: HelveticaNeue, Helvetica, Arial, sans-serif; color:white; height: 30px; width: 262px; background-color:#2597da; border-radius:5px; padding:10px 0 0 0; ">Get Started With PPMessage</div>
+    <p style=" font-weight: 300; font-size:14px">You'll be sending messages in just a few easy steps.</p>
+    <div style="height:30px;"></div>
+    <p style="font-family: HelveticaNeue, Helvetica, Arial, sans-serif; font-weight: 300; font-size:18px">We can't wait to see what you build,</p>
+
+    <textarea placeholder="test place holder"></textarea>
+    
+    <input type="button" value="showPPCom" id="showPPComId" onclick="showPPCom()"/>
+    <input type="button" style="float:right; margin-right: 50px; " value="closePPCom" id="closePPComId" onclick="closePPCom()"/>
+
+    <script>
+    function showPPCom() {
+        if (PP) {
+            PP.show();
+        }
+    }
+
+function closePPCom() {
+    if (PP) {
+        PP.hide();
+    }
+}
+
+(function() {
+    var element = document.createElement('textarea');
+    element.setAttribute('placeholder', 'textarea create by js');
+    document.body.appendChild(element);
+})();
+
+</script>
+    
+    <script>
+    
+window.ppSettings = {
+        <!-- user_email: "somebody.web@yvertical.com", -->
+        
+    app_secret: "7c22457d-300e-11e5-9303-58b035f16bf4",
+    app_key: "7b9c18ee-300e-11e5-a380-58b035f16bf4",
+    
+        <!-- testApp1 -->
+        <!-- app_secret: "ce07df0c-7dde-11e5-9ac1-0c4de9b21073", -->
+        <!-- app_key: "cdf31880-7dde-11e5-a3b5-0c4de9b21073", -->
+
+        <!-- testApp2 -->
+        <!-- app_secret: "5c4324d9-7de3-11e5-8476-0c4de9b21073", -->
+        <!-- app_key: "5c4321ee-7de3-11e5-b1c3-0c4de9b21073", -->
+        
+    language: "zh-CN",
+    view: {
+        launcherContainerBottomMargin: "200px",
+        launcherContainerRightMargin: "20px",
+        autoShow: true,
+        showLauncherContainer: false,
+    }
+};
+
+var http = "http://";
+var host = location.hostname;
+
+PP.Configuration = {
+    assets_path: http + host + ':8934/assets/',
+    portal: http + host + ':8080',
+    api: http + host + ':8922',
+    web_socket_url: 'ws://' + host + ':8931/WS',
+    file_upload_url: http + host + ':8928/upload',
+    file_upload_txt_url: http + host + ':8928/upload_txt',
+    file_download_url: http + host + ':8924/download/'
+};
+PP.Service.Constants.ICON_DEFAULT_USER = 'http://' + host + ":8934/assets/img/logo_1.png";
+
+PP.boot(window.ppSettings);
+</script>
+    
+  </body>
+  
+</html>

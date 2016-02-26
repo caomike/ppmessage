@@ -1,0 +1,18 @@
+<ion-view class="yv-push-noti-view" view-title="{{ 'app.settings.push_noti.PUSH_NOTIFICATION_TAG' | translate }}">
+    
+  <ion-content>
+    <ul class="list" ng-repeat="item in settings">
+      <li class="item item-toggle">
+        {{ item.title | translate }}
+        <label class="toggle toggle-positive">
+          <input type="checkbox" ng-model="item.value" ng-change="item.on_change()">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+      <p class="noti-settings-note">{{ item.note | translate }}</p>
+    </ul>
+  </ion-content>
+  
+</ion-view>

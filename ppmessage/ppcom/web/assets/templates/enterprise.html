@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>{{ app_name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link rel="stylesheet" href="/ppcom/assets/templates/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/ppcom/assets/templates/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/ppcom/assets/templates/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/ppcom/assets/pp-library.min.js" type="text/javascript"></script>
+  </head>
+
+  <body style="background-color:white">
+
+    <div class="container">
+      <div class="row row-0">
+        <div class="col-0-0 col-sm-12" style="height: 600px; background-color: #e05252;"></div>
+        <div class="col-0-1 col-sm-4" style="height: 200px; background-color: #5a9bfc;"></div>
+        <div class="col-0-2 col-sm-4" style="height: 200px; background-color: #5a9bfc;"></div>
+        <div class="col-0-3 col-sm-4" style="height: 200px; background-color: #5a9bfc;"></div>
+        <div class="col-0-4 col-sm-12" style="height: 600px; background-color: #57a264;"></div>
+        <div class="col-0-5 col-sm-2" style="height: 200px; background-color: #d1963d;"></div>
+        <div class="col-0-6 col-sm-2" style="height: 200px; background-color: #d1963d;"></div>
+        <div class="col-0-7 col-sm-2" style="height: 200px; background-color: #d1963d;"></div>
+        <div class="col-0-8 col-sm-2" style="height: 200px; background-color: #d1963d;"></div>
+        <div class="col-0-9 col-sm-2" style="height: 200px; background-color: #d1963d;"></div>
+        <div class="col-0-10 col-sm-2" style="height: 200px; background-color: #d1963d;"></div>
+        <div class="col-0-11 col-sm-12" style="height: 200px; background-color: #e05252;"></div>
+      </div>
+    </div>
+
+
+    <script>
+      function showPPCom() {
+      if (PP) {
+      PP.show();
+      }
+      }
+      
+      function closePPCom() {
+      if (PP) {
+      PP.hide();
+      }
+      }
+    </script>
+    
+    <script>
+      window.ppSettings = {
+      app_secret: "{{ app_secret }}" ,
+      app_key: "{{ app_key }}",        
+      language: "zh-CN",
+      view: {
+      launcherContainerBottomMargin: "200px",
+      launcherContainerRightMargin: "20px",
+      autoShow: true,
+      showLauncherContainer: false,
+      }
+      };
+      PP.boot( window.ppSettings, function( success, errorCode ) {
+      
+      if ( !success ) {
+      switch ( errorCode ) {
+      case 10002:
+      alert( '您的浏览器版本太低，请您更换为更高版本的浏览器进行预览' );
+      break;
+      }
+      }
+      
+      } );
+    </script>
+    
+  </body>
+  
+</html>

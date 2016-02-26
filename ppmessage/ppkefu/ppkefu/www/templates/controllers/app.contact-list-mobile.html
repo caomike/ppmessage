@@ -1,0 +1,23 @@
+<ion-view view-title="{{ 'app.contact.CONTACT_TAG' | translate }}" hide-tab-bar>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-ios-search" ng-click="openSearchModal()"></button>
+  </ion-nav-buttons>
+  
+  <ion-content class="yv-sidemenu-left-content yv-contact-list">
+
+    <div class="yv-no-contact" ng-if="contacts && contacts.length == 1">
+      <div class="tip-content">
+        <div class="tip-icon icon ion-ios-people"></div>
+        <p class="tip-note">
+          {{ "app.GLOBAL.NO_CONTACT" | translate }}
+        </p>
+      </div>
+    </div>
+    
+    <ion-list menu-close>
+      <yv-contact ng-repeat="contact in contacts" contact="contact" ng-if="showContact(contact)"></yv-contact>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

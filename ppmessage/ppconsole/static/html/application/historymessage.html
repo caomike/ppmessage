@@ -1,0 +1,99 @@
+<div class="boxed-group">
+  <h3>
+	历史消息
+  </h3>
+  <div class="boxed-group-inner clearfix">
+	<div class="historynews-mainpage">
+	  <div class="historynews-toolbar" style="display:none;">
+		<div class="left historynews-selectdate">
+		  <div class="input-group">
+			<p class="input-group-addon">
+			  <span style="color:#777;">请选择查询日期:</span>
+			</p>
+			<input class="form-control" type="text" date-range is-single=true on-apply="select_date">
+		  </div>
+		</div>
+
+		<div class="right historynews-search">
+		  <form class="input-group">
+			<input class="form-control" type="text" placeholder="搜索..." ng-model="search_target" autocomplete="off">
+			<span class="input-group-btn">
+			  <button class="btn btn-default" type="submit" ng-click="search_conversations()">
+				<i class="glyphicon glyphicon-search"></i>
+			  </button>
+			</span>
+		  </form>
+		</div>
+	  </div>
+	  <h4 style="margin-top:15px;">消息列表</h4>
+	  <div class="historynews-list list-group">
+	  	
+	  	<div style="width:100%;height:100px;margin-top:80px;text-align:center;" ng-if="news_list.length == 0">
+	  		<h4>没有任何匹配的会话</h4>
+	  	</div>
+		
+		<div class="list-group-item" ng-repeat = "item in news_list | orderBy: '-news_date' ">
+		  <div class="user-image left" >
+			<img ng-src='{{ item.user_image }}' alt="头像" >
+		  </div>
+		  <div class="news-detail left">
+			<p class="user-name">
+			  {{ item.user_name }}
+			</p>
+			<p class="news-abbr">
+              {{ item.news_abbr }}
+			</p>
+		  </div>
+		  <div class="news-preview right">
+			<p class="news-date">
+			  {{ item.news_date }}
+			</p>
+			<a href="" data-toggle="modal" data-target="#preview-window" ng-click="show_pre_window(item);">
+			  {{ item.news_count }}条消息
+			</a>
+		  </div>
+		</div>
+		
+		<div class="modal fade" id="preview-window">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+                <h4 class="modal-title">消息预览</h4>
+              </div>
+              <div class="modal-body">
+
+                <yv-message ng-repeat="message in messages | orderBy: 'message_timestamp' " play-status="playStatus" message="message" is-last="$last" last-message="messages[$index-1]">
+        	    </yv-message>
+
+              </div>
+            </div>
+          </div>
+		</div>
+
+		<div class="historynews-pagetoggle" ng-if="total_pages > 1">
+		  <div class="service_list_toggle">
+			<!-- <div class="right jumpto" >
+				 <div class="input-group">
+				   <input type="text" autocomplete="off">
+				   <div class="input-group-btn">
+					 <button class="btn btn-default">跳转</button>
+				   </div>
+				 </div>
+			</div> -->
+            <ul class="right pagination">
+              <li ng-click="pre_pages();"><a href="">&laquo;</a></li>
+              <li ng-repeat="item in pages" ng-class="{ active: item.is_active}" ng-click="toggle_page(item);"><a href="">{{ item.page_num }}</a></li>
+              <li ng-click="back_pages();"><a href="">&raquo;</a></li>
+            </ul>
+		  </div>
+		</div>
+	  
+	  </div>
+	
+	</div>
+	
+  </div>
+</div>

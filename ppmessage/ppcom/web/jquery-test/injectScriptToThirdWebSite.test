@@ -1,0 +1,37 @@
+# Inject `PPCom` to third website for test
+
+## Open the third website in Chrome, and `Right Click`->`Inspect Element`, select `Console` tools on the top tab bar, then just copy the following code to the edit panel, and press `Enter` key.
+
+```javascript
+window.ppSettings = {
+app_secret: "85c8f661-91b2-11e5-91b4-58b035f16bf4",
+app_key: "7a7e3542-91b2-11e5-8db8-58b035f16bf4"
+};
+var head = document.getElementsByTagName('head')[0];
+var ppcom = document.createElement("script");
+ppcom.setAttribute('src', 'http://localhost:8080/ppcom/assets/pp-library.min.js');
+head.appendChild(ppcom);
+```
+
+## Inject `PPDebug` scripts to the third web site
+
+```javascript
+var head = document.getElementsByTagName('head')[0];
+var ppcom = document.createElement("script");
+ppcom.setAttribute('src', 'http://localhost:8001/assets/ppdebug.js');
+head.appendChild(ppcom);
+```
+
+## Inject jQuery to the third web site
+
+```javascript
+var head = document.getElementsByTagName('head')[0];
+var ppcom = document.createElement("script");
+ppcom.setAttribute('src', 'http://localhost:8934/assets/lib/jquery/js/jquery-2.1.3.min.js');
+head.appendChild(ppcom);
+jQuery.noConflict();
+```
+
+## Intercom reference
+
+(function(){var w=window;var ic=w.PPCom;if(typeof ic==="function"){ic('reattach_activator');ic('update');}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.PPCom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='PPCOM_LIBRARY_JS';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()

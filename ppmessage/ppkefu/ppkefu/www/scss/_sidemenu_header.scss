@@ -1,0 +1,111 @@
+.yv-sidemenu-header-outer {
+    height: $sidemenu-header-height;
+    border: none;
+    background-color: $sidemenu-content-bgcolor;
+}
+
+.yv-sidemenu-header {
+    
+    >a.item, >a.activated {
+        background-color: $sidemenu-content-bgcolor;
+        border: none;
+        
+        >img {
+            @include sized-icon(50px, 4px);
+        }
+        
+        >h2 {
+            color: white;
+            font-size: 18px;
+        }
+
+        >h2, >p {
+            color: white;
+        }
+        
+        .button {
+            color: white;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            opacity: 0.8;
+            transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+        }
+    }
+
+    .yv-searchbar {
+        border-bottom-width: 0;
+        border: none;            
+        background-color: $sidemenu-content-bgcolor;
+        
+        .yv-search-label {
+            color: white;
+            background-color: #26292e;
+            border-color: transparent;
+            height: 35px;
+            border-radius: 4px;
+        }
+
+        .yv-search-input {
+            color: white;
+            background-color: #26292e;
+            padding-left: 5px !important;
+            padding-top: 0 !important;
+        }
+
+        .yv-search-clear {
+            position: absolute;
+            line-height: 35px;
+            min-height: 35px;
+            min-width: 35px;
+            z-index: 3;
+            right: 15px;
+            bottom: 6px;
+        }
+    }
+
+    .yv-search-result {
+        z-index: 6;
+        position: absolute;
+        top: 128px;
+        left: 15px;
+        width: calc(100% - 25px);
+
+        ion-scroll {
+            background-color: #33363b;
+            max-height: 420px;
+            
+            .list {
+                width: 100%;
+                background-color: #33363b;
+                padding-top: 0px;
+                
+                .item-divider {
+                    background-color: transparent;
+                    border: transparent;
+                    color: #787b87;
+                }
+            }
+        }
+
+        .yv-conversation-item, .yv-contact-item {
+            @include yv-item();
+
+            &, .item-content {
+                background-color: #393c43;
+                border-color: #33363b;
+            }
+
+            &.active, &.active .item-content, &.activated, &.activated .item-content {
+                background-color: #595b64;
+                /* border-color: #3a3f45; */
+            }
+
+        }
+    }
+    
+}

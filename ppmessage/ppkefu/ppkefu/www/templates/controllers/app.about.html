@@ -1,0 +1,28 @@
+<ion-view view-title="{{ 'app.settings.about.ABOUT_TAG' | translate }}">
+
+  <ion-content>
+    <div class="list card" style="box-shadow: none;">
+      
+      <div style="text-align:center; width:100%">
+        <img src="img/icon.png" style="max-width:120px;"></img>
+      </div>
+      
+      <div style="width:100%;">
+        <div style="text-align:center;">
+          <h2>{{ app_name }}</h2>
+          <h5>{{ local_version }}<h5>
+        </div>
+      </div>
+            
+      <div style="bottom:0%; width:100%;">
+        <div style="text-align:center;">
+          <button class="button button-block button-stable" ng-click="downloadUpdate()"
+                  ng-disabled="is_newest" ng-if="showUpdateButton()">
+            {{ getButtonText() }}
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </ion-content>
+</ion-view>

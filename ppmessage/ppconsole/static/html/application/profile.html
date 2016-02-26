@@ -1,0 +1,54 @@
+<div class="boxed-group">
+  <h3>团队信息</h3>
+  <div class="boxed-group-inner clearfix">
+    <form accept-charset="UTF-8" class="columns" ng-submit="modify()">
+
+      <div class="column">
+          <dl class="form">
+            <dt><label for="app_key">团队 key</label></dt>
+            <dd><input id="app_key" class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.key"></dd>
+          </dl>
+
+          <dl class="form">
+            <dt><label for="app_secret">团队 secret</label></dt>
+            <dd><input id="app_secret" class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.secret"></dd>
+          </dl>
+          <dl class="form">
+            <dt><label for="app_key">团队名称</label></dt>
+            <dd><input id="app_name" size="30" type="text" ng-model="team_info.name" tabindex="2"></dd>
+          </dl>
+          <p><button type="submit" class="btn btn-primary" tabindex="3" >确认修改</button></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="boxed-group dangerzone" ng-if="can_delete">
+  <h3>删除团队</h3>
+  <div class="boxed-group-inner">
+    <p>删除须知：删除团队是不可逆操作，该操作意味着将永久从本网站删除与该团队有关的所有数据.删除团队所带来的后果及影响由操作者个人承担，本网站不承担任何责任.如有疑问请点击右下角图标咨询客服.</p>
+
+    <p><button type="button" class="btn btn-danger" tabindex="4" ng-click="show_remove_modal()">确认删除</button></p>
+  </div>
+</div>
+
+<div class="modal fade" id="remove_app">
+  <div class="modal-dialog" style="margin-top: 300px;width: 400px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><strong>删除团队</strong></h4>
+      </div>
+      <div class="modal-body" style="color: #D03F3F;">
+        <p>删除，意味着您将失去所有与该团队有关的数据.</p>
+        <p>请确保您充分了解该操作的意义?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-danger" style="background-image: linear-gradient(#C16552, #E24215);"
+                ng-click="remove_app()">确认删除</button>
+      </div>
+    </div>
+  </div>
+</div>

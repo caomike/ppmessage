@@ -1,0 +1,65 @@
+{% extends "basic.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url("ppmessage/css/question.css") }}" />
+{% end %}
+
+{% block content %}
+<div class="main">
+
+  <div class="banner">
+    <img src="{{ static_url("ppmessage/img/banner-landscape.png") }}" />
+    <img src="{{ static_url("ppmessage/img/icon-question.png") }}" />
+  </div>
+  
+  <div class="titlebar">Q&A</div>
+
+  <div class="question">
+    <div class="title">
+      <div class="underline">
+        <img src="{{ static_url("ppmessage/img/icon-consult.png") }}" />
+        <b><span> {{ _("question_1") }} </span></b>
+      </div>
+    </div>
+    <p>{{ _("answer_1_1") }}</p><br>
+    <p>{{ _("answer_1_2") }}</p>
+  </div>
+
+  <div class="question">
+    <div class="title">
+      <div class="underline">
+        <img src="{{ static_url("ppmessage/img/icon-consult.png") }}" />
+        <b><span> {{ _("question_2") }} </span></b>
+      </div>
+    </div>
+    <p>{{ _("answer_2_1") }}</p><br>
+    <p>{{ _("answer_2_2") }}</p>
+  </div>
+
+  <div class="question">
+    <div class="title">
+      <div class="underline">
+        <img src="{{ static_url("ppmessage/img/icon-consult.png") }}" />
+        <b><span> {{ _("question_3") }} </span></b>
+      </div>
+    </div>
+    <p>{{ _("answer_3_1") }}</p>
+  </div>
+
+  <div class="question">
+    <div class="title">
+      <div class="underline">
+        <img src="{{ static_url("ppmessage/img/icon-consult.png") }}" />
+        <b><span> {{ _("question_4") }} </span></b>
+      </div>
+    </div>
+    <p>{{ _("answer_4_1") }}</p><br>
+    <p>{{ _("answer_4_2") }}</p>
+  </div>
+  
+</div>
+{% end %}
+
+{% block js %}
+<script src="{{ static_url("ppmessage/js/question.js") }}"></script>
+{% end %}

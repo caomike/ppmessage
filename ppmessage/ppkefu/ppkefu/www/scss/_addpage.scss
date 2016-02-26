@@ -1,0 +1,28 @@
+.yv-add-page {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: #f8f8f8;
+    
+    .slider {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .outer {
+            position: relative;
+            width: 60px;
+            margin: 0 auto;
+        
+            .upload {
+                cursor: pointer;
+                opacity: 0;
+                //font-size: 200px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+}

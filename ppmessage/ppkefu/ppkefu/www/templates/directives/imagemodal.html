@@ -1,0 +1,10 @@
+<script id="image-modal.html" type="text/ng-template">
+  <ion-modal-view class="content-dark image-modal">
+    
+    <ion-scroll direction="xy" locking="false" zooming="true" min-zoom="1" on-tap="closeModal()"
+                scrollbar-x="false" scrollbar-y="false" delegate-handle="image-scroll" class="content-dark full">
+      <img ng-src="{{ imgSrc }}" class="target" on-hold="onHold()">
+    </ion-scroll>
+    
+  </ion-modal-view>
+</script>

@@ -1,0 +1,20 @@
+.yv-contact-item {
+    cursor: pointer;
+    
+    @include img-radius(4px);
+
+    &.active, &.activated {
+        background-color: #ddd;
+        border-color: #ddd;
+    }
+    
+    >h2 {
+        margin-top: 10px;
+    }
+
+}
+
+.yv-contact-tip {
+    @include yv-tip();
+}
+

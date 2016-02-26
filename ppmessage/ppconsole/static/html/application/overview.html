@@ -1,0 +1,106 @@
+<div class="boxed-group">
+  <h3>
+	{{ lang["statistics.overview.OVERVIEW_TAG"] }} 
+  </h3>
+  <div class="boxed-group-inner clearfix">
+	<div class="total-statistics">
+	  <ul class="list-inline">
+		<li class="col-md-3">
+		  <div class="statistics-content" >
+			<h2 name="statistics-todayvisitors">
+			  {{ card_number.today_customer }}
+			</h2>
+			<label for="statistics-todayvisitors">{{ lang["statistics.overview.TODAY_CUSTOMER_TAG"] }}</label>
+		  </div>
+		</li>
+		<li class="col-md-3">
+		  <div class="statistics-content">
+			<h2 name="statistics-lastdayvisitors">
+			  {{ card_number.yesterday_customer }}
+			</h2>
+			<label for="statistics-lastdayvisitors">{{ lang["statistics.overview.YESTERDAY_CUSTOMER_TAG"] }}</label>
+		  </div>
+		</li>
+		<li class="col-md-3">
+		  <div class="statistics-content">
+			<h2 name="statistics-totalvisitors">
+			  {{ card_number.all_customer }}
+			</h2>
+			<label for="statistics-totalvisitors">{{ lang["statistics.overview.ALL_CUSTOMER_TAG"] }}</label>
+		  </div>
+		</li>
+		<li class="col-md-3">
+		  <div class="statistics-content">
+			<h2 name="statistics-totalnews">
+			  {{ card_number.all_message }}
+			</h2>
+			<label for="statistics-totalnews">{{ lang["statistics.overview.ALL_MESSAGE_TAG"] }}</label>
+		  </div>
+		</li>
+	  </ul>
+	</div>
+
+	<div class="count-for-realtime panel panel-default">
+	  <div class="count-header panel-heading navbar navbar-default">
+		<div class="container" style="width:100%;">
+		  <div class="navbar-header">
+			<a class="navbar-brand">{{ lang["statistics.overview.REALTIME_DATA_TAG"] }}</a>
+		  </div>
+		  <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+			  <li class="active" style="cursor:pointer;">
+				<a ng-click="draw_realtime_customer_number($event)">{{ lang["statistics.overview.REALTIME_CUSTOMER_TAG"] }}</a>
+			  </li>
+              <li style="cursor:pointer;">
+				<a ng-click="draw_realtime_service_number($event)">{{ lang["statistics.overview.REALTIME_SERVICE_TAG"] }}</a>
+			  </li>
+              <li style="cursor:pointer;">
+				<a ng-click="draw_realtime_message_number($event)">{{ lang["statistics.overview.REALTIME_MESSAGE_TAG"] }}</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	  <div class="count-body panel-body">
+		<canvas id="realtime-statistics"></canvas>
+	  </div>
+	</div>
+
+	<div class="count-for-history panel panel-default">
+	  <div class="count-header panel-heading navbar navbar-default">
+		<div class="container" style="width:100%;">
+		  <div class="navbar-header">
+			<a class="navbar-brand">{{ lang["statistics.overview.HISTORY_DATA_TAG"] }}</a>
+		  </div>
+
+          <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+			  <li class="active" style="cursor:pointer;">
+				<a ng-click="draw_history_customer_number($event)">{{ lang["statistics.overview.HISTORY_CUSTOMER_TAG"] }}</a>
+			  </li>
+			  <li style="cursor:pointer;">
+				<a ng-click="draw_history_service_number($event)">{{ lang["statistics.overview.HISTORY_SERVICE_TAG"] }}</a>
+			  </li>
+              <li style="cursor:pointer;">
+				<a ng-click="draw_history_message_number($event)">{{ lang["statistics.overview.HISTORY_MESSAGE_TAG"] }}</a>
+			  </li>
+			</ul>
+		  </div>
+          
+          <div style="position: absolute; top:10px; right:10px; left:320px;" >
+		    <div class="input-group">
+			  <p class="input-group-addon">
+			    <span style="color:#777;">{{ lang["statistics.overview.MAX_RANGE_TAG"] }}</span>
+			  </p>
+			  <input class="form-control" type="text" date-range is-single=false on-apply="selecteddate"></input>
+		    </div>
+		  </div>
+
+		</div>
+	  </div>
+	  <div class="count-body panel-body">
+		<canvas id="history-statistics"></canvas>
+	  </div>
+	</div>
+  </div>
+</div>

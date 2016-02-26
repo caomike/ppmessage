@@ -1,0 +1,17 @@
+{
+  "name": "ppcom",
+  "authors": [
+    "Guijin Ding <dingguijin@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "js-sha1": "^0.3.0",
+    "jquery": "^1.12.1",
+    "Jcrop": "jcrop#^2.0.4"
+  }
+}

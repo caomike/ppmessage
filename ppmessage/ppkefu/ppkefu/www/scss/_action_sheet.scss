@@ -1,0 +1,51 @@
+.platform-android {
+
+    .action-sheet-backdrop.active {
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .action-sheet {
+        margin-left: $sheet-margin;
+        margin-right: $sheet-margin;
+
+        .button {
+            text-align: center;
+            border-color: $sheet-options-border-color;            
+            font-size: 19px;
+            color: $sheet-options-text-color;
+        }
+
+        .action-sheet-title {
+            text-align: center;
+            border-color: inherit;
+            color: inherit;
+            font-size: 13px;
+            padding: $sheet-margin * 2;
+            color: #8f8f8f;
+        }
+
+        .button.active,
+        .button.activated {
+            background: $sheet-options-bg-active-color;
+        }
+    }
+
+    .action-sheet-group {
+        margin-bottom: $sheet-margin;
+        border-radius: $sheet-border-radius;
+        background-color: #fff;
+    }
+
+    .action-sheet-cancel {
+        display: block;
+    }
+    
+    .action-sheet-has-icons {
+
+        .button {
+            padding-left: 56px;
+        }
+
+    }
+
+}

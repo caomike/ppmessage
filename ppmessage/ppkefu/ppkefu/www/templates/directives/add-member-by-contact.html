@@ -1,0 +1,46 @@
+<div class="add-by-contact-content">
+  
+  <div class="selected-contacts-scroll" id="selected-scroll">
+    <ion-scroll>
+      <div class="selected-contacts">
+        <div class="selected-contact yv-fade-enter cursor-pointer" ng-repeat="contact in all_contacts" ng-if="contact.is_selected"
+             ng-click="contact.is_selected = false">
+          <img class="avatar" ng-src="{{ getAvatar(contact) }}">
+        </div>
+        
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" ng-model="search.search_key" ng-change="startSearch()"
+                   placeholder="{{ 'app.GLOBAL.SEARCH' | translate }}">
+          </label>
+        </div>
+        
+      </div>
+    </ion-scroll>
+  </div>
+
+  <div class="thin-border-divider" id=""></div>
+  
+  <div class="display-contacts-scroll" ng-if="display_contacts.length">
+    <ion-scroll ng-style="getScrollMaxHeight('#selected-scroll')">
+      <div class="display-contacts">
+        <ion-checkbox class="cursor-pointer" ng-repeat="contact in display_contacts" ng-model="contact.is_selected">
+          <div class="item item-avatar yv-contact-item" >
+            <img ng-src="{{ getAvatar(contact) }}">
+            <h2>{{ getFullname(contact) }}</h2>
+          </div>
+        </ion-checkbox>
+      </div>
+    </ion-scroll>
+  </div>
+  
+  <div class="thin-border-divider" ng-if="display_contacts.length"></div>
+
+  <div class="save-button">
+    <div class="button button-balanced" ng-click="save()" ng-disabled="disableSave(all_contacts)">
+      {{ "app.GLOBAL.SAVE" | translate }}&nbsp;({{ getSelectedNumber(all_contacts) }})
+    </div>
+  </div>
+
+</div>

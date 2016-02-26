@@ -1,0 +1,38 @@
+<div class="login" style="height:650px;">
+
+  <!-- BEGIN LOGO -->
+  <div class="logo">
+    <img src="/portal/static/yvertical/img/logo-login.png" style="height:120px; cursor: pointer;" ui-sref="app.main" /> 
+  </div>
+  <!-- END LOGO -->
+
+  <!-- BEGIN LOGIN -->
+  <div class="content">
+
+    <!-- BEGIN FORGOT PASSWORD FORM -->
+	<form class="forget-form" action="index.html" method="post">
+	  <h3>Forget Password ?</h3>
+	  <p>
+		Enter your e-mail address below to reset your password.
+	  </p>
+	  <div class="form-group">
+		<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+	  </div>
+	  <div class="form-actions">
+		<button type="button" ng-click="back()" class="btn btn-default">Back</button>
+		<button type="button" ng-click="submit()" class="btn btn-success uppercase pull-right">Submit</button>
+	  </div>
+	</form>
+	<!-- END FORGOT PASSWORD FORM -->
+    
+  </div>
+  <!-- END LOGIN -->
+
+  <!-- BEGIN COPYRIGHT -->
+  <div class="copyright">
+    &copy;2015 {{ "COPYRIGHT_PPMESSAGE" | translate }}
+  </div>
+  <!-- END COPYRIGHT -->
+
+</div>
+<!-- END login -->

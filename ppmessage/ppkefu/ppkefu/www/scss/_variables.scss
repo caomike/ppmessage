@@ -1,0 +1,74 @@
+$left-color: #fff;
+$right-color: #a7d94f;
+
+$sidemenu-bgcolor: #2e3238;
+$sidemenu-content-bgcolor: transparent; 
+$sidemenu-header-height: 132px;
+
+$chat-content-color: #eee;
+$bubble-padding: 10px;
+
+$mobile-bubble-max-width: 150px;
+$mobile-bubble-max-width-xxs: 220px;
+$mobile-bubble-max-width-xs: 2720px;
+$mobile-bubble-max-width-s: 314px;
+$mobile-bubble-max-width-xxm: 468px;
+$mobile-bubble-max-width-xm: 528px;
+$mobile-bubble-max-width-m: 728px;
+$mobile-bubble-max-width-l: 950px;
+$pc-bubble-max-width: 240px;
+
+$mobile-chat-tool-height: 90px;
+$pc-chat-tool-height: 180px;
+
+$chat-tool-toolbar-height: 40px;
+
+$mobile-chat-tool-content-height: 40px;
+$pc-chat-tool-content-height: 100px;
+
+$mobile-chat-tool-footer-height: 10px;
+$pc-chat-tool-footer-height: 40px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "xxsmall" {
+    @media (min-width: 310px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "xsmall" {
+    @media (min-width: 370px) {
+      @content;
+    }
+  }
+  
+  @else if $breakpoint == "small" {
+    @media (min-width: 410px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "xxmedium" {
+    @media (min-width: 510px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "xmedium" {
+    @media (min-width: 610px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "medium" {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "large" {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<script id="forward-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    
+    <ion-header-bar class="bar-dark">
+      <div class="buttons">
+        <button class="button button-clear" ng-click="closeModal()">
+          {{ "app.messageThread.CANCEL_TAG" | translate }}
+        </button>
+      </div>
+      <h1 class="title">{{ "app.messageThread.CHOOSE_CONTACTS_TAG" | translate }}</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="sureForward()" ng-disabled="!selected.length">
+          {{ "app.messageThread.OK_TAG" | translate }}({{ selected.length }})
+        </button>
+      </div>
+    </ion-header-bar>
+    
+    <ion-content>
+      <div style="min-height: 95px;">
+        <div class="row" ng-if="selected.length" ng-repeat="tenContacts in selectedRow">
+          <div class="col col-20" ng-repeat="contact_uuid in tenContacts">
+            <img class="adding icon-40-raw" ng-src="{{ getSelectedIcon(contact_uuid) }}" ng-click="removeSelected(contact_uuid)">
+            <p ng-click="removeSelected(contact_uuid)">{{ getSelectedFullname(contact_uuid) }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="item item-divider">
+        <label class="item item-input" style="height: 35px;">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <input type="search" placeholder="{{ 'app.messageThread.SEARCH_CONTACTS_TAG' | translate }}" ng-change="searchContacts()"
+                 ng-model="page.search_key">
+        </label>
+      </div>
+      
+      <div ng-repeat="contact in contacts">
+        
+        <ion-item class="item item-checkbox item-avatar padding-25" style="position:relative; cursor: pointer;">
+          <img class="adding icon-40" ng-src="{{ getObjectIcon(contact) }}">
+          <h2 style="padding-left: 10px;">{{ contact.fullname }}</h2>
+          <label class="checkbox">
+            <input type="checkbox" ng-click="toggleCheckbox(contact)" style="float: right;" ng-checked="isSelected(contact)">
+          </label>
+        </ion-item>
+        
+      </div>
+      
+    </ion-content>
+  </ion-modal-view>
+</script>

@@ -1,0 +1,38 @@
+<div class="add-by-group-content">
+  
+  <div class="scroll-outer" id="group-scroll">
+    <ion-scroll>
+      <div class="all-members">
+        <div class="member" ng-repeat="group in groups" ng-click="setGroup(group)">
+          <i class="group-checkbox top-right" ng-if="isCurrentGroup(group)"></i>
+          <img ng-src="{{ getGroupIcon(group) }}" ng-class="getImageClass(group)">
+          <p>{{ getGroupName(group) }}</p>
+        </div>
+      </div>
+    </ion-scroll>
+  </div>
+  
+  <div class="thin-border-divider"></div>
+  
+  <div class="display-contacts-scroll yv-fade-leave" ng-if="users.length">
+    <ion-scroll ng-style="getScrollMaxHeight('#group-scroll')">
+      <div class="display-contacts">
+        <ion-checkbox class="cursor-pointer" ng-repeat="user in users" ng-model="user.is_selected">
+          <div class="item item-avatar yv-contact-item" >
+            <img ng-src="{{ getAvatar(user) }}">
+            <h2>{{ getFullname(user) }}</h2>
+          </div>
+        </ion-checkbox>
+      </div>
+    </ion-scroll>
+  </div>
+
+  <div class="thin-border-divider" ng-if="display_contacts.length"></div>
+
+  <div class="save-button">
+    <div class="button button-balanced" ng-click="save()" ng-disabled="disableSave(users)">
+      {{ "app.GLOBAL.SAVE" | translate }}&nbsp;({{ getSelectedNumber(users) }})
+    </div>
+  </div>
+
+</div>

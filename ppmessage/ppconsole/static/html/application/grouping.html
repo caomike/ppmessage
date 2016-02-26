@@ -1,0 +1,149 @@
+<div class="boxed-group">
+  <h3>客服分组</h3>
+  <div class="boxed-group-inner clearfix">
+    <div class="group_header">
+      客服分组管理
+      <div class="move">
+        <span class="l">移动到</span>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">选择小组
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li ng-repeat="group in team.group_list | filter: switchGroupListFilter | orderBy: 'createtime' " ng-click="switch_group(group, $index)">{{handle_group_name(group.group_name, 5)}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="con">
+      <div class="le">
+        <p id="default_highlight"><a ng-click="get_all_service()">全部客服（{{team.service_user_list.length}}）</a></p>
+        <ul>
+          <li ng-repeat="group in team.group_list | orderBy: 'createtime' " id="colored_group_{{$index}}" class="not_exist">
+            
+            <a ng-click="checkout_to_group( group, $index )" >{{handle_group_name(group.group_name, 5)}}</a>
+            <i class="glyphicon glyphicon-pencil dd" ng-click="show_update_group_modal( group, $index )" ng-show="isGroupEditable(group)" ></i>
+            <i class="glyphicon glyphicon-trash dd" ng-click="remove_group( group, $index )" ng-show="isGroupEditable(group)" ></i>
+            
+          </li>
+          <!-- <li id="no_group_list" class="not_exist"><a ng-click="checkout_no_group_user()" >未分组（{{team.no_group_info.user_list.length}}）</a></li> -->
+        </ul>
+        <span  ng-click="show_create_group_modal()"><i class="glyphicon glyphicon-plus"></i>新建分组</span>
+      </div>
+      <div class="ri">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><a ng-click="checkAll()" ng-show="showCheckAllColumn" >全选</a></th>
+              <th>登录邮箱</th>
+              <th>角色</th>
+              <th>分组</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in team.current_list.user_list | orderBy: 'createtime' ">
+              <td><input type="checkbox" id="current_list_{{$index}}" ng-click="select_user($index)" ng-show="showCheckAllColumn" /></td>
+              <td>{{user.user_email}}</td>
+              <td>{{show_identify(user.user_email)}}</td>
+              <td>{{handle_group_name(user.user_group_name, 3)}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h3 style="margin-top:40px;">分组模式配置</h3>
+  <div class="boxed-group-inner clearfix" style="max-height:300px;overflow-x:scroll">
+    <table class="table" style="margin-bottom:0px !important">
+      <thead>
+        <tr>
+          <th class="one_five">是否显示</th>
+          <!-- <th class="one_five">显示顺序</th> -->
+          <th class="one_five">组名</th>
+          <!-- <th class="two_five">服务时间</th> -->
+          <th class="three_zero">分流方式</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="group-config" ng-repeat="group in team.group_list | filter : groupListFilter |orderBy:'createtime' ">
+          <td><input type="checkbox" ng-model="group.checked" ng-click="modify_group($index)"/></td>
+          <!-- <td><input type="text" class="five_zero" ng-model="group.group_visible_order_for_ppcom" ng-change="modify_group($index)" ng-model-options="{ updateOn: 'blur' }" /></td> -->
+          <td class="top">{{handle_group_name(group.group_name, 3)}}</td>
+          <!-- <td><input type="text" name="start_time_{{$index}}" class="two_five" ng-model="group.start_time" ng-change="modify_group($index)" ng-model-options="{ updateOn: 'blur' }">点 至<input type="text" name="end_time_{{$index}}" class="two_five" ng-model="group.end_time" ng-change="modify_group($index)" ng-model-options="{ updateOn: 'blur' }">点</td> -->
+          <td>
+            <select ng-model="group.group_route_algorithm" ng-change="modify_group($index)">
+              <option value="broadcast">新增访客平均分流</option>
+              <option value="smart">优先分配给“发送总消息”最少客服</option>
+              <option value="load">优先分配给“累积总消息数”最少客服</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+     <p class="button-group" style="display:none;"> 
+       <a ui-sref="app.glance" target="_blank" href="#/app/glance"><span class="union left">效果预览</span></a> 
+       <span class="union right" ng-click="config_group()">提交</span> 
+     </p> 
+  </div>
+</div>
+<div class="modal fade" id="create_group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="top: 150px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">
+          <strong>创建分组</strong>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <span class="modal-body-email-h">组名:</span>
+          <input type="text" class="modal-body-email-b" ng-model="new_group_name" tabindex="1" value="new_group_name" name="new_group_name" maxlength="15"/>
+          <span class="modal-body-email-bb">*</span>
+          <span class="modal-body-email-note" id="created_group_name"> {{ create_group_error.name_error }} </span>
+        </div>
+        <div style="margin-top:10px;">
+          <span class="modal-body-email-h">描述:</span>
+          <input type="text" class="modal-body-email-b" ng-model="new_group_desc" tabindex="2" value="new_group_desc" name="new_group_name" maxlength="15"/>
+          <span class="modal-body-email-bb">*</span>
+          <span class="modal-body-email-note" id="created_group_desc"> {{ create_group_error.desc_error }} </span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-click="create_group()" tabindex="5" >新建分组</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="update_group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="top: 150px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">
+          <strong>修改分组</strong>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <span class="modal-body-email-h">组名:</span>
+          <input type="text" class="modal-body-email-b" tabindex="1" ng-model="selected_group.group_name"/>
+          <span class="modal-body-email-bb">*</span>
+          <span class="modal-body-email-note" id="modify_group_name"> {{ update_group_error.name_error }} </span>
+        </div>
+        <div style="margin-top:10px;">
+          <span class="modal-body-email-h">描述:</span>
+          <input type="text" class="modal-body-email-b" ng-model="selected_group.group_desc" tabindex="2" maxlength="15"/>
+          <span class="modal-body-email-bb">*</span>
+          <span class="modal-body-email-note" id="modify_group_desc"> {{ update_group_error.desc_error }} </span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-click="update_group()" tabindex="5">确认修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>

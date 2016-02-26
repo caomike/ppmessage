@@ -1,0 +1,45 @@
+{% extends "basic.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url("ppmessage/css/basic_doc.css") }}" />
+{% block doc-css %}{% end %}
+{% end %}
+
+{% block content %}
+
+<div class="main" >
+
+  <!-- Doc navigation -->
+  <div class="nav">
+    <div class="toggler glyphicon glyphicon-plus"></div>
+    <ul>
+      <li><h4><a href="doc_intro.html">简介</a></h4></li>
+      <li>
+        <h4><a class="non-pointer" href="javascript:void(0)">PPMessage SDK接入指南</a></h4>
+        <ul class="sub">
+          <li><a href="doc_web.html">Web</a></li>
+          <li><a href="doc_android.html">Android</a></li>
+          <li><a href="doc_ios.html">iOS</a></li>
+        </ul>
+      </li>
+    </ul>    
+  </div>
+
+  <!-- doc -->
+  <div class="doc">
+    {% block doc-content %}
+    {% end %}
+  </div>
+  
+</div>
+
+{% end %}
+
+{% block js %}
+
+<script src="{{ static_url("ppmessage/js/doc_basic.js") }}"></script>
+
+{% block doc-js %}
+{% end %}
+
+{% end %}

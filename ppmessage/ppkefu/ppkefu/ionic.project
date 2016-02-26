@@ -1,0 +1,12 @@
+{
+  "name": "ppmessage",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "watch",
+    "sass"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

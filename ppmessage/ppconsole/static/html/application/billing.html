@@ -1,0 +1,100 @@
+<div class="boxed-group">
+  <h3>
+    当前账单
+  </h3>
+  <div class="boxed-group-inner seamless">
+
+    <div class="billing-section">
+
+      <a ui-sref="app.pay" class="btn btn-sm action-button">
+        <span class="glyphicon glyphicon-cog"></span>
+        续费
+      </a>
+      
+      <div class="section-label" style="text-align: left;">
+        可用客服数：<strong>{{current_app.plan.agent_num}}</strong>&nbsp;人
+      </div>
+      
+      <div class="section-content">
+        <strong style="margin-right:80px;">
+          还可以<a ui-sref="app.settings.teampeople" style="">创建</a>： <strong>{{current_app.plan.agent_num - exist_agents}}</strong>人
+        </strong>
+      </div>
+
+    </div>
+    <p class="billing-section">服务有效期：<span style="color:red;font-size:20px;">{{ get_rest_time() }}</span> 天        <strong style="margin-left:80px;">
+        有效日期至：<strong>{{time_handler(current_app.plan.endtime)}}</strong>
+      </strong>
+</p>
+
+  </div>
+</div>
+
+<div class="modal fade" id="changeappbillingemail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="top: 150px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="close_modal()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">更改账单EMAIL</h4>
+      </div>
+      <div class="modal-body">
+        <input type="email" required="required" style="width:100%;" ng-model="app_billing_email"></input>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close_modal()">关闭</button>
+        <button type="button" class="btn btn-primary" ng-click="change_app_billing_email()">修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="boxed-group">
+  <h3>账单管理者</h3>
+
+  <div class="boxed-group-inner seamless">
+    <p style="padding: 1em 10px 1em 10px; margin:0 0">账单会定期发送到管理人邮箱，请及时查看
+      <span class="glyphicon glyphicon-envelope"></span>
+      <a href="javascript:void(0);"ng-click="change_billing_email_modal()">
+        {{ current_app.app_billing_email }}
+        <i class="glyphicon glyphicon-pencil"></i>
+      </a>
+    </p>
+  </div>
+  
+</div>
+
+<div class="boxed-group payment-history">
+  <h3>
+    账单历史
+  </h3>
+  <div class="boxed-group-inner seamless">
+    <div class="billing-section">
+       <p style="padding: 1em 10px; margin:0 0" ng-show="!bills.length"><span class="glyphicon glyphicon-exclamation-sign"></span>无账单历史</p>
+
+       <div style="color:#333" ng-show="bills.length">
+
+        <table class="boxed-group-table billing-plans">
+          <thead>
+            <tr>
+              <th>账单号</th>
+              <th>付款时间</th>
+              <th>付款金额</th>
+              <th>支付工具</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="bill in bills | orderBy: '+createtime'">
+              <td>{{ bill.uuid }}</td>
+              <td>{{ time_handler(bill.createtime)}}</td>
+              <td>{{ bill.amount + currency_code_handler(bill.currency_code)}}</td>
+              <td>{{ payment_handler(bill.pay_type) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       
+    </div>
+  </div>
+</div>
+

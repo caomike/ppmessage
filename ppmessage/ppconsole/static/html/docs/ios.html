@@ -1,0 +1,69 @@
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a data-target="#ppcomlib" ng-style="{'cursor':'pointer'}"  ng-click="scrollTo($event, 'ppcomlib')">怎样在项目中集成并使用 PPComLib</a></li>
+        
+            <li><a data-target="#ppcomlib_1" ng-style="{'cursor':'pointer'}"  ng-click="scrollTo($event, 'ppcomlib_1')">在项目中集成 PPComLib</a></li>
+        
+            <li><a data-target="#ppcomlib_2" ng-style="{'cursor':'pointer'}"  ng-click="scrollTo($event, 'ppcomlib_2')">在项目中使用 PPComLib</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="ppcomlib" style="padding-top:1px;">怎样在项目中集成并使用 <code>PPComLib</code></h1>
+<h2 id="ppcomlib_1">在项目中集成 <code>PPComLib</code></h2>
+<p>下面以 <code>PPComDemo</code> 演示如何导入 <code>PPComLib</code> 进行集成</p>
+<h3 id="_1">步骤一</h3>
+<p>将下载到的<code>PPComLib.zip</code>进行解压，假设解压之后放到了桌面上，接着直接拖动<code>PPComLib</code>整个文件夹到你的<code>Project</code>中去。如图所示：</p>
+<p><img alt="Drag-PPComLib-To-Your-Project" src="/portal/static/yvertical/img/doc/integrate-ppcomlib-1.png" /></p>
+<h3 id="_2">步骤二</h3>
+<p>松开鼠标之后，XCode将会提示你设置一些拷贝信息，这个时候记得勾选上 <code>Copy items if needed</code> 前面的对号。如图所示：</p>
+<p><img alt="Check-Copy-Items-If-Needed" src="/portal/static/yvertical/img/doc/integrate-ppcomlib-2.png" /></p>
+<h3 id="_3">步骤三</h3>
+<p>选择 "TARGETS" 下面的 "PPComDemo"，切换到 "General"面板。如图所示：</p>
+<p><img alt="add-libicucore-lib-1" src="/portal/static/yvertical/img/doc/integrate-ppcomlib-3.png" /></p>
+<h3 id="_4">步骤四</h3>
+<p>添加动态链接库 <code>libicucore.dylib</code> 或者 <code>libicucore.tbd</code> 到你的 Project 中去。在 General 面板中，点击最下面的 "+" 号，在弹出的对话框中搜索 "libicucore.dylib" 或者 "libicucore.tbd" ，然后点击 "Add" 按钮添加至你的项目中去。</p>
+<p><img alt="add-libicucore-lib-2" src="/portal/static/yvertical/img/doc/integrate-ppcomlib-4.png" /></p>
+<h3 id="_5">步骤五</h3>
+<p>修改项目编译参数。根据下图提示的 1、2、3、4 步骤，找到 <code>Other Linker Flags</code> 选项，然后双击进行修改，添加上 <code>-ObjC -all_load</code> 参数。至此，就可以在项目中使用 <code>PPComLib</code> 了。</p>
+<p><img alt="add-libicucore-lib-2" src="/portal/static/yvertical/img/doc/integrate-ppcomlib-5.png" /></p>
+<h2 id="ppcomlib_2">在项目中使用 <code>PPComLib</code></h2>
+<ul>
+<li>引入头文件</li>
+</ul>
+<pre><code class="objective-c">#import &lt;PPComLib/PPComLib.h&gt;
+</code></pre>
+
+<ul>
+<li>
+<p>创建一个你自己的<code>UIViewController</code>使其继承自<code>PPMessagesViewController</code></p>
+</li>
+<li>
+<p>在你刚创建的<code>UIViewController</code>的实现文件中，在<code>viewDidLoad</code>方法中配置初始化参数<code>appKey</code>和<code>appSecret</code></p>
+</li>
+</ul>
+<pre><code class="objective-c">- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // set your appKey
+    self.appKey = APP_KEY;
+    // set your appSecret
+    self.appSecret = APP_SECRET;
+
+    // initialize with user_email or call `[self initialize]` to initialize with anonymous user.
+    [self initializeWithUserEmail:USER_EMAIL];
+
+    // set title
+    self.title = @&quot;Feedback&quot;;
+    // set input view place holder
+    [self setInputViewPlaceHolder:@&quot;请输入...&quot;];
+}
+</code></pre></div>
+            
+        </div>
+

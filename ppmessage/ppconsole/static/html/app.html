@@ -1,0 +1,82 @@
+<!-- Header BEGIN -->
+<div class="header">
+  <div class="nav">
+	<div class="nav_main">
+
+      <button class="mobile-menu" type="button" role="button" aria-label="Toggle Navigation" ng-click="toggle_mobile_menu($event)">
+        <span class="lines"></span>
+      </button>
+      
+      <ul class="mobile-menu-items" ng-click="click_mobile_items($event)">
+        <li ng-if="!is_logined()"> <a ui-sref="app.signup">注册 </a> </li>
+        <li ng-if="!is_logined()"> <a ui-sref="app.signin">登录 </a> </li>
+
+        <li ng-if="is_logined()"> <a ui-sref="app.settings.profile"> {{ get_user_fullname() }} </a> </li>
+        <li><a ng-click="logout()"> 退出 </a></li>
+      </ul>
+      
+      <div class="menu">
+
+        <span class="register-item" ng-show="!is_logined()">
+          <a ui-sref="app.signup">注册</a>
+          <a ui-sref="app.signin">登录</a>
+    	</span>
+
+        <span class="register-item" ng-show="is_logined()">
+          <a ng-click="start_ppmessage()">开始服务</a>
+    	</span>
+
+        <span class="dropdown nav-item" ng-show="is_logined()">
+          <!-- remove text-transform: uppercase; -->
+          <a style="font-weight:600; background-color: transparent" id="account-dropdown" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+            {{ get_user_fullname() }}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="account-dropdown">
+            <li class="first"><a ui-sref="app.settings.profile" ng-show="is_owner2_status()"> 个人设置 </a></li>
+            <li class="first"><a ui-sref="app.settings.teamprofile" ng-show="is_owner2_status()"> 团队设置 </a></li>
+            <li role="separator" class="divider"></li>
+            <li><a ng-click="logout()"> 退出 </a></li>
+          </ul>
+        </span>
+        
+      </div>
+      
+	  <div class="logo" ng-click="main()">
+	  </div>
+      
+      <span class="slogan">
+        在线客服平台
+      </span>
+      
+	</div>
+  </div>
+</div>
+<!-- Header END -->
+<div style="display:none;" class="article-content"><img src="/portal/static/yvertical/img/logo-app.png"></img></div>
+
+<div class="fix-header-padding"></div>
+
+<ui-view>
+</ui-view>
+
+<div class="footer-section">  
+  <div class="copyright">
+    <!--
+        <p ng-if="!is_lang_english()"><a style="cursor:pointer" ng-click="switch_to_english()"> Switch to English Version</a></p>
+    <p ng-if="is_lang_english()"><a style="cursor:pointer" ng-click="switch_to_chinese()"> 转换到中文</a></p>
+    -->
+	<p>© 2011-2015 北京优锐科技有限公司 All Rights Reserved. &nbsp;&nbsp;
+      <a target="_blank">
+        京ICP备13021343号-2
+      </a> &nbsp;|
+      <a target="_blank">
+        <!-- 京公网安备 1101XX008330</a> -->
+      &nbsp;
+        <a ui-sref="app.policy.termofservice">服务条款 </a>
+        &nbsp;|&nbsp;
+        <a ui-sref="app.policy.privacypolicy">隐私政策</a>
+    </p>
+  </div>
+</div>
+

@@ -1,0 +1,193 @@
+<div class="p_content">
+  <div class="p_intro">
+    <div class="p_title">
+      <p class="p_p1">服务定制，科学计费</p>
+      <p class="p_p2">ppmessage所有资源实行&nbsp;"按席收费"，最大限度实现总体成本最小化</p>
+    </div>
+    <div class="p_note">
+      <p class="p_p3"><span class="p_s1">&nbsp;&nbsp;服务详情&nbsp;&nbsp;</span></p>
+    </div>
+  </div>
+  <div class="p_plan">
+    <div class="p_divt">
+      <div class="p_tl">
+        <span class="p_span1">坐席详情</span>
+      </div>
+      <div class="p_tr">
+        <p class="p_p4">
+          请根据实际所需客服数选择坐席数，如需大量服务请联系我们客服
+          <span class="p_spanl"><i>￥单价：<span style="color:red;font-size:30px"><span id="p_price_rmb">800</span>&nbsp;</span>元/年</i></span>
+        </p>
+        <div class="p_divd">
+          <div class="p_divd_note">
+    <p class="p_divd_p" id="p_divd_note1">坐席数表示可使用的最大客户端(针对本网站)数目；比如3个坐席数就表示可以有3个客服人员同时使用我们的服务来对第三方网站用户提供服务</p>
+            <span class="p_triangle1"></span>
+          </div>
+          <div class="p_divdl" ng-mouseover="show_agent_note()" ng-mouseleave="hide_agent_note()">
+            <span class="p_ds">
+              坐席数
+              <i id="p_bill_i1"><span class="p_ds_note">&nbsp;?&nbsp;</span></i>
+            </span><br>
+            <span class="p_dsm">(以人为单位）</span>
+          </div>
+          <div class="p_divdr">
+            <div class="slider-date" id="slider-date-1">
+
+		      <!--底层-->
+		      <ul class="slider-bg clearfix">
+			    <li>1</li>
+			    <li>2</li>
+			    <li>3</li>
+			    <li>4</li>
+			    <li>5</li>
+			    <li>6</li>
+			    <li>7</li>
+			    <li>8</li>
+			    <li>9</li>
+			    <li>10</li>
+			    <li>20</li>
+			    <li>40</li>
+		      </ul>
+
+		      <!--互动层-->
+		      <div class="slider-bar" id="slider-bar1">
+			    <ul class="slider-bg clearfix">
+				  <li>1人</li>
+				  <li>2人</li>
+				  <li>3人</li>
+				  <li>4人</li>
+				  <li>5人</li>
+				  <li>6人</li>
+				  <li>7人</li>
+				  <li>8人</li>
+				  <li>9人</li>
+				  <li>10人</li>
+				  <li>20人</li>
+				  <li>40人</li>
+			    </ul>
+			    <!--滑块按钮-->
+			    <a href="javascript:;" class="slider-bar-btn"><i></i><i></i></a>
+		      </div>
+
+	        </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p_divr">
+      <div class="p_divrt">
+        <div class="p_divrtp">
+          <span style="text-align:center;color:white">结算币种</span>
+        </div>
+        <div class="pnav" id="pnav">
+	      <p class="set" id="p_currency_code">CNY</p>
+	      <ul class="new">
+		    <li>CNY</li>
+		    <li>USD</li>
+		    <li>HKD</li>
+	      </ul>
+        </div>
+      </div>
+      <div class="p_bill">
+        <p class="p_bill_t">账单详情</p>
+        <hr style="color:black;margin-top:-10px;width:85%;">
+        <p class="p_bill_agent">坐席数：<i><span class="p_bill_num" id="p_bill_agent">1</span></i>&nbsp;&nbsp;<span style="color:black">人</span></p>
+        <p class="p_bill_agent">购买时长：<i><span class="p_bill_num" id="p_bill_time">1</span></i>&nbsp;&nbsp;<span style="color:black">年</span></p>
+    <p class="p_bill_amount">当前配置价格:<i><span class="p_bill_money" id="p_bill_amount">800</span></i>&nbsp;<span style="color:black" id="p_currency_type">CNY</span></p>
+      </div>
+      <div class="p_bill_buy">
+        <div class="p_bill_go" ng-click="checkout()">
+          <p class="p_bill_go_f">立即购买</p>
+        </div>
+      </div>
+      <div class="p_bill_note">
+        <p class="p_bill_note_info">&nbsp;&nbsp;&nbsp;&nbsp;注：实际账单会受结算货币种类和支付工具而有细微的不同，因为支付工具的单笔使用费有所不同，而汇率也会有细微的波动。需要了解详细内容的请点击右下角图标咨询我们的客服。</p>
+      </div>
+    </div>
+    <div class="p_divb">
+      <div class="p_tl">
+        <span class="p_span1">购买时长</span>
+      </div>
+      <div class="p_tr">
+        <p class="p_p4">
+          每个账户有2坐席 x 3个月的免费使用期，如需大量服务请联系我们客服
+        </p>
+        <div class="p_divd">
+          <div class="p_divd_note">
+            <p class="p_divd_pf" id="p_divd_note2">购买时长表示购买我们服务的时间，当时间快到时(1个月)我们会自动发送续费通知邮件，请注意查看您的邮箱</p>
+            <span class="p_triangle2"></span>
+          </div>
+          <div class="p_divdlf" ng-mouseover="show_month_note()" ng-mouseleave="hide_month_note()">
+            <span class="p_ds">
+              购买时长
+              <i id="p_bill_i2"><span class="p_ds_note">&nbsp;?&nbsp;</span></i>
+            </span><br>
+            <span class="p_dsm">(以年为单位）</span>
+          </div>
+          <div class="p_divdrf">
+            <div class="slider-date" id="slider-date-2">
+
+		      <!--底层-->
+		      <ul class="slider-bg clearfix">
+			    <li>1</li>
+			    <li>2</li>
+			    <li>3</li>
+			    <li>4</li>
+			    <li>5</li>
+			    <li>6</li>
+			    <li>7</li>
+			    <li>8</li>
+			    <li>9</li>
+			    <li>10</li>
+			    <li>11</li>
+			    <li>12</li>
+		      </ul>
+
+		      <!--互动层-->
+		      <div class="slider-bar" id="slider-bar2">
+			    <ul class="slider-bg clearfix">
+				  <li>1年</li>
+				  <li>2年</li>
+				  <li>3年</li>
+				  <li>4年</li>
+				  <li>5年</li>
+				  <li>6年</li>
+				  <li>7年</li>
+				  <li>8年</li>
+				  <li>9年</li>
+				  <li>10年</li>
+				  <li>11年</li>
+				  <li>12年</li>
+			    </ul>
+			    <!--滑块按钮-->
+			    <a href="javascript:;" class="slider-bar-btn"><i></i><i></i></a>
+		      </div>
+
+	        </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="agent_notice">
+  <div class="modal-dialog" style="margin-top: 300px;width: 600px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><strong>操作通知</strong></h4>
+      </div>
+      <div class="modal-body" style="color: #D03F3F;">
+        <p id="wechat_show_note" >{{agents_warning}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="agent_choose" data-dismiss="modal" aria-label="Close">扩大席位</button>
+        <button type="button" class="agent_choose" ng-click="reduce_people()">削减坐席</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/portal/static/yvertical/portal/scripts/web/js/controllers/pay_scripts.js"></script>

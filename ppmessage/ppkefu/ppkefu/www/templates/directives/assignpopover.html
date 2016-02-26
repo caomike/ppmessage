@@ -1,0 +1,14 @@
+<ion-scroll class="has-header"
+            ng-if="servants.length"            
+            style="max-height: 400px; border-bottom: solid 2px #b2b2b2;
+                   z-index: 1; background-color: #F8F8F8;">
+  
+  <div yv-no-close style="width: 100%; text-align: center; padding: 10px;">
+    <div yv-no-close ng-repeat="servant in servants"
+         ng-click="assignConversation(servant)"
+         style="float: left; height: 80px; padding: 10px; cursor: pointer;">
+      <img yv-no-close ng-src="{{ getServantIcon(servant) }}" style="height: 50px; width: 50px;">
+      <p yv-no-close ng-style="getServantStyle(servant)">{{ servant.object_fullname }}<p>
+    </div>
+  </div>
+</ion-scroll>

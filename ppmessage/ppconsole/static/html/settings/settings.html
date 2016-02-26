@@ -1,0 +1,54 @@
+<div class="settings">
+  <div class="new-flash" ng-show="should_show_update_string()">
+    <div ng-class="get_left_flash_style()"><i ng-class="get_icon()"></i></div>
+    <div ng-class="get_right_flash_style()">
+      <p>
+      {{ get_update_string() }}
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="columns">
+      <div class="column one-fourth" role="navigation">
+        <nav class="menu">
+          <h3 class="menu-heading">
+            数据分析
+          </h3>
+          <a id="app.settings.overview" ui-sref="app.settings.overview" class="menu-item">数据总览</a>
+          <a id="app.settings.historymessage" ui-sref="app.settings.historymessage" class="menu-item">历史消息</a>          
+        </nav>
+
+        <nav class="menu">
+          <h3 class="menu-heading">
+            团队设置
+          </h3>
+          <a id="app.settings.teamprofile" ui-sref="app.settings.teamprofile" class="menu-item">基本信息</a>
+          <a id="app.settings.configuration" ui-sref="app.settings.configuration" class="menu-item">用户界面</a>
+          <a id="app.settings.messageroute" ui-sref="app.settings.messageroute" class="menu-item">消息分流</a>
+          <a id="app.settings.teampeople" ui-sref="app.settings.teampeople" class="menu-item">客服人员</a>
+          <a id="app.settings.teamgrouping" ui-sref="app.settings.teamgrouping" class="menu-item">客服分组</a>
+          <a id="app.settings.robot" ui-sref="app.settings.robot" class="menu-item">人工智能</a>
+          <a id="app.settings.integrate" ui-sref="app.settings.integrate" class="menu-item">应用集成</a>
+        </nav>
+
+        <nav class="menu">
+          <h3 class="menu-heading">
+            账户设置
+          </h3>
+          <a id="app.settings.profile" ui-sref="app.settings.profile" class="menu-item">基本信息</a>
+          <a id="app.settings.account" ui-sref="app.settings.account" class="menu-item">高级设置</a>
+
+          <!-- TEMPORARILY REMOVE BILLING -->
+          <!-- <a id="app.settings.teambilling" ui-sref="app.settings.teambilling" class="menu-item">账单中心</a> -->
+        </nav>
+      </div>
+
+      <div class="column three-fourths">
+        <ui-view>
+        </ui-view>
+      </div>
+
+    </div>
+  </div>
+  
+</div>

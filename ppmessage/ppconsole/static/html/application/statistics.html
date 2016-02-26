@@ -1,0 +1,69 @@
+<div class="boxed-group" style="width:100%;">
+  <h3>
+    总计：
+  </h3>
+  <div class="boxed-group-inner seamless">
+  	<table class="summary">
+  		<tbody>
+  			<tr>
+  				<td>
+  					<span class="text">客服数:</span><br/>
+  					<span class="value">{{ get_agent_count() }}</span>
+  				</td>
+  				<td>
+  					<span class="text">用户数:</span><br/>
+  					<span class="value">{{ get_customer_count() }}</span>
+  				</td>
+  				<td>
+  					<span class="text">消息数:</span><br/>
+  					<span class="value">{{ get_message_count() }}</span>
+  				</td>
+  			</tr>
+  		</tbody>
+  	</table>
+  </div>
+  
+  <h3>
+    发送消息数统计:
+  </h3>
+
+  <div class="boxed-group-inner">
+    请选择所要查看的时间段(45天内):&nbsp;<input id="date-range-message_number" style="color:#000;" size="25" value="">&nbsp;<label for="date-range-message_number" class="glyphicon glyphicon-calendar">选择</label>&nbsp;&nbsp;<label ng-click="message_number_Line_clear()"><span class="glyphicon glyphicon-remove-sign"></span>清空</label>
+  </div>
+
+  <div class="boxed-group-inner seamless">
+    <div class="statistics-container">
+      <canvas id="message_number" style="height:100%; width:100%;"></canvas>
+    </div>
+    
+  </div>
+  <h3>
+    用户数统计：
+  </h3>
+
+  <div class="boxed-group-inner">
+    请选择所要查看的时间段(45天内):&nbsp;<input id="date-range-service_user" style="color:#000;" size="25" value="">&nbsp;<label for="date-range-service_user" class="glyphicon glyphicon-calendar">选择</label>&nbsp;&nbsp;<label ng-click="service_user_Line_clear()"><span class="glyphicon glyphicon-remove-sign"></span>清空</label>
+  </div>
+
+  <div class="boxed-group-inner seamless">
+    <div class="statistics-container">
+      <canvas id="service_user" style="height:100%; width:100%;"></canvas>
+    </div>
+    
+  </div>
+
+  <h3>
+    客服数统计：
+  </h3>
+
+  <div class="boxed-group-inner">
+    请选择所要查看的时间段(45天内):&nbsp;<input id="date-range-support_staff" style="color:#000;" size="25" value="">&nbsp;<label for="date-range-support_staff" class="glyphicon glyphicon-calendar">选择</label>&nbsp;&nbsp;<label ng-click="support_staff_Line_clear()" ><span class="glyphicon glyphicon-remove-sign"></span>清空</label>
+  </div>
+
+  <div class="boxed-group-inner seamless">
+    <div class="statistics-container">
+      <canvas id="support_staff" style="height:100%; width:100%;"></canvas>
+    </div>
+    
+  </div>
+</div>

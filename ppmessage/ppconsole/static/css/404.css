@@ -1,0 +1,70 @@
+.error_main {
+    background: url("/user/static/img/error/background.png") no-repeat scroll 0 0 #000;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 800px;
+    padding-top: 100px;
+}
+
+.error_main .column {
+    width: 780px;
+    margin: 0 auto;
+    display: block;
+    -webkit-transition: all 0.9s ease 0s;
+    -moz-transition: all 0.9s ease 0s;
+    -o-transition: all 0.9s ease 0s;
+    transition: all 0.9s ease 0s;
+}
+
+.error_main .column .header {
+    background: url("/user/static/img/error/four-zero-four.png") no-repeat scroll center center;
+    background-size: cover;
+    width: 710px;
+    height: 250px;
+}
+
+.error_main .column .header p {
+    font-size: 31px;
+    padding-top: 116px;
+    text-align: center;
+}
+
+.error_main .column .four_zero_text {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.error_main .column .four_zero_text h1 {
+    -webkit-transition: all .8s ease 0s;
+    -moz-transition: all .8s ease 0s;
+    -o-transition: all .8s ease 0s;
+    transition: all .8s ease 0s;
+    margin-top: 12px;
+    font-size: 60px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.error_main .column .four_zero_text h1:hover {
+    font-size: 40px;
+    color: #0cc2f8;
+}
+
+.error_main .column .four_zero_text p {
+    webkit-transition: all 1s ease 0s;
+    -moz-transition: all 1s ease 0s;
+    -o-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+}
+
+.error_main .column .four_zero_text p:hover {
+    font-size: 19px;
+    color: #0cc2f8;
+}

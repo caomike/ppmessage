@@ -1,0 +1,1475 @@
+/* --CONVERSATION-CONTAINER-BEGIN-- */
+.pp-conversation-container {
+    display: none;
+}
+/* --CONVERSATION-CONTAINER-END-- */
+
+.pp-text-link-user {
+    color: white !important;
+}
+.pp-text-link-admin {
+    color: #455A64 !important;
+}
+.pp-container .pp-box-sizing {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+.pp-container .pp-box-sizing-borderbox {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+.pp-p-no-margin {
+    -webkit-margin-before: 0em !important;
+    -webkit-margin-after: 0em !important;
+    -webkit-margin-start: 0px !important;
+    -webkit-margin-end: 0px !important;
+}
+.pp-fixme {
+    clear: both;
+}
+.pp-selectable {
+    -o-user-select: text;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
+}
+.pp-unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
+    /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
+}
+.pp-launcher-icon {
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:50px;
+    height:50px;
+    max-width: 50px;
+    border-radius:25px;
+    box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.23);
+}
+.pp-launcher-icon:hover {
+    cursor:pointer
+}
+.pp-sheet-header {
+    z-index: 2147483002;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+    background: white;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 48px;
+}
+.pp-sheet-header-title-container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -moz-text-align-last: center;
+    text-align-last: center;
+}
+.pp-container .pp-sheet-header-title {
+    font-size: 16px;
+    line-height: 48px;
+    font-weight: 500;
+    color: #465C66;
+    letter-spacing: 0.2px;
+    display: inline-block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+}
+.pp-sheet-header-button{
+    position: relative;
+    margin: 0 20px;
+    height: 48px;
+    float: right;
+    margin-left: 15px;
+}
+.pp-sheet-header-button-minimize-container {
+    position: relative;
+    margin: 0 0 0 0;
+    height: 48px;
+    width: 48px;
+    float: right;
+    cursor: pointer;
+}
+.pp-sheet-header-button:hover{
+    cursor:pointer
+}
+.pp-sheet-header-minimize-button-icon{
+    height: 100%;
+    background-position: center center;
+    width: 16px;
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    height:48px;
+    position:relative;
+    margin:auto;
+}
+
+.pp-sheet-header .title-container {
+    display: inline-block;
+}
+
+.pp-sheet-header .clickable {
+    cursor: pointer;
+}
+
+.pp-sheet-header .down-icon {
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    margin-left: 5px;
+    width: 10px;
+}
+
+/* GROUP-BEGIN */
+.pp-container .pp-group-content-container {
+    box-sizing: border-box;
+    display: none;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 48px;
+    overflow-y: auto;
+    top: 48px; }
+
+.pp-group-item {
+    padding-top: 17px;
+    padding-left: 17px;
+    cursor: pointer;
+}
+
+.pp-group-item * {
+    cursor: pointer;
+}
+
+.pp-group-item img {
+    border-radius: 50%;
+    float: left;
+    margin-top: 5px;
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+}
+
+.pp-group-item .body-container {
+    margin-left: 55px;
+    padding-right: 17px;
+    border-bottom: 1px solid #e7e7e7;
+    height: 65px;
+}
+
+.pp-group-item .pp-body {
+    
+}
+
+.pp-group-item .pp-header {
+    margin-bottom: 5px;
+}
+
+.pp-group-item .pp-timestamp {
+    float: right;
+    font-size: 12px;
+    line-height: 20px;
+    color: #aaa;
+    width: 50px;
+    text-align: right;
+}
+
+.pp-group-item .title-container {
+    margin: 0 50px 0 0;
+}
+
+.pp-group-item .pp-title {
+    color: rgba(96,104,110,.8);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pp-group-item .pp-summary {
+    color: rgba(96,104,110,.8);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    padding-right: 17px;
+    word-break: break-word;
+}
+
+.pp-group-item .pp-content {
+    line-height: 19px;
+}
+
+.pp-group-item .pp-unread {
+    color: #3d4347;
+    font-weight: 500;
+}
+
+.pp-group-item .readstate {
+    background-color: red;
+    border-radius: 50%;
+    bottom: 27px;
+    color: white;
+    display: none;
+    font-size: 12px;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 6px;
+}
+
+.pp-group-item-hover {
+    background-color: #f5f5f6;
+}
+
+/* GROUP-END */
+
+.pp-sheet-header .pp-sheet-conversations-button {
+  float: left;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  margin: 0 20px;
+  height: 100%; }
+.pp-sheet-header .pp-sheet-header-button-icon {
+  background-size: 15px 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  width: 18px;
+  height: 100%;
+  opacity: .4;
+  float: left; }
+.pp-sheet-header .pp-unread-count {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  font-size: 11px;
+  line-height: 16px;
+  background-color: #0074b0;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 11px;
+  left: 11px;
+  cursor: pointer;
+  display: none; }
+
+.pp-relative-time {
+    cursor: pointer;
+}
+.pp-emoji-selector {
+    background-color:white;
+    width:324px;
+    height:257px;
+    float:right;
+    margin-right:16px;
+    border-radius: 3px;
+    border: 1px #D0D4D8 solid;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+}
+.pp-emoji-selector-triangle {
+    right: 25px;
+    border: solid transparent;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(170, 170, 170, 0);
+    border-top-color: #aaaaaa;
+    border-width: 8px;
+    z-index: 2147483646;
+}
+.pp-emoji-selector-triangle-mask {
+    right: 25px;
+    border: solid transparent;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(170, 170, 170, 0);
+    border-top-color: #FFF;
+    margin-top:-1px;
+    border-width: 8px;
+    z-index: 2147483646;
+}
+.pp-container .pp-emoji-selector-panel-header{
+    background-color:white;
+    height:35px;
+    width:100%;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.pp-emoji-selector-panel-header span {
+    line-height: 30px;
+    width:45px;
+    margin-top:5px;
+    text-align:center;
+    display:inline-block;
+    border-radius:3px 3px 0px 0px;
+    cursor:pointer;
+    margin-right:5px;    
+}
+
+.pp-emoji-selector-panel-header span.active {
+    box-shadow: 0 -1px 3px 0 rgba(0,0,0,.1);
+    background-color: #FFF;
+}
+
+.pp-emoji-selector-content {
+    box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
+    background-color: white;
+    height: 212px;
+    width: 314px;
+    overflow-y: auto;
+    display: block;
+    border-radius: 0px 0px 3px 3px;
+    position:relative;
+    left:0px;
+    top:0px;
+    padding:5px;
+}
+
+.pp-container .pp-emoji-selector-content span {
+    margin: 6px 6px 6px 6px;
+    width: 30px;
+    line-height:30px;
+    display:inline-table;
+    text-align:center;
+    cursor:pointer;
+    text-align:center;
+    font-size:21px;
+}
+
+.pp-emoji-selector-sibling {
+    background-color:transparent;
+    overflow:hidden;
+    height:259px;
+}
+.pp-messenger-panel {
+    position:fixed;
+    width:368px;
+    height: 100%;
+    position: fixed;
+    right:0;
+    top:0;
+    bottom:0;
+    border-left: 1px solid #e7e7e7;
+    z-index:2147483646;
+    box-shadow: 0 0 4px 1px rgba(0,0,0,.08);
+}
+.pp-messenger-box-container {
+}
+
+.pp-container .pp-launcher-badge {
+    position:absolute;
+    right:-7px;
+    top:0;
+    border-radius:50%;
+    font-size:12px;
+    line-height:18px;
+    background-color:#ff3c00;
+    text-align:center;
+    color:white;
+    width:18px;
+    height:18px;
+    cursor:pointer;
+    opacity:1;
+    display:block;
+    visibility: visible;
+}
+.pp-launcher-button {
+    /* background-size: 22px 22px; */
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    background-position: center;
+    border-color: #004c88;
+    box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.23);
+}
+.pp-launcher-button-container {
+    width: 48px;
+    height: 48px;
+}
+.pp-launcher-button-container-inactive {
+    transition: opacity,.1s;
+    opacity: 0;
+    visibility: hidden;
+}
+.pp-launcher-button-container-active {
+    opacity: 1;
+    visibility: visible;
+}
+.pp-launcher-button-minimized {
+    -webkit-animation: pp-launcher-minimize .1s linear 0s both;
+    animation: pp-launcher-minimize .1s linear 0s both;
+    transition: background-image 0s linear .1s;
+}
+.pp-launcher-button-maximize {
+    -webkit-animation: pp-launcher-maximize .1s linear 0s both;
+    animation: pp-launcher-maximize .1s linear 0s both;
+}
+.pp-launcher-button-inactive {
+    visibility: hidden;
+}
+
+.pp-launcher-container {
+    position: fixed;
+    height: 48px;
+    z-index: 2147483646;
+}
+
+/* --LOADING-BEGIN- */
+
+.pp-loading {
+    box-sizing: border-box;
+    display: none;
+  height: 100%;
+  margin: 0 auto;
+  top: 48px; }
+
+.pp-loading-spinner {
+    width:28px;
+    height:28px;
+    background-size:28px 28px;
+    background-repeat:no-repeat;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-14px;
+    animation:loading 1s linear 0s infinite both;
+    -o-animation:loading 1s linear 0s infinite both;
+    -moz-animation:loading 1s linear 0s infinite both;
+    -webkit-animation:loading 1s linear 0s infinite both;
+}
+
+/* --LOADING--END- */
+
+@-webkit-keyframes loading { 100% {-webkit-transform: rotate(360deg); transform: rotate(360deg);} }
+@-moz-keyframes loading { 100% {-webkit-transform: rotate(360deg); transform: rotate(360deg);} }
+@-o-keyframes loading { 100% {-webkit-transform: rotate(360deg); transform: rotate(360deg);} }
+@keyframes loading {100% {-webkit-transform: rotate(360deg); transform: rotate(360deg);} }
+
+@-webkit-keyframes pp-launcher-minimize {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+@-keyframes pp-launcher-minimize {
+    0% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+}
+@-webkit-keyframes pp-launcher-maximize {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-keyframes pp-launcher-maximize {
+    0% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.pp-conversation-content-maximize {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    transform-origin: bottom right;
+    transition: opacity .1s linear .15s,-webkit-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out,opacity .1s linear .15s;
+    transition: transform .25s ease-in-out,opacity .1s linear .15s,-webkit-transform .25s ease-in-out;
+}
+
+.pp-conversation-sheet-minimized {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: bottom right;
+    -ms-transform-origin: bottom right;
+    transform-origin: bottom right;
+    transition: opacity .1s linear,visibility 0s linear .25s,-webkit-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out,opacity .1s linear,visibility 0s linear .25s;
+    transition: transform .25s ease-in-out,opacity .1s linear,visibility 0s linear .25s,-webkit-transform .25s ease-in-out;
+}
+
+.pp-composer {
+    position: relative;
+    max-width: 336px;
+    margin: 0 auto;
+}
+
+.pp-composer-container-action-btn {
+    background-position: center;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    top: 5px;
+    margin: 0 2px 0 0;
+    padding: 5px;
+    opacity: .4;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+}
+
+.pp-composer-container-emoji-btn {
+    display: inline;
+    margin-right: 2px;
+}
+.pp-composer-container-tools-container {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+}
+.pp-composer-container-warning {
+    bottom: 60px;
+    /* position: absolute; */
+    background: transparent;
+    width: 100%;
+    text-align:center;
+}
+
+.pp-composer-container-form {
+    margin-bottom: 0em !important;
+    padding: 0px !important;
+    float: right;
+    width: 100%;
+}
+
+.pp-container .pp-composer-container-warning-span {
+    font-size:14px;
+    color: red;
+}
+
+.pp-container .pp-composer-container-textarea {
+    line-height: 20px;
+    border-radius: 4px;
+    border: 1px solid #cfd8dc;
+    height: 100%;
+    width: 100%;
+    outline: none !important;
+    color: #455A64;
+    resize: none;
+    font-size: 14px;
+    padding: 10px 70px 5px 14px;
+    word-break: break-all;
+    overflow: hidden;
+    max-height: 210px;
+    min-height: 40px;
+}
+
+/** apply to IE browser only to fix problem: textarea cursor not vertical allign**/
+.pp-composer-container-textarea-min-height {
+    /* min-height: 34px !important; */
+}
+
+.pp-composer-container-powered-by-container {
+    padding: 2px;
+}
+
+.pp-container .pp-conversation-part-pulltorefreshbutton {
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+}
+
+.pp-composer-container-input {
+    display: none !important;
+}
+
+.pp-container .pp-powered-by {
+    width: 100%;
+    color: #b0bec5;
+    text-align: center;
+    clear: both;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 7px;
+    font-size: 13px;
+}
+
+.pp-powered-by a {
+    text-align:center;
+    cursor:pointer;
+    color:inherit;
+    text-decoration:none;
+}
+
+.pp-powered-by u {
+    text-decoration: underline !important;
+}
+
+.pp-container .pp-powered-by-span {
+    color: #b6c2c9;
+    float: none;
+    font-size: 13px;
+    margin-left: 0px;
+}
+
+.pp-conversation-part {
+    margin-bottom: 16px;
+}
+
+.pp-conversation-part-welcome-outer-1 {
+    display:block;
+    margin-bottom:16px;
+}
+
+.pp-conversation-part-welcome-outer-2 {
+    border-top:0px;
+    border-bottom: 1px solid #e4e5e7;
+    /* border-image: linear-gradient(to right, #edf0f2, #d9dfe3 18%, #d9dfe3 82%, #edf0f2) 1; */
+    padding: 0 20px 20px;
+}
+
+.pp-conversation-part-welcome-icon {
+    bacground-size:28px 28px;
+    background-repeat:no-repeat;
+    width:28px;
+    height:28px;
+    margin:0 auto 15px;
+}
+
+.pp-container .pp-conversation-part-welcome-body {
+    font-weight:400;
+    font-size:14px;
+    color: #90A4AE;
+    line-height: 18px;
+    text-align: center;
+    display:block;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+}
+
+.pp-conversation-content {
+    bottom: 1px;
+    overflow-y: auto;
+    position: absolute;
+    top: 48px;
+    bottom: 79px;
+    right: 0;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+
+    transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);
+    transition-duration: 0ms;
+    -webkit-transition-duration: 0ms;
+    transform: translate(0px, 0px) translateZ(0px);
+}
+
+.pp-conversation-part-text-by-admin-outer {
+    text-align:left;
+    margin-bottom:16px;
+    clear: both;
+}
+.pp-conversation-part-text-by-admin-outer-2 {
+    position:relative;
+    width:100%;
+}
+.pp-conversation-part-text-by-admin-avatar {
+    margin-right:5px;
+    border-radius:50%;
+    width:28px;
+    height:28px;
+    float:left;
+    position:relative;
+    overflow:hidden;
+}
+.pp-conversation-part-text-by-admin-outer-3 {
+    position:relative;
+}
+.pp-conversation-part-text-by-admin-body-container {
+    border-color: #dadee2;
+    border-radius:4px;
+    border-width:1px;
+    border-style:solid;
+    position:relative;
+    max-width:80%;
+    display: inline-block;
+    background-color:white;
+    color:#455A64;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    top: 3px;
+}
+.pp-container .pp-conversation-part-serve-name {
+    font-size:12px; color:#455A64; text-align:left;
+}
+.pp-container .pp-conversation-part-text-by-admin-body {
+    font-size:14px; font-weight:400; line-height:20px; padding:12px 17px; text-align:left; word-break:break-all; white-space: pre-wrap;
+}
+.pp-conversation-part-text-by-admin-triangle {
+    width:0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-right: 4px solid #dadee2; position:relative; float:left; margin-top:10px; margin-right:-1px; top: 3px;
+}
+.pp-container .pp-conversation-part-text-by-admin-timestamp-container {
+    font-size:12px; line-height:20px; color:#c9cbcf; position:relative; top:0; display:inline-block;
+}
+
+/*
+ * PPConversationPartEmojiByAdmin
+ */
+.pp-conversation-part-emoji-by-admin-outer {
+    text-align:right;
+    margin-bottom:16px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.pp-conversation-part-emoji-by-admin-avatar {
+    margin-right:7px;
+    border-radius:50%;
+    width:28px;
+    height:28px;
+    float:left;
+    position:relative;
+}
+.pp-conversation-part-emoji-by-admin-body-container {
+    float: left;
+    position: relative;
+}
+.pp-container .pp-conversation-part-emoji-by-admin-body {
+    font-size:96px;
+    line-height:1.1;
+    float:left;
+    position:relative;
+    margin-top: 5px;
+}
+.pp-container .pp-conversation-part-emoji-by-admin-timestamp {
+    font-size: 12px;
+    line-height: 20px;
+    color: #c9cbcf;
+    clear: both;
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+
+/*
+ * PPConversationPartImageByUser
+ */
+.pp-conversation-part-image-by-user {
+    text-align:right; margin-bottom: 16px; 
+}
+.pp-conversation-part-image-by-user-o {
+    text-align:right; margin-bottom: 16px; position: relative; overflow:hidden; clear: both;
+}
+.pp-conversation-part-image-by-user-img {
+    cursor:pointer;
+    border-radius:4px;
+    margin:0;
+    padding:0px;
+    right:0;
+    max-width:242px;
+    float:right;
+    margin-bottom: 5px;
+}
+.pp-container .pp-conversation-part-image-by-user-timestamp {
+    position:relative; float:right; font-size:12px; line-height:20px; color:#c9cbcf; clear:both;
+}
+
+/*
+ * PPConversationPartImageByAdmin
+ */
+.pp-conversation-part-image-by-admin-o {
+    text-align:right; margin-bottom:16px; clear: both;
+}
+.pp-conversation-part-image-by-admin-o1 {
+    position:relative; width:100%;
+}
+.pp-conversation-part-image-by-admin-avatar {
+    margin-right:7px; border-radius:50%; width:28px; height:28px; float:left; position:relative; overflow:hidden;
+}
+.pp-conversation-part-image-by-admin-o2 {
+    overflow:hidden; position:relative;
+}
+.pp-conversation-part-image-by-admin-o3 {
+    overflow:hidden;
+}
+.pp-conversation-part-image-by-admin-o4 {
+    max-width:242px; float:left; position:relative;
+}
+.pp-conversation-part-image-by-admin-img {
+    cursor:pointer; border-radius:4px; margin:3px 0 0 0; padding:0px; width:100%;
+}
+.pp-container .pp-conversation-part-image-by-admin-timestamp-container {
+    position:relative; float:left; font-size:12px; line-height:20px; color:#c9cbcf;
+}
+
+/*
+ * pp-conversation-part-file-by-admin
+ */
+.pp-conversation-part-file-by-admin-outer {
+    text-align:right; margin-bottom:16px; clear: both;
+}
+.pp-conversation-part-file-by-admin-outer-2 {
+    position:relative; width:100%;
+}
+.pp-conversation-part-file-by-admin-avatar {
+    margin-right:7px; border-radius:50%; width:28px; height:28px; float:left; position:relative; overflow:hidden;
+}
+.pp-conversation-part-file-by-admin-outer-3 {
+    overflow:hidden; position:relative;
+}
+.pp-conversation-part-file-by-admin-outer-4 {
+    max-width:80%; float:left; position:relative; margin-top:3px;
+}
+.pp-conversation-part-file-by-admin-outer-5 {
+    display:block; background-color:#0071b2; border-radius:4px; border-width:1px; border-style:solid; padding:5px; overflow:hidden;
+}
+.pp-conversation-part-file-by-admin-upload-icon {
+    position:relative;
+    float:left;
+    width:32px;
+    height:32px;
+    background-size:16px 15px;
+    background-position:center;
+    background-repeat:no-repeat;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+.pp-conversation-part-file-by-admin-outer-6 {
+    /* float:left; */
+    vertical-align: middle;
+    margin: 5px 10px 0px 10px;
+    overflow: hidden;
+}
+.pp-container .pp-conversation-part-file-by-admin-file-link {
+    font-size:14px;
+    font-weight:400;
+    line-height:20px;
+    position:relative;
+    float:left;
+    color:white;
+    text-decoration:underline;
+    cursor:pointer;
+    overflow: hidden;
+    word-break: break-all;
+    max-height: 20px;
+    margin-left: 5px;
+}
+.pp-container .pp-conversation-part-file-by-admin-timestamp-container {
+    position:relative; float:left; font-size:12px; line-height:20px; color:#c9cbcf;
+}
+
+/*
+ * pp-conversation-part-file-by-user
+ */
+.pp-conversation-part-file-by-user-o {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* padding-bottom: 16px; */
+}
+.pp-conversation-part-file-by-user-o2 {
+    float: right;
+    padding: 5px;
+    background-color:#0071b2;
+    border-radius:4px;
+    border-width:1px;
+    border-style:solid;
+    margin-bottom: 5px;
+    max-width: 80%;
+}
+
+.pp-conversation-part-file-by-user-upload-icon {
+    float:left;
+    width:32px;
+    height:32px;
+    background-size:16px 15px;
+    background-position:center;
+    background-repeat:no-repeat;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pp-conversation-part-file-by-user-link-container {
+    /* float:left; */
+    /* max-width: 80%; */
+    max-height: 20px;
+    overflow: hidden;
+    margin: 5px 5px 0 32px;
+}
+
+.pp-container .pp-conversation-part-file-by-user a {
+    color:white;
+    font-size:14px;
+    font-weight:400;
+    line-height:20px;
+    text-decoration:underline;
+    word-break: break-all;
+    margin: 5px 5px 0 10px;
+}
+
+.pp-container .pp-conversation-part-file-by-user-timestamp {
+    font-size:12px;
+    line-height:20px;
+    color:#c9cbcf;
+    clear: both;
+    text-align: right;
+}
+
+.pp-conversation-part-center {
+    display: table;
+    margin: 0 auto 10px;
+}
+.pp-container .pp-conversation-part-timestamp-time {
+    background-color: #cecece;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/*
+ * pp-uploading-bar
+ */
+.pp-uploading-bar {
+    border-radius: 4px; position: relative; display: inline-block; width: 50px; height: 6px; border: 1px solid #ccc; vertical-align: middle; background-color: #fff; margin: 0px 5px;
+}
+.pp-uploading-bar-state {
+    transition: width 0.4s; border-radius: 3px; background-color: #0071b2; position: absolute; top: 0; left: 0; bottom: 0;
+}
+.pp-uploading-bar-remove {
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    opacity: .8;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    right: -22px;
+    top: 2px;
+}
+.pp-container .pp-uploading-bar-outer {
+    color: #c9cbcf;
+    font-size: 14px;
+    display: block;
+    float: right;
+}
+
+/*
+ * pp-launcher-preview
+ */
+.pp-launcher-preview-outer {
+    height: 100px;
+    max-width: 274px;
+    float: right;
+    margin-right: 52px;
+    width: 100%;
+    position: relative;
+    margin-top: -60px;
+}
+.pp-launcher-preview-outer-2 {
+    padding: 10px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+.pp-launcher-preview-outer-3 {
+    border-radius: 10px;
+    background: white;
+    padding: 13px;
+    position:relative;
+    box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.23);
+}
+.pp-launcher-preview-close {
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-top: -20px;
+    margin-left: -20px;
+    display: none;
+}
+.pp-launcher-preview {
+    position: relative;
+}
+.pp-launcher-preview-p-outer {
+    overflow: hidden;
+    max-height: 37px;
+    min-height: 18px;
+}
+.pp-launcher-preview-p {
+    word-break: break-all;
+    line-height: 19px;
+    color: #333333;
+}
+.pp-launcher-preview-triangle-container {
+    float: right;
+    margin-right: -15px;
+    position: relative;
+}
+.pp-launcher-preview-triangle {
+    width: 0; 
+	height: 0; 
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 7px solid white;
+    /* Browser compatibility : http://caniuse.com/#feat=calc*/
+    margin-left: calc(100% - 12px);
+    margin-top: 18px;
+}
+
+/*
+ * pp-no-conversations
+ */
+.pp-no-conversations-icon {
+    background-size:79px 59px;
+    background-repeat: no-repeat;
+    display:block;
+    width:79px;
+    height:59px;
+    margin:0 auto 10px auto;
+}
+
+.pp-container .pp-no-conversations-p {
+    color: #CDCFD2;
+    width: 96px;
+    margin: auto;
+    font-size: 16px;
+    text-align: center;
+}
+
+.pp-no-conversations {
+    margin-top: 200px;
+}
+
+.pp-composer-container {
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 5px;
+}
+
+.pp-composer-send-button {
+    border-radius: 4px;
+    margin-left: 8px;
+    height: 40px;
+    float: right;
+    text-decoration: none;
+    padding: 0 9px;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    background: #CCCCCC;
+}
+
+.pp-composer-send-button p {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+/* .pp-composer-send-button:enabled { */
+/*     box-shadow: inset 0 1px 0px 0 rgba(255, 255, 255, 0.17); */
+/*     background: #0074b0; */
+/*     background-image: linear-gradient(to bottom, #1488c4, #0074b0); */
+/*     border-radius: 3px; */
+/* } */
+
+/* .pp-composer-send-button:hover { */
+/*     box-shadow: inset 0 1px 0px 0 rgba(255, 255, 255, 0.17); */
+/*     background: #0074b0; */
+/*     border-radius: 3px; */
+/* } */
+
+/* .pp-composer-send-button:disabled { */
+/*     box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.11), inset 0px 0px 1px 1px rgba(255, 255, 255, 0.08); */
+/*     background: #acbbc2; */
+/*     background-image: linear-gradient(to bottom, #b6c5cb, #acbbc2); */
+/*     border-color: #a0aeb4; */
+/* } */
+
+/* -----------------------
+ * AppProfileContainer -- 团队欢迎信息
+ * -----------------------
+ */
+.pp-app-profile-container {
+    padding: 16px 16px 0;
+}
+.pp-app-profile {
+    padding: 20px 12px 26px 12px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.pp-active-admins {
+    text-align: center;
+    color: #364850;
+    padding-top: 24px;
+}
+.pp-container .pp-app-profile-text {
+    padding: 14px 30px 0px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #455A64;
+    line-height: 20px;
+    font-size: 13px;
+    color: #78909C;
+    line-height: 19px;
+}
+.pp-container .pp-app-profile-team {
+    text-align: center;
+    color: #455a64;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.pp-active-admin {
+    display: inline-block;
+}
+.pp-admin-avatar {
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.pp-admin-avatar img {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.pp-active-admin .state {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.pp-active-admin .online {
+    color: #A6D84F;
+}
+
+.pp-active-admin .offline {
+    color: #F90;
+}
+
+.pp-container .pp-active-admin-name {
+    font-size: 12px;
+    color: #90A4AE;
+    text-align: center;
+    padding-top: 7px;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* -----------------------
+ * HoverCard
+ * -----------------------
+ */
+.pp-launcher-hovercard {
+    background-color: #fafafb;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    width: 340px;
+    position: absolute;
+    bottom: 64px;
+    right: -5px;
+}
+
+.pp-launcher-hovercard-welcome {
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #dfe0e1;
+    box-shadow: 0 1px 1px #f0f0f1;
+    padding: 26px 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pp-launcher-hovercard-close {
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+    top: -30px;
+    right: -1px;
+    border-radius: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,.12);
+    padding: 6px 10px 5px 22px;
+    font-size: 12px;
+    color: #fff;
+    background-position: 10px center;
+    line-height: 12px;
+    background-size: 8px 8px;
+    background-repeat: no-repeat;
+}
+
+.pp-launcher-hovercard-textarea {
+    padding: 18px 16px;
+    font-size: 16px;
+    border-radius: 0 0 5px 5px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.pp-container .pp-launcher-hovercard-textarea-textarea {
+    width: 100%;
+    height: 42px;
+    background-color: #fff;
+    font-weight: 400;
+    color: #455a64;
+    resize: none;
+    border: 1px solid #cfd8dc;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 70px 5px 14px;
+    border-radius: 4px;
+    outline: none;
+}
+.pp-container .pp-textarea-focus {
+    border-color: #74BEFF;
+    box-shadow: 0px 0px 4px 0px rgba(75, 171, 255, 0.38);
+}
+.pp-launcher-hovercard-admins {
+    width: 107px;
+    position: relative;
+    float: left;
+    height: 50px;
+    padding-bottom: 35px;
+    cursor: pointer;
+    text-align: center;
+}
+.pp-launcher-hovercard-text {
+    float: right;
+    width: 174px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    cursor: pointer;
+}
+.pp-container .pp-launcher-hovercard-app-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #37474f;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+.pp-container .pp-launcher-hovercard-welcome-text {
+    font-size: 12px;
+    color: #78909c;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.pp-launcher-hovercard:after, .pp-launcher-hovercard:before {
+                                  top: 100%;
+                                  right: 20px;
+                                  border: solid transparent;
+                                  content: " ";
+                                  height: 0;
+                                  width: 0;
+                                  position: absolute;
+                                  pointer-events: none;
+                              }
+
+.pp-launcher-hovercard:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-top-color: rgba(0, 0, 0, 0.14);
+    border-width: 9px;
+    margin-left: -6px;
+}
+
+.pp-launcher-hovercard:after {
+    border-color: rgba(250, 250, 251, 0);
+    border-top-color: #fafafb;
+    border-width: 8px;
+    margin-left: -5px;
+    right: 21px;
+}
+
+.pp-launcher-hovercard .groups-header {
+    margin: 30 auto 20 auto;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+}
+
+.pp-launcher-hovercard .groups-footer
+{
+    margin: 30 auto;
+    text-align: center;
+    clear: both;
+    color: #989494;
+}
+
+.pp-launcher-hovercard .groups-body {
+    width: 290px;
+    margin: 10 auto;
+}
+
+.pp-launcher-hovercard .groups-body .item {
+    background-color: #F3F3F3;
+    border: 1px solid #FBF0F0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px #E6E3E3;
+    clear: both;
+    cursor: pointer;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 5 5 5 15px;
+}
+
+.pp-launcher-hovercard .groups-body .left {
+    float: left;
+    width: 50px;
+}
+
+.pp-launcher-hovercard .groups-body .img-container {
+    display: inline-block;
+    margin-left: -22px;
+    position: relative;
+}
+
+.pp-launcher-hovercard .groups-body .img-container:first-child {
+    margin-left: 0px;
+}
+
+.pp-launcher-hovercard .groups-body .right {
+    float: left;
+    margin-left: 10px;
+}
+
+.pp-launcher-hovercard .group-name {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #3E3C3C;
+}
+
+.pp-launcher-hovercard .online-time {
+    font-size: 14px;
+    margin-top: 5px;
+    color: gray;
+}
+
+.pp-launcher-hovercard img {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.pp-launcher-admin-avatar {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    cursor: pointer;
+    margin-left: -22px;
+}
+
+.pp-launcher-admin-avatar:first-child {
+    margin-left: 0px;
+}
+
+.pp-launcher-admin-avatar img {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+/** http://codepen.io/dudleystorey/pen/DcBIH **/
+.pp-container img.grayscale {
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+/* ImageViewer Begin */
+#pp-container .pp-image-viewable {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+#pp-container .pp-image-viewer-overlay {
+    z-index: 2147483647;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+    opacity: 0;
+}
+
+#pp-container .pp-zoomed-image {
+    z-index: 2147483648;
+    position: fixed;
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+    transition: all .3s ease;
+}
+/* ImageViewer End */

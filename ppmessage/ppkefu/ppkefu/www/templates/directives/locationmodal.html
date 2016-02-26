@@ -1,0 +1,11 @@
+<script id="location-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-dark" no-tap-scroll="true">
+      <button class="button button-icon icon ion-ios-close-outline" ng-click="closeModal()"></button>
+      <h1 class="title" >{{ location.address }}</h1>
+    </ion-header-bar>
+    <ion-content has-header="true" scroll="false">
+      <yv-view-position position="location.position" ng-if="showViewPosition"></yv-view-position>
+    </ion-content>
+  </ion-modal-view>
+</script>

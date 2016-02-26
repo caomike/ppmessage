@@ -1,0 +1,14 @@
+.pp-container .pp-conversation-part-emoji-by-user {
+    position:relative; top:0; font-size:12px; line-height:20px; color:#c9cbcf; margin-right:6px;
+}
+
+.pp-container .pp-conversation-part-emoji-by-user .pp-emoji-container {
+    text-align:right; margin-bottom:16px;
+}
+
+.pp-container .pp-conversation-part-emoji-by-user .pp-emoji {
+    display:block;
+    font-size:96px;
+    line-height:1.1;
+    text-align: right;
+}

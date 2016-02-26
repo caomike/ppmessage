@@ -1,0 +1,29 @@
+<div class="yv-chat-tool yv-top-background" ng-style="getToolbarBottom()" ng-class="getPlatformClass()">
+  <div class="inner">
+    <button class="button button-icon ion-ios-mic-outline yv-mic-button" ng-click="selectToSound($event)"></button>
+    
+    <div class="yv-textarea-outer">
+      <textarea class="yv-dynamic-height" rows="1" form="upload_txt" name="content_txt" ng-model="textarea.text"
+                ng-focus="focusToText()" ng-keypress="onKeyPress($event)">
+      </textarea>
+    </div>
+    
+    <button class="button button-balanced yv-send-button" ng-click="prepareText($event)" ng-if="textarea.text.length">
+      {{ 'app.messageThread.SEND' | translate }}
+    </button>
+    
+    <button class="button button-icon ion-ios-plus-outline yv-plus-button" ng-click="selectToAdd($event)"
+            ng-if="!textarea.text.length">
+    </button>
+  </div>
+  
+  <form id="upload_txt" action="/ppkefu/upload/" method="post" enctype="multipart/form-data" target="uploadframe">
+    <input type="hidden" name="upload_type" value="content_txt">
+    <iframe id="iframe_txt" name="uploadframe" style="display: none;"></iframe>
+  </form>
+  
+</div>
+
+<yv-big-mic-button ng-if="showMicButton()"></yv-big-mic-button>
+
+<yv-adding-button ng-style="getAddPageStyle()" ng-if="showAddingButton()"></yv-adding-button>

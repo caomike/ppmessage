@@ -1,0 +1,287 @@
+.yv-chat-content {
+    background-color: $stable;
+    
+    &.valid{
+        background-color: $chat-content-color;
+    }
+    
+    .yv-chat-list {
+        padding-top: 15px;
+    }
+
+}
+
+.yv-chat-item {
+    padding: 0px;
+    background-color: transparent;
+    border-width: 0px;
+    position: static;
+    
+    .yv-chat-body {
+        margin: 0px 0px 30px 0px;
+        line-height: 1.2;
+        position: relative;
+    }
+
+    .yv-chat-mouth-outer {
+        position: absolute;
+        top: 12px;
+        border-bottom: 6px solid transparent;
+        border-top: 6px solid transparent;
+    }
+    
+    .yv-chat-mouth-inner {
+        position: absolute;
+        top: 13px;
+        border-bottom: 5px solid transparent;
+        border-top: 5px solid transparent;
+    }
+
+    .yv-chat-icon {
+        @extend .icon-40-raw;
+        border: solid 1px #ddd;
+        margin: 0px 10px;
+        cursor: pointer;
+    }
+
+    .yv-chat-alert {
+        position: absolute;
+        left: -25px;
+        color: red;
+        font-size: 20px;
+    }
+
+    .yv-chat-timestamp {
+        text-align: center;
+        margin: 15px 0px;
+        
+        >span {
+            color: white;
+            background-color: #cecece;
+            padding: 4px;
+        }
+    }
+    
+}
+
+.yv-chat-body, .yv-chat-text, .yv-chat-audio, .yv-chat-image,
+.yv-chat-image > img, .yv-chat-location, .yv-chat-location > img,
+.yv-chat-file, .file-inner, .upload-progress-outer, .upload-progress-inner,
+.yv-chat-timestamp > span {
+    border-radius: 4px;
+}
+
+
+.yv-chat-body {   
+    .yv-chat-text {
+        line-height: 1.6;
+        padding: $bubble-padding;
+    }
+
+    .yv-chat-audio-outer {
+        cursor: pointer;
+        
+        .yv-chat-audio {
+            line-height: 1.6;
+            position: static;
+            padding: $bubble-padding;
+            
+            >img {
+                height: 20px;
+                vertical-align: middle;
+            }
+        }
+    }
+    
+    .yv-chat-image {
+        height: 150px;
+        min-width: 1px;
+        line-height: 0;
+        overflow: hidden;
+        background-color: transparent;
+        
+        >img {
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+    
+    .yv-chat-location {
+        cursor: pointer;
+        background-color: transparent;
+                
+        .yv-address {
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            right: -1px;
+            padding: 0px 5px 3px;
+            background: rgba(0,0,0,0.75);
+            text-align: left;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            
+            >p.address {
+                color: white;
+                margin: 5px 0px;
+                white-space: pre-wrap;
+                min-height: 16px;
+            }
+        }
+    }
+    
+    .yv-chat-file {
+        .file-inner {
+            border: none;
+            cursor: pointer;
+            margin: 0;
+            
+            >img {
+                border-radius: 0 !important;
+            }
+            
+            .upload-progress-outer {
+                height: 10px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: darkgrey;
+            
+                .upload-progress-inner {
+                    width: 50%;
+                    height: 10px;
+                    background-color: seagreen;
+                }
+
+                .cancel-upload {
+                    right: 0;
+                    bottom: -4px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+    
+}
+
+.yv-mobile {
+    .yv-chat-text, .yv-chat-file, .yv-chat-image > img {
+        max-width: $mobile-bubble-max-width;
+        @include respond-to(xxsmall) {max-width: $mobile-bubble-max-width-xxs};
+        @include respond-to(xsmall) {max-width: $mobile-bubble-max-width-xs};
+        @include respond-to(small) {max-width: $mobile-bubble-max-width-s};
+        @include respond-to(xxmedium) {max-width: $mobile-bubble-max-width-xxm};
+        @include respond-to(xmedium) {max-width: $mobile-bubble-max-width-xm};
+        @include respond-to(medium) {max-width: $mobile-bubble-max-width-m};
+        @include respond-to(large) {max-width: $mobile-bubble-max-width-l};
+    }
+    
+    .yv-chat-location {
+        min-width: $mobile-bubble-max-width;
+        min-height: 100px;
+        
+        >img {
+            max-width: $mobile-bubble-max-width;
+        }
+    }
+}
+
+.yv-pc { 
+    .yv-chat-text {
+        max-width: 2 * $pc-bubble-max-width;
+    }
+    
+    .yv-chat-file, .yv-chat-image > img {
+        max-width: $pc-bubble-max-width;
+    }
+    
+    .yv-chat-location {
+        min-width: $pc-bubble-max-width;
+        min-height: 176px;
+        
+        >img {
+            max-width: $pc-bubble-max-width;
+        }
+    }
+}
+
+.yv-left {
+    .yv-chat-body {
+        border: solid 1px #ddd;
+    }
+    
+    .yv-chat-mouth-outer {
+        left: -6px;
+        border-right: 6px solid #ddd;                
+    }
+        
+    .yv-chat-mouth-inner {
+        left: -5px;
+        border-right: 6px solid $left-color;                
+    }
+    
+    .yv-chat-icon, .yv-chat-body {
+        float: left;
+    }
+    
+    .yv-chat-text, .yv-chat-file, .yv-chat-audio {
+        @include left-bubble;
+    }
+    
+    .yv-chat-audio {
+        margin: -1px;
+        
+        >img {
+            float: left;
+        }
+        
+        >p {
+            float: right;
+        }
+        
+        >i {
+            color: #ef4e3a;
+            position: absolute;
+            right: -20px;
+        }
+    }
+}
+
+.yv-right {
+    .yv-chat-body {
+        border: solid 1px transparent;
+    }
+    
+    .yv-chat-mouth-outer {
+        right: -6px;
+        border-left: 5px solid transparent;
+    }
+
+    .yv-chat-mouth-inner {
+        right: -5px;
+        border-left: 5px solid $right-color;            
+    }   
+
+    .yv-chat-icon, .yv-chat-body {
+        float: right;
+    }
+    
+    .yv-chat-text, .yv-chat-file, .yv-chat-audio {
+        @include right-bubble;
+    }
+    
+    .yv-chat-file {
+        border: solid 2px $right-color;
+    }
+    
+    .yv-chat-audio {
+        >img {
+            float: right;
+        }
+        
+        >p {
+            float: left;
+        }
+    }
+}

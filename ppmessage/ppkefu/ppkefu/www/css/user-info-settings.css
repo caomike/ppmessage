@@ -1,0 +1,123 @@
+/* this is for the directive yv-userinfo-settings */
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.yv-userinfo-settings {
+    display: block;
+    width: 220px;
+    height: 356px;
+    position: absolute;
+    z-index: 99;
+    transform: translate(40px, 10px);
+    animation: fade 0.5s;
+}
+
+.yv-userinfo-settings .userinfo-avatar {
+    display: block;
+}
+
+.yv-userinfo-settings .userinfo-avatar img {
+    border-radius:5px 5px 0px 0px;
+    display: block;
+    width: 220px;
+    height: 220px;
+}
+
+
+.yv-userinfo-settings .userinfo-profile {
+    padding: 20px;
+    min-height: 74px;
+    background-color: #FFF;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.yv-userinfo-settings .userinfo-profile .userinfo-nickname {
+    height: 28px;
+    width: 180px;
+    margin-bottom: 8px;
+    font-weight: 300;
+    font-size: 18px;
+    vertical-align: middle;
+    line-height: 28px;
+}
+
+.yv-userinfo-settings .userinfo-profile .userinfo-nickname input {
+    width: 170px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: 0px;
+}
+
+.yv-userinfo-settings .userinfo-profile .meta-area {
+    height: 60px;
+    width: 180px;
+}
+
+.yv-userinfo-settings .userinfo-profile .meta-area {
+    width: 100%;
+    color: #888;
+    height: 60px;   
+}
+
+.yv-userinfo-settings .userinfo-profile .meta-item label {
+    height: 100%;
+    width: 40px;
+    line-height: 20px;
+    font-size: 12px; 
+    float: left; 
+    margin-right: 10px;
+    text-align: right;
+}
+
+.yv-userinfo-settings .userinfo-profile .meta-item input {
+    color: #888;
+    font-size: 12px; 
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 0px;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    word-wrap: normal; 
+    width: 120px;
+    height: 20px;
+}
+.yv-userinfo-settings .userinfo-profile .meta-item input:focus {
+    outline: #66FFFF inset thin;
+}
+
+
+.yv-rightmenu {
+    border-radius: 5px; 
+    background-color: #FFF; 
+    z-index: 1000; 
+    position: absolute; 
+}
+
+.yv-rightmenu li {
+    height: 39px; 
+    width: 110px; 
+    list-style-type: none; 
+    display: list-item; 
+    padding: 10px; 
+}
+
+.yv-rightmenu li a {
+    text-decoration: none; 
+    font-size:15px;
+    color: #444;
+}
+
+.yv-rightmenu li:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}

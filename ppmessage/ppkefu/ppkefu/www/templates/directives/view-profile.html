@@ -1,0 +1,15 @@
+<div class="yv-chat-profile" yv-no-close>
+  <img ng-src="{{ getUserIcon(message) }}" yv-no-close>
+  <div class="item item-icon-right" yv-no-close>
+    {{ getUserFullname(message) }}
+    <i class="icon ion-ios-chatbubble-outline yv-cursor-pointer" yv-no-close ng-click="chatWithContact(message)">
+    </i>
+  </div>
+  
+  <div class="item" yv-no-close>
+    {{ "app.messageThread.TYPE" | translate }} 
+    <span class="item-note" yv-no-close>
+      {{ getContactType(message) | translate }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<script id="search-modal.html" type="text/ng-template">
+  <ion-modal-view class="yv-search-modal">
+
+    <ion-header-bar class="bar-dark item-input-inset">
+      <button class="button buttons back-button button-clear" ng-click="closeModal()">
+        <i class="icon ion-android-arrow-back"></i>
+      </button>
+      
+      <label class="item-input-wrapper yv-input-label">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-change="startSearch()" ng-model="search.searchKey" autofocus="autofocus">
+      </label>
+      <button class="button button-clear ion-close-circled clear-search" ng-click="clearSearchKey()" ng-if="search.searchKey">
+      </button>        
+      
+    </ion-header-bar>
+    
+    <ion-content class="has-header content-stable">
+
+      <ion-list>
+        <div class="search-conversations" ng-if="search.conversations.length">
+          <ion-item class="divider item-stable">{{ "app.GLOBAL.CONVERSATIONS" | translate }} </ion-item>
+          <div ng-click="clickItem()">
+            <yv-conversation ng-repeat="conversation in search.conversations" conversation="conversation"></yv-conversation>
+          </div>
+        </div>
+        
+        <div class="search-contacts" ng-if="search.contacts.length">
+          <ion-item class="divider item-stable">{{ "app.GLOBAL.CONTACTS" | translate }}</ion-item>
+          <div ng-click="clickItem()">
+            <yv-contact ng-repeat="contact in search.contacts" contact="contact"></yv-contact>
+          </div>
+        </div>
+        
+        <div class="no-results" ng-if="!search.conversations.length && !search.contacts.length">
+          <h4>{{ "app.GLOBAL.NO_RESULTS" | translate }}</h4>
+        </div>
+        
+      </ion-list>
+      
+    </ion-content>
+    
+  </ion-modal-view>
+</script>

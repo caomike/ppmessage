@@ -1,0 +1,17 @@
+<div style="position:relative;">
+  <div class="notification error" ng-if="should_show_error()"><span> {{ get_error_string() }} </span></div>
+
+  <div class="create-account">
+    <form ng-submit="create(user)">
+      <div class="signup-form-body" style="border-radius: 10px;">
+        <img src="/portal/static/yvertical/img/logo-v.png">
+        <h2> 欢迎, {{ get_first_name() }}! </h2>
+        <p>最后一步：为你的账户设置密码.</p>
+        <input type="password" ng-model="user.password" name="password" placeholder="密码">
+        <button type="submit" ng-disabled="disable_create" class="btn-blue">创建账户</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

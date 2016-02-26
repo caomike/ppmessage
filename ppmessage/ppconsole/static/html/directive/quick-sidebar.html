@@ -1,0 +1,69 @@
+<a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+
+<div class="page-quick-sidebar-wrapper"> 
+  <div class="page-quick-sidebar"> 
+	<div class="nav-justified"> 
+      <ul class="nav nav-tabs nav-justified"> 
+		<li class="active"> 
+          <a href="#quick_sidebar_tab_1" data-toggle="tab" translate="sidebar.ONLINE_USER_TAG"> 
+          </a> 
+		</li> 
+        <li> 
+		  <a href="#quick_sidebar_tab_2" data-toggle="tab" translate="sidebar.ADMIN_MESSAGE_TAG"> 
+		  </a> 
+        </li> 
+      </ul> 
+      
+      <div class="tab-content"> 
+        <div class="tab-pane page-quick-sidebar-chat active" id="quick_sidebar_tab_1"> 
+          <div class = "page-quick-sidebar-chat-users">
+            <div slim-scroll = "getSlimScrollOption()"> 
+
+              <ul class="media-list list-items"> 
+                <li ng-repeat="user in onlineUsers" class="media"> 
+                  
+                  <img class="media-object" ng-src=" {{ getUserIcon(user) }} " alt="..."> 
+                  <div class="media-body"> 
+                    <h4 class="media-heading"> {{ getUserName(user) }} </h4> 
+                    <div class="media-heading-sub"> 
+                      {{ getUserType(user) }} 
+                    </div> 
+                  </div> 
+
+                </li> 
+              </ul> 
+
+            </div> 
+		  </div> 
+
+          <div class="tab-pane page-quick-sidebar-messages" id="quick_sidebar_tab_2"> 
+            <div class = "page-quick-sidebar-chat-users">
+              <div slim-scroll = "getSlimScrollOption()"> 
+
+                <ul class="media-list list-items"> 
+                  <li  
+                     ng-repeat="message in adminMessages" 
+                     class="media" 
+                     > 
+                    
+                    <img class="media-object" ng-src=" {{ getMessageUserIcon(message) }} " alt="..."> 
+                    <div class="media-body"> 
+                      <h4 class="media-heading"> {{ getMessageUserName(message) }} </h4> 
+                      <div class="media-heading-sub"> 
+                        {{ getMessageTitle(message) }} 
+                      </div> 
+                    </div> 
+
+                  </li> 
+                </ul> 
+
+              </div> 
+			  
+			</div> 
+		  </div>
+          
+		</div> 
+	  </div> 
+	</div> 
+  </div>
+</div>

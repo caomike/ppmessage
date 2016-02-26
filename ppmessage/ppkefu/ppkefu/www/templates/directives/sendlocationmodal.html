@@ -1,0 +1,64 @@
+<script id="send-location-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar class="bar-dark" no-tap-scroll="true">
+      <button class="button button-icon icon ion-ios-close-outline" ng-click="closeModal()"></button>
+      <h1 class="title" >{{ gpslocation.address }}</h1>
+      <button class="button button-clear" ng-click="sendCurrentPosition()" ng-disabled="gpslocation.deny_error">
+        {{ "app.gpsLocation.SEND" | translate }}
+      </button>
+    </ion-header-bar>
+    
+    <ion-content scroll="false">
+      
+      <yv-location ng-if="!gpslocation.deny_error && showLocation">
+      </yv-location>
+      
+      <ion-list style="position: absolute; top: 20%; width: 100%; text-align: center;"
+                ng-if="gpslocation.deny_error && !gpslocation.error_detail">
+        <ion-item style="border: none;">
+          <img src="img/cry.jpg" style="width: 80px;">
+          <p style="padding: 20px;">{{ "app.gpsLocation.POS_SERVICE_NOT_OPEN" | translate }}</p>
+          <button class="button" style="line-height: 35px; min-height: inherit;" ng-click="show_error_detail()">
+            {{ "app.gpsLocation.DETAIL" | translate }}
+          </button>
+        </ion-item>
+      </ion-list>
+      
+      <ion-list ng-if="gpslocation.error_detail">
+        <ion-item style="border: none;">
+          <h2 style="font-weight: normal;">{{ "app.gpsLocation.POS_SERVICE_NOT_OPEN" | translate }}</h2>
+          <hr>
+          <h2 style="font-weight: normal; font-size: 15px;">{{ "app.gpsLocation.SOLUTION_TO_NOT_OPEN_POS_SERVICE" | translate }}</h2>
+          <ul style="font-size: 14px; margin-top: 10px; margin-left: 20px; position: relative;">
+            <li style="list-style-type: square; list-style-position: inside; position: absolute; left: -13px;"></li>
+            <li style="white-space: normal;">
+              {{ "app.gpsLocation.SOLUTION_ON_DEVICE" | translate }}"
+              <span style="font-size: 15px; font-weight: bold;">
+                {{ "app.gpsLocation.SOLUTION_SETTING" | translate }}
+              </span>
+              "-"
+              <span style="font-size: 15px; font-weight: bold;">
+                {{ "app.gpsLocation.SOLUTION_PRIVACY" | translate }}
+              </span>
+              "-"
+              <span style="font-size: 15px; font-weight: bold;">
+                {{ "app.gpsLocation.SOLUTION_LOCATING_SERVICE" | translate }}
+              </span>
+              "{{ "app.gpsLocation.SOLUTION_ENABLE" | translate }}"
+              <span style="font-size: 15px; font-weight: bold;">
+                {{ getAppName() }}
+              </span>
+              "{{ "app.gpsLocation.SOLUTION_USE" | translate }}
+            </li>
+          </ul>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    
+    <div style="width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.4); z-index: 11; text-align: center;" ng-if="showIcon">
+      <div style="position: absolute; top: 46%; width: 100%;">
+        <i class="icon ion-loading-c" style="font-size:40px;"></i>
+      </div>
+    </div>
+  </ion-modal-view>
+</script>

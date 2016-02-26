@@ -1,0 +1,30 @@
+<div style="position:relative;">
+
+  <div class="notification error" ng-if="should_show_error()"><span> {{ get_error_string() }} </span></div>
+
+  <div class="auth-form" id="login" style="margin:120px auto;">
+    
+    <form accept-charset="UTF-8" method="post" ng-submit="login(user)">
+
+      <div class="auth-form-header">
+        <h1>登录</h1>
+      </div>
+      <div class="auth-form-body">
+        <!-- <label for="login_field"> -->
+        <!--   邮箱 -->
+        <!-- </label> -->
+        <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="input-block" id="login_field" name="login" tabindex="1" type="text" value="" ng-model="user.email" placeholder="登录邮箱">
+        <input ng-model="user.password" class="input-block" style="margin-bottom:5px;" id="password" name="password" tabindex="2" type="password" placeholder="密码">
+        <label for="password">
+          没有账号？<a ui-sref="app.signup">请先注册</a>
+        </label>
+        <label for="password" style="float:right">
+          <a ui-sref="app.resetpassword">忘记密码</a>
+        </label>
+        <input class="union_btn" name="commit" tabindex="3" type="submit" value="登录"></input>
+      </div>
+    </form>
+
+  </div>
+
+</div>

@@ -1,0 +1,88 @@
+@mixin left-bubble {
+    background-color: $left-color;
+}
+
+@mixin right-bubble {
+    background-color: $right-color;
+}
+
+@mixin send-button {
+    float: right;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 30px;
+    min-height: 30px;
+    line-height: 29px;
+    border-radius: 4px;
+    color: $positive;
+}
+
+@mixin sized-icon($size, $radius: 0px) {
+    max-width: $size !important;
+    max-height: $size !important;
+    border-radius: $radius !important;
+}
+
+@mixin icon-left {
+    left: 15px;
+    top: 15px;
+    position: absolute;
+}   
+
+@mixin img-radius($radius: 0px) {
+    >img {
+        border-radius: $radius !important;
+    }
+}
+
+@mixin yv-item() {
+    &, .item-content {
+        background-color: #292c33;
+        border-color: #24272c;
+    }
+    
+    &.active, &.active .item-content, &.activated, &.activated .item-content {
+        background-color: #3a3f45;
+        border-color: #3a3f45;
+    }
+    
+    h2, p, span {
+        color: white;
+    }    
+}
+
+@mixin yv-tip($fontSize: 100px, $fontColor: #000) {
+    padding-top: 120px;
+    
+    .tip-content {
+        text-align: center;
+        opacity: 0.6;
+        
+        .tip-icon {
+            font-size: $fontSize;
+            color: #ddd;
+        }
+        
+        .tip-note {
+            color: $fontColor;
+        }
+    }
+}
+
+@mixin background-icon($position, $size) {
+    background-image: url("../../img/all_icons.png");
+    background-position: 0 $position;
+    width: $size;
+    height: $size;
+    vertical-align: middle;
+    display: inline-block;
+    background-size: 150px 2489px;
+}
+
+@mixin background-border($position: bottom, $color: #b2b2b2) {
+    background-image: linear-gradient(0deg, $color, $color 50%,transparent 50%);
+    background-position: $position;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border: none;
+}

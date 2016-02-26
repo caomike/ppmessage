@@ -1,0 +1,79 @@
+<html>
+  
+  <head>
+    <title>Intercom Test</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    
+  </head>
+
+  <body style="background-color:white">
+    <!-- <h2 style="float:right; margin-right:200px; z-index: 237498237">Hello World of intercom test</h2> -->
+
+    <!-- <div>another div element</div> -->
+
+    <div style="height:40px;"></div>
+    <p style="font-family: HelveticaNeue, Helvetica, Arial, sans-serif; font-weight: 300; font-size:18px">The easiest way to add rich-communications to any product.</p>
+    <div style="font-family: HelveticaNeue, Helvetica, Arial, sans-serif; color:white; height: 30px; width: 262px; background-color:#2597da; border-radius:5px; padding:10px 0 0 0; ">Get Started With PPMessage</div>
+    <p style=" font-weight: 300; font-size:14px">You'll be sending messages in just a few easy steps.</p>
+    <div style="height:30px;"></div>
+    <p style="font-family: HelveticaNeue, Helvetica, Arial, sans-serif; font-weight: 300; font-size:18px">We can't wait to see what you build,</p>
+
+    <textarea placeholder="test place holder"></textarea>
+    
+    <input type="button" value="showPPCom" id="showPPComId" onclick="showPPCom()"/>
+    <input type="button" style="float:right; margin-right: 50px; " value="closePPCom" id="closePPComId" onclick="closePPCom()"/>
+
+    <script>
+      function showPPCom() {
+      if (PP) {
+      PP('show');
+      }
+      }
+      function closePPCom() {
+      if (PP) {
+      PP('dismiss');
+      }
+      }
+      (function() {
+      var element = document.createElement('textarea');
+      element.setAttribute('placeholder', 'textarea create by js');
+      document.body.appendChild(element);
+      })();
+    </script>
+
+    <script>
+
+      
+  window.intercomSettings = { app_id: 'tx2p130c', user_email: 'igozhaokun@163.com' };
+  
+      
+      window.ppSettings = {
+      <!-- user_email: "somebody.web@yvertical.com", -->
+      
+      app_secret: "7c22457d-300e-11e5-9303-58b035f16bf4",
+      app_key: "7b9c18ee-300e-11e5-a380-58b035f16bf4",
+      
+      <!-- testApp1 -->
+      <!-- app_secret: "ce07df0c-7dde-11e5-9ac1-0c4de9b21073", -->
+      <!-- app_key: "cdf31880-7dde-11e5-a3b5-0c4de9b21073", -->
+
+      <!-- testApp2 -->
+      <!-- app_secret: "5c4324d9-7de3-11e5-8476-0c4de9b21073", -->
+      <!-- app_key: "5c4321ee-7de3-11e5-b1c3-0c4de9b21073", -->
+      
+          language: "zh-CN",
+          view: {
+              launcherContainerBottomMargin: "20px",
+              launcherContainerRightMargin: "20px",
+              autoShow: true,
+              showLauncherContainer: true
+          }
+      };
+</script>
+
+    <script>(function(){var w=window,d=document;function l(){var a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src="http://192.168.0.204:8934/pp-library.js";var b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}w.attachEvent?w.attachEvent("onload",l):w.addEventListener("load",l,!1);})()</script>
+    
+  </body>
+  
+</html>

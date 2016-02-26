@@ -1,0 +1,60 @@
+i.toggle-conversation-member {
+    cursor: pointer;
+    
+    &:before {
+        content: " ";
+    }
+    &.arrow-down {
+        @include background-icon(-795px, 12px);
+    }
+    &.arrow-up {
+        @include background-icon(-2362px, 12px);
+    }
+}
+
+.conversation-member-arrow:before {
+    font-size: 20px !important;
+}
+
+.yv-conversation-item {
+    cursor: pointer;
+    
+    &, .item-content {
+        @include img-radius(4px);
+    }
+
+    &.active, &.active .item-content, &.activated, &.activated .item-content {
+        background-color: #ddd;
+        border-color: #ddd;
+    }
+    
+    h2 {
+        max-width: 140px;
+    }
+    
+    .yv-unread, .yv-timestamp {
+        position: absolute;
+    }
+    
+    .yv-unread {
+        top: 10px;
+        left: 38px;
+        right: inherit;
+        font-size: 12px;
+        padding: 1px 6px;
+    }
+    
+    .yv-timestamp {
+        top: 16px;
+        right: 10px;
+        font-size: 13px;
+    }
+
+    ion-option-button {
+        height:100%;
+    }
+}
+
+.yv-conversation-tip {
+    @include yv-tip();
+}

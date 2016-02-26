@@ -1,0 +1,38 @@
+<div style="position:relative;">
+  <div class="notification error" ng-if="should_show_error()"><span> {{ get_error_string() }} </span></div>
+  <div class="signup_body">
+    <div class="processor_bar">
+      <ul class="ul">
+        <li class="status">
+          <h4 class="h4">
+            1 注册
+          </h4>
+        </li>
+        <li class="status choose white">
+          <h4 class="h4">
+            2 创建客服团队
+          </h4>
+        </li>
+        <li class="status is">
+          <h4 class="h4">
+            3 开始使用
+          </h4>
+        </li>
+      </ul>
+    </div>
+    <div class="auth-form">
+      <form accept-charset="UTF-8" ng-submit="create_team(team_name)">
+        <div class="auth-form-header">
+          <h1>创建客服团队</h1>
+        </div>
+        <div class="signup-form-body">
+          <p class="team_name">为您的团队起一个响亮的名字吧!</p>
+          <input ng-model="team_name" type="text" name="team" placeholder="客服团队名称" style="margin-bottom:20px;">
+          <button type="submit" class="btn-blue" >创建客服团队</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

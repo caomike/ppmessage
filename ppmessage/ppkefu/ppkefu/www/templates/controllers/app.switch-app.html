@@ -1,0 +1,22 @@
+<ion-view view-title="{{ 'app.settings.app.APP_TAG' | translate }}">
+  <!--  
+  <ion-nav-title>
+    <h1 class="title">{{ "app.settings.language.LANGUAGE_TAG" | translate }}</h1>
+  </ion-nav-title>
+  -->
+  <ion-content>
+    <ion-list>
+      
+      <label class="item item-radio" ng-repeat="app in apps" ng-click="selectApp(app)">
+        <input type="radio" name="group" ng-checked="isAppChecked(app)">
+        <div class="radio-content">
+          <div class="item-content" ><b>{{ app.app_name }}</div>
+          <i class="radio-icon ion-checkmark"></i>
+        </div>
+      </label>
+      
+    </ion-list>
+  </ion-content>
+  
+</ion-view>
+    

@@ -1,0 +1,45 @@
+.pp-container {
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+    z-index: 2147483647;    
+}
+
+.pp-container div,
+.pp-container p,
+.pp-container a,
+.pp-container b,
+.pp-container u,
+.pp-container textarea,
+.pp-container span {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font: normal normal 100% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    letter-spacing: normal;
+    font-stretch: normal;
+    font-variant: normal;
+    -webkit-text-emphasis: none;
+    text-shadow: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    word-wrap: break-word; }
+.pp-container p {
+    -webkit-margin-before: 0em !important;
+    -webkit-margin-after: 0em !important;
+    -webkit-margin-start: 0px !important;
+    -webkit-margin-end: 0px !important; }
+
+.pp-container *,
+.pp-container :after,
+.pp-container :before {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+
+.pp-location {
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+    z-index: 2147483647;        
+}

@@ -1,0 +1,115 @@
+.add-member-modal-view {
+
+    .add-member-subtitle {
+        @include background-border(bottom, #ddd);
+
+        .button-bar {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+    
+    .modal-content {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .selected-contacts-scroll {
+        
+        ion-scroll {
+            min-height: 75px;
+            max-height: 130px;
+            position: relative;
+
+            .selected-contacts {
+                width: 100%;
+                
+                .selected-contact {
+                    float: left;
+                    padding: 10px 0px 10px 15px;
+                    
+                    img.avatar {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+            }
+        }
+
+        .list-inset {
+            max-width: 160px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+            float: left;
+            
+            .item-input {
+                height: 50px;
+                border: none;
+                padding-left: 0px;
+            }
+
+            .icon {
+                font-size: 24px;
+            }
+
+            input {
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 16px;
+            }
+        }
+    }
+    
+    .display-contacts-scroll {
+
+        ion-scroll {
+            max-height: 300px;
+            position: relative;
+            margin-top: 0px;
+            
+            .display-contacts {
+                width: 100%;
+                margin-right: 5px;
+
+                .item-checkbox {
+                    border-left: none;
+                    border-right: none;
+                }
+                
+                .item.item-checkbox, .item item-avatar {
+                    padding-right: 0px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .save-button {
+        @include background-border(top);
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        height: 45px;
+        position: absolute;
+        background-color: $stable;
+                
+        .button {
+            width: 200px;
+            margin: 0 auto;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .save-button {
+            height: 200px;
+            
+            .button {
+                margin-top: 20px;
+            }
+        }
+    }
+    
+}

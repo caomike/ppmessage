@@ -1,0 +1,76 @@
+/**/
+.conversation-member {
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    
+    &, ion-scroll{
+        background-color: #f8f8f8;
+    }
+}
+
+.conversation-member, .add-by-group-content {
+
+    .scroll-outer {
+        padding-bottom: 20px;
+    }
+
+    ion-scroll {
+        z-index: 1;
+        max-height: 200px;
+        position: relative;
+    }
+
+    .all-members {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+
+        .member {
+            float: left;
+            padding: 10px;
+            height: 80px;
+            cursor: pointer;
+            position: relative;
+
+            img {
+                width: 55px;
+                height: 55px;
+
+                &.selected {
+                    border: solid 2px $energized;
+                }
+            }
+
+            i.add-member {
+                @include background-icon(-466px, 55px);
+            }
+
+            i.remove-member {
+                @include background-icon(-680px, 55px);
+            }
+
+            i.remove-badge {
+                @include background-icon(-660px, 20px);
+            }
+
+            i.group-checkbox {
+                @include background-icon(-521px, 20px);
+            }
+
+            .top-right {
+                position: absolute;
+                right: 0px;
+                top: 9px;
+            }
+
+            p {
+                width: 50px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
+    }
+}

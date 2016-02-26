@@ -1,0 +1,30 @@
+<script id="filechooser-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <!-- <ion-nav-title> -->
+    <!--   {{ getTitle() }} -->
+    <!-- </ion-nav-title> -->
+
+    <ion-header-bar class="bar-dark" no-tap-scroll="true">
+      <h1 class="title" >{{ getTitle() }}</h1>
+    </ion-header-bar>
+    
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="f in files track by $index" ng-click="onEntryClicked(f)">
+          <div ng-if="f.isDirectory">
+            <b><font color="blue">{{f.name}}</font></b>
+          </div>
+          <div ng-if="!f.isDirectory">
+            <b><font color="black">{{f.name}}</font></b>
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <div style="position:absolute; top:75%; width:100%;" ng-if="showProgress">
+        <div style="text-align:center;">
+          <ion-spinner icon="ios"></ion-spinner>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
