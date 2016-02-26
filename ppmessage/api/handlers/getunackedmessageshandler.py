@@ -7,14 +7,14 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import MessagePush
-from mdm.db.models import MessagePushTask
+from ppmessage.db.models import MessagePush
+from ppmessage.db.models import MessagePushTask
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import MESSAGE_STATUS
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import MESSAGE_STATUS
+from ppmessage.core.redis import redis_hash_to_dict
 
 import traceback
 import logging

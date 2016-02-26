@@ -6,11 +6,11 @@
 #
 
 # apiauth/tokenhandler.py
-from mdm.db.models import ApiInfo
-from mdm.db.models import DeviceUser
-from mdm.db.models import ApiTokenData
+from ppmessage.db.models import ApiInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import ApiTokenData
 
-from mdm.core.constant import API_LEVEL
+from ppmessage.core.constant import API_LEVEL
 
 from tornado.web import RequestHandler
 

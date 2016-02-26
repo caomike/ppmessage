@@ -7,7 +7,7 @@
 
 from .policy import AbstractPolicy
 
-from mdm.core.constant import APP_POLICY
+from ppmessage.core.constant import APP_POLICY
 
 class GroupPolicy(AbstractPolicy):
     def __init__(self, dis):

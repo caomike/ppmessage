@@ -5,32 +5,32 @@
 #
 #
 
-from mdm.api.handlers.basehandler import BaseHandler
+from ppmessage.api.handlers.basehandler import BaseHandler
 
-from mdm.db.models import AppInfo
-from mdm.db.models import DeviceUser
-from mdm.db.models import DeviceInfo
-from mdm.db.models import AppUserData
-from mdm.db.models import PCSocketInfo
-from mdm.db.models import PCSocketDeviceData
-from mdm.db.models import MessagePushTask
-from mdm.db.models import UserOnlineStatusLog
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import PCSocketInfo
+from ppmessage.db.models import PCSocketDeviceData
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import UserOnlineStatusLog
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import OS
-from mdm.core.constant import YVOBJECT
-from mdm.core.constant import TASK_STATUS
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import PCSOCKET_SRV
-from mdm.core.constant import ONLINE_STATUS
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import USER_ONLINE_STATUS
+from ppmessage.core.constant import OS
+from ppmessage.core.constant import YVOBJECT
+from ppmessage.core.constant import TASK_STATUS
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import PCSOCKET_SRV
+from ppmessage.core.constant import ONLINE_STATUS
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import USER_ONLINE_STATUS
 
-from mdm.pcsocket.pcsocketapp import pcsocket_user_online
-from mdm.core.srv.signal import async_signal_dis_message
-from mdm.core.srv.signal import async_signal
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.pcsocket.pcsocketapp import pcsocket_user_online
+from ppmessage.core.srv.signal import async_signal_dis_message
+from ppmessage.core.srv.signal import async_signal
+from ppmessage.core.redis import redis_hash_to_dict
 
 import logging
 import datetime

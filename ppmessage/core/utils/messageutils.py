@@ -5,11 +5,11 @@
 # 
 #
 
-from mdm.db.models import MessagePushTask
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import ConversationUserData
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.constant import CONVERSATION_STATUS
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import CONVERSATION_STATUS
 
 def get_app_conversations(redis, app_uuid):
     '''

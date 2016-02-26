@@ -7,16 +7,16 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import DeviceInfo
-from mdm.db.models import DeviceUser
-from mdm.api.error import API_ERR
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import OS
-from mdm.core.constant import ONLINE_STATUS
-from mdm.core.constant import USER_ONLINE_STATUS
-from mdm.core.redis import redis_hash_to_dict
-from mdm.db.models import UserOnlineStatusLog
-from mdm.pcsocket.pcsocketapp import pcsocket_user_online
+from ppmessage.core.constant import OS
+from ppmessage.core.constant import ONLINE_STATUS
+from ppmessage.core.constant import USER_ONLINE_STATUS
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.db.models import UserOnlineStatusLog
+from ppmessage.pcsocket.pcsocketapp import pcsocket_user_online
 
 import logging
 import json

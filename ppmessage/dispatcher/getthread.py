@@ -6,7 +6,7 @@
 #
 
 from .task import TaskHandler
-from mdm.core.constant import DIS_SRV
+from ppmessage.core.constant import DIS_SRV
 
 def getThread():
     _handler_list = [("/"+DIS_SRV.MESSAGE_DIS, TaskHandler)]

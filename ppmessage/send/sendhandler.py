@@ -5,7 +5,7 @@
 #
 #
 
-from mdm.pcsocket.error import DIS_ERR
+from ppmessage.pcsocket.error import DIS_ERR
 from .proc import Proc
 import logging
 

@@ -7,10 +7,10 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.constant import API_LEVEL
-from mdm.db.models import AppInfo
-from mdm.api.error import API_ERR
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.db.models import AppInfo
+from ppmessage.api.error import API_ERR
+from ppmessage.core.redis import redis_hash_to_dict
 
 import json
 import logging

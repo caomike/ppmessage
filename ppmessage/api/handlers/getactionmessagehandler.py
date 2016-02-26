@@ -7,16 +7,16 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppMessageAction
+from ppmessage.db.models import AppMessageAction
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import MESSAGE_STATUS
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import YVOBJECT
+from ppmessage.core.constant import MESSAGE_STATUS
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import YVOBJECT
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.srv.signal import signal_cache_add
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.srv.signal import signal_cache_add
 
 import logging
 import json

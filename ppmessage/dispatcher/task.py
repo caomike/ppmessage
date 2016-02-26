@@ -5,14 +5,14 @@
 #
 #
 
-from mdm.db.models import AppInfo
-from mdm.db.models import DeviceUser
-from mdm.db.models import OrgGroup
-from mdm.db.models import ConversationInfo
-from mdm.db.models import MessagePushTask
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import ConversationInfo
+from ppmessage.db.models import MessagePushTask
 
-from mdm.core.constant import YVOBJECT
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import YVOBJECT
+from ppmessage.core.redis import redis_hash_to_dict
 
 from .policy.policy import AbstractPolicy
 

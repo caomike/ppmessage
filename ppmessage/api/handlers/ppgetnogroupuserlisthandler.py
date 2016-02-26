@@ -7,12 +7,12 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import AppUserData
-from mdm.db.models import DeviceUser
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import DeviceUser
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.api.error import API_ERR
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.api.error import API_ERR
 
 import json
 import logging

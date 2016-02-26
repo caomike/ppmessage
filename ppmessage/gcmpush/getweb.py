@@ -5,8 +5,8 @@
 # All rights reserved
 #
 
-from mdm.core.srv.basehandler import BaseHandler
-from mdm.core.constant import GCMPUSH_SRV
+from ppmessage.core.srv.basehandler import BaseHandler
+from ppmessage.core.constant import GCMPUSH_SRV
 
 def getWeb():
     handler_list = [

@@ -5,9 +5,9 @@
 # All rights reserved
 #
 
-from mdm.api.apiapp import APIApp
-from mdm.api.apibackendthread import APIBackendThread
-from mdm.core.constant import API_PORT
+from ppmessage.api.apiapp import APIApp
+from ppmessage.api.apibackendthread import APIBackendThread
+from ppmessage.core.constant import API_PORT
 
 import tornado.httpserver
 import tornado.ioloop

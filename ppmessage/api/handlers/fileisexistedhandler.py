@@ -6,7 +6,7 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import FileInfo
+from ppmessage.db.models import FileInfo
 
 import uuid
 import json

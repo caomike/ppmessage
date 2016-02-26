@@ -5,9 +5,9 @@
 #
 #
 
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import APNS_TITLE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import APNS_TITLE
 
 import logging
 

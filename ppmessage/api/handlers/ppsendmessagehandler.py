@@ -5,8 +5,8 @@
 #
 #
 from .basehandler import BaseHandler
-from mdm.api.error import API_ERR
-from mdm.send.proc import Proc
+from ppmessage.api.error import API_ERR
+from ppmessage.send.proc import Proc
 
 import logging
 

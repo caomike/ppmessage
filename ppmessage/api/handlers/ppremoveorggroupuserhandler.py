@@ -7,12 +7,12 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import OrgGroup
-from mdm.db.models import OrgUserGroupData
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import OrgUserGroupData
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.api.handlers.ppaddorggroupuserhandler import update_group_icon
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.api.handlers.ppaddorggroupuserhandler import update_group_icon
 
 import json
 import logging

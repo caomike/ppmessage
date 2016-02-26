@@ -7,7 +7,7 @@
 
 from .pushthreadhandler import PushThreadHandler
 
-from mdm.core.constant import PCSOCKET_SRV
+from ppmessage.core.constant import PCSOCKET_SRV
 
 def getThread():
     _handler_list = [("/"+PCSOCKET_SRV.PUSH, PushThreadHandler)]

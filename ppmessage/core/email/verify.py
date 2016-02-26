@@ -6,7 +6,7 @@
 #
 # core/email/verify.py
 #
-from mdm.core.constant import PORTAL_PORT
+from ppmessage.core.constant import PORTAL_PORT
 
 from smtplib import SMTP
 from email.mime.multipart import MIMEMultipart

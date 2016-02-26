@@ -4,7 +4,7 @@
 # Guijin Ding, dingguijin@gmail.com
 # 
 
-from mdm.core.singleton import singleton
+from ppmessage.core.singleton import singleton
 
 from Queue import Queue
 

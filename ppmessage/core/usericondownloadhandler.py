@@ -6,8 +6,8 @@
 # All rights reserved
 #
 
-from mdm.db.models import FileInfo
-from mdm.core.redis import hash_row
+from ppmessage.db.models import FileInfo
+from ppmessage.core.redis import hash_row
 
 from tornado.web import StaticFileHandler
 

@@ -10,11 +10,11 @@
 #
 
 
-from mdm.pcsocket.pcsocketapp import PCSocketApp
-from mdm.pcsocket.getthread import getThread
+from ppmessage.pcsocket.pcsocketapp import PCSocketApp
+from ppmessage.pcsocket.getthread import getThread
 
-from mdm.core.srv.backendio import BackendIO
-from mdm.core.constant import PCSOCKET_PORT
+from ppmessage.core.srv.backendio import BackendIO
+from ppmessage.core.constant import PCSOCKET_PORT
 
 import tornado.httpserver
 import tornado.ioloop

@@ -6,13 +6,13 @@
 #
 
 from .basehandler import BaseHandler
-from mdm.db.models import DeviceUser
-from mdm.db.models import AppUserData
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import AppUserData
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.api.handlers.ppgetorggroupuserlisthandler import single_user
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.api.handlers.ppgetorggroupuserlisthandler import single_user
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import json
 import time

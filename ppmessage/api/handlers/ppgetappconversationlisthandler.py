@@ -8,14 +8,14 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import ConversationInfo
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import ConversationInfo
+from ppmessage.core.redis import redis_hash_to_dict
 
-from mdm.api.utils.deviceuserinfoutils import get_device_user_info
-from mdm.api.utils.messageutils import get_message_info
-from mdm.api.utils.messageutils import get_message_count
-from mdm.api.utils.messageutils import get_app_conversations
+from ppmessage.api.utils.deviceuserinfoutils import get_device_user_info
+from ppmessage.api.utils.messageutils import get_message_info
+from ppmessage.api.utils.messageutils import get_message_count
+from ppmessage.api.utils.messageutils import get_app_conversations
 
 import json
 import logging

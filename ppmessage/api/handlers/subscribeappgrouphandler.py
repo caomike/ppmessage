@@ -11,11 +11,11 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppUserGroupData
+from ppmessage.db.models import AppUserGroupData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.srv.signal import signal_cache_add
+from ppmessage.core.srv.signal import signal_cache_add
 
 import json
 import uuid

@@ -7,16 +7,16 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import MessagePush
-from mdm.db.models import MessagePushTask
+from ppmessage.db.models import MessagePush
+from ppmessage.db.models import MessagePushTask
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import YVOBJECT
-from mdm.core.constant import MESSAGE_STATUS
-from mdm.core.constant import TASK_STATUS
+from ppmessage.core.constant import YVOBJECT
+from ppmessage.core.constant import MESSAGE_STATUS
+from ppmessage.core.constant import TASK_STATUS
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
 from operator import attrgetter
 from operator import itemgetter

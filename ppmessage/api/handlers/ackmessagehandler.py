@@ -7,16 +7,16 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import MessagePushTask
-from mdm.db.models import MessagePush
-from mdm.db.models import SingleCardMaterialInfo
-from mdm.db.models import MultipleCardMaterialInfo
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import MessagePush
+from ppmessage.db.models import SingleCardMaterialInfo
+from ppmessage.db.models import MultipleCardMaterialInfo
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import MESSAGE_STATUS
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import MESSAGE_STATUS
 
 import json
 import logging

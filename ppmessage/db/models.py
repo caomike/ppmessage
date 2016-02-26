@@ -5,19 +5,19 @@
 # All rights are reserved
 #
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import TASK_STATUS
-from mdm.core.constant import MESSAGE_STATUS
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import CONVERSATION_STATUS
-from mdm.core.constant import GENERIC_FILE_STORAGE_DIR
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import TASK_STATUS
+from ppmessage.core.constant import MESSAGE_STATUS
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import CONVERSATION_STATUS
+from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
 
-from mdm.core.redis import row_to_redis_hash
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.imageconverter import ImageConverter
+from ppmessage.core.redis import row_to_redis_hash
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.imageconverter import ImageConverter
 
-from mdm.db.common.sqlmysql import BaseModel
-from mdm.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.sqlmysql import BaseModel
+from ppmessage.db.common.dbinstance import getDBSessionClass
 from .commonmixin import CommonMixin
 
 from sqlalchemy import Column

@@ -7,8 +7,8 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import DeviceNavigationData
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import DeviceNavigationData
 
 import traceback
 import logging

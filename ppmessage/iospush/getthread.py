@@ -6,7 +6,7 @@
 #
 
 from .pushthreadhandler import PushThreadHandler
-from mdm.core.constant import IOSPUSH_SRV
+from ppmessage.core.constant import IOSPUSH_SRV
 
 def getThread():
     _handler_list = [("/"+IOSPUSH_SRV.PUSH, PushThreadHandler)]

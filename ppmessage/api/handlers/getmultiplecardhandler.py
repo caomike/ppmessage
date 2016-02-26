@@ -7,12 +7,12 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import MultipleCardMaterialInfo
-from mdm.db.models import SingleCardMaterialInfo
+from ppmessage.db.models import MultipleCardMaterialInfo
+from ppmessage.db.models import SingleCardMaterialInfo
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
 import logging
 import json

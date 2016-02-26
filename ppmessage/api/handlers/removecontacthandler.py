@@ -6,20 +6,20 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.dbinstance import getDBSessionClass
 
-from mdm.db.models import MessagePushTask
-from mdm.db.models import UserContactData
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import UserContactData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import YVOBJECT
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import YVOBJECT
 
-from mdm.core.srv.signal import signal_cache_add
-from mdm.core.srv.signal import signal_dis_message
-from mdm.core.srv.signal import signal_cache_delete
+from ppmessage.core.srv.signal import signal_cache_add
+from ppmessage.core.srv.signal import signal_dis_message
+from ppmessage.core.srv.signal import signal_cache_delete
 
 from sqlalchemy import and_
 

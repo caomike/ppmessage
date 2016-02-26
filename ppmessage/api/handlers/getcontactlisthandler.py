@@ -7,11 +7,11 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.core.constant import YVOBJECT
+from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import YVOBJECT
 
-from mdm.db.common.dbinstance import getDBSessionClass
-from mdm.db.models import UserContactData
+from ppmessage.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.models import UserContactData
 
 import json
 import logging

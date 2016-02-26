@@ -7,10 +7,10 @@
 # core/redis.py
 #
 
-from mdm.db.common.copyrow import RowObject
+from ppmessage.db.common.copyrow import RowObject
 
-from mdm.core.constant import REDIS_SQL_KEY
-from mdm.core.constant import DATETIME_FORMAT
+from ppmessage.core.constant import REDIS_SQL_KEY
+from ppmessage.core.constant import DATETIME_FORMAT
 
 from sqlalchemy import DateTime
 from sqlalchemy import String

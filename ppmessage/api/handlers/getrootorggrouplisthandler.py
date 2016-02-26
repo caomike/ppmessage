@@ -6,12 +6,12 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import OrgGroup
-from mdm.db.models import OrgSubGroupData
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import OrgSubGroupData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
 import json
 import logging

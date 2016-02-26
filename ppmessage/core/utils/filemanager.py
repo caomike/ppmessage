@@ -5,9 +5,9 @@
 #
 #
 
-from mdm.db.models import FileInfo
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.constant import GENERIC_FILE_STORAGE_DIR
+from ppmessage.db.models import FileInfo
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
 
 import os
 import uuid

@@ -6,7 +6,7 @@
 #
 # help/datetime.py
 #
-from mdm.core.constant import DATETIME_FORMAT
+from ppmessage.core.constant import DATETIME_FORMAT
 import datetime
 import time
 

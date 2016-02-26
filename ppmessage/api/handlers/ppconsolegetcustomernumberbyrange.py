@@ -10,14 +10,14 @@
 #
 from .basehandler import BaseHandler
 
-from mdm.help.days import get_between_days
+from ppmessage.help.days import get_between_days
 
-from mdm.db.models import AppUserData
+from ppmessage.db.models import AppUserData
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import REDIS_PPCOM_ONLINE_KEY
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import REDIS_PPCOM_ONLINE_KEY
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import traceback
 import logging

@@ -7,14 +7,14 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import MessagePushTask
-from mdm.db.models import ConversationInfo
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import ConversationInfo
+from ppmessage.db.models import ConversationUserData
 
-from mdm.api.error import API_ERR
-from mdm.core.constant import CONVERSATION_TYPE
-from mdm.core.constant import CONVERSATION_STATUS
+from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import CONVERSATION_TYPE
+from ppmessage.core.constant import CONVERSATION_STATUS
 
 import json
 import time

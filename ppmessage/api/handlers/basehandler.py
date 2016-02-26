@@ -7,14 +7,14 @@
 
 # api/basehandler.py
 
-from mdm.api.error import API_ERR
-from mdm.api.error import getErrorDesc
+from ppmessage.api.error import API_ERR
+from ppmessage.api.error import getErrorDesc
 
-from mdm.help.datetimeencoder import DateTimeEncoder
-from mdm.api.getbackendqueue import getBackendQueue
+from ppmessage.help.datetimeencoder import DateTimeEncoder
+from ppmessage.api.getbackendqueue import getBackendQueue
 
-from mdm.db.models import ApiTokenData
-from mdm.db.models import AppInfo
+from ppmessage.db.models import ApiTokenData
+from ppmessage.db.models import AppInfo
 
 from tornado.web import RequestHandler
 from tornado.web import asynchronous

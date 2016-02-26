@@ -7,10 +7,10 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import DeviceUser
-from mdm.db.models import AppUserData
-from mdm.yvredis.genericupdate import generic_update
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import AppUserData
+from ppmessage.yvredis.genericupdate import generic_update
 
 import json
 import copy

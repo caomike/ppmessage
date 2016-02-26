@@ -12,8 +12,8 @@ All api request need a token which got from ppauth service
 
 """
 
-from mdm.core.constant import PPAUTH_PORT
-from mdm.ppauth.ppauthapp import PPAuthApp
+from ppmessage.core.constant import PPAUTH_PORT
+from ppmessage.ppauth.ppauthapp import PPAuthApp
 
 import tornado.ioloop
 import tornado.options

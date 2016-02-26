@@ -6,8 +6,8 @@
 #
 #
 
-from mdm.core.constant import PPCONSOLE_USER_PORT
-from mdm.ppconsole.app import App
+from ppmessage.core.constant import PPCONSOLE_USER_PORT
+from ppmessage.ppconsole.app import App
 
 import tornado.httpserver
 import tornado.ioloop

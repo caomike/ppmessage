@@ -8,38 +8,38 @@
 
 from .algorithm import AbstractAlgorithm
 
-from mdm.core.constant import IOS_FAKE_TOKEN
+from ppmessage.core.constant import IOS_FAKE_TOKEN
 
-from mdm.core.constant import CONVERSATION_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_STATUS
-from mdm.core.constant import TASK_STATUS
+from ppmessage.core.constant import CONVERSATION_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_STATUS
+from ppmessage.core.constant import TASK_STATUS
 
-from mdm.core.constant import PPCOM_OFFLINE
-from mdm.core.constant import APP_POLICY
-from mdm.core.constant import YVOBJECT
-from mdm.core.constant import DIS_SRV
-from mdm.core.constant import OS
+from ppmessage.core.constant import PPCOM_OFFLINE
+from ppmessage.core.constant import APP_POLICY
+from ppmessage.core.constant import YVOBJECT
+from ppmessage.core.constant import DIS_SRV
+from ppmessage.core.constant import OS
 
-from mdm.db.models import OrgGroup
-from mdm.db.models import DeviceUser
-from mdm.db.models import DeviceInfo
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import AppUserData
-from mdm.db.models import MessagePush
-from mdm.db.models import MessagePushTask
-from mdm.db.models import PCSocketInfo
-from mdm.db.models import PCSocketDeviceData
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import MessagePush
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import PCSocketInfo
+from ppmessage.db.models import PCSocketDeviceData
+from ppmessage.db.models import ConversationUserData
 
-from mdm.core.srv.signal import async_signal_dis_message
-from mdm.core.srv.signal import async_signal_iospush_push
-from mdm.core.srv.signal import async_signal_pcsocket_push
-from mdm.core.srv.signal import async_signal_mqttpush_push
+from ppmessage.core.srv.signal import async_signal_dis_message
+from ppmessage.core.srv.signal import async_signal_iospush_push
+from ppmessage.core.srv.signal import async_signal_pcsocket_push
+from ppmessage.core.srv.signal import async_signal_mqttpush_push
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.help.datetimestring import datetime_to_timestamp
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.help.datetimestring import datetime_to_timestamp
 
 from apnsclient import Message
 

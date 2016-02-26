@@ -7,8 +7,8 @@
 
 # apiauth/authhandler.py
 
-from mdm.db.models import ApiInfo
-from mdm.db.models import ApiTokenData
+from ppmessage.db.models import ApiInfo
+from ppmessage.db.models import ApiTokenData
 
 from tornado.web import RequestHandler
 

@@ -4,23 +4,23 @@
 # Guijin Ding, dingguijin@gmail.com
 # All rights reserved
 #
-from mdm.db.common.dbinstance import getDBSessionClass
-from mdm.db.common.dbinstance import getDatabaseEngine
+from ppmessage.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.dbinstance import getDatabaseEngine
 
-from mdm.db.utils.filemanager import createAndroidAppFile
-from mdm.db.utils.filemanager import createIOSAppFile
-from mdm.db.utils.filemanager import createDesktopApp
-from mdm.db.models import AppPackageInfo
+from ppmessage.db.utils.filemanager import createAndroidAppFile
+from ppmessage.db.utils.filemanager import createIOSAppFile
+from ppmessage.db.utils.filemanager import createDesktopApp
+from ppmessage.db.models import AppPackageInfo
 
-from mdm.core.restart import restart
-from mdm.core.apkinfo import ApkInfo
-from mdm.core.ipainfo import IpaInfo
-from mdm.core.constant import DEV_MODE
-from mdm.core.constant import PORTAL_PORT
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
+from ppmessage.core.restart import restart
+from ppmessage.core.apkinfo import ApkInfo
+from ppmessage.core.ipainfo import IpaInfo
+from ppmessage.core.constant import DEV_MODE
+from ppmessage.core.constant import PORTAL_PORT
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
 
-from mdm.help.getipaddress import getIPAddress
+from ppmessage.help.getipaddress import getIPAddress
 
 import traceback
 import random

@@ -5,18 +5,18 @@
 #
 #
 
-from mdm.help.identicon import Identicon
-from mdm.help.getipaddress import getIPAddress
+from ppmessage.help.identicon import Identicon
+from ppmessage.help.getipaddress import getIPAddress
 
-from mdm.core.imageconverter import ImageConverter
+from ppmessage.core.imageconverter import ImageConverter
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import FileInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import FileInfo
 
-from mdm.core.constant import DEV_MODE
-from mdm.core.constant import PORTAL_PORT
-from mdm.core.constant import PRODUCTION_HOST
-from mdm.core.constant import IDENTICON_FILE_STORAGE_DIR
+from ppmessage.core.constant import DEV_MODE
+from ppmessage.core.constant import PORTAL_PORT
+from ppmessage.core.constant import PRODUCTION_HOST
+from ppmessage.core.constant import IDENTICON_FILE_STORAGE_DIR
 
 import hashlib
 

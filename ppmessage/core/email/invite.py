@@ -6,8 +6,8 @@
 #
 # core/email/invite.py
 #
-from mdm.core.constant import WEBSITE_URL
-from mdm.core.constant import SIGNUP_URL
+from ppmessage.core.constant import WEBSITE_URL
+from ppmessage.core.constant import SIGNUP_URL
 
 from smtplib import SMTP
 from smtplib import SMTPRecipientsRefused

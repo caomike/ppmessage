@@ -6,9 +6,9 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import DiscussionUserGroupData
+from ppmessage.db.models import DiscussionUserGroupData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import json
 import logging

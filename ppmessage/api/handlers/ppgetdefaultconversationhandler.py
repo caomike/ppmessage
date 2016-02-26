@@ -11,29 +11,29 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppInfo
-from mdm.db.models import AppUserData
-from mdm.db.models import DeviceUser
-from mdm.db.models import ConversationInfo
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import ConversationInfo
+from ppmessage.db.models import ConversationUserData
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import APP_POLICY
-from mdm.core.constant import PPCOM_WELCOME
-from mdm.core.constant import DATETIME_FORMAT
-from mdm.core.constant import REDIS_MONITOR_KEY
-from mdm.core.constant import WEBSOCKET_STATUS
-from mdm.core.constant import CONVERSATION_TYPE
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import APP_POLICY
+from ppmessage.core.constant import PPCOM_WELCOME
+from ppmessage.core.constant import DATETIME_FORMAT
+from ppmessage.core.constant import REDIS_MONITOR_KEY
+from ppmessage.core.constant import WEBSOCKET_STATUS
+from ppmessage.core.constant import CONVERSATION_TYPE
 
-from mdm.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
 
-from mdm.help.datetimeencoder import DateTimeEncoder
-from mdm.api.handlers.ppgetorggroupuserlisthandler import single_user
-from mdm.api.handlers.ppcreateconversationhandler import Conversation
+from ppmessage.help.datetimeencoder import DateTimeEncoder
+from ppmessage.api.handlers.ppgetorggroupuserlisthandler import single_user
+from ppmessage.api.handlers.ppcreateconversationhandler import Conversation
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 from operator import attrgetter
 from operator import itemgetter

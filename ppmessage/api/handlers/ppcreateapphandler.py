@@ -10,18 +10,18 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.constant import PPCOM_WELCOME
-from mdm.core.constant import PPCOM_OFFLINE
-from mdm.core.constant import APP_POLICY
-from mdm.core.constant import SHOW_PPCOM_HOVER
-from mdm.core.constant import PPCOM_LAUNCHER_STYLE
+from ppmessage.core.constant import PPCOM_WELCOME
+from ppmessage.core.constant import PPCOM_OFFLINE
+from ppmessage.core.constant import APP_POLICY
+from ppmessage.core.constant import SHOW_PPCOM_HOVER
+from ppmessage.core.constant import PPCOM_LAUNCHER_STYLE
 
-from mdm.db.models import AppInfo
-from mdm.db.models import AppUserData
-from mdm.db.models import AppBillingData
-from mdm.db.models import DeviceUser
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import AppBillingData
+from ppmessage.db.models import DeviceUser
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import json
 import uuid

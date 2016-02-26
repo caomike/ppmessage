@@ -5,61 +5,61 @@
 # All rights reserved
 #
 
-from mdm.help.datetimeencoder import DateTimeEncoder
+from ppmessage.help.datetimeencoder import DateTimeEncoder
 
-from mdm.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.dbinstance import getDBSessionClass
 
-from mdm.db.models import APNSSetting
-from mdm.db.models import AppPackageInfo
+from ppmessage.db.models import APNSSetting
+from ppmessage.db.models import AppPackageInfo
 
-from mdm.db.models import AppInfo
-from mdm.db.models import AppUserData
-from mdm.db.models import AppBillingData
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import AppBillingData
 
-from mdm.db.models import AdminUser
-from mdm.db.models import DeviceUser
-from mdm.db.models import DeviceInfo
+from ppmessage.db.models import AdminUser
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import DeviceInfo
 
-from mdm.db.models import OrgGroup
-from mdm.db.models import OrgSubGroupData
-from mdm.db.models import OrgUserGroupData
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import OrgSubGroupData
+from ppmessage.db.models import OrgUserGroupData
 
-from mdm.db.models import AppGroup
-from mdm.db.models import AppUserGroupData
+from ppmessage.db.models import AppGroup
+from ppmessage.db.models import AppUserGroupData
 
-from mdm.db.models import AppGroupMenu
-from mdm.db.models import AppMessageAction
-from mdm.db.models import AppGroupDefaultRule
+from ppmessage.db.models import AppGroupMenu
+from ppmessage.db.models import AppMessageAction
+from ppmessage.db.models import AppGroupDefaultRule
 
-from mdm.db.models import DiscussionGroup
-from mdm.db.models import DiscussionUserGroupData
+from ppmessage.db.models import DiscussionGroup
+from ppmessage.db.models import DiscussionUserGroupData
 
-from mdm.db.models import MessagePushTask
-from mdm.db.models import MessagePush
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import MessagePush
 
-from mdm.db.models import FileInfo
-from mdm.db.models import MaterialRefInfo
+from ppmessage.db.models import FileInfo
+from ppmessage.db.models import MaterialRefInfo
 
-from mdm.db.models import SingleCardMaterialInfo
-from mdm.db.models import MultipleCardMaterialInfo
+from ppmessage.db.models import SingleCardMaterialInfo
+from ppmessage.db.models import MultipleCardMaterialInfo
 
-from mdm.db.models import UserContactData
+from ppmessage.db.models import UserContactData
 
-from mdm.db.models import ConversationInfo
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import ConversationInfo
+from ppmessage.db.models import ConversationUserData
 
-from mdm.db.models import PCSocketInfo
-from mdm.db.models import PCSocketDeviceData
+from ppmessage.db.models import PCSocketInfo
+from ppmessage.db.models import PCSocketDeviceData
 
-from mdm.db.models import PortalWebSession
+from ppmessage.db.models import PortalWebSession
 
-from mdm.db.models import ApiInfo
-from mdm.db.models import ApiTokenData
+from ppmessage.db.models import ApiInfo
+from ppmessage.db.models import ApiTokenData
 
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
 
-from mdm.core.constant import CACHE_RUN_STATUS
+from ppmessage.core.constant import CACHE_RUN_STATUS
 
 from sqlalchemy import DateTime
 

@@ -11,10 +11,10 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import AppInfo
-from mdm.db.models import AppUserData
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import AppUserData
+from ppmessage.core.redis import redis_hash_to_dict
 
 import json
 

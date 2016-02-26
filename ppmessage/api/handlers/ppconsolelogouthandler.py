@@ -7,9 +7,9 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.constant import API_LEVEL
-from mdm.db.models import DeviceUser
-from mdm.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.db.models import DeviceUser
+from ppmessage.api.error import API_ERR
 
 import logging
 import json

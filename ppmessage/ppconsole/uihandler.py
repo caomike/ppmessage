@@ -7,7 +7,7 @@
 
 # ppconsole/server/uihandler.py
 
-from mdm.core.constant import WEB_TITLE
+from ppmessage.core.constant import WEB_TITLE
 from tornado.web import RequestHandler
 import logging
 import os

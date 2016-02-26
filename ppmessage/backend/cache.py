@@ -9,13 +9,13 @@
 #
 #
 
-from mdm.core.constant import CACHE_PORT
+from ppmessage.core.constant import CACHE_PORT
 
-from mdm.core.srv.srvapp import SrvApp
-from mdm.core.srv.backendio import BackendIO
+from ppmessage.core.srv.srvapp import SrvApp
+from ppmessage.core.srv.backendio import BackendIO
 
-from mdm.cache.getweb import getWeb
-from mdm.cache.getthread import getThread
+from ppmessage.cache.getweb import getWeb
+from ppmessage.cache.getthread import getThread
 
 import tornado.httpserver
 import tornado.ioloop

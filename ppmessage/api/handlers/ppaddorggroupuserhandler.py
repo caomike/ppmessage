@@ -7,14 +7,14 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import OrgGroup
-from mdm.db.models import OrgUserGroupData
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import OrgUserGroupData
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.redis import redis_hash_to_dict
-from mdm.help.createicon import create_user_icon
-from mdm.help.createicon import create_group_icon
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.help.createicon import create_user_icon
+from ppmessage.help.createicon import create_group_icon
 
 import json
 import uuid

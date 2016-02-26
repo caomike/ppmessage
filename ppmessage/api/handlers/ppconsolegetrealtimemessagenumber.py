@@ -10,10 +10,10 @@
 #
 
 from .basehandler import BaseHandler
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import API_LEVEL
-from mdm.db.models import MessagePushTask
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.db.models import MessagePushTask
 
 import traceback
 import datetime

@@ -6,10 +6,10 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppGroup
-from mdm.db.models import AppUserGroupData
+from ppmessage.db.models import AppGroup
+from ppmessage.db.models import AppUserGroupData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import logging
 import json

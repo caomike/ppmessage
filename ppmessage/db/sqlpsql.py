@@ -15,11 +15,11 @@ from sqlalchemy import exc
 from sqlalchemy import event
 from sqlalchemy.pool import Pool
 
-from mdm.core.singleton import singleton
-from mdm.core import getMDMDBHost
-from mdm.core import getMDMDBName
-from mdm.core import getMDMDBUser
-from mdm.core import getMDMDBPassword
+from ppmessage.core.singleton import singleton
+from ppmessage.core import getMDMDBHost
+from ppmessage.core import getMDMDBName
+from ppmessage.core import getMDMDBUser
+from ppmessage.core import getMDMDBPassword
 
 import traceback
 

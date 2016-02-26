@@ -6,8 +6,8 @@
 #
 #
 
-from mdm.pcapp.pcapp import PCApp
-from mdm.core.constant import PCAPP_PORT
+from ppmessage.pcapp.pcapp import PCApp
+from ppmessage.core.constant import PCAPP_PORT
 
 import tornado.httpserver
 import tornado.ioloop

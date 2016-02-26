@@ -5,8 +5,8 @@
 # All rights reserved
 #
 
-from mdm.core.srv.basehandler import BaseHandler
-from mdm.core.constant import SEND_SRV
+from ppmessage.core.srv.basehandler import BaseHandler
+from ppmessage.core.constant import SEND_SRV
 
 def getWeb():
     handler_list = [

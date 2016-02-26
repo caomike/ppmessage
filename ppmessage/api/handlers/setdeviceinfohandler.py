@@ -6,12 +6,12 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import DeviceInfo
-from mdm.db.models import DeviceUser
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.constant import INVALID_IOS_TOKEN
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import INVALID_IOS_TOKEN
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import logging
 import json

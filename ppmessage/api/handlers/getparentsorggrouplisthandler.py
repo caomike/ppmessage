@@ -6,13 +6,13 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import OrgGroup
-from mdm.db.models import OrgSubGroupData
-from mdm.db.models import OrgUserGroupData
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import OrgSubGroupData
+from ppmessage.db.models import OrgUserGroupData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import YVOBJECT
+from ppmessage.core.constant import YVOBJECT
 
 import json
 import logging

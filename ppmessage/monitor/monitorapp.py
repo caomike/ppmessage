@@ -6,16 +6,16 @@
 #
 
 
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
-from mdm.core.constant import REDIS_MONITOR_KEY
-from mdm.core.constant import WEBSOCKET_STATUS
-from mdm.core.constant import OS
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
+from ppmessage.core.constant import REDIS_MONITOR_KEY
+from ppmessage.core.constant import WEBSOCKET_STATUS
+from ppmessage.core.constant import OS
 
-from mdm.help.datetimestring import now_to_string
-from mdm.help.datetimestring import string_to_datetime
+from ppmessage.help.datetimestring import now_to_string
+from ppmessage.help.datetimestring import string_to_datetime
 
-from mdm.db.models import DeviceInfo
+from ppmessage.db.models import DeviceInfo
 
 from tornado.web import Application
 from tornado.web import RequestHandler

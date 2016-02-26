@@ -6,10 +6,10 @@
 #
 
 from .basehandler import BaseHandler
-from mdm.api.error import API_ERR
-from mdm.db.models import AppGroupMenu
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import AppGroupMenu
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 import logging
 import json
 

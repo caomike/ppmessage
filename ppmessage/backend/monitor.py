@@ -9,8 +9,8 @@
 #
 #
 
-from mdm.monitor.monitorapp import MonitorApp
-from mdm.core.constant import MONITOR_PORT
+from ppmessage.monitor.monitorapp import MonitorApp
+from ppmessage.core.constant import MONITOR_PORT
 
 import tornado.httpserver
 import tornado.ioloop

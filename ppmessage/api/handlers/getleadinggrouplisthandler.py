@@ -6,16 +6,16 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import OrgGroup
-from mdm.db.models import AppGroup
-from mdm.db.models import DiscussionGroup
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import DiscussionUserGroupData
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import AppGroup
+from ppmessage.db.models import DiscussionGroup
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import DiscussionUserGroupData
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import YVOBJECT
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import YVOBJECT
+from ppmessage.core.redis import redis_hash_to_dict
 
 import json
 import logging

@@ -5,12 +5,12 @@
 #
 #
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import DeviceInfo
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import MessagePushTask
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import MessagePushTask
 
-from mdm.core.constant import GROUP_ALGORITHM
+from ppmessage.core.constant import GROUP_ALGORITHM
 
 import random
 

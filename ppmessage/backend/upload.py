@@ -9,8 +9,8 @@
 #
 #
 
-from mdm.file.uploadapplication import UploadApplication
-from mdm.core.constant import FILEUPLOAD_PORT
+from ppmessage.file.uploadapplication import UploadApplication
+from ppmessage.core.constant import FILEUPLOAD_PORT
 
 import tornado.httpserver
 import tornado.ioloop

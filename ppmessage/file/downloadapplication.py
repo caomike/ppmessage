@@ -7,10 +7,10 @@
 # All rights reserved
 #
 
-from mdm.core.downloadhandler import DownloadHandler
-from mdm.core.identiconhandler import IdenticonHandler
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
+from ppmessage.core.downloadhandler import DownloadHandler
+from ppmessage.core.identiconhandler import IdenticonHandler
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
 
 from tornado.web import Application
 

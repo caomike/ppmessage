@@ -6,7 +6,7 @@
 #
 
 
-from mdm.core.downloadhandler import DownloadHandler
+from ppmessage.core.downloadhandler import DownloadHandler
 
 def getDownloadHandlers():
     handler_list = []

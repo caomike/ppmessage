@@ -6,8 +6,8 @@
 # All rights reserved
 #
 
-from mdm.db.models import FileInfo
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.db.models import FileInfo
+from ppmessage.core.redis import redis_hash_to_dict
 from tornado.web import StaticFileHandler
 from tornado.web import HTTPError
 

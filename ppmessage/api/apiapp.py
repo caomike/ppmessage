@@ -5,11 +5,11 @@
 # All rights reserved
 #
 
-from mdm.core.singleton import singleton
+from ppmessage.core.singleton import singleton
 from handlers.getwebservicehandlers import getWebServiceHandlers
 
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
 
 from geoip2 import database
 from tornado.web import Application

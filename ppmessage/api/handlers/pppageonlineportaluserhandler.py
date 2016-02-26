@@ -7,9 +7,9 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import DeviceInfo
-from mdm.db.models import DeviceUser
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import DeviceUser
 
 import traceback
 import logging

@@ -7,11 +7,11 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.help.createicon import create_user_icon
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.help.createicon import create_user_icon
 
-from mdm.db.models import OrgGroup
-from mdm.api.error import API_ERR
+from ppmessage.db.models import OrgGroup
+from ppmessage.api.error import API_ERR
 
 import json
 import uuid

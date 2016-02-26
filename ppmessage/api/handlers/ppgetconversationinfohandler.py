@@ -7,11 +7,11 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import ConversationInfo
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import ConversationInfo
+from ppmessage.db.models import ConversationUserData
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.api.error import API_ERR
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.api.error import API_ERR
 
 import uuid
 import json

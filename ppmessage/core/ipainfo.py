@@ -6,13 +6,13 @@
 #
 # core/ipainfo.py
 #
-from mdm.help.getipaddress import getIPAddress
-from mdm.help.scptransfer import ScpTransfer
-from mdm.help.ipin import getNormalizedPNGByData
+from ppmessage.help.getipaddress import getIPAddress
+from ppmessage.help.scptransfer import ScpTransfer
+from ppmessage.help.ipin import getNormalizedPNGByData
 
-from mdm.core.constant import DEV_MODE
-from mdm.core.constant import PORTAL_PORT
-from mdm.core.plistinfo import PListInfo
+from ppmessage.core.constant import DEV_MODE
+from ppmessage.core.constant import PORTAL_PORT
+from ppmessage.core.plistinfo import PListInfo
 
 import pyipa
 import StringIO

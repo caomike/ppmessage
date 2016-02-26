@@ -7,9 +7,9 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.redis import redis_hash_to_dict
-from mdm.db.models import AppPackageInfo
-from mdm.api.error import API_ERR
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.db.models import AppPackageInfo
+from ppmessage.api.error import API_ERR
 
 import json
 import traceback

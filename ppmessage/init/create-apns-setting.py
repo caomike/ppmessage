@@ -5,13 +5,13 @@
 # All rights reserved
 #
 
-from mdm.db.common.dbinstance import getDBSessionClass
-from mdm.db.models import APNSSetting
+from ppmessage.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.models import APNSSetting
 
-from mdm.core.p12converter import convert2pem
-from mdm.core.restart import restart
+from ppmessage.core.p12converter import convert2pem
+from ppmessage.core.restart import restart
 
-from mdm.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
 
 import uuid
 import base64

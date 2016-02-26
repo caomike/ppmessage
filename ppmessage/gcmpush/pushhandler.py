@@ -5,11 +5,11 @@
 #
 #
 
-from mdm.core.constant import GCM_API_KEY
-from mdm.core.constant import APNS_TITLE
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.iospush.pushtitle import push_title
+from ppmessage.core.constant import GCM_API_KEY
+from ppmessage.core.constant import APNS_TITLE
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.iospush.pushtitle import push_title
 
 from gcm import GCM
 import logging

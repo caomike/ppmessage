@@ -5,11 +5,11 @@
 #
 #
 
-from mdm.core.constant import APNS_TITLE
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import APNS_TITLE
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
 
-from mdm.iospush.pushtitle import push_title
+from ppmessage.iospush.pushtitle import push_title
 
 from .mqttclient import MQTTClient
 

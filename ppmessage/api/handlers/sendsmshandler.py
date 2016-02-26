@@ -7,7 +7,7 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import logging
 import json

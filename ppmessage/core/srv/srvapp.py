@@ -5,12 +5,12 @@
 # All rights reserved
 #
 
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
 
-from mdm.api.utils.filerefslinker import FileRefsLinker
+from ppmessage.api.utils.filerefslinker import FileRefsLinker
 
-from mdm.core.singleton import singleton
+from ppmessage.core.singleton import singleton
 from tornado.web import Application
 
 import redis

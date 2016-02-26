@@ -7,7 +7,7 @@
 
 from .sendhandler import SendHandler
 
-from mdm.core.constant import SEND_SRV
+from ppmessage.core.constant import SEND_SRV
 
 def getThread():
     _handler_list = [

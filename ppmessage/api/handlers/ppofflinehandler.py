@@ -6,14 +6,14 @@
 #
 
 from .basehandler import BaseHandler
-from mdm.db.models import DeviceUser
-from mdm.db.models import DeviceInfo
-from mdm.db.models import UserOnlineStatusLog
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import UserOnlineStatusLog
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import REDIS_PPCOM_ONLINE_KEY
-from mdm.core.redis import redis_hash_to_dict
-from mdm.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import REDIS_PPCOM_ONLINE_KEY
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.api.error import API_ERR
 
 import json
 import uuid

@@ -7,9 +7,9 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import MessagePush
-from mdm.db.models import MessagePushTask
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import MessagePush
+from ppmessage.db.models import MessagePushTask
 
 import traceback
 import logging

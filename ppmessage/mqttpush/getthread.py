@@ -6,7 +6,7 @@
 #
 
 from .pushhandler import PushHandler
-from mdm.core.constant import MQTTPUSH_SRV
+from ppmessage.core.constant import MQTTPUSH_SRV
 
 def getThread():
     _handler_list = [

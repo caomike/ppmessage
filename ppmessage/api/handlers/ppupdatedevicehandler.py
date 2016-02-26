@@ -7,9 +7,9 @@
 
 from .basehandler import BaseHandler
 
-from mdm.yvredis.genericupdate import generic_update
-from mdm.db.models import DeviceInfo
-from mdm.api.error import API_ERR
+from ppmessage.yvredis.genericupdate import generic_update
+from ppmessage.db.models import DeviceInfo
+from ppmessage.api.error import API_ERR
 
 import json
 import copy

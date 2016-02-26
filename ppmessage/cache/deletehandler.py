@@ -5,11 +5,11 @@
 #
 #
 
-from mdm.db.common.dbinstance import getDBSessionClass
-from mdm.db.common.sqlmysql import BaseModel
+from ppmessage.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.sqlmysql import BaseModel
 
 # fake load db models
-from mdm.db.models import DeviceUser
+from ppmessage.db.models import DeviceUser
 import traceback
 import logging
 

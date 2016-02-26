@@ -6,8 +6,8 @@
 #
 
 from .basehandler import BaseHandler
-from mdm.db.models import ConversationUserData
-from mdm.api.error import API_ERR
+from ppmessage.db.models import ConversationUserData
+from ppmessage.api.error import API_ERR
 
 import json
 import logging

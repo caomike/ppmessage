@@ -7,8 +7,8 @@
 # core/imageconverter.py
 #
 
-from mdm.core.constant import THUMBNAIL_WIDTH
-from mdm.core.constant import THUMBNAIL_HEIGHT
+from ppmessage.core.constant import THUMBNAIL_WIDTH
+from ppmessage.core.constant import THUMBNAIL_HEIGHT
 
 import base64
 from PIL import Image

@@ -10,13 +10,13 @@
 #
 
 
-from mdm.dispatcher.getthread import getThread
-from mdm.dispatcher.getweb import getWeb
+from ppmessage.dispatcher.getthread import getThread
+from ppmessage.dispatcher.getweb import getWeb
 
-from mdm.core.srv.srvapp import SrvApp
-from mdm.core.srv.backendio import BackendIO
+from ppmessage.core.srv.srvapp import SrvApp
+from ppmessage.core.srv.backendio import BackendIO
 
-from mdm.core.constant import DIS_PORT
+from ppmessage.core.constant import DIS_PORT
 
 import tornado.httpserver
 import tornado.ioloop

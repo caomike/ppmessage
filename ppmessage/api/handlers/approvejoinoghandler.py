@@ -7,20 +7,20 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.srv.signal import signal_cache_add
-from mdm.core.srv.signal import signal_dis_message
+from ppmessage.core.srv.signal import signal_cache_add
+from ppmessage.core.srv.signal import signal_dis_message
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import MessagePushTask
-from mdm.db.models import OrgGroup
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import YVOBJECT
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import OrgGroup
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import YVOBJECT
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import logging
 import datetime

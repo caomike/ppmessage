@@ -15,11 +15,11 @@ from sqlalchemy import exc
 from sqlalchemy import event
 from sqlalchemy.pool import Pool
 
-from mdm.core.singleton import singleton
-from mdm.core.constant import DB_HOST
-from mdm.core.constant import DB_NAME
-from mdm.core.constant import DB_USER
-from mdm.core.constant import DB_PASS
+from ppmessage.core.singleton import singleton
+from ppmessage.core.constant import DB_HOST
+from ppmessage.core.constant import DB_NAME
+from ppmessage.core.constant import DB_USER
+from ppmessage.core.constant import DB_PASS
 
 import traceback
 

@@ -20,15 +20,15 @@ Bootstrap!
 
 from config import BOOTSTRAP_CONFIG
 
-from mdm.db.models import AppInfo
-from mdm.db.models import ApiInfo
-from mdm.db.models import AdminUser
-from mdm.db.models import DeviceUser
-from mdm.db.models import AppUserData
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import ApiInfo
+from ppmessage.db.models import AdminUser
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import AppUserData
 
-from mdm.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.dbinstance import getDBSessionClass
 
-from mdm.core.constant import API_LEVEL
+from ppmessage.core.constant import API_LEVEL
 
 import os
 import json

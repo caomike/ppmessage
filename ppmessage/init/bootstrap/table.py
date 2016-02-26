@@ -5,7 +5,7 @@
 # All rights reserved
 #
 
-from mdm.core.constant import DB_PASS
+from ppmessage.core.constant import DB_PASS
 
 import subprocess
 import traceback
@@ -532,7 +532,7 @@ def _createDTViews(_engine):
     return
     
 def _createAPNSSetting():
-    from mdm.db.common.dbinstance import getDBSessionClass
+    from ppmessage.db.common.dbinstance import getDBSessionClass
 
     session_class = getDBSessionClass()
     session = session_class()
@@ -562,33 +562,33 @@ if __name__ == "__main__":
     subprocess.check_output(_drop_cmd, shell=True)
     subprocess.check_output(_create_cmd, shell=True)
 
-    from mdm.db.models import AdminUser
-    from mdm.db.models import DeviceUser
-    from mdm.db.models import OrgGroup
-    from mdm.db.models import OrgSubGroupData
-    from mdm.db.models import OrgUserGroupData
+    from ppmessage.db.models import AdminUser
+    from ppmessage.db.models import DeviceUser
+    from ppmessage.db.models import OrgGroup
+    from ppmessage.db.models import OrgSubGroupData
+    from ppmessage.db.models import OrgUserGroupData
 
-    from mdm.db.models import DeviceInfo
+    from ppmessage.db.models import DeviceInfo
 
-    from mdm.db.models import MessagePushTask
-    from mdm.db.models import MessagePush
+    from ppmessage.db.models import MessagePushTask
+    from ppmessage.db.models import MessagePush
 
-    from mdm.db.models import AppGroup
-    from mdm.db.models import AppUserGroupData
-    from mdm.db.models import AppGroupMenu
-    from mdm.db.models import AppGroupDefaultRule
-    from mdm.db.models import FileInfo
-    from mdm.db.models import MessageAudioFileInfo
-    from mdm.db.models import APNSSetting
-    from mdm.db.models import OAuthSetting
-    from mdm.db.models import OAuthInfo
+    from ppmessage.db.models import AppGroup
+    from ppmessage.db.models import AppUserGroupData
+    from ppmessage.db.models import AppGroupMenu
+    from ppmessage.db.models import AppGroupDefaultRule
+    from ppmessage.db.models import FileInfo
+    from ppmessage.db.models import MessageAudioFileInfo
+    from ppmessage.db.models import APNSSetting
+    from ppmessage.db.models import OAuthSetting
+    from ppmessage.db.models import OAuthInfo
 
     # PORTAL
-    from mdm.db.models import AdminUser
+    from ppmessage.db.models import AdminUser
     
     print "Initialize MDM DB now, please wait..."
-    from mdm.db.common.sqlmysql import BaseModel
-    from mdm.db.common.dbinstance import getDatabaseEngine
+    from ppmessage.db.common.sqlmysql import BaseModel
+    from ppmessage.db.common.dbinstance import getDatabaseEngine
     import codecs
     codecs.register(lambda name: codecs.lookup('utf8') if name == 'utf8mb4' else None)
     _engine = getDatabaseEngine()

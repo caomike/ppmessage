@@ -7,13 +7,13 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import AppUserData
-from mdm.core.constant import USER_STATUS
-from mdm.core.constant import PPMESSAGE_APP
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import AppUserData
+from ppmessage.core.constant import USER_STATUS
+from ppmessage.core.constant import PPMESSAGE_APP
+from ppmessage.core.redis import redis_hash_to_dict
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import json
 import logging

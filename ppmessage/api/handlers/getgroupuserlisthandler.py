@@ -7,14 +7,14 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import YVOBJECT
+from ppmessage.core.constant import YVOBJECT
 
-from mdm.db.models import AppUserGroupData
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import DiscussionGroup
-from mdm.db.models import DiscussionUserGroupData
+from ppmessage.db.models import AppUserGroupData
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import DiscussionGroup
+from ppmessage.db.models import DiscussionUserGroupData
 
 import json
 import logging

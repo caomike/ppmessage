@@ -7,10 +7,10 @@
 
 from .basehandler import BaseHandler
 
-from mdm.core.srv.signal import signal_cache_add
-from mdm.db.models import DeviceUser
+from ppmessage.core.srv.signal import signal_cache_add
+from ppmessage.db.models import DeviceUser
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import logging
 import datetime

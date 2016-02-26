@@ -7,12 +7,12 @@
 # core/apkinfo.py
 #
 
-from mdm.core.constant import DEV_MODE
-from mdm.core.constant import PORTAL_PORT
-from mdm.help.atool import zipfile
-from mdm.help.atool.apk.axml import ResourceParser
-from mdm.help.atool.apk.axml import ResObject
-from mdm.help.getipaddress import getIPAddress
+from ppmessage.core.constant import DEV_MODE
+from ppmessage.core.constant import PORTAL_PORT
+from ppmessage.help.atool import zipfile
+from ppmessage.help.atool.apk.axml import ResourceParser
+from ppmessage.help.atool.apk.axml import ResObject
+from ppmessage.help.getipaddress import getIPAddress
 
 from axmlparserpy import apk
 

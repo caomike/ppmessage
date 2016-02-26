@@ -7,16 +7,16 @@
 
 from .basehandler import BaseHandler
 
-from mdm.api.error import API_ERR
-from mdm.db.models import DeviceUser
-from mdm.db.models import AppUserData
+from ppmessage.api.error import API_ERR
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import AppUserData
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import USER_NAME
-from mdm.core.constant import USER_STATUS
-from mdm.core.redis import redis_hash_to_dict
-from mdm.help.createicon import create_user_icon
-from mdm.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import USER_NAME
+from ppmessage.core.constant import USER_STATUS
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.help.createicon import create_user_icon
+from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
 
 import json
 import uuid

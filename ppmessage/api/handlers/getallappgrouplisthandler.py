@@ -6,8 +6,8 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppGroup
-from mdm.api.error import API_ERR
+from ppmessage.db.models import AppGroup
+from ppmessage.api.error import API_ERR
 
 class GetAllAppGroupListHandler(BaseHandler):
     """

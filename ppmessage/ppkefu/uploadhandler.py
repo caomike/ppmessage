@@ -6,9 +6,9 @@
 # All rights reserved
 #
 
-from mdm.db.models import FileInfo
-from mdm.core.constant import GENERIC_FILE_STORAGE_DIR
-from mdm.core.srv.signal import signal_cache_add
+from ppmessage.db.models import FileInfo
+from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
+from ppmessage.core.srv.signal import signal_cache_add
 
 from tornado.web import RequestHandler
 from hashlib import sha1

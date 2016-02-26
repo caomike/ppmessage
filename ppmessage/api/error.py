@@ -5,7 +5,7 @@
 # All rights reserved
 #
 
-from mdm.core.constant import enum
+from ppmessage.core.constant import enum
 
 API_ERR = enum("NO_ERR",
                "NO_JSON",

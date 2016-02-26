@@ -5,11 +5,11 @@
 #
 #
 
-from mdm.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
 
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import APNS_TITLE
-from mdm.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import APNS_TITLE
+from ppmessage.core.constant import MESSAGE_TYPE
 
 from apnsmdmclient import get_apns
 from apnsclient import Message

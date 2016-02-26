@@ -7,13 +7,13 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import OrgGroup
-from mdm.db.models import ConversationInfo
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import ConversationInfo
 
-from mdm.api.error import API_ERR
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.constant import CONVERSATION_TYPE
-from mdm.dispatcher.policy.algorithm import AbstractAlgorithm
+from ppmessage.api.error import API_ERR
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import CONVERSATION_TYPE
+from ppmessage.dispatcher.policy.algorithm import AbstractAlgorithm
 
 import uuid
 import json

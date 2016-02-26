@@ -6,29 +6,29 @@
 #
 from .basehandler import BaseHandler
 
-from mdm.core.srv.signal import async_signal_dis_message
+from ppmessage.core.srv.signal import async_signal_dis_message
 
-from mdm.core.imageconverter import ImageConverter
-from mdm.core.audioconverter import AudioConverter
+from ppmessage.core.imageconverter import ImageConverter
+from ppmessage.core.audioconverter import AudioConverter
 
-from mdm.core.constant import MESSAGE_MAX_TEXT_LEN
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import THUMBNAIL_HEIGHT
-from mdm.core.constant import THUMBNAIL_WIDTH
+from ppmessage.core.constant import MESSAGE_MAX_TEXT_LEN
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import THUMBNAIL_HEIGHT
+from ppmessage.core.constant import THUMBNAIL_WIDTH
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import TASK_STATUS
-from mdm.core.constant import YVOBJECT
+from ppmessage.core.constant import TASK_STATUS
+from ppmessage.core.constant import YVOBJECT
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import MessagePushTask
-from mdm.db.models import VideoMaterialInfo
-from mdm.db.models import FileInfo
-from mdm.db.models import ConversationInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import MessagePushTask
+from ppmessage.db.models import VideoMaterialInfo
+from ppmessage.db.models import FileInfo
+from ppmessage.db.models import ConversationInfo
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
 import json
 import uuid

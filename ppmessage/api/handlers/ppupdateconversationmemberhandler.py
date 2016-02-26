@@ -7,17 +7,17 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppInfo
-from mdm.db.models import FileInfo
-from mdm.db.models import DeviceUser
-from mdm.db.models import ConversationInfo
-from mdm.db.models import ConversationUserData
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import FileInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import ConversationInfo
+from ppmessage.db.models import ConversationUserData
 
-from mdm.api.error import API_ERR
-from mdm.core.redis import redis_hash_to_dict
-from mdm.core.constant import CONVERSATION_TYPE
-from mdm.core.constant import CONVERSATION_STATUS
-from mdm.core.constant import CONVERSATION_MEMBER_ACTION
+from ppmessage.api.error import API_ERR
+from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import CONVERSATION_TYPE
+from ppmessage.core.constant import CONVERSATION_STATUS
+from ppmessage.core.constant import CONVERSATION_MEMBER_ACTION
 
 import uuid
 import json

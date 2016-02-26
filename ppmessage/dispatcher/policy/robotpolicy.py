@@ -8,7 +8,7 @@
 from .policy import AbstractPolicy
 from .algorithm import RobotAppAlgorithm
 
-from mdm.core.constant import APP_POLICY
+from ppmessage.core.constant import APP_POLICY
 
 import random
 

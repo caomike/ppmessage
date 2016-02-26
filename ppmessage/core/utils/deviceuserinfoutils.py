@@ -5,9 +5,9 @@
 # 
 #
 
-from mdm.db.models import DeviceUser
+from ppmessage.db.models import DeviceUser
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
 def get_device_user_info (redis, user_uuid, options = None) :
     '''

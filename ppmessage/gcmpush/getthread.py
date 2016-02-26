@@ -6,7 +6,7 @@
 #
 
 from .pushhandler import PushHandler
-from mdm.core.constant import GCMPUSH_SRV
+from ppmessage.core.constant import GCMPUSH_SRV
 
 def getThread():
     _handler_list = [

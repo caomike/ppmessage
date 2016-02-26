@@ -5,8 +5,8 @@
 # All rights reserved
 #
 
-from mdm.core.apkinfo import ApkInfo
-from mdm.core.ipainfo import IpaInfo
+from ppmessage.core.apkinfo import ApkInfo
+from ppmessage.core.ipainfo import IpaInfo
 
 import traceback
 import random

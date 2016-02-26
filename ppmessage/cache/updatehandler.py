@@ -5,9 +5,9 @@
 #
 #
 
-from mdm.db.common.dbinstance import getDBSessionClass
-from mdm.db.common.sqlmysql import BaseModel
-from mdm.db.models import DeviceUser
+from ppmessage.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.common.sqlmysql import BaseModel
+from ppmessage.db.models import DeviceUser
 
 from sqlalchemy import String
 from sqlalchemy import DateTime

@@ -6,8 +6,8 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import FileInfo
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.db.models import FileInfo
+from ppmessage.core.redis import redis_hash_to_dict
 
 import uuid
 import json

@@ -7,9 +7,9 @@
 # core/email/reset.py
 #
 
-from mdm.help.datetimeencoder import DateTimeEncoder
-from mdm.core.constant import PORTAL_PORT
-from mdm.core.constant import DEV_MODE
+from ppmessage.help.datetimeencoder import DateTimeEncoder
+from ppmessage.core.constant import PORTAL_PORT
+from ppmessage.core.constant import DEV_MODE
 
 from smtplib import SMTP
 from smtplib import SMTPRecipientsRefused

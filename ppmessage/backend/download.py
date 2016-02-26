@@ -7,8 +7,8 @@
 # All rights reserved
 #
 
-from mdm.file.downloadapplication import DownloadApplication
-from mdm.core.constant import FILEDOWNLOAD_PORT
+from ppmessage.file.downloadapplication import DownloadApplication
+from ppmessage.core.constant import FILEDOWNLOAD_PORT
 
 import tornado.httpserver
 import tornado.ioloop

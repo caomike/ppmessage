@@ -7,35 +7,35 @@
 
 from .wshandler import WSHandler
 
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
 
-from mdm.core.constant import PCSOCKET_SRV
+from ppmessage.core.constant import PCSOCKET_SRV
 
-from mdm.core.constant import REDIS_TYPING_KEY
-from mdm.core.constant import REDIS_MONITOR_KEY
-from mdm.core.constant import REDIS_ONLINE_KEY
+from ppmessage.core.constant import REDIS_TYPING_KEY
+from ppmessage.core.constant import REDIS_MONITOR_KEY
+from ppmessage.core.constant import REDIS_ONLINE_KEY
 
-from mdm.core.constant import DIS_WHAT
+from ppmessage.core.constant import DIS_WHAT
 
-from mdm.core.constant import TIMEOUT_WEBSOCKET_OFFLINE
+from ppmessage.core.constant import TIMEOUT_WEBSOCKET_OFFLINE
 
-from mdm.core.srv.basehandler import BaseHandler
+from ppmessage.core.srv.basehandler import BaseHandler
 
-from mdm.core.srv.signal import async_signal
-from mdm.core.srv.signal import async_signal_send_send
+from ppmessage.core.srv.signal import async_signal
+from ppmessage.core.srv.signal import async_signal_send_send
 
-from mdm.help.getipaddress import getIPAddress
-from mdm.help.datetimestring import now_to_string
+from ppmessage.help.getipaddress import getIPAddress
+from ppmessage.help.datetimestring import now_to_string
 
-from mdm.db.models import AppInfo
-from mdm.db.models import DeviceInfo
-from mdm.db.models import PCSocketInfo
-from mdm.db.models import PCSocketDeviceData
-from mdm.db.models import ConversationUserData
-from mdm.db.models import DeviceNavigationData
+from ppmessage.db.models import AppInfo
+from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import PCSocketInfo
+from ppmessage.db.models import PCSocketDeviceData
+from ppmessage.db.models import ConversationUserData
+from ppmessage.db.models import DeviceNavigationData
 
-from mdm.dispatcher.policy.policy import AbstractPolicy
+from ppmessage.dispatcher.policy.policy import AbstractPolicy
 
 from .error import DIS_ERR
 

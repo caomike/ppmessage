@@ -10,15 +10,15 @@
 #
 
 from .basehandler import BaseHandler
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.db.models import AppUserData
-from mdm.db.models import UserOnlineStatusLog
-from mdm.db.models import MessagePushTask
-from mdm.help.days import get_day_begin_end
+from ppmessage.db.models import AppUserData
+from ppmessage.db.models import UserOnlineStatusLog
+from ppmessage.db.models import MessagePushTask
+from ppmessage.help.days import get_day_begin_end
 
-from mdm.core.constant import API_LEVEL
-from mdm.core.constant import REDIS_PPCOM_ONLINE_KEY
+from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import REDIS_PPCOM_ONLINE_KEY
 
 import traceback
 import datetime

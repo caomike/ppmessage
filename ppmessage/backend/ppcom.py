@@ -6,9 +6,9 @@
 #
 #
 
-from mdm.core.constant import PPCOM_PORT
-# from mdm.ppcom.jquery.backend.ppcomapp import PPLibrary
-from mdm.ppcom.jquery.backend.ppcomapp import PPComApp
+from ppmessage.core.constant import PPCOM_PORT
+# from ppmessage.ppcom.jquery.backend.ppcomapp import PPLibrary
+from ppmessage.ppcom.jquery.backend.ppcomapp import PPComApp
 
 import tornado.httpserver
 import tornado.ioloop

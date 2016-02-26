@@ -4,14 +4,14 @@
 # Ding Guijin, guijin.ding@yvertical.com
 #
 
-from mdm.core.constant import OS
+from ppmessage.core.constant import OS
 
-from mdm.core.constant import CONVERSATION_TYPE
-from mdm.core.constant import PPMESSAGE_APP
-from mdm.core.constant import DEV_MODE
+from ppmessage.core.constant import CONVERSATION_TYPE
+from ppmessage.core.constant import PPMESSAGE_APP
+from ppmessage.core.constant import DEV_MODE
 
-from mdm.help.getipaddress import getIPAddress
-from mdm.db.models import DeviceUser
+from ppmessage.help.getipaddress import getIPAddress
+from ppmessage.db.models import DeviceUser
 
 import tornado.httpclient
 import uuid

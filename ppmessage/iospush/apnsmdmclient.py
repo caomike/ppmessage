@@ -4,9 +4,9 @@
 # Guijin Ding, dingguijin@gmail.com
 #
 
-from mdm.db.models import APNSSetting
+from ppmessage.db.models import APNSSetting
 
-from mdm.core.constant import INVALID_IOS_TOKEN
+from ppmessage.core.constant import INVALID_IOS_TOKEN
 
 from apnsclient import *
 import tornado.ioloop

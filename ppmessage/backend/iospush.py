@@ -10,11 +10,11 @@
 #
 
 
-from mdm.iospush.iospushapp import IOSPushApp
-from mdm.iospush.getthread import getThread
+from ppmessage.iospush.iospushapp import IOSPushApp
+from ppmessage.iospush.getthread import getThread
 
-from mdm.core.srv.backendio import BackendIO
-from mdm.core.constant import IOSPUSH_PORT
+from ppmessage.core.srv.backendio import BackendIO
+from ppmessage.core.constant import IOSPUSH_PORT
 
 import tornado.httpserver
 import tornado.ioloop

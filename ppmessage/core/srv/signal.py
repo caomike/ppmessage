@@ -7,41 +7,41 @@
 #
 # signal the srv let it action as the input dbhost name and task type
 #
-from mdm.core.constant import IOSPUSH_SRV
-from mdm.core.constant import IOSPUSH_HOST
-from mdm.core.constant import IOSPUSH_PORT
+from ppmessage.core.constant import IOSPUSH_SRV
+from ppmessage.core.constant import IOSPUSH_HOST
+from ppmessage.core.constant import IOSPUSH_PORT
 
-from mdm.core.constant import MQTTPUSH_SRV
-from mdm.core.constant import MQTTPUSH_HOST
-from mdm.core.constant import MQTTPUSH_PORT
+from ppmessage.core.constant import MQTTPUSH_SRV
+from ppmessage.core.constant import MQTTPUSH_HOST
+from ppmessage.core.constant import MQTTPUSH_PORT
 
-from mdm.core.constant import GCMPUSH_SRV
-from mdm.core.constant import GCMPUSH_HOST
-from mdm.core.constant import GCMPUSH_PORT
+from ppmessage.core.constant import GCMPUSH_SRV
+from ppmessage.core.constant import GCMPUSH_HOST
+from ppmessage.core.constant import GCMPUSH_PORT
 
-from mdm.core.constant import PCSOCKET_SRV
-from mdm.core.constant import PCSOCKET_HOST
-from mdm.core.constant import PCSOCKET_PORT
+from ppmessage.core.constant import PCSOCKET_SRV
+from ppmessage.core.constant import PCSOCKET_HOST
+from ppmessage.core.constant import PCSOCKET_PORT
 
-from mdm.core.constant import DIS_SRV
-from mdm.core.constant import DIS_HOST
-from mdm.core.constant import DIS_PORT
+from ppmessage.core.constant import DIS_SRV
+from ppmessage.core.constant import DIS_HOST
+from ppmessage.core.constant import DIS_PORT
 
-from mdm.core.constant import CACHE_HOST
-from mdm.core.constant import CACHE_PORT
-from mdm.core.constant import CACHE_SRV
+from ppmessage.core.constant import CACHE_HOST
+from ppmessage.core.constant import CACHE_PORT
+from ppmessage.core.constant import CACHE_SRV
 
-from mdm.core.constant import FUNC_HOST
-from mdm.core.constant import FUNC_PORT
-from mdm.core.constant import FUNC_SRV
+from ppmessage.core.constant import FUNC_HOST
+from ppmessage.core.constant import FUNC_PORT
+from ppmessage.core.constant import FUNC_SRV
 
-from mdm.core.constant import SEND_HOST
-from mdm.core.constant import SEND_PORT
-from mdm.core.constant import SEND_SRV
+from ppmessage.core.constant import SEND_HOST
+from ppmessage.core.constant import SEND_PORT
+from ppmessage.core.constant import SEND_SRV
 
-from mdm.core.constant import DEV_MODE
+from ppmessage.core.constant import DEV_MODE
 
-from mdm.help.datetimeencoder import DateTimeEncoder
+from ppmessage.help.datetimeencoder import DateTimeEncoder
 
 from tornado.httpclient import AsyncHTTPClient
 from tornado.httpclient import HTTPClient

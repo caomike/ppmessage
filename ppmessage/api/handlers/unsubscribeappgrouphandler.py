@@ -7,11 +7,11 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AppUserGroupData
+from ppmessage.db.models import AppUserGroupData
 
-from mdm.core.srv.signal import signal_cache_delete
+from ppmessage.core.srv.signal import signal_cache_delete
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
 import json
 import logging

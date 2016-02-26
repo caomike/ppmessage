@@ -6,12 +6,12 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import DeviceUser
-from mdm.db.models import FileInfo
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import FileInfo
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.redis import redis_hash_to_dict
 
 import datetime
 import logging

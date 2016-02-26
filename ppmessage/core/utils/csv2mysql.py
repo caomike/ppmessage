@@ -7,11 +7,11 @@
 # help/csv2mysql.py
 #
 
-from mdm.db.common.dbinstance import getDatabaseInstance
-from mdm.db.models import DeviceUser
-from mdm.db.models import OrgGroup
-from mdm.db.models import OrgUserGroupData
-from mdm.db.models import OrgSubGroupData
+from ppmessage.db.common.dbinstance import getDatabaseInstance
+from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import OrgGroup
+from ppmessage.db.models import OrgUserGroupData
+from ppmessage.db.models import OrgSubGroupData
 
 import traceback
 import csv

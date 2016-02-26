@@ -6,7 +6,7 @@
 # All rights reserved
 #
 
-from mdm.core.constant import IDENTICON_FILE_STORAGE_DIR
+from ppmessage.core.constant import IDENTICON_FILE_STORAGE_DIR
 from tornado.web import StaticFileHandler
 from tornado.web import HTTPError
 

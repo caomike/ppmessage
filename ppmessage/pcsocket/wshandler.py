@@ -5,15 +5,15 @@
 # All rights reserved
 #
 
-from mdm.core.constant import OS
-from mdm.core.constant import DIS_WHAT
-from mdm.core.constant import ONLINE_STATUS
-from mdm.core.constant import MESSAGE_TYPE
-from mdm.core.constant import MESSAGE_SUBTYPE
-from mdm.core.constant import WEBSOCKET_STATUS
-from mdm.core.constant import REDIS_TYPING_KEY
+from ppmessage.core.constant import OS
+from ppmessage.core.constant import DIS_WHAT
+from ppmessage.core.constant import ONLINE_STATUS
+from ppmessage.core.constant import MESSAGE_TYPE
+from ppmessage.core.constant import MESSAGE_SUBTYPE
+from ppmessage.core.constant import WEBSOCKET_STATUS
+from ppmessage.core.constant import REDIS_TYPING_KEY
 
-from mdm.db.models import DeviceInfo
+from ppmessage.db.models import DeviceInfo
 
 from .error import DIS_ERR
 from .error import get_error_string

@@ -7,13 +7,13 @@
 
 from .basehandler import BaseHandler
 
-from mdm.db.models import AdminUser
-from mdm.db.models import DeviceUser
+from ppmessage.db.models import AdminUser
+from ppmessage.db.models import DeviceUser
 
-from mdm.api.error import API_ERR
+from ppmessage.api.error import API_ERR
 
-from mdm.core.constant import YVOBJECT
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import YVOBJECT
+from ppmessage.core.redis import redis_hash_to_dict
 
 import pypinyin
 from pypinyin import lazy_pinyin

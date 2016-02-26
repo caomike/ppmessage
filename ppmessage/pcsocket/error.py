@@ -5,7 +5,7 @@
 # All rights reserved
 #
 
-from mdm.core.constant import enum
+from ppmessage.core.constant import enum
 
 DIS_ERR = enum(
     "NOERR",

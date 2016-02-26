@@ -5,11 +5,11 @@
 # All rights reserved
 #
 
-from mdm.core.constant import REDIS_HOST
-from mdm.core.constant import REDIS_PORT
-from mdm.core.constant import IOSPUSH_SRV
+from ppmessage.core.constant import REDIS_HOST
+from ppmessage.core.constant import REDIS_PORT
+from ppmessage.core.constant import IOSPUSH_SRV
 
-from mdm.core.srv.basehandler import BaseHandler
+from ppmessage.core.srv.basehandler import BaseHandler
 
 from tornado.web import Application
 

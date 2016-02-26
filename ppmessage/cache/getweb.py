@@ -5,7 +5,7 @@
 # All rights reserved
 #
 
-from mdm.core.srv.basehandler import BaseHandler
+from ppmessage.core.srv.basehandler import BaseHandler
 
 def getWeb():
     handler_list = []
