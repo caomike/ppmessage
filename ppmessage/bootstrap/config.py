@@ -26,7 +26,6 @@ BOOTSTRAP_CONFIG = {
         "user_firstname": "Guijin",
         "user_lastname": "Ding",
         "user_fullname": "Guijin Ding",
-        "user_status": "OWNER_2",
         # email is user account
         "user_email": "dingguijin@gmail.com",
         "user_password": "123",
@@ -35,7 +34,7 @@ BOOTSTRAP_CONFIG = {
     "db": {
         "db_type": "mysql", #postgresql
         "db_host": "127.0.0.1",
-        "db_port": "",
+        "db_port": "3306",
         "db_user": "root",
         "db_pass": "test",
         "db_name": "ppmessage",
@@ -43,12 +42,11 @@ BOOTSTRAP_CONFIG = {
 
     "redis": {
         "redis_host": "127.0.0.1",
-        "redis_port": "",
-        "redis_user": "",
-        "redis_password": "",
+        "redis_port": "6379",
+        "redis_password": None,
     },
 
-    # cert config
+    # nginx reversed proxy 
     "nginx": {
         "nginx_conf_path": "the_path_of_nginx_conf",
         "server_name": ["ppmessage.com", "www.ppmessage.com"],

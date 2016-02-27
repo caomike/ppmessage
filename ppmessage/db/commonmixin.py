@@ -6,10 +6,11 @@
 #
 
 from ppmessage.core.srv.signal import async_signal_cache_add
-from ppmessage.core.srv.signal import async_signal_cache_update
 from ppmessage.core.srv.signal import async_signal_cache_delete
-from ppmessage.db.common.copyrow import copy_row_to_dict
+from ppmessage.core.srv.signal import async_signal_cache_update
+
 from ppmessage.core.redis import invalid_sql_result
+from ppmessage.core.utils.copyrow import copy_row_to_dict
 
 from sqlalchemy import Column
 from sqlalchemy import String

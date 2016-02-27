@@ -61,12 +61,6 @@ if __name__ == "__main__":
     # utf8mb4
     _updateMessagePushTasksCharset(_engine)    
     
-    print("create dbviews...")
-    _createDBViews(_engine)
-    
-    print("create dtviews...")
-    _createDTViews(_engine)
-
     print "Initialize MDM DB done!"
 
 

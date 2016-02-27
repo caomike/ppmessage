@@ -18,19 +18,27 @@ Bootstrap!
 
 """
 
+try:
+    from ppmessage.core.constant import API_LEVEL
+except:
+    print('\033[1;31;40m')
+    print("PPMessage requirements not ready. Please run `scripts/require.py`")
+    print('\033[0m')
+    import sys
+    sys.exit()
+
 from config import BOOTSTRAP_CONFIG
 
 from ppmessage.db.models import AppInfo
 from ppmessage.db.models import ApiInfo
 from ppmessage.db.models import AdminUser
 from ppmessage.db.models import DeviceUser
-from ppmessage.db.models import AppUserData
-
-from ppmessage.db.common.dbinstance import getDBSessionClass
-
+from ppmessage.db.models import AppUserData    
+from ppmessage.db.dbinstance import getDBSessionClass
 from ppmessage.core.constant import API_LEVEL
 
 import os
+import sys
 import json
 import uuid
 import copy
@@ -39,23 +47,22 @@ import hashlib
 import datetime
 import traceback
 
-
 def _encode(_key):
     _key = hashlib.sha1(_key).hexdigest()
     _key = base64.b64encode(_key)
     return _key
 
 def _check_bootstrap_config():
-    _fields = ["user_email", "user_password", "user_fullname", "user_firstname", "user_lastname", "user_language", "company_name"]
+    _fields = ["team", "user", "db", "redis", "nginx", "ios"]
     for _field in _fields:
         if _field not in BOOTSTRAP_CONFIG:
             print("%s not provided in BOOTSTAP_CONFIG" % _field)
             return None
     _config = copy.deepcopy(BOOTSTRAP_CONFIG)
-    _config["user_language"] = _config.get("user_language").lower()
     return _config
 
 def _create_bootstrap_admin_user(_session, _config):
+    _config = _config.get("user")
     _admin = AdminUser(
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
@@ -73,6 +80,7 @@ def _create_bootstrap_admin_user(_session, _config):
     return _config
 
 def _create_bootstrap_first_user(_session, _config):
+    _config = _config.get("user")
     _user = DeviceUser(
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
@@ -83,7 +91,7 @@ def _create_bootstrap_first_user(_session, _config):
         user_firstname=_config.get("user_firstname"),
         user_lastname=_config.get("user_lastname"),
         user_language=_config.get("user_language"),
-        user_status=_config.get("user_status"),
+        user_status=USER_STATUS.OWNER_2,
         is_anonymous_user=False,
     )
     _session.add(_user)
@@ -92,26 +100,30 @@ def _create_bootstrap_first_user(_session, _config):
     return _config
 
 def _create_bootstrap_first_team(_session, _config):
+    _user_config = _config.get("user")
+    _team_config = _config.get("team")
     _app = AppInfo(
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
         uuid=str(uuid.uuid1()),
         app_key=_encode(str(uuid.uuid1())),
         app_secret=_encode(str(uuid.uuid1())),
-        user_uuid=_config.get("user_uuid"),
-        app_name=_config.get("app_name"),
-        company_name=_config.get("company_name")
+        user_uuid=_user_config.get("user_uuid"),
+        app_name=_team_config.get("app_name"),
+        company_name=_team_config.get("company_name")
     )
     _session.add(_app)
     _session.commit()
-    _config["app_uuid"] = _app.uuid
+    _team_config["app_uuid"] = _app.uuid
     return _config
 
 def _create_bootstrap_team_data(_session, _config):
+    _user_config = _config.get("user")
+    _team_config = _config.get("team")
     _data = AppUserData(
         uuid=str(uuid.uuid1()),
-        user_uuid=_config.get("user_uuid"),
-        app_uuid=_config.get("app_uuid"),
+        user_uuid=_user_config.get("user_uuid"),
+        app_uuid=_team_config.get("app_uuid"),
         is_service_user=True,
         is_owner_user=True,
         is_distributor_user=True,
@@ -121,66 +133,23 @@ def _create_bootstrap_team_data(_session, _config):
     _session.commit()
     return _config
 
-def _create_bootstrap_api_ppcom(_session, _config):
+def _create_bootstrap_api(_type, _session, _config):
+    _user_config = _config.get("user")
+    _team_config = _config.get("team")
     _api = ApiInfo(
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
-
         uuid=str(uuid.uuid1()),
-        user_uuid=_config.get("user_uuid"),
-        app_uuid=_config.get("app_uuid"),
-        api_level=API_LEVEL.PPCOM,
+        user_uuid=_user_config.get("user_uuid"),
+        app_uuid=_team_config.get("app_uuid"),
+        api_level=_type,
         api_key=_encode(str(uuid.uuid1())),
         api_secret=_encode(str(uuid.uuid1())),
     )
     _session.add(_api)
     _session.commit()
 
-    _config["ppcom"] = {
-        "api_uuid": _api.uuid,
-        "api_key": _api.api_key,
-        "api_secret": _api.api_secret,
-    }
-    return _config
-
-def _create_bootstrap_api_ppkefu(_session, _config):
-    _api = ApiInfo(
-        createtime=datetime.datetime.now(),
-        updatetime=datetime.datetime.now(),
-
-        uuid=str(uuid.uuid1()),
-        user_uuid=_config.get("user_uuid"),
-        app_uuid=_config.get("app_uuid"),
-        api_level=API_LEVEL.PPKEFU,
-        api_key=_encode(str(uuid.uuid1())),
-        api_secret=_encode(str(uuid.uuid1())),
-    )
-    _session.add(_api)
-    _session.commit()
-
-    _config["ppkefu"] = {
-        "api_uuid": _api.uuid,
-        "api_key": _api.api_key,
-        "api_secret": _api.api_secret,
-    }
-    return _config
-
-
-def _create_bootstrap_api_ppconsole(_session, _config):
-    _api = ApiInfo(
-        createtime=datetime.datetime.now(),
-        updatetime=datetime.datetime.now(),
-        uuid=str(uuid.uuid1()),
-        user_uuid=_config.get("user_uuid"),
-        app_uuid=_config.get("app_uuid"),
-        api_level=API_LEVEL.PPCONSOLE,
-        api_key=_encode(str(uuid.uuid1())),
-        api_secret=_encode(str(uuid.uuid1())),
-    )
-    _session.add(_api)
-    _session.commit()
-
-    _config["ppconsole"] = {
+    _config[_type] = {
         "api_uuid": _api.uuid,
         "api_key": _api.api_key,
         "api_secret": _api.api_secret,
@@ -221,6 +190,9 @@ def _print_bootstrap_result(_config):
     return
 
 def _bootstrap():
+
+    _levels = [API_LEVEL.PPCOM, API_LEVEL.PPKEFU, API_LEVEL.PPCONSOLE,
+               API_LEVEL.THIRD_PARTY_KEFU, API_LEVEL.THIRD_PARTY_CONSOLE]
     _config = _check_bootstrap_config()
     if _config == None:
         return
@@ -231,9 +203,8 @@ def _bootstrap():
         _config = _create_bootstrap_first_user(_session, _config)
         _config = _create_bootstrap_first_team(_session, _config)
         _config = _create_bootstrap_team_data(_session, _config)
-        _config = _create_bootstrap_api_ppcom(_session, _config)
-        _config = _create_bootstrap_api_ppkefu(_session, _config)
-        _config = _create_bootstrap_api_ppconsole(_session, _config)
+        for _level in _levels:
+            _config = _create_bootstrap_api(_level, _session, _config)
         _config = _update_api_uuid_with_ppconsole(_session, _config)
     except:
         traceback.print_exc()

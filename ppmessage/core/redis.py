@@ -7,8 +7,6 @@
 # core/redis.py
 #
 
-from ppmessage.db.common.copyrow import RowObject
-
 from ppmessage.core.constant import REDIS_SQL_KEY
 from ppmessage.core.constant import DATETIME_FORMAT
 
