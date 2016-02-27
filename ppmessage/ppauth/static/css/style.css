@@ -1,0 +1,99 @@
+body {
+    font-family: Helvetica, Monaco, arial;
+    background-color: #f8f8f8;
+}
+
+.content {
+    width: 340px;
+    margin: 100px auto;
+}
+
+.login-form {
+    
+}
+
+.login-form-header {
+    padding: 10px 0;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.login-form-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+.login-form-body {
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #d8dee2;
+    box-sizing: border-box;
+}
+
+.hidden-items {
+    display: none;
+}
+
+.item-name {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+
+.item-input {
+    margin: 5px 0 15px 0;
+    padding: 8px;
+    width: 100%;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 20px;
+    vertical-align: middle;
+    border-radius: 5px;
+    border: solid 1px #5ca941;
+    background-color: #8add6d;
+}
+
+.submit-button:hover {
+    background-color: #60b044;
+}
+
+.ppmessage-logo {
+    padding: 40px 0 20px 0;
+    
+}
+
+.logo-link {
+    margin: 0 auto;
+    height: 48px;
+    width: 130px;
+    display: block;
+    color: #333;
+}
+
+.logo-image {
+    height: 100%;
+}

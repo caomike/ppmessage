@@ -24,6 +24,7 @@ class PPAuthApp(Application):
         self.redis = redis.Redis(REDIS_HOST, REDIS_PORT, db=1)
         settings = {
             "debug": True,
+            "static_path": os.path.abspath(os.path.dirname(__file__)) + "/static"
         }
         handlers = [
             ("/auth/?.*", AuthHandler),

@@ -9,9 +9,13 @@
 
 from ppmessage.db.models import ApiInfo
 from ppmessage.db.models import ApiTokenData
+from mdm.db.models import DeviceUser
+from mdm.core.redis import redis_hash_to_dict
 
 from tornado.web import RequestHandler
+from tornado.template import Loader
 
+import os
 import uuid
 import json
 import base64
@@ -45,7 +49,46 @@ class AuthHandler(RequestHandler):
         return
 
     def post(self, *args, **kwargs):
-        self.send_error(404)
+        _redis = self.application.redis
+        logging.info(self.request.body);
+        _user_email = self.get_body_argument("user_email")
+        _user_password = self.get_body_argument("user_password")
+        _token_data_uuid = self.get_body_argument("token_data_uuid")
+        _redirect_uri = self.get_body_argument("redirect_uri")
+        _state = self.get_body_argument("state")
+        _key = DeviceUser.__tablename__ + ".user_email." + _user_email
+
+        if not _redis.exists(_key):
+            logging.info("no such user %s" %_user_email)
+            self.send_error(500)
+            # self.setErrorCode(API_ERR.NO_USER)
+            return
+        
+        _user_uuid = _redis.get(_key)
+        _user = redis_hash_to_dict(_redis, DeviceUser, _user_uuid)
+
+        if _user == None:
+            logging.info("no such user %s" %_user_email)
+            self.send_error(500)
+            # self.setErrorCode(API_ERR.NO_USER)
+            return
+                
+        _pass = hashlib.sha1(_user_password).hexdigest()
+        if _pass != _user.get("user_password"):
+            logging.info("password not match %s" %_user_email)
+            self.send_error(500);
+            # self.setErrorCode(API_ERR.MIS_ERR)
+            return
+
+        _row = ApiTokenData(**{ "uuid": _token_data_uuid, "is_code_authorized": True })
+        _row.async_update()
+        _row.update_redis_keys(_redis)
+        
+        _token_data = redis_hash_to_dict(_redis, ApiTokenData, _token_data_uuid)
+        _code = _token_data.get("api_code")
+        _redirect_target = _redirect_uri + "?code=" + _code + "&state=" + _state
+        logging.info(_redirect_target)
+        self.redirect(_redirect_target, permanent=True, status=301)
         return
     
     def get(self, *args, **kwargs):
@@ -91,9 +134,13 @@ class AuthHandler(RequestHandler):
         _row.create_redis_keys(_redis)
 
         if _request_dict.get("redirect_uri") != None:
-            # FIXME: add task to handle the request
-            # generate a login html and set callback
-            self.send_error(500)
+            loader = Loader(os.path.abspath(os.path.dirname(__file__)) + "/static/templates")
+            login_form = loader.load("login_form.html").generate(**{
+                "state": _request_dict.get("state"),
+                "redirect_uri": _request_dict.get("redirect_uri"),
+                "token_data_uuid": _row.uuid
+            })
+            self.write(login_form)
             return
 
         if _request_dict.get("redirect_uri") == None:
