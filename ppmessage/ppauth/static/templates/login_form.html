@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  </head>
+  <body>
+    
+    <div class="content">
+      <div class="ppmessage-logo">
+        <a href="https://ppmessage.cn" class="logo-link">
+          <img class="logo-image" src="static/img/ppmessage-logo.png">
+        </a>
+      </div>
+      
+      <div class="login-form">
+        <form method="POST" action="auth">
+          <div class="login-form-header">
+            <h1>Sign in to PPMessage</h1>
+          </div>
+          
+          <div class="login-form-body">
+            <label class="item-name">Email Address</label>
+            <input class="item-input" type="text" placeholder="Email" name="user_email">
+            <label class="item-name">Password</label>
+            <input class="item-input" type="password" placeholder="Password" name="user_password">
+            <input class="submit-button" type="submit" value="Submit">
+          </div>
+          
+          <div class="hidden-items">
+            <input type="hidden" name="token_data_uuid" value="{{ token_data_uuid }}">
+            <input type="hidden" name="redirect_uri" value="{{ redirect_uri }}">
+            <input type="hidden" name="state" value="{{ state }}">
+          </div>
+        </form>
+      </div>      
+    </div>
+  </body>
+</html>

@@ -168,7 +168,7 @@ class TokenHandler(RequestHandler):
         self.write(json.dumps(_return))
         return
 
-    def _authorization_code(self, _request):
+    def _authorization_code(self, _request_dict):
         _redis = self.application.redis
         _key = ApiTokenData.__tablename__ + ".api_code." + _request_dict.get("code")
         _data = _redis.get(_key)
@@ -208,6 +208,14 @@ class TokenHandler(RequestHandler):
         if _request_dict.get("redirect_uri") != None:
             # start task to handle http request
             self.send_error(500)
+            self.set_header("Content-Type", "application/json")
+            self._header()
+            _return = {
+                "access_token": _token_data[0],
+                "token_type": "Bearer",
+                "exipired_in": 3600*24
+            }
+            self.write(json.dumps(_return))
             return
 
         if _request_dict.get("redirect_uri") == None:
