@@ -37,7 +37,6 @@ function ppmessage_help()
 
 Commands:
   init-ppmessage              Init ppmessage databases and materials.
-  local-oauth                 Set OAuth's domain name to local.
   dev                         Install development mode with current working directory.
   undev                       Uninstall development mode.
   status                      Show the status of installation mode.
@@ -99,13 +98,6 @@ function ppmessage_init_cache()
     cd ppmessage/init
     ppmessage_exec python db2cache.py
     cd - >/dev/null
-}
-
-function ppmessage_local_oauth()
-{
-    ppmessage_exec mysql -uroot -ptest ppmessage<<EOF
-UPDATE oauth_settings SET domain_name = '127.0.0.1';
-EOF
 }
 
 function ppmessage_dist()
@@ -251,102 +243,26 @@ function ppmessage_log()
     tail -F /usr/local/var/log/*.log
 }
 
-function ppmessage_log_api()
-{
-    if [ ! -d /usr/local/var/log ];
-    then
-        ppmessage_err "can not find ppmessage's log path!"
-    fi
-
-    tail -F /usr/local/var/log/ppmessage-api-8922.log
-}
-
-function ppmessage_log_dis()
-{
-    if [ ! -d /usr/local/var/log ];
-    then
-        ppmessage_err "can not find ppmessage's log path!"
-    fi
-
-    tail -F /usr/local/var/log/ppmessage-dispatcher-8923.log
-}
-
-function ppmessage_log_pcs()
-{
-    if [ ! -d /usr/local/var/log ];
-    then
-        ppmessage_err "can not find ppmessage's log path!"
-    fi
-
-    tail -F /usr/local/var/log/ppmessage-pcsocket-8931.log
-}
-
-function ppmessage_log_cac()
-{
-    if [ ! -d /usr/local/var/log ];
-    then
-        ppmessage_err "can not find ppmessage's log path!"
-    fi
-
-    tail -F /usr/local/var/log/ppmessage-cache-8929.log
-}
-
-function ppmessage_log_mon()
-{
-    if [ ! -d /usr/local/var/log ];
-    then
-        ppmessage_err "can not find ppmessage's log path!"
-    fi
-
-    tail -F /usr/local/var/log/ppmessage-monitor-8937.log
-}
-
-function ppmessage_log_upl()
-{
-    if [ ! -d /usr/local/var/log ];
-    then
-        ppmessage_err "can not find ppmessage's log path!"
-    fi
-
-    tail -F /usr/local/var/log/ppmessage-upload-8928.log
-}
-
-function ppmessage_ppmessage()
-{
-    cat ppmessage/core/constant.py | sed -i.bak 's/DEV_MODE = True/DEV_MODE = False/g' ppmessage/core/constant.py
-    cd ppmessage/ppcom/jquery/gulp; gulp; cd -
-    cd ppmessage/pcapp/ppmessage-pc; gulp; cd -
-    cd ppmessage/web/assets/build; gulp; cd -
-}
-
-function ppmessage_localhost()
-{
-    cat ppmessage/core/constant.py | sed -i.bak 's/DEV_MODE = False/DEV_MODE = True/g' ppmessage/core/constant.py
-    cd ppmessage/ppcom/jquery/gulp; gulp --env dev; cd -
-    cd ppmessage/pcapp/ppmessage-pc; gulp --env dev; cd -
-    cd ppmessage/web/assets/build; gulp; cd -
-}
-
 function ppmessage_app_win32()
 {
-    cd ppmessage/pcapp/ppmessage-pc; npm run pack:win32; cd -;
+    cd ppmessage/ppkefu/ppkefu; npm run pack:win32; cd -;
 }
 
 function ppmessage_app_win64()
 {
-    cd ppmessage/pcapp/ppmessage-pc; npm run pack:win64; cd -;
+    cd ppmessage/ppkefu/ppkefu; npm run pack:win64; cd -;
 }
 
 function ppmessage_app_mac()
 {
-    cd ppmessage/pcapp/ppmessage-pc; npm run pack:osx; cd -;
+    cd ppmessage/ppkefu/ppkefu; npm run pack:osx; cd -;
 }
 
 function ppmessage_app_android()
 {
     echo "Android";
     # cordova platform rm android; cordova platform add android; 
-    cd ppmessage/pcapp/ppmessage-pc; cordova build android --release -- --gradleArg=-PcdvBuildMultipleApks=false; cd -;
+    cd ppmessage/ppkefu/ppkefu; cordova build android --release -- --gradleArg=-PcdvBuildMultipleApks=false; cd -;
     
 }
 
@@ -355,7 +271,7 @@ function ppmessage_app_ios()
     echo "create iOS ipa";
     echo "cordova platform add ios first"
     # cordova platform rm ios; cordova platform add ios;
-    cd ppmessage/pcapp/ppmessage-pc; cordova build ios --release --device --codeSignIdentity="iOS Distribution" --provisioningProfile="b00c5be6-cc46-4776-b7c3-02915a5c44ec"; cd -;
+    cd ppmessage/ppkefu/ppkefu; cordova build ios --release --device --codeSignIdentity="{code_sign_identity}" --provisioningProfile="{provisioning_profile}"; cd -;
     
 }
 
@@ -370,31 +286,31 @@ function ppmessage_app_dist()
     echo "dist apps to portal download";
     PORTAL_DIST_DIR="ppmessage/web/assets/static/yvertical/portal/resources/app"
     
-    ANDROID_APK_FILE="ppmessage/pcapp/ppmessage-pc/platforms/android/build/outputs/apk/android-release.apk"
+    ANDROID_APK_FILE="ppmessage/ppkefu/ppkefu/platforms/android/build/outputs/apk/android-release.apk"
     if [ -f $ANDROID_APK_FILE ];
     then
         cp $ANDROID_APK_FILE $PORTAL_DIST_DIR/ppmessage.apk 
     fi
 
-    IOS_IPA_FILE="ppmessage/pcapp/ppmessage-pc/platforms/ios/build/device/ppmessage.ipa"
+    IOS_IPA_FILE="ppmessage/ppkefu/ppkefu/platforms/ios/build/device/ppmessage.ipa"
     if [ -f $IOS_IPA_FILE ];
     then
         cp $IOS_IPA_FILE $PORTAL_DIST_DIR
     fi
 
-    MAC_DMG_FILE="ppmessage/pcapp/ppmessage-pc/electron/dist/osx/ppmessage.dmg"
+    MAC_DMG_FILE="ppmessage/ppkefu/ppkefu/electron/dist/osx/ppmessage.dmg"
     if [ -f $MAC_DMG_FILE ];
     then
         cp $MAC_DMG_FILE $PORTAL_DIST_DIR
     fi
     
-    WIN64_INS_FILE="ppmessage/pcapp/ppmessage-pc/electron/dist/win64/ppmessage-win64-setup.exe"
+    WIN64_INS_FILE="ppmessage/ppkefu/ppkefu/electron/dist/win64/ppmessage-win64-setup.exe"
     if [ -f $WIN64_INS_FILE ];
     then
         cp $WIN64_INS_FILE $PORTAL_DIST_DIR
     fi
 
-    WIN32_INS_FILE="ppmessage/pcapp/ppmessage-pc/electron/dist/win32/ppmessage-win32-setup.exe"
+    WIN32_INS_FILE="ppmessage/ppkefu/ppkefu/electron/dist/win32/ppmessage-win32-setup.exe"
     if [ -f $WIN32_INS_FILE ];
     then
         cp $WIN32_INS_FILE $PORTAL_DIST_DIR
