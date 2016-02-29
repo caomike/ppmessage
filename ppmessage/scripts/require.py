@@ -51,7 +51,7 @@ def _check_brew():
             continue
         brew_list.append(brew_item)
 
-    should_list = ["boost", "cmake", "dos2unix", "faac", "node",
+    should_list = ["cmake", "dos2unix", "faac", "node",
                    "fdk-aac", "ffmpeg", "gettext", "jpeg", "lame", "libffi", "libmagic",
                    "libogg", "libvo-aacenc", "libvorbis", "makedepend", "mercurial", "mp3val",
                    "mysql", "nginx-full", "opencore-amr", "openssl", "opus", "ossp-uuid", "pcre",
