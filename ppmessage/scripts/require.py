@@ -29,6 +29,41 @@ def _color_print(str, color="red"):
     return
 
 def _check_brew():
+    which_cmd = 'which brew'
+    try:
+        cmd_res = subprocess.check_output(which_cmd, shell=True)
+    except:
+        traceback.print_exc()
+        _color_print("Homebrew not installed. Get brew from http://brew.sh.")
+        sys.exit()
+        
+    list_cmd = 'brew list'
+    try:
+        list_res = subprocess.check_output(list_cmd, shell=True)
+    except:
+        _color_print("`brew list` can not execute")
+        sys.exit()
+
+    list_res = list_res.split("\n")
+    brew_list = []
+    for brew_item in list_res:
+        if len(brew_item) == 0:
+            continue
+        brew_list.append(brew_item)
+
+    
+    should_list = ["ant", "boost", "cmake", "dos2unix", "faac",
+                   "fdk-aac", "ffmpeg", "gettext", "jpeg", "lame", "libffi", "libmagic",
+                   "libogg", "libvo-aacenc", "libvorbis", "makedepend", "mercurial", "mp3val",
+                   "mysql", "nginx-full", "opencore-amr", "openssl", "opus", "ossp-uuid", "pcre",
+                   "pkg-config", "qt", "readline", "redis", "texi2html", "upload-nginx-module", "upload-progress-nginx-module",
+                   "watchman", "wget", "x264", "xvid", "xz", "yasm"]
+    for should_item in should_list:
+        if should_item not in brew_list:
+            _color_print("%s not installed, try use `brew install %s`" % should_item)
+            sys.exit()
+
+    _color_print("brew check ok!", "green")
     return
 
 def _check_debian():
@@ -99,9 +134,8 @@ def _require_pips():
         list_res = subprocess.check_output(list_cmd, shell=True)
     except:
         _color_print("`pip list` can not execute")
-        sys.exit
+        sys.exit()
 
-    print(list_res)
     list_res = list_res.split("\n")
     pip_list = []
     for pip_item in list_res:
