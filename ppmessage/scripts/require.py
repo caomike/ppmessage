@@ -47,8 +47,34 @@ def _require_ppmessage_pth():
         f.write(ppmessage_dir)
     return
 
+def _require_software_packages():
+    """
+    check the required software packages
+    For Linux Debian, check dpkg
+    For Mac OS X, check homebrew
+
+    check only, no download, no install
+    """
+    return
+
+def _require_pips():
+    """
+    check the required python pip packages
+    check only, no download no install
+    """
+    return
+
+def _require_node():
+    """
+    check node.js
+    """
+    return
+
 def _require():
     _require_ppmessage_pth()
+    _require_software_packages()
+    _require_pips()
+    _require_node()
     return
 
 if __name__ == "__main__":
