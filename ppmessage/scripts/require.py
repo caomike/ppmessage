@@ -59,7 +59,7 @@ def _check_brew():
                    "watchman", "wget", "x264", "xvid", "xz", "yasm"]
     for should_item in should_list:
         if should_item not in brew_list:
-            _color_print("%s not installed, try use `brew install %s`" % should_item)
+            _color_print("%s not installed, try use `brew install %s`" % (should_item, should_item))
             sys.exit()
 
     _color_print("brew check ok!", "green")
@@ -164,7 +164,7 @@ def _require_pips():
             continue
         pip_list.append(pip_item.split(" ")[0])
 
-    should_list = ["AxmlParserPY", "beautifulsoup4", "biplist", "certifi", "cffi", "chardet",
+    should_list = ["apns-client", "AxmlParserPY", "beautifulsoup4", "biplist", "certifi", "cffi", "chardet",
                    "cryptography", "evernote", "filemagic", "geoip2", "green",
                    "identicon", "ipaddr", "ipython", "jieba", "matplotlib",
                    "maxminddb", "mysql-connector-python", "numpy",
