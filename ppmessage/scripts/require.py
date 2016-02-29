@@ -7,7 +7,7 @@
 
 """
 require.py check the system environment
-1) OS (Debian Linux, Mac OS X)
+1) set `ppmessage` module path
 2) Software package (dpkg, homebrew)
 3) Python pip
 4) Node npm
@@ -23,6 +23,9 @@ def _color_print(str):
     return
 
 def _require_ppmessage_pth():
+    """
+    let python know `ppmessage` module 
+    """
     try:
         from distutils.sysconfig import get_python_lib
         site_package_dir = get_python_lib()
@@ -34,8 +37,14 @@ def _require_ppmessage_pth():
         _color_print("need root privilege")
         sys.exit()
         
-    _current_dir = os.path.dirname(os.path.abspath(__file__))
-    _ppmessage_dir = _current_dir
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    current_dir = current_dir.split(os.path.sep)
+    current_dir = current_dir[:-2]
+    ppmessage_dir = os.path.sep.join(current_dir)
+
+    pth = site_package_dir + os.path.sep + "ppmessage.pth"
+    with open(pth, "w") as f:
+        f.write(ppmessage_dir)
     return
 
 def _require():
