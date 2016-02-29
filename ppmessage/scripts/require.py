@@ -15,11 +15,23 @@ require.py check the system environment
 
 import os
 import sys
+import platform
+import traceback
+import subprocess
 
-def _color_print(str):
-    print('\033[1;31;40m')
+def _color_print(str, color="red"):
+    if color == "red":
+        print('\033[1;31;40m')
+    if color == "green":
+        print('\033[1;32;40m')
     print(str)
     print('\033[0m')
+    return
+
+def _check_brew():
+    return
+
+def _check_debian():
     return
 
 def _require_ppmessage_pth():
@@ -55,6 +67,17 @@ def _require_software_packages():
 
     check only, no download, no install
     """
+
+    current_platform = platform.system()
+    if current_platform == "Darwin":
+        _check_brew()
+        return
+
+    if current_platform == "Linux":
+        _check_debian()
+        return
+
+    _color_print("ppmessage not support %s" % current_platform)
     return
 
 def _require_pips():
@@ -62,6 +85,44 @@ def _require_pips():
     check the required python pip packages
     check only, no download no install
     """
+
+    which_cmd = 'which pip'
+    try:
+        cmd_res = subprocess.check_output(which_cmd, shell=True)
+    except:
+        traceback.print_exc()
+        _color_print("pip not installed")
+        sys.exit()
+
+    list_cmd = 'pip list'
+    try:
+        list_res = subprocess.check_output(list_cmd, shell=True)
+    except:
+        _color_print("`pip list` can not execute")
+        sys.exit
+
+    print(list_res)
+    list_res = list_res.split("\n")
+    pip_list = []
+    for pip_item in list_res:
+        if len(pip_item) == 0:
+            continue
+        pip_list.append(pip_item.split(" ")[0])
+
+    should_list = ["apns-client", "AxmlParserPY", "beautifulsoup4",
+                   "biplist", "certifi", "cffi", "chardet", "cryptography", "evernote",
+                   "filemagic", "geoip2", "green", "identicon", "ipaddr", "ipython",
+                   "jieba", "matplotlib", "maxminddb", "mysql-connector-python", "numpy",
+                   "paho-mqtt", "paramiko", "Pillow", "pip", "ppmessage-mqtt", "pyOpenSSL",
+                   "pyparsing", "pypinyin", "python-dateutil", "python-gcm", "qiniu", "qrcode",
+                   "readline", "redis", "requests", "rq", "scikit-learn", "scipy", "setuptools",
+                   "six", "SQLAlchemy", "supervisor", "tornado", "xlrd"]
+    for should_item in should_list:
+        if should_item not in pip_list:
+            _color_print("%s not installed, try use root privilege execute `pip install %s`" % should_item)
+            sys.exit()
+
+    _color_print("pip check ok!", "green")
     return
 
 def _require_node():
