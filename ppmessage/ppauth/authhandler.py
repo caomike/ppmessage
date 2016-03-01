@@ -9,8 +9,8 @@
 
 from ppmessage.db.models import ApiInfo
 from ppmessage.db.models import ApiTokenData
-from mdm.db.models import DeviceUser
-from mdm.core.redis import redis_hash_to_dict
+from ppmessage.db.models import DeviceUser
+from ppmessage.core.redis import redis_hash_to_dict
 
 from tornado.web import RequestHandler
 from tornado.template import Loader

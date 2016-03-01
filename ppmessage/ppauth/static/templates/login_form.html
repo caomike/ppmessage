@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="static/scripts/login-form.js">
   </head>
   <body>
     
@@ -15,7 +16,7 @@
       <div class="login-form">
         <form method="POST" action="auth">
           <div class="login-form-header">
-            <h1>Sign in to PPMessage</h1>
+            <h1>Authorize Application</h1>
           </div>
           
           <div class="login-form-body">
@@ -23,7 +24,7 @@
             <input class="item-input" type="text" placeholder="Email" name="user_email">
             <label class="item-name">Password</label>
             <input class="item-input" type="password" placeholder="Password" name="user_password">
-            <input class="submit-button" type="submit" value="Submit">
+            <input id="interval-mark" class="submit-button" type="submit" value="Authorize application">
           </div>
           
           <div class="hidden-items">
