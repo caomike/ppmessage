@@ -3,5 +3,5 @@ hg clone https://dingguijin@bitbucket.org/dingguijin/apns-client; cd ./apns-clie
 
 git clone --recursive https://github.com/maxmind/libmaxminddb
 # autoconf libtool required to bootstrap
-cd libmaxmindb; ./bootstrap; ./configure; make; make install; cd -
+cd libmaxminddb; ./bootstrap; ./configure; make; make install; cd -
 

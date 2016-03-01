@@ -25,7 +25,7 @@ def _color_print(str, color="red"):
     return
 
 def _install():
-    basic_list = ["pcre", "dos2unix", ""hg", "autoconf", "libtool", "automake", "redis", "libmagic", "mysql", "libjpeg", "libffi", "fdk-aac", "lame", "mercurial"]
+    basic_list = ["pcre", "dos2unix", "hg", "autoconf", "libtool", "automake", "redis", "libmagic", "mysql", "libjpeg", "libffi", "faac", "fdk-aac", "lame", "mercurial", "makedepend", "mp3val", "ossp-uuid", "readline", "watchman", "wget", "x264", "xvid", "xz", "yasm"]
 
     for should_item in basic_list:
         install_cmd = "brew install " + should_item
