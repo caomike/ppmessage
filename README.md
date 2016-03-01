@@ -13,7 +13,7 @@ A Open Source Plug & Play Online Customer Service Platform
   
   * Install command
   ```Bash
-    brew install hg autoconf libtool automake redis libmagic mysql libjpeg libffi fdk-aac lame
+    brew install hg autoconf libtool automake redis libmagic mysql libjpeg libffi fdk-aac lame mercurial
     brew tap homebrew/services
     brew tap homebrew/nginx
     brew install nginx-full --with-upload-module
