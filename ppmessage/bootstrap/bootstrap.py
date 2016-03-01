@@ -207,6 +207,70 @@ def _create_apns_settings(_session, _config):
     _session.commit()        
     return _config
 
+def _create_nginx_conf(_session, _config):
+FILE_STORAGE_DIR = "/usr/local/opt/mdm"
+MESSAGE_FILE_STORAGE_DIR = "/usr/local/opt/mdm/message"
+ICON_FILE_STORAGE_DIR = "/usr/local/opt/mdm/icon"
+IDENTICON_FILE_STORAGE_DIR = "/usr/local/opt/mdm/identicon"
+APP_FILE_STORAGE_DIR = "/usr/local/opt/mdm/app"
+GENERIC_FILE_STORAGE_DIR = "/usr/local/opt/mdm/generic"
+UPLOADS_FILE_STORAGE_DIR = "/usr/local/opt/mdm/uploads"
+
+import platform
+import os
+
+if not os.path.exists(FILE_STORAGE_DIR):
+    os.makedirs(FILE_STORAGE_DIR)
+    os.chmod(FILE_STORAGE_DIR, 0777)
+
+if not os.path.exists(MESSAGE_FILE_STORAGE_DIR):
+    os.makedirs(MESSAGE_FILE_STORAGE_DIR)
+    os.chmod(MESSAGE_FILE_STORAGE_DIR, 0777)
+
+if not os.path.exists(ICON_FILE_STORAGE_DIR):
+    os.makedirs(ICON_FILE_STORAGE_DIR)
+    os.chmod(ICON_FILE_STORAGE_DIR, 0777)
+
+if not os.path.exists(IDENTICON_FILE_STORAGE_DIR):
+    os.makedirs(IDENTICON_FILE_STORAGE_DIR)
+    os.chmod(IDENTICON_FILE_STORAGE_DIR, 0777)
+
+if not os.path.exists(APP_FILE_STORAGE_DIR):
+    os.makedirs(APP_FILE_STORAGE_DIR)
+    os.chmod(APP_FILE_STORAGE_DIR, 0777)
+
+if not os.path.exists(GENERIC_FILE_STORAGE_DIR):
+    os.makedirs(GENERIC_FILE_STORAGE_DIR)
+    os.chmod(GENERIC_FILE_STORAGE_DIR, 0777)
+
+if not os.path.exists(UPLOADS_FILE_STORAGE_DIR):
+    os.makedirs(UPLOADS_FILE_STORAGE_DIR)
+    os.chmod(UPLOADS_FILE_STORAGE_DIR, 0777)
+
+for i in xrange(10):
+    _dir = chr(i+ord("0"))
+    _dir = UPLOADS_FILE_STORAGE_DIR + "/" + _dir
+    if not os.path.exists(_dir):
+        os.makedirs(_dir)
+        os.chmod(_dir, 0777)
+        
+for i in xrange(26):
+    _dir = chr(i+ord("A"))
+    _dir = UPLOADS_FILE_STORAGE_DIR + "/" + _dir
+    if not os.path.exists(_dir):
+        os.makedirs(_dir)
+        os.chmod(_dir, 0777)
+
+for i in xrange(26):
+    _dir = chr(i+ord("a"))
+    _dir = UPLOADS_FILE_STORAGE_DIR + "/" + _dir
+    if not os.path.exists(_dir):
+        os.makedirs(_dir)
+        os.chmod(_dir, 0777)
+
+    
+    return _config
+
 def _print_bootstrap_result(_config):
     _header = """
 # -*- coding: utf-8 -*-

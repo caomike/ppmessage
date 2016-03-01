@@ -13,6 +13,7 @@ BOOSTRAP_CONFIG is the first place for developer edit before run PPMessage.
 "mysql", database config
 "redis", redis config
 "nginx", nginx config
+
 """
 
 BOOTSTRAP_CONFIG = {
@@ -46,15 +47,16 @@ BOOTSTRAP_CONFIG = {
 
     # nginx conf 
     "nginx": {
-        "nginx_conf_path": "the_path_of_nginx_conf",
+        "nginx_conf_path": "/usr/local/etc/nginx/nginx.conf",
         "server_name": ["ppmessage.com", "www.ppmessage.com"],
         "listen": "8080", #80
-        "ssl": "on", #"off"
-        "ssl_listen": "443",
-        "ssl_certificate": "/root/ppmessage/ppmessage/certs/ppmessage.cn.instant/issue/ssl_bundle.crt",
-        "ssl_certificate_key": "/root/ppmessage/ppmessage/certs/ppmessage.cn.instant/server.key",
         "upload_store": "/usr/local/opt/mdm/uploads 1",
         "upload_state_store": "/usr/local/opt/mdm/upload_state",
+
+        "ssl": "off", # off/on
+        "ssl_listen": "443",
+        "ssl_certificate": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/ppmessage.cn.instant/issue/ssl_bundle.crt",
+        "ssl_certificate_key": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/ppmessage.cn.instant/server.key",
     },
 
     # apns push certificate, dev for developer, pro for production
