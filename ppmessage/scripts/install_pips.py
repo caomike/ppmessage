@@ -29,7 +29,7 @@ def _install():
         "AxmlParserPY", "beautifulsoup4", "biplist", "certifi", "cffi", "chardet",
         "cryptography", "evernote", "filemagic", "geoip2", "green",
         "identicon", "ipaddr", "ipython", "jieba", "matplotlib",
-        "maxminddb", "mysql-connector-python", "numpy",
+        "maxminddb", "numpy",
         "paho-mqtt", "paramiko", "Pillow", "pip", "ppmessage-mqtt", "pyOpenSSL",
         "pyparsing", "pypinyin", "python-dateutil", "python-gcm", "qiniu", "qrcode",
         "readline", "redis", "requests", "rq", "scikit-learn", "scipy", "setuptools",
@@ -41,6 +41,17 @@ def _install():
             subprocess.check_output(install_cmd, shell=True)
         except:
             _color_print("failed to run: `pip install %s`" % should_item) 
+            sys.exit()
+
+    special_cmds = [
+        "pip install -egg mysql-connector-python-rf"
+    ]
+
+    for install_cmd in special_cmds:
+        try:
+            subprocess.check_output(install_cmd, shell=True)
+        except:
+            _color_print("failed to run: `%s`" % install_cmd) 
             sys.exit()
 
     return
