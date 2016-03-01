@@ -18,6 +18,8 @@ from ppmessage.core.constant import GCMPUSH_PORT
 from ppmessage.gcmpush.getthread import getThread
 from ppmessage.gcmpush.getweb import getWeb
 
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
+
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -48,6 +50,13 @@ class GcmPushApp(SrvApp):
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
+
+    _config = BOOTSTRAP_DATA.get("gcm")
+    _api_key = _config.get("api_key")
+    if _api_key == None or len(_api_key) == 0:
+        logging.info("No gcm api_key config, gcmpush can not start.")
+        return
+    
     _app = GcmPushApp(getWeb())
     _io = BackendIO(getThread(), _app)
     _http_server = tornado.httpserver.HTTPServer(_app)

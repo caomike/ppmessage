@@ -961,6 +961,8 @@ class APNSSetting(CommonMixin, BaseModel):
     __tablename__ = "apns_settings"
 
     app_uuid = Column("app_uuid", String(64))
+
+    name = Column("name", String(64))
     
     is_development = Column("is_development", Boolean)
     is_production = Column("is_production", Boolean)

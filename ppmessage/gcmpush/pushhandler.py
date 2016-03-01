@@ -5,11 +5,12 @@
 #
 #
 
-from ppmessage.core.constant import GCM_API_KEY
 from ppmessage.core.constant import APNS_TITLE
 from ppmessage.core.constant import MESSAGE_TYPE
 from ppmessage.core.constant import MESSAGE_SUBTYPE
+
 from ppmessage.iospush.pushtitle import push_title
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
 from gcm import GCM
 import logging
@@ -19,12 +20,16 @@ class PushHandler():
 
     def __init__(self, _app):
         self.application = _app
-        self.gcm = GCM(GCM_API_KEY)
+        _config = BOOTSTRAP_DATA.get("gcm")
+        _api_key = _config.get("api_key")
+        self.gcm = None
+        if _api_key != None:
+            self.gcm = GCM(_api_key)
         return
     
     def _one(self, _token, _msg):
         if self.gcm == None:
-            logging.error("no fucking gcm")
+            logging.error("no gcm")
             return
         self.gcm.plaintext_request(registration_id=_token, collapse_key='ppmessage', data=_msg)
         return

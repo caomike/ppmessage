@@ -34,6 +34,8 @@ from ppmessage.db.models import ApiInfo
 from ppmessage.db.models import AdminUser
 from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import AppUserData    
+from ppmessage.db.models import APNSSetting
+
 from ppmessage.db.dbinstance import getDBSessionClass
 from ppmessage.core.constant import API_LEVEL
 
@@ -162,6 +164,49 @@ def _update_api_uuid_with_ppconsole(_session, _config):
     _session.commit()
     return _config
 
+def _create_apns_settings(_session, _config):
+    _dev_pem = None
+    _pro_pem = None
+    _dev_p12 = None
+    _pro_p12 = None
+
+    _apns = _config.get("apns")
+    _dev_path = _apns.get("dev")
+    _pro_path = _apns.get("pro")
+    _name = _apns.get("name")
+    _app_uuid = _config.get("team").get("app_uuid")
+
+    if _apns == None or _dev_path == None or _pro_path == None or _name == None:
+        return _config
+    
+    with open(_dev_path, "rb") as _file:
+        _dev_p12 = _file.read()
+        _dev_pem = convert2pem(_dev_p12)
+
+    with open(_pro_path, "rb") as _file:
+        _pro_p12 = _file.read()
+        _pro_pem = convert2pem(_pro_p12)
+
+    _dev_p12 = base64.b64encode(_dev_p12)
+    _dev_pem = base64.b64encode(_dev_pem)
+    _pro_p12 = base64.b64encode(_pro_p12)
+    _pro_pem = base64.b64encode(_pro_pem)
+    
+    _apns = APNSSetting(
+        uuid=str(uuid.uuid1()),
+        app_uuid=_app_uuid,
+        name = _name,
+        production_p12=_pro_p12,
+        development_p12=_dev_p12,
+        production_pem=_pro_pem,
+        development_pem=_dev_pem,
+        is_development=False,
+        is_production=True
+    )
+    _session.add(_apns)
+    _session.commit()        
+    return _config
+
 def _print_bootstrap_result(_config):
     _header = """
 # -*- coding: utf-8 -*-
@@ -206,6 +251,7 @@ def _bootstrap():
         for _level in _levels:
             _config = _create_bootstrap_api(_level, _session, _config)
         _config = _update_api_uuid_with_ppconsole(_session, _config)
+        _config = _create_apns_settings(_session, _config)
     except:
         traceback.print_exc()
     finally:

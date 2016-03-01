@@ -57,12 +57,16 @@ BOOTSTRAP_CONFIG = {
         "upload_state_store": "/usr/local/opt/mdm/upload_state",
     },
 
-    # apns push certificate
+    # apns push certificate, dev for developer, pro for production
     "apns": {
+        "name": "com.yvertical.mdm.yvio",
+        "dev": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/apnscerts/ppmessage-dev.p12",
+        "pro": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/apnscerts/ppmessage-pro.p12",
     },
 
     # google cloud message
     "gcm": {
+        "api_key": "AIzaSyBzRHQH-u6-wcT6jUc8DgTITMUB4vdqYiU",
     },
 
     # iOS app code signing
