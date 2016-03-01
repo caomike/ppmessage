@@ -1,5 +1,5 @@
-# ppmessage
-Open source online customer service system
+# PPMessage
+A Open Source Plug & Play Online Customer Service Platform
 
 ## Mac OS X
 
