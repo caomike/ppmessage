@@ -44,12 +44,44 @@ A Open Source Plug & Play Online Customer Service Platform
 * Python pip
   * Install command
   ```Bash
-  sudo -H pip install AxmlParserPY beautifulsoup4 biplist certifi cffi chardet cryptography evernote filemagic geoip2 green identicon ipaddr jieba matplotlib maxminddb numpy paho-mqtt paramiko Pillow ppmessage-mqtt pyOpenSSL pyparsing pypinyin python-dateutil python-gcm qiniu qrcode readline redis requests rq scikit-learn scipy six SQLAlchemy supervisor tornado xlrd
-  sudo -H pip install -egg mysql-connector-python-rf
+    sudo -H pip install AxmlParserPY beautifulsoup4 biplist certifi cffi chardet cryptography evernote filemagic geoip2 green identicon ipaddr jieba matplotlib maxminddb numpy paho-mqtt paramiko Pillow ppmessage-mqtt pyOpenSSL pyparsing pypinyin python-dateutil python-gcm qiniu qrcode readline redis requests rq scikit-learn scipy six SQLAlchemy supervisor tornado xlrd
+    sudo -H pip install -egg mysql-connector-python-rf
   ```
   * Or use `ppmessage/scrips/install_pips.py` to install automatically
 
-### Config and run
+### Config mysql and redis
 
+* Mysql user and password (replace DB_PASSWORD with what you want to set as db password)
+
+```Bash
+    brew services list
+    brew services start mysql
+    mysqladmin -uroot password DB_PASSWORD
+```
+
+* Redis
+
+  * Start redis
+```Bash
+    brew services list
+    brew services start redis
+```
+
+  * PPMessage does not need redis save
+```Bash
+    vim /usr/local/etc/redis.conf and comment all save lines
+    > # save 900 1
+    > # save 300 10
+    > # save 60 10000
+```
+
+### Config PPMessage
+
+* Edit config.py
+
+```Bash
+    vim ppmessage/bootstrap/config.py
+    ...
+```
 
 

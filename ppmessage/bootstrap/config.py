@@ -10,9 +10,9 @@ BOOSTRAP_CONFIG is the first place for developer edit before run PPMessage.
 
 "team", to run PPMessage needing a team who is the first service team of the PPMessage
 "user", to run PPMessage needing a user who create the first service team and admin the whole PPMessage system
-"db", database config
+"mysql", database config
 "redis", redis config
-
+"nginx", nginx config
 """
 
 BOOTSTRAP_CONFIG = {
@@ -31,8 +31,7 @@ BOOTSTRAP_CONFIG = {
         "user_password": "123",
     },
 
-    "db": {
-        "db_type": "mysql", #postgresql
+    "mysql": {
         "db_host": "127.0.0.1",
         "db_port": "3306",
         "db_user": "root",
@@ -43,10 +42,9 @@ BOOTSTRAP_CONFIG = {
     "redis": {
         "redis_host": "127.0.0.1",
         "redis_port": "6379",
-        "redis_password": None,
     },
 
-    # nginx reversed proxy 
+    # nginx conf 
     "nginx": {
         "nginx_conf_path": "the_path_of_nginx_conf",
         "server_name": ["ppmessage.com", "www.ppmessage.com"],
@@ -59,7 +57,15 @@ BOOTSTRAP_CONFIG = {
         "upload_state_store": "/usr/local/opt/mdm/upload_state",
     },
 
-    # iOS code signing
+    # apns push certificate
+    "apns": {
+    },
+
+    # google cloud message
+    "gcm": {
+    },
+
+    # iOS app code signing
     "ios": {
         "code_sign_identity": "iOS Distribution",
         "provisioning_profile": "b00c5be6-cc46-4776-b7c3-02915a5c44ec",
