@@ -66,8 +66,7 @@ A Open Source Plug & Play Online Customer Service Platform
     brew services list
     brew services start redis
 ```
-
-  * PPMessage does not need redis save
+  * Config redis 
 ```Bash
     vim /usr/local/etc/redis.conf and comment all save lines
     > # save 900 1
