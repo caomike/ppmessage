@@ -198,7 +198,8 @@ class TokenHandler(RequestHandler):
             return
 
         if _request_dict["grant_type"] == "authorization_code":
-            if _api[2] != API_LEVEL.PPKEFU and _api[2] != API_LEVEL.THIRD_PARTY_PPKEFU and _api[2] != API_LEVEL.PPCONSOLE:
+            if _api[2] != API_LEVEL.PPKEFU and _api[2] != API_LEVEL.THIRD_PARTY_KEFU and \
+               _api[2] != API_LEVEL.PPCONSOLE and _api[2] != API_LEVEL.THIRD_PARTY_CONSOLE:
                 self.send_error(400)
                 return
             if _token_data[2] != "True":

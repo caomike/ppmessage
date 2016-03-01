@@ -1,0 +1,28 @@
+body {
+    font-family: Helvetica, Monaco, Arial;
+    background-color: #f8f8f8;
+}
+
+.ppkefu-auth {
+    width: 400px;
+    text-align: center;
+    margin: 100px auto;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.content input {
+    width: 60%;
+    padding: 8px;
+    cursor: pointer;
+    background-color: gold;
+    border: solid 1px #ccc;
+}
