@@ -25,10 +25,11 @@ def _color_print(str, color="red"):
     return
 
 def _install():
-    basic_list = ["hg", "autoconf", "libtool", "automake", "redis", "libmagic", "mysql", "libjpeg", "libffi", "fdk-aac", "lame", "mercurial"]
+    basic_list = ["pcre", "dos2unix", ""hg", "autoconf", "libtool", "automake", "redis", "libmagic", "mysql", "libjpeg", "libffi", "fdk-aac", "lame", "mercurial"]
 
     for should_item in basic_list:
         install_cmd = "brew install " + should_item
+        _color_print("%s" % install_cmd, "green")
         try:
             subprocess.check_output(install_cmd, shell=True)
         except:
@@ -43,6 +44,7 @@ def _install():
     ]
     
     for install_cmd in install_cmds:
+        _color_print("%s" % install_cmd, "green")
         try:
             subprocess.check_output(install_cmd, shell=True)
         except:

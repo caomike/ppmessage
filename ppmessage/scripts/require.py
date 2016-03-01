@@ -51,12 +51,7 @@ def _check_brew():
             continue
         brew_list.append(brew_item)
 
-    should_list = ["cmake", "dos2unix", "faac", "node",
-                   "fdk-aac", "ffmpeg", "gettext", "jpeg", "lame", "libffi", "libmagic",
-                   "libogg", "libvo-aacenc", "libvorbis", "makedepend", "mercurial", "mp3val",
-                   "mysql", "nginx-full", "opencore-amr", "openssl", "opus", "ossp-uuid", "pcre",
-                   "pkg-config", "qt", "readline", "redis", "texi2html", "upload-nginx-module", "upload-progress-nginx-module",
-                   "watchman", "wget", "x264", "xvid", "xz", "yasm"]
+    should_list = ["dos2unix", "faac", "node", "fdk-aac", "ffmpeg", "gettext", "jpeg", "lame", "libffi", "libmagic", "libogg", "libvo-aacenc", "libvorbis", "makedepend", "mercurial", "mp3val", "mysql", "nginx-full", "opencore-amr", "openssl", "opus", "ossp-uuid", "pcre", "pkg-config", "readline", "redis", "upload-nginx-module", "upload-progress-nginx-module", "watchman", "wget", "x264", "xvid", "xz", "yasm"]
     for should_item in should_list:
         if should_item not in brew_list:
             _color_print("%s not installed, try use `brew install %s`" % (should_item, should_item))
