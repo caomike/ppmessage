@@ -7,11 +7,19 @@ Open source online customer service system
 
 * Homebrew
   * Download and install from [http://brew.sh](http://brew.sh)
-  * brew install hg autoconf libtool automake redis libmagic mysql libjpeg libffi fdk-aac lame
-  * brew tap homebrew/services
-  * brew tap homebrew/nginx
-  * brew install nginx-full --with-upload-module
-  * brew install ffmpeg --with-fdk-aac --with-opencore-amr --with-libvorbis --with-opus
+  ```Bash
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
+  
+  * Install command
+  ```Bash
+    brew install hg autoconf libtool automake redis libmagic mysql libjpeg libffi fdk-aac lame
+    brew tap homebrew/services
+    brew tap homebrew/nginx
+    brew install nginx-full --with-upload-module
+    brew install ffmpeg --with-fdk-aac --with-opencore-amr --with-libvorbis --with-opus
+  ```
+
   * Or use `ppmessage/scripts/install_brews.py` to install automatically
 
 * Manual download
