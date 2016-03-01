@@ -37,23 +37,12 @@ def _install():
 
     for should_item in should_list:
         install_cmd = "pip install " + should_item
+        _color_print("%s" % install_cmd, "green")
         try:
             subprocess.check_output(install_cmd, shell=True)
         except:
             _color_print("failed to run: `pip install %s`" % should_item) 
             sys.exit()
-
-    special_cmds = [
-        "pip install -egg mysql-connector-python-rf"
-    ]
-
-    for install_cmd in special_cmds:
-        try:
-            subprocess.check_output(install_cmd, shell=True)
-        except:
-            _color_print("failed to run: `%s`" % install_cmd) 
-            sys.exit()
-
     return
 
 def _check_csr():

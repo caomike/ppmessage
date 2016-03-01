@@ -40,12 +40,20 @@ A Open Source Plug & Play Online Customer Service Platform
     wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
     cd -
   ```
-  
+
+  * Mysql connector python
+  ```Bash
+    wget -c http://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.3.tar.gz
+    tar zxvf mysql-connector-python-2.1.3.tar.gz
+    cd mysql-connector-python-2.1.3
+    sudo python setup.py install
+    cd -
+  ```
+
 * Python pip
   * Install command
   ```Bash
     sudo -H pip install AxmlParserPY beautifulsoup4 biplist certifi cffi chardet cryptography evernote filemagic geoip2 green identicon ipaddr jieba matplotlib maxminddb numpy paho-mqtt paramiko Pillow ppmessage-mqtt pyOpenSSL pyparsing pypinyin python-dateutil python-gcm qiniu qrcode readline redis requests rq scikit-learn scipy six SQLAlchemy supervisor tornado xlrd
-    sudo -H pip install -egg mysql-connector-python-rf
   ```
   * Or use `ppmessage/scrips/install_pips.py` to install automatically
 
