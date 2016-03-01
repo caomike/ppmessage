@@ -28,10 +28,17 @@ A Open Source Plug & Play Online Customer Service Platform
     hg clone https://dingguijin@bitbucket.org/dingguijin/apns-client
     cd ./apns-client; sudo -H python setup.py install; cd -
   ```
-  * Geolite2 library source and DB
+  * Geolite2 library source
   ```Bash
     git clone --recursive https://github.com/maxmind/libmaxminddb
     cd libmaxmindb; ./bootstrap; ./configure; make; make install; cd -
+  ```
+
+  * Geolite2 DB (assuming you have cloned the ppmessage source, and under the root `ppmessage` directory.)
+  ```Bash
+    cd ppmessage/api/geolite2
+    wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
+    cd -
   ```
   
 * Python pip
