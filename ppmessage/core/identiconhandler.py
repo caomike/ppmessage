@@ -6,7 +6,8 @@
 # All rights reserved
 #
 
-from ppmessage.core.constant import IDENTICON_FILE_STORAGE_DIR
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
+
 from tornado.web import StaticFileHandler
 from tornado.web import HTTPError
 
@@ -30,7 +31,9 @@ class IdenticonHandler(StaticFileHandler):
             
     @classmethod
     def get_absolute_path(cls, root, path):
-        _p = IDENTICON_FILE_STORAGE_DIR + "/" + path
+        _identicon_store = BOOTSTRAP_DATA.get("server")
+        _identicon_store = _identicon_store.get("identicon_store")
+        _p = _identicon_store + os.path.sep + path
         return _p
 
     def validate_absolute_path(self, root, absolute_path):

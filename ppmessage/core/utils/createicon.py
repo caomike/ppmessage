@@ -31,7 +31,7 @@ def create_user_icon(_uuid):
     _image = _image.draw_image()
     _file_name = _uuid + ".png"
     _identicon_store = BOOTSTRAP_DATA.get("nginx").get("identicon_store")
-    _path = IDENTICON_FILE_STORAGE_DIR + os.path.sep + _file_name
+    _path = _identicon_store + os.path.sep + _file_name
     _image.save(_path)
     return _icon_url(_file_name)
 
