@@ -1,5 +1,5 @@
 # PPMessage
-A Open Source Plug & Play Online Customer Service Platform
+A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, you can chat with your customer via Web and mobile real time.
 
 ## Run PPMessage on Mac OS X
 
@@ -96,7 +96,6 @@ A Open Source Plug & Play Online Customer Service Platform
     python ppmessage/scripts/bootstrap.py
     python ppmessage/scripts/db2cache.py
 ```
-
 
 ### Generate PPCom - web version
 
