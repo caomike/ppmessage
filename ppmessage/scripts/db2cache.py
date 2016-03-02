@@ -5,9 +5,9 @@
 # All rights reserved
 #
 
-from ppmessage.help.datetimeencoder import DateTimeEncoder
+from ppmessage.core.utils.datetimeencoder import DateTimeEncoder
 
-from ppmessage.db.common.dbinstance import getDBSessionClass
+from ppmessage.db.dbinstance import getDBSessionClass
 
 from ppmessage.db.models import APNSSetting
 from ppmessage.db.models import AppPackageInfo

@@ -16,10 +16,7 @@ from sqlalchemy import event
 from sqlalchemy.pool import Pool
 
 from ppmessage.core.singleton import singleton
-from ppmessage.core.constant import DB_HOST
-from ppmessage.core.constant import DB_NAME
-from ppmessage.core.constant import DB_USER
-from ppmessage.core.constant import DB_PASS
+from ppmessage.bootstrap.config import BOOTSTRAP_CONFIG
 
 import traceback
 
@@ -45,6 +42,12 @@ def ping_connection(dbapi_connection, connection_record, connection_proxy):
 class SQLMysql():
 
     def __init__(self):
+
+        DB_NAME = BOOTSTRAP_CONFIG.get("mysql").get("db_name")
+        DB_PASS = BOOTSTRAP_CONFIG.get("mysql").get("db_pass")
+        DB_USER = BOOTSTRAP_CONFIG.get("mysql").get("db_user")
+        DB_HOST = BOOTSTRAP_CONFIG.get("mysql").get("db_host")
+
         self.dbhost = DB_HOST
         self.dbname = DB_NAME
         self.dbuser = DB_USER

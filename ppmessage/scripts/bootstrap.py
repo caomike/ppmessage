@@ -27,7 +27,7 @@ except:
     import sys
     sys.exit()
 
-from config import BOOTSTRAP_CONFIG
+from ppmessage.bootstrap.config import BOOTSTRAP_CONFIG
 
 from ppmessage.db.models import AppInfo
 from ppmessage.db.models import ApiInfo
@@ -89,7 +89,7 @@ def _create_bootstrap_first_user(_session, _config):
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
         uuid=str(uuid.uuid1()),
-        user_email=_config.get("user_email"),
+        user_email=_user_config.get("user_email"),
         user_password=hashlib.sha1(_user_config.get("user_password")).hexdigest(),
         user_fullname=_user_config.get("user_fullname"),
         user_firstname=_user_config.get("user_firstname"),
