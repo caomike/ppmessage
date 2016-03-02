@@ -6,7 +6,6 @@
 #
 
 from ppmessage.api.apiapp import APIApp
-from ppmessage.api.apibackendthread import APIBackendThread
 from ppmessage.core.constant import API_PORT
 
 import tornado.httpserver
@@ -22,18 +21,10 @@ if __name__ == "__main__":
     sys.setdefaultencoding('utf8')
 
     tornado.options.parse_command_line()
-    # _backend = APIBackendThread()
-    # _backend.start()
-
     _app = APIApp()
     _http_server = tornado.httpserver.HTTPServer(_app)
     _http_server.listen(tornado.options.options.port)
     logging.info("Starting API servcie.")
     tornado.ioloop.IOLoop.instance().start()
 
-    #FIXME stop the thread
-    # print "ending thread"
-    # _backend.stop()
-    # _backend.join()
-    # print "ended thread"
 

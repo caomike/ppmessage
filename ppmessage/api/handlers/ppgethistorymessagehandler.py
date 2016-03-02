@@ -11,13 +11,13 @@ from ppmessage.db.models import MessagePush
 from ppmessage.db.models import MessagePushTask
 
 from ppmessage.api.error import API_ERR
-from ppmessage.api.utils.deviceuserinfoutils import get_device_user_info
 
 from ppmessage.core.constant import YVOBJECT
 from ppmessage.core.constant import MESSAGE_STATUS
 from ppmessage.core.constant import TASK_STATUS
 
 from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.utils.deviceuserinfoutils import get_device_user_info
 
 from operator import attrgetter
 from operator import itemgetter
