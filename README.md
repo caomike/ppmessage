@@ -90,7 +90,9 @@ A Open Source Plug & Play Online Customer Service Platform
 ```Bash
     vim ppmessage/bootstrap/config.py
     ...
+    python ppmessage/bootstrap/bootstrap.py
 ```
+
 
 ### Generate PPCom - web version
 
@@ -123,12 +125,16 @@ A Open Source Plug & Play Online Customer Service Platform
     gulp
 ```
 
-
-### Boostrap PPMessage
+### Run PPMessage
 
 ```Bash
-    python ppmessage/bootstrap/bootstrap.py
+    sh dist.sh start
 ```
 
+### See log
+
+```Bash
+    sh dist.sh log
+```
 
 
