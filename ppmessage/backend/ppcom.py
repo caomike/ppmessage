@@ -7,8 +7,7 @@
 #
 
 from ppmessage.core.constant import PPCOM_PORT
-# from ppmessage.ppcom.jquery.backend.ppcomapp import PPLibrary
-from ppmessage.ppcom.jquery.backend.ppcomapp import PPComApp
+from ppmessage.ppcom.web.backend.ppcomapp import PPComApp
 
 import tornado.httpserver
 import tornado.ioloop
