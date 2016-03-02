@@ -5,7 +5,7 @@
 #
 #
 
-from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
 from ppmessage.core.constant import MESSAGE_SUBTYPE
 from ppmessage.core.constant import APNS_TITLE

@@ -23,6 +23,7 @@ import tornado.ioloop
 import tornado.options
 
 import logging
+import sys
 
 tornado.options.define("port", default=IOSPUSH_PORT, help="", type=int)  
 
@@ -37,7 +38,7 @@ if __name__ == "__main__":
 
     if _name == None or len(_name) == 0 or _dev == None or len(_dev) == 0 or _pro == None or len(_pro) == 0:
         logging.info("apns not config, iospush can not start")
-        return
+        sys.exit()
     
     _app = IOSPushApp()
     _io = BackendIO(getThread(), _app)
