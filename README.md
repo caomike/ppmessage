@@ -84,11 +84,51 @@ A Open Source Plug & Play Online Customer Service Platform
 
 ### Config PPMessage
 
-* Edit config.py
+> Assuming you have clone ppmessage and under ppmessage directory.
+> In the directory, you can see `dist.sh` `README.md` files and `ppmessage` directory.
 
 ```Bash
     vim ppmessage/bootstrap/config.py
     ...
 ```
+
+### Generate PPCom - web version
+
+```Bash
+    cd ppmessage/ppcom/web
+    bower install
+    cd -
+    cd ppmessage/ppcom/web/gulp
+    npm install
+    gulp
+```
+
+### Generate PPKefu - web version
+
+```Bash
+    cd ppmessage/ppkefu/ppkefu
+    bower install
+    npm install
+    gulp
+```
+
+### Generate PPConsole
+
+```Bash
+    cd ppmessage/ppconsole
+    bower install
+    cd -
+    cd ppmessage/ppconsole/gulp
+    npm install
+    gulp
+```
+
+
+### Boostrap PPMessage
+
+```Bash
+    python ppmessage/bootstrap/bootstrap.py
+```
+
 
 
