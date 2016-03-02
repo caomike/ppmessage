@@ -128,10 +128,11 @@ A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, y
     gulp
 ```
 
-### Run PPMessage server
+### Start/Stop PPMessage server
 
 ```Bash
     sh dist.sh start
+    sh dist.sh stop
 ```
 
 ### See log
@@ -140,6 +141,8 @@ A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, y
     sh dist.sh log
 ```
 
+> Check PPMessage status
+> sh dist.sh proc
 
 
 
