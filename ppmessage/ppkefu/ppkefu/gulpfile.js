@@ -42,28 +42,24 @@ var paths = {
     config: ["./build.config.js"],
 };
 
-var developer_mode = "false";
-if (args.env && args.env === "dev") {
-    developer_mode = "true";
-}
-var server = 'ppmessage.cn';
-if (args.server) {
-    server = args.server;
+var bootstrap_data = _get_bootstrap_data();
+var server = bootstrap_data.server.name;
+var developer_mode = bootstrap_data.js.min;
+if (developer_mode == "yes") {
+    developer_mode = true;
+} else {
+    developer_mode = false;
 }
 
 var version = _get_ppkefu_version();
-var bootstrap_data = _get_bootstrap_data();
 
 gulp.task("sass", generate_sass);
 gulp.task("lib-css", generate_lib_css);
-
 gulp.task("scripts", generate_scripts);
 gulp.task("lib-scripts", generate_lib_scripts);
 gulp.task("templatecache", generate_template_cache);
 gulp.task("scripts-with-templatecache", ["templatecache"], generate_scripts);
-
 gulp.task("refresh-config", refresh_config);
-
 gulp.task("copy-jcrop-gif", copy_jcrop_gif);
 gulp.task("copy-ionic-fonts", copy_ionic_fonts);
 

@@ -149,14 +149,6 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
             [ppmessage.server, ppmessage.server, 1],
         ];
 
-        if (window.ppmessage.developerMode) {
-            _servers = [
-                ["guijin-mbp", "192.168.0.51:8080", 0],
-                ["office-imac", "192.168.0.52:8080", 1],
-                ["ppmessage-cn", "ppmessage.cn", 0],
-            ];
-        }
-
         _exec(_yvdb, _sql0, [], null, null);
         angular.forEach(_servers, function (server, index) {
             _exec(_yvdb, _sql1, [server[0], server[1]], function (tx, res) {
