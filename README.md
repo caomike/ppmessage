@@ -1,7 +1,9 @@
 # PPMessage
 A Open Source Plug & Play Online Customer Service Platform
 
-## Mac OS X
+## Run PPMessage on Mac OS X
+
+> Want to know more, please go to [PPMessage Site](http://ppmessage.com) get more documents about PPMessage.
 
 ### Requirements
 
