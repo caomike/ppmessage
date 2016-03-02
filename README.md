@@ -94,6 +94,7 @@ A Open Source Plug & Play Online Customer Service Platform
     ...
     python ppmessage/scripts/table.py
     python ppmessage/scripts/bootstrap.py
+    python ppmessage/scripts/db2cache.py
 ```
 
 
