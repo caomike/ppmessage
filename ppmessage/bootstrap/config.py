@@ -45,6 +45,14 @@ BOOTSTRAP_CONFIG = {
         "redis_port": "6379",
     },
 
+    "server": {
+        "name": "auto", # `auto` PPMessage use the ip address, `ppmessage.com`/`www.ppmessage.com` your domain or host name 
+    },
+
+    "js": {
+        "min": "no", # `yes` or `no` for minimized the PPCOM/PPKEFU javascript file
+    },
+    
     # nginx conf 
     "nginx": {
         "nginx_conf_path": "/usr/local/etc/nginx/nginx.conf",

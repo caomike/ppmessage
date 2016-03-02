@@ -223,6 +223,11 @@ def _create_nginx_conf(_session, _config):
         _origin = _file.read()
         for _key in _nginx_config:
             _str = "{nginx." + _key + "}"
+            if _key == "server_name":
+                _value = _nginx_config.get(_key)
+                if isinstance(_value, list):
+                    _origin.replace(_str, " ".join(_value))
+                continue
             _origin.replace(_str, _nginx_config.get(_key))
             _file.write(_origin)
 

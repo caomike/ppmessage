@@ -8,8 +8,9 @@
 
 from .algorithm import AbstractAlgorithm
 
-from ppmessage.core.constant import IOS_FAKE_TOKEN
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
+from ppmessage.core.constant import IOS_FAKE_TOKEN
 from ppmessage.core.constant import CONVERSATION_TYPE
 from ppmessage.core.constant import MESSAGE_SUBTYPE
 from ppmessage.core.constant import MESSAGE_TYPE
@@ -39,7 +40,7 @@ from ppmessage.core.srv.signal import async_signal_pcsocket_push
 from ppmessage.core.srv.signal import async_signal_mqttpush_push
 
 from ppmessage.core.redis import redis_hash_to_dict
-from ppmessage.help.datetimestring import datetime_to_timestamp
+from ppmessage.core.utils.datetimestring import datetime_to_timestamp
 
 from apnsclient import Message
 
@@ -293,6 +294,16 @@ class AbstractPolicy(Policy):
 
     def _push_to_ios(self, _user_uuid, _device_uuid):
         logging.info("push ios %s:%s" % (_user_uuid, _device_uuid))
+
+        _apns_config = BOOTSTRAP_DATA.get("apns")
+        _apns_name = _apns_config.get("name")
+        _apns_dev = _apns_config.get("dev")
+        _apns_pro = _apns_config.get("pro")
+
+        if _apns_name == None or len(_apns_name) == 0 or _apns_dev == None or len(_apns_dev) == 0 or _apns_pro == None or len(_apns_pro) == 0:
+            logging.info("iospush not start for no apns config")
+            return
+        
         _device = self._devices_hash.get(_device_uuid)
         _user = self._users_hash.get(_user_uuid)
         _app_uuid = self._task["app_uuid"]
@@ -373,6 +384,11 @@ class AbstractPolicy(Policy):
         }
         # logging.info("push android: %s" % str(_push))
         if _config.get("android_gcm_token") != None:
+            _gcm_config = BOOTSTRAP_DATA.get("gcm")
+            _api_key = _gcm_config.get("api_key")
+            if _api_key == None or len(_api_key) == 0:
+                logging.info("gcmpush not start for gcm not config")
+                return
             async_signal_gcmpush_push(_push)
         else :
             async_signal_mqttpush_push(_push)
