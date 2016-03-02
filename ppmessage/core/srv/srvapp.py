@@ -8,8 +8,6 @@
 from ppmessage.core.constant import REDIS_HOST
 from ppmessage.core.constant import REDIS_PORT
 
-from ppmessage.api.utils.filerefslinker import FileRefsLinker
-
 from ppmessage.core.singleton import singleton
 from tornado.web import Application
 
@@ -19,7 +17,6 @@ class SrvApp(Application):
     
     def __init__(self, _web):
         self.redis = redis.Redis(REDIS_HOST, REDIS_PORT, db=1)
-        self.file_refs = FileRefsLinker(self)
         settings = {}
         settings["debug"] = True
         handlers = []

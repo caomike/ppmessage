@@ -26,6 +26,7 @@ import tornado.options
 
 import datetime
 import logging
+import sys
 
 tornado.options.define("port", default=GCMPUSH_PORT, help="", type=int)  
 
@@ -55,7 +56,7 @@ if __name__ == "__main__":
     _api_key = _config.get("api_key")
     if _api_key == None or len(_api_key) == 0:
         logging.info("No gcm api_key config, gcmpush can not start.")
-        return
+        sys.exit()
     
     _app = GcmPushApp(getWeb())
     _io = BackendIO(getThread(), _app)

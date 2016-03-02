@@ -5,11 +5,12 @@
 #
 #
 
-from ppmessage.db.common.dbinstance import getDBSessionClass
-from ppmessage.db.common.sqlmysql import BaseModel
+from ppmessage.db.dbinstance import getDBSessionClass
+from ppmessage.db.sqlmysql import BaseModel
 
 # fake load db models
 from ppmessage.db.models import DeviceUser
+
 import traceback
 import logging
 

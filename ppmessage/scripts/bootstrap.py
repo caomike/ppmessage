@@ -57,7 +57,7 @@ def _encode(_key):
     return _key
 
 def _check_bootstrap_config():
-    _fields = ["team", "user", "server", "js", "mysql", "redis", "nginx", "ios"]
+    _fields = ["team", "user", "server", "js", "mysql", "nginx", "ios", "gcm"]
     for _field in _fields:
         if _field not in BOOTSTRAP_CONFIG:
             print("%s not provided in BOOTSTAP_CONFIG" % _field)
@@ -283,13 +283,14 @@ def _print_bootstrap_result(_config):
     
     _password = "*" * len(_password)
     _user_config["user_password"] = _password
-
-    _this_file_dir = os.path.dirname(os.path.abspath(__file__))
-    _data_file_path = _this_file_dir + os.path.sep + "data.py"
-    _f = open(_data_file_path, "w")
     _str = _header + "\n" + "BOOTSTRAP_DATA = " + json.dumps(_config, indent=True)
-    _f.write(_str)
-    _f.close()
+    
+    _this_file_dir = os.path.dirname(os.path.abspath(__file__))
+    _data_file_path = _this_file_dir + os.path.sep + ".." + os.path.sep + "bootstrap/data.py"
+    print _data_file_path
+    with open(_data_file_path, "w") as _file:
+        _file.write(_str)
+
     return
 
 def _bootstrap():
