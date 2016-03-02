@@ -5,6 +5,7 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var ngmin = require('gulp-ngmin');
 var uglify = require('gulp-uglify');
+var gulpif = require('gulp-if');
 var buildConfig = require("./build.config.js");
 var path = require('path');
 var args = require("get-gulp-args")();
@@ -23,25 +24,6 @@ var watching_paths = {
     config: ['./build.config.js']
 };
 
-var _get_host_ip = function() {
-    var ifaces = os.networkInterfaces();
-    var name_array = Object.keys(ifaces);
-    for(var i = 0; i < name_array.length; i++) {
-        var ifname = name_array[i];
-        var face_array = ifaces[ifname];
-        for (var j = 0; j < face_array.length; j++) {
-            var iface = face_array[j];
-
-            if ("IPv4" !== iface.family || iface.internal !== false) {
-                // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-                continue;
-            }
-            return iface.address;
-        }
-    }
-    return "127.0.0.1";
-};
-
 var _get_bootstrap_data = function() {
     var data = fs.readFileSync("../../init/bootstrap/data.py", "utf8");
     data = data.slice(data.search("BOOTSTRAP_DATA"));
@@ -50,14 +32,10 @@ var _get_bootstrap_data = function() {
 };
 
 var bootstrap_data = _get_bootstrap_data();
-var developer_mode = false;
-var server = "ppmessage.cn"
-if (args.env && args.env === "dev") {
-    developer_mode = true;
-    server = _get_host_ip() + ":8080";
+var min_js = false;
+if (bootstrap_data.js.min == "yes") {
+    min_js = true;
 }
-console.log(server);
-
 
 gulp.task('default', ['user', 'admin']);
 gulp.task('user', ['user-css', 'user-scripts']);
@@ -100,8 +78,8 @@ gulp.task('user-scripts', function(done) {
         .pipe(replace('{ppmessage_app_uuid}', bootstrap_data.app_uuid))
         .pipe(replace('{WEB_ROLE}', "user"))
         .pipe(gulp.dest(buildConfig.buildPath))
-        //.pipe(ngmin())
-        //.pipe(uglify())
+        .pipe(gulpif(min_js, ngmin()))
+        .pipe(gulpif(min_js, uglify()))
         .on('error', function(e) {
             console.log(e);
             done();        
