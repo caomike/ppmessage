@@ -13,29 +13,6 @@ var fs = require('fs');
 var args = require('get-gulp-args')();
 var os = require('os');
 
-var _get_host_ip = function() {
-    var ifaces = os.networkInterfaces();
-    var name_array = Object.keys(ifaces);
-    for(var i = 0; i < name_array.length; i++) {
-        var ifname = name_array[i];
-        var face_array = ifaces[ifname];
-        for (var j = 0; j < face_array.length; j++) {
-            var iface = face_array[j];
-            
-            if ('IPv4' !== iface.family || iface.internal !== false) {
-                // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-                continue;
-            }
-            console.log(ifname, iface.address);
-            if (iface.address.indexOf("10.") === 0) {
-		continue;
-	    } 
-            return iface.address;
-        }
-    }    
-    return "127.0.0.1";
-};
-
 var _get_bootstrap_data = function() {
     var data = fs.readFileSync("../../../init/bootstrap/data.py", "utf8");
     data = data.slice(data.search("BOOTSTRAP_DATA"));
@@ -43,18 +20,19 @@ var _get_bootstrap_data = function() {
     return data;
 };
 
-var DEFAULT_MODE = 'scripts'; // default mode 'scripts'
-var mode = DEFAULT_MODE; // 'scripts'/'dev'
+var bootstrap_data = _get_bootstrap_data();
+var ws = "ws://";
+var http = "http://";
+var host = bootstrap_data.server.name + ":" + bootstrap_data.nginx.listen;
+var mode = "dev";
+if (bootstrap_data.nginx.ssl == "on") {
+    http = "https://";
+    ws = "wss://";
+    host = bootstrap_data.server.name + ":" + bootstrap_data.nginx.ssl_listen;
+}
 
-var ws = "wss://";
-var http = "https://"
-var host = "ppmessage.cn";
-if (args.env && args.env === "dev") {
-    http = "http://";
-    host = _get_host_ip() + ":8080";
-    ws = "ws://";
-
-    mode = 'dev';
+if (bootstrap_data.js.min == "yes") {
+    mode = "script";
 }
 
 var auth = http + host + "/ppauth";
@@ -65,7 +43,6 @@ var web_socket_url = ws + host + "/pcsocket/WS";
 var file_upload_url = http + host + "/upload";
 var file_upload_txt_url = http + host + "/upload_txt";
 var file_download_url= http + host + "/download/";
-var bootstrap_data = _get_bootstrap_data();
 
 var watchingPaths = {
     scripts: ['../src/**/*.js'],
@@ -73,11 +50,6 @@ var watchingPaths = {
     config: ['./build.config.js']
 };
 
-if (args.env && args.env === "dev") {
-    gulp.task('default', ['css', 'merge', 'clean:src', mode]);
-} else {
-    gulp.task('default', ['css', 'merge', 'clean:src', mode]);
-}
 
 gulp.task('css', function(done) {
     gulp.src(buildConfig.cssFiles)
