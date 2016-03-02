@@ -10,7 +10,7 @@
 #
 from .basehandler import BaseHandler
 
-from ppmessage.help.days import get_between_days
+from ppmessage.core.utils.days import get_between_days
 
 from ppmessage.db.models import AppUserData
 

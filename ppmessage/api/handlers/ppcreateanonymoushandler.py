@@ -15,8 +15,8 @@ from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import USER_NAME
 from ppmessage.core.constant import USER_STATUS
 from ppmessage.core.redis import redis_hash_to_dict
-from ppmessage.help.createicon import create_user_icon
-from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.core.utils.createicon import create_user_icon
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
 import json
 import uuid

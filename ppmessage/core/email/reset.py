@@ -7,7 +7,7 @@
 # core/email/reset.py
 #
 
-from ppmessage.help.datetimeencoder import DateTimeEncoder
+from ppmessage.core.utils.datetimeencoder import DateTimeEncoder
 from ppmessage.core.constant import PORTAL_PORT
 from ppmessage.core.constant import DEV_MODE
 

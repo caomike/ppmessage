@@ -8,7 +8,7 @@
 from .basehandler import BaseHandler
 
 from ppmessage.core.redis import redis_hash_to_dict
-from ppmessage.help.createicon import create_user_icon
+from ppmessage.core.utils.createicon import create_user_icon
 
 from ppmessage.db.models import OrgGroup
 from ppmessage.api.error import API_ERR

@@ -57,8 +57,10 @@ BOOTSTRAP_CONFIG = {
         "nginx_conf_path": "/usr/local/etc/nginx/nginx.conf",
         "server_name": ["ppmessage.com", "www.ppmessage.com"],
         "listen": "8080", #80
-        "upload_store": "/usr/local/opt/mdm/uploads 1",
-        "upload_state_store": "/usr/local/opt/mdm/upload_state",
+
+        "identicon_store": "/user/local/opt/ppmessage/identicon",
+        "upload_store": "/usr/local/opt/ppmessage/uploads 1",
+        "upload_state_store": "/usr/local/opt/ppmessage/upload_state",
 
         "ssl": "off", # off/on
         "ssl_listen": "443",

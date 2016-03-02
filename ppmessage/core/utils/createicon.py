@@ -5,33 +5,33 @@
 #
 #
 
-from ppmessage.help.identicon import Identicon
-from ppmessage.help.getipaddress import getIPAddress
-
-from ppmessage.core.imageconverter import ImageConverter
+from .identicon import Identicon
+from .getipaddress import getIPAddress
 
 from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import FileInfo
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.core.imageconverter import ImageConverter
 
-from ppmessage.core.constant import DEV_MODE
-from ppmessage.core.constant import PORTAL_PORT
-from ppmessage.core.constant import PRODUCTION_HOST
-from ppmessage.core.constant import IDENTICON_FILE_STORAGE_DIR
-
+import os
 import hashlib
 
 def _icon_url(_file_name):
     _post = "/identicon/" + _file_name
-    _url = "https://" + PRODUCTION_HOST + _post
-    if DEV_MODE == True:
-        _url = "http://" + getIPAddress() + ":" + str(PORTAL_PORT) + _post
+    _server_name = BOOTSTRAP_DATA.get("server").get("name")
+    _ssl = BOOTSTRAP_DATA.get("nginix").get("ssl")
+    _protocol = "http"
+    if _ssl == "yes":
+        _protocol = "https"
+    _url = _protocol + "://" + _server_name + _post
     return _url
 
 def create_user_icon(_uuid):
     _image = Identicon(_uuid, 64)
     _image = _image.draw_image()
     _file_name = _uuid + ".png"
-    _path = IDENTICON_FILE_STORAGE_DIR + "/" + _file_name
+    _identicon_store = BOOTSTRAP_DATA.get("nginx").get("identicon_store")
+    _path = IDENTICON_FILE_STORAGE_DIR + os.path.sep + _file_name
     _image.save(_path)
     return _icon_url(_file_name)
 
@@ -55,7 +55,8 @@ def create_group_icon(_redis, _users):
         logging.error("conversation icon data is None, will not create icon file")
         return None
     _file_name = hashlib.sha1("".join(_users)).hexdigest() + ".png"
-    _file_path = IDENTICON_FILE_STORAGE_DIR + "/" + _file_name
+    _identicon_store = BOOTSTRAP_DATA.get("nginx").get("identicon_store")
+    _file_path = _identicon_store + os.path.sep + _file_name
     _file = open(_file_path, "wb")
     _file.write(_data)
     _file.close()

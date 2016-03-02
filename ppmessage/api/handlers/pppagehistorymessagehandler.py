@@ -17,7 +17,7 @@ from ppmessage.core.constant import YVOBJECT
 from ppmessage.core.constant import TASK_STATUS
 from ppmessage.core.constant import MESSAGE_STATUS
 
-from ppmessage.help.datetimestring import string_to_datetime
+from ppmessage.core.utils.datetimestring import string_to_datetime
 
 from operator import itemgetter
 

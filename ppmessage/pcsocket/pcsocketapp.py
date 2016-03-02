@@ -25,8 +25,8 @@ from ppmessage.core.srv.basehandler import BaseHandler
 from ppmessage.core.srv.signal import async_signal
 from ppmessage.core.srv.signal import async_signal_send_send
 
-from ppmessage.help.getipaddress import getIPAddress
-from ppmessage.help.datetimestring import now_to_string
+from ppmessage.core.utils.getipaddress import getIPAddress
+from ppmessage.core.utils.datetimestring import now_to_string
 
 from ppmessage.db.models import AppInfo
 from ppmessage.db.models import DeviceInfo

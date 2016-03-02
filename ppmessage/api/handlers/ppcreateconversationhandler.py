@@ -23,7 +23,7 @@ from ppmessage.core.constant import CONVERSATION_STATUS
 from ppmessage.dispatcher.policy.policy import AbstractPolicy
 from ppmessage.dispatcher.policy.policy import BroadcastPolicy
 
-from ppmessage.help.createicon import create_group_icon
+from ppmessage.core.utils.createicon import create_group_icon
 
 import copy
 import uuid

@@ -7,12 +7,11 @@
 # core/apkinfo.py
 #
 
-from ppmessage.core.constant import DEV_MODE
 from ppmessage.core.constant import PORTAL_PORT
-from ppmessage.help.atool import zipfile
-from ppmessage.help.atool.apk.axml import ResourceParser
-from ppmessage.help.atool.apk.axml import ResObject
-from ppmessage.help.getipaddress import getIPAddress
+from ppmessage.core.utils.atool import zipfile
+from ppmessage.core.utils.atool.apk.axml import ResourceParser
+from ppmessage.core.utils.atool.apk.axml import ResObject
+from ppmessage.core.utils.getipaddress import getIPAddress
 
 from axmlparserpy import apk
 
@@ -92,20 +91,16 @@ class ApkInfo:
         _label = self._apk.get_element("application", "android:label")
         if _label[0] == "@":
             return self._get_string_by_id(_label[1:])
-        return _label
-            
+        return _label            
                 
     def getDistinctName(self):
         return self._apk.get_package()
-
     
     def getVersionName(self):
         return self._apk.get_androidversion_name()
-
     
     def getVersionCode(self):
         return self._apk.get_androidversion_code()
-
     
     def getIconData(self):
         _icon = self._apk.get_element("application", "android:icon")
@@ -118,16 +113,11 @@ class ApkInfo:
         _zipfd.close()
         return icon_data
 
-    
     def getSupportVersion(self):
         return self._apk.get_min_sdk_version()
 
     def getDownloadUrl(self):
-        _add = "/portal/static/yvertical/portal/resources/app/" + self.fileName
-        _url = "https://ppmessage.cn" + _add
-        if DEV_MODE:
-            _url = "http://" + getIPAddress() + ":" + str(PORTAL_PORT) + _add
-        return _url
+        return ""
 
 if __name__ == "__main__" :
   import sys

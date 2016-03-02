@@ -8,62 +8,17 @@
 from .deviceuserloginhandler import DeviceUserLoginHandler
 from .deviceuserlogouthandler import DeviceUserLogoutHandler
 from .getyvobjectdetailhandler import GetYVObjectDetailHandler
+
 from .ackmessagehandler import AckMessageHandler
-from .sendmessagehandler import SendMessageHandler
 from .forwardmessagehandler import ForwardMessageHandler
 from .setdeviceinfohandler import SetDeviceInfoHandler
-
-from .getrootorggrouplisthandler import GetRootOrgGroupListHandler
-from .getsuborggrouplisthandler import GetSubOrgGroupListHandler
-from .getparentsorggrouplisthandler import GetParentsOrgGroupListHandler
-from .getgroupuserlisthandler import GetGroupUserListHandler
-
-from .getleadinggrouplisthandler import GetLeadingGroupListHandler
-from .getallappgrouplisthandler import GetAllAppGroupListHandler
-from .getsubscribedappgrouplisthandler import GetSubscribedAppGroupListHandler
 
 from .getunackedmessageshandler import GetUnackedMessagesHandler
 from .getappgroupmenuhandler import GetAppGroupMenuHandler
 from .getunackedmessagehandler import GetUnackedMessageHandler
-from .subscribeappgrouphandler import SubscribeAppGroupHandler
-from .unsubscribeappgrouphandler import UnSubscribeAppGroupHandler
 from .getappversionhandler import GetAppVersionHandler
 
 from .getmessagehistoryhandler import GetMessageHistoryHandler
-from .createdgwithoghandler import CreateDGWithOGHandler
-from .adddutodghandler import AddDUToDGHandler
-from .inviteduascontacthandler import InviteDUAsContactHandler
-from .acceptcontactinvitationhandler import AcceptContactInvitationHandler
-from .getcontactlisthandler import GetContactListHandler
-from .getdiscussiongrouplisthandler import GetDiscussionGroupListHandler
-from .getslackaccesstokenhandler import GetSlackAccessTokenHandler
-from .getintergrationtokenlisthandler import GetIntergrationTokenListHandler
-from .unsetintergrationtokenhandler import UnsetIntergrationTokenHandler
-
-from .searchuserlisthandler import SearchUserListHandler
-from .removecontacthandler import RemoveContactHandler
-from .createdgwithduhandler import CreateDGWithDUHandler
-from .removecontacthandler import RemoveContactHandler
-
-from .quitdghandler import QuitDGHandler
-from .removedghandler import RemoveDGHandler
-
-from .adddutoaghandler import AddDUToAGHandler
-from .getactionmessagehandler import GetActionMessageHandler
-
-from .fileisexistedhandler import FileIsExistedHandler
-from .createfilerefhandler import CreateFilerefHandler
-
-from .getsinglecardhandler import GetSingleCardHandler
-from .getmultiplecardhandler import GetMultipleCardHandler
-
-from .registerduhandler import RegisterDUHandler
-from .registerdubymobilehandler import RegisterDUByMobileHandler
-from .sendsmshandler import SendSMSHandler
-from .requestjoinoghandler import RequestJoinOGHandler
-from .approvejoinoghandler import ApproveJoinOGHandler
-from .removeoguserhandler import RemoveOGUserHandler
-from .setdiscussiongrouphandler import SetDiscussionGroupHandler
 
 from .ppcreateanonymoushandler import PPCreateAnonymousHandler
 from .ppcreateuserhandler import PPCreateUserHandler
@@ -151,38 +106,11 @@ def getWebServiceHandlers():
     # device user logout
     handler_list.append((r"/DEVICE_USER_LOGOUT", DeviceUserLogoutHandler))
 
-    # get all root org groups
-    handler_list.append((r"/GET_ROOT_ORGGROUP_LIST", GetRootOrgGroupListHandler))
-
-    # get parents org group list for org group/device user
-    handler_list.append((r"/GET_PARENTS_ORGGROUP_LIST", GetParentsOrgGroupListHandler))
-
-    # get sub org group list for one org group
-    handler_list.append((r"/GET_SUB_ORGGROUP_LIST", GetSubOrgGroupListHandler))
-
-    # get user list in org group/app group
-    handler_list.append((r"/GET_GROUPUSER_LIST", GetGroupUserListHandler))
-
-    # current user is the org group leader for checking permission
-    handler_list.append((r"/GET_LEADING_GROUP_LIST", GetLeadingGroupListHandler))
-
-    # get all groups the current is following
-    handler_list.append((r"/GET_SUBSCRIBED_APPGROUP_LIST", GetSubscribedAppGroupListHandler))
-
-    # get all app groups
-    handler_list.append((r"/GET_ALL_APPGROUP_LIST", GetAllAppGroupListHandler))
-
-    # get app group menus
-    handler_list.append((r"/GET_APPGROUP_MENU_LIST", GetAppGroupMenuHandler))
-
     # get yvobject detail yvobject is the caller and callee
     handler_list.append((r"/GET_YVOBJECT_DETAIL", GetYVObjectDetailHandler))
 
     # ack the received message
     handler_list.append((r"/ACK_MESSAGE", AckMessageHandler))
-
-    # send message by MDM
-    handler_list.append((r"/SEND_MESSAGE", SendMessageHandler))
 
     # forward message
     handler_list.append((r"/FORWARD_MESSAGE", ForwardMessageHandler))
@@ -196,98 +124,11 @@ def getWebServiceHandlers():
     # get unacked messages
     handler_list.append((r"/GET_UNACKED_MESSAGE", GetUnackedMessageHandler))
 
-    # add app group data
-    handler_list.append((r"/SUBSCRIBE_APPGROUP", SubscribeAppGroupHandler))
-
-    # delete app group data
-    handler_list.append((r"/UNSUBSCRIBE_APPGROUP", UnSubscribeAppGroupHandler))
-
     # get app version to check the lastest version for the app
     handler_list.append((r"/GET_APP_VERSION", GetAppVersionHandler))
 
     # get app version to check the lastest version for the app
     handler_list.append((r"/GET_MESSAGE_HISTORY", GetMessageHistoryHandler))
-
-    # create DG with OG
-    handler_list.append((r"/CREATE_DGWITHOG", CreateDGWithOGHandler))
-
-    # invite DU to DG
-    handler_list.append((r"/ADD_DUTODG", AddDUToDGHandler))
-
-    # invite DU as Contact
-    handler_list.append((r"/INVITE_DUASCONTACT", InviteDUAsContactHandler))
-
-    # Remove Contact
-    handler_list.append((r"/REMOVE_CONTACT", RemoveContactHandler))
-
-    # accept contact invitation
-    handler_list.append((r"/ACCEPT_CONTACT_INVITATION", AcceptContactInvitationHandler))
-
-    # get contact list
-    handler_list.append((r"/GET_CONTACT_LIST", GetContactListHandler))
-
-    # get discussiongroup list
-    handler_list.append((r"/GET_DISCUSSIONGROUP_LIST", GetDiscussionGroupListHandler))
-
-    # intergration get token list
-    handler_list.append((r"/GET_INTERGRATION_TOKEN_LIST", GetIntergrationTokenListHandler))
-
-    # intergration unset token
-    handler_list.append((r"/UNSET_INTERGRATION_TOKEN", UnsetIntergrationTokenHandler))
-
-    # get slack's access token
-    handler_list.append((r"/GET_SLACK_ACCESS_TOKEN", GetSlackAccessTokenHandler))
-
-    # search user fullname by pattern
-    handler_list.append((r"/SEARCH_USER_LIST", SearchUserListHandler))
-
-    # create DG with DUs
-    handler_list.append((r"/CREATE_DGWITHDU", CreateDGWithDUHandler))
-
-    # quit DG
-    handler_list.append((r"/QUIT_DG", QuitDGHandler))
-
-    # delete DG
-    handler_list.append((r"/REMOVE_DG", RemoveDGHandler))
-
-    # add DU to App Group
-    handler_list.append((r"/ADD_DUTOAG", AddDUToAGHandler))
-
-    # get action message, when ag menu click
-    handler_list.append((r"/GET_ACTION_MESSAGE", GetActionMessageHandler))
-
-    # get single card message
-    handler_list.append((r"/GET_SINGLE_CARD", GetSingleCardHandler))
-    
-    # get multiple card message
-    handler_list.append((r"/GET_MULTIPLE_CARD", GetMultipleCardHandler))
-    
-    # check file is existed or not
-    handler_list.append((r"/FILE_IS_EXISTED", FileIsExistedHandler))
-
-    # create a file ref
-    handler_list.append((r"/CREATE_FILEREF", CreateFilerefHandler))
-
-    # register new user
-    handler_list.append((r"/REGISTER_USER", RegisterDUHandler))
-
-    # register new user by mobile
-    handler_list.append((r"/REGISTER_USER_BY_MOBILE", RegisterDUByMobileHandler))    
-
-    # request join org group
-    handler_list.append((r"/REQUEST_JOIN_OG", RequestJoinOGHandler))
-
-    # approve join org group
-    handler_list.append((r"/APPROVE_JOIN_OG", ApproveJoinOGHandler))
-
-    # remove og user
-    handler_list.append((r"/REMOVE_OG_USER", RemoveOGUserHandler))
-
-    # set discussion group name && icon && member
-    handler_list.append((r"/SET_DISCUSSION_GROUP", SetDiscussionGroupHandler))
-
-    # send sms
-    handler_list.append((r"/SEND_SMS_VERFICATION_CODE", SendSMSHandler))
 
     # PPMESSAGE
     handler_list.append((r"/PP_CREATE_ANONYMOUS", PPCreateAnonymousHandler))

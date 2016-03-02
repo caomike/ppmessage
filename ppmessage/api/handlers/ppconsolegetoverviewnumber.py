@@ -15,7 +15,7 @@ from ppmessage.api.error import API_ERR
 from ppmessage.db.models import AppUserData
 from ppmessage.db.models import UserOnlineStatusLog
 from ppmessage.db.models import MessagePushTask
-from ppmessage.help.days import get_day_begin_end
+from ppmessage.core.utils.days import get_day_begin_end
 
 from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import REDIS_PPCOM_ONLINE_KEY

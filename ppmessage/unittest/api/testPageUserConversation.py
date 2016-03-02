@@ -7,10 +7,7 @@
 from ppmessage.core.constant import OS
 
 from ppmessage.core.constant import CONVERSATION_TYPE
-from ppmessage.core.constant import PPMESSAGE_APP
-from ppmessage.core.constant import DEV_MODE
-
-from ppmessage.help.getipaddress import getIPAddress
+from ppmessage.core.utils.getipaddress import getIPAddress
 from ppmessage.db.models import DeviceUser
 
 import tornado.httpclient

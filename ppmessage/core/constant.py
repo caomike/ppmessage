@@ -460,5 +460,3 @@ DATETIME_FORMAT = {
     "extra": '%Y-%m-%d %H:%M:%S %f',
     "basic": '%Y-%m-%d %H:%M:%S'
 }
-
-PRODUCTION_HOST = "ppmessage.cn"

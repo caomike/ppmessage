@@ -12,7 +12,7 @@
 from .basehandler import BaseHandler
 from ppmessage.api.error import API_ERR
 
-from ppmessage.help.days import get_between_days
+from ppmessage.core.utils.days import get_between_days
 
 from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import REDIS_PPKEFU_ONLINE_KEY

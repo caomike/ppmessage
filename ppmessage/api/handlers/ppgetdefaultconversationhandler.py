@@ -27,9 +27,9 @@ from ppmessage.core.constant import REDIS_MONITOR_KEY
 from ppmessage.core.constant import WEBSOCKET_STATUS
 from ppmessage.core.constant import CONVERSATION_TYPE
 
-from ppmessage.init.bootstrap.data import BOOTSTRAP_DATA
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
-from ppmessage.help.datetimeencoder import DateTimeEncoder
+from ppmessage.core.utils.datetimeencoder import DateTimeEncoder
 from ppmessage.api.handlers.ppgetorggroupuserlisthandler import single_user
 from ppmessage.api.handlers.ppcreateconversationhandler import Conversation
 

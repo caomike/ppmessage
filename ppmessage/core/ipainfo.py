@@ -6,9 +6,9 @@
 #
 # core/ipainfo.py
 #
-from ppmessage.help.getipaddress import getIPAddress
-from ppmessage.help.scptransfer import ScpTransfer
-from ppmessage.help.ipin import getNormalizedPNGByData
+from ppmessage.core.utils.getipaddress import getIPAddress
+from ppmessage.core.utils.scptransfer import ScpTransfer
+from ppmessage.core.utils.ipin import getNormalizedPNGByData
 
 from ppmessage.core.constant import DEV_MODE
 from ppmessage.core.constant import PORTAL_PORT
@@ -49,11 +49,7 @@ class IpaInfo:
         return self.pList.get("CFBundleVersion")
 
     def getDownloadUrl(self):
-        _add = "/portal/static/yvertical/portal/resources/app/" + self.fileName
-        _url = "https://ppmessage.cn" + _add
-        if DEV_MODE:
-            _url = "http://" + getIPAddress() + ":" + str(PORTAL_PORT) + _add
-        return _url
+        return ""
 
     def _get_pname(self):
         _pname = getIPAddress()

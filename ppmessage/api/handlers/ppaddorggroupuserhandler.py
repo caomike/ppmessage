@@ -13,8 +13,8 @@ from ppmessage.db.models import OrgUserGroupData
 
 from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.redis import redis_hash_to_dict
-from ppmessage.help.createicon import create_user_icon
-from ppmessage.help.createicon import create_group_icon
+from ppmessage.core.utils.createicon import create_user_icon
+from ppmessage.core.utils.createicon import create_group_icon
 
 import json
 import uuid
