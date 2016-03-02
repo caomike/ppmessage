@@ -83,7 +83,7 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
         _current_server.id = server.id;
         _current_server.name = server.name;
         _current_server.host = server.host;
-        _current_server.protocol = yvSSL.http_protocol(server.host);
+        _current_server.protocol = location.protocol + "//";
         yvAPI.set_server(_current_server);
     }
 

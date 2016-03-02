@@ -77,11 +77,6 @@ function ($ionicHistory, $timeout, $state, yvSys, yvUser, yvConstants) {
         },
         
         exit_app: function (should_reset) {
-            if (location.protocol === "https:") {
-                ppmessage.disableOnbeforeunload = true;
-                location.replace("https://ppmessage.cn");
-                return;
-            }
             this.disable_next();
             if (should_reset) {
                 $state.go("noapp.main-with-logo");
