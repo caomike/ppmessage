@@ -39,11 +39,6 @@ BOOTSTRAP_CONFIG = {
         "db_name": "ppmessage",
     },
 
-    "redis": {
-        "redis_host": "127.0.0.1",
-        "redis_port": "6379",
-    },
-
     "server": {
         "name": "auto", # `auto` PPMessage use the ip address, `ppmessage.com`/`www.ppmessage.com` your domain or host name
         "identicon_store": "/user/local/opt/ppmessage/identicon",

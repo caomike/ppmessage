@@ -287,7 +287,7 @@ def _print_bootstrap_result(_config):
     
     _this_file_dir = os.path.dirname(os.path.abspath(__file__))
     _data_file_path = _this_file_dir + os.path.sep + ".." + os.path.sep + "bootstrap/data.py"
-    print _data_file_path
+
     with open(_data_file_path, "w") as _file:
         _file.write(_str)
 
