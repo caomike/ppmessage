@@ -14,7 +14,6 @@ from .forwardmessagehandler import ForwardMessageHandler
 from .setdeviceinfohandler import SetDeviceInfoHandler
 
 from .getunackedmessageshandler import GetUnackedMessagesHandler
-from .getappgroupmenuhandler import GetAppGroupMenuHandler
 from .getunackedmessagehandler import GetUnackedMessageHandler
 from .getappversionhandler import GetAppVersionHandler
 

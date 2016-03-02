@@ -31,8 +31,8 @@ from ppmessage.db.models import FileInfo
 from ppmessage.db.models import DeviceInfo
 from ppmessage.db.models import DeviceUser
 
-from ppmessage.yvredis.filemanager import create_file_with_data
-from ppmessage.yvredis.filemanager import read_file
+from ppmessage.core.utils.filemanager import create_file_with_data
+from ppmessage.core.utils.filemanager import read_file
 
 from ppmessage.core.redis import redis_hash_to_dict
 

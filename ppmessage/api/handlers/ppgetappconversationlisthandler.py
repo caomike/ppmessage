@@ -12,10 +12,10 @@ from ppmessage.api.error import API_ERR
 from ppmessage.db.models import ConversationInfo
 from ppmessage.core.redis import redis_hash_to_dict
 
-from ppmessage.api.utils.deviceuserinfoutils import get_device_user_info
-from ppmessage.api.utils.messageutils import get_message_info
-from ppmessage.api.utils.messageutils import get_message_count
-from ppmessage.api.utils.messageutils import get_app_conversations
+from ppmessage.core.utils.deviceuserinfoutils import get_device_user_info
+from ppmessage.core.utils.messageutils import get_message_info
+from ppmessage.core.utils.messageutils import get_message_count
+from ppmessage.core.utils.messageutils import get_app_conversations
 
 import json
 import logging

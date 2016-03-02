@@ -7,7 +7,7 @@
 
 from ppmessage.db.models import FileInfo
 from ppmessage.core.redis import redis_hash_to_dict
-from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
 import os
 import uuid
@@ -44,7 +44,8 @@ def create_file_with_data(_redis, _data, _mime, _user_uuid, _file_name=None, _ma
     if _file_name == None:
         _file_name = _name
 
-    _path = GENERIC_FILE_STORAGE_DIR + "/" + _name
+    _store_dir = BOOTSTRAP_DATA.get("server").get("generic_store")
+    _path = _store_dir + os.path.sep + _name
     _f = open(_path, "wb")
     _f.write(_data)
     _f.close()

@@ -45,7 +45,9 @@ BOOTSTRAP_CONFIG = {
     },
 
     "server": {
-        "name": "auto", # `auto` PPMessage use the ip address, `ppmessage.com`/`www.ppmessage.com` your domain or host name 
+        "name": "auto", # `auto` PPMessage use the ip address, `ppmessage.com`/`www.ppmessage.com` your domain or host name
+        "identicon_store": "/user/local/opt/ppmessage/identicon",
+        "generic_store": "/user/local/opt/ppmessage/generic",
     },
 
     "js": {
@@ -58,7 +60,6 @@ BOOTSTRAP_CONFIG = {
         "server_name": ["ppmessage.com", "www.ppmessage.com"],
         "listen": "8080", #80
 
-        "identicon_store": "/user/local/opt/ppmessage/identicon",
         "upload_store": "/usr/local/opt/ppmessage/uploads 1",
         "upload_state_store": "/usr/local/opt/ppmessage/upload_state",
 

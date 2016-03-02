@@ -9,7 +9,7 @@ from .basehandler import BaseHandler
 
 from ppmessage.api.error import API_ERR
 from ppmessage.db.models import AppInfo
-from ppmessage.yvredis.genericupdate import generic_update
+from ppmessage.core.genericupdate import generic_update
 from ppmessage.core.redis import redis_hash_to_dict
 
 import json

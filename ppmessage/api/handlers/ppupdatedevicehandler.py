@@ -7,7 +7,7 @@
 
 from .basehandler import BaseHandler
 
-from ppmessage.yvredis.genericupdate import generic_update
+from ppmessage.core.genericupdate import generic_update
 from ppmessage.db.models import DeviceInfo
 from ppmessage.api.error import API_ERR
 
