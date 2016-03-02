@@ -5,7 +5,7 @@
 # All rights reserved
 #
 
-from ppmessage.core.constant import DB_PASS
+from ppmessage.bootstrap.config import BOOTSTRAP_CONFIG
 
 import subprocess
 import traceback
@@ -19,9 +19,15 @@ def _updateMessagePushTasksCharset(_engine):
     _engine.execute(_update)
 
 if __name__ == "__main__":
+
+    DB_NAME = BOOTSTRAP_CONFIG.get("mysql").get("db_name")
+    DB_PASS = BOOTSTRAP_CONFIG.get("mysql").get("db_pass")
+    DB_USER = BOOTSTRAP_CONFIG.get("mysql").get("db_user")
+    
     print "Drop MDM DB now, please wait..."
-    _drop_cmd = "mysql -uroot -p%s mysql -e \"drop database if exists mdm\"" % (DB_PASS)
-    _create_cmd = "mysql -uroot -p%s mysql -e \"create database mdm default charset utf8\"" % (DB_PASS)
+    
+    _drop_cmd = "mysql -u%s -p%s mysql -e \"drop database if exists %s\"" % (DB_USER, DB_PASS, DB_NAME)
+    _create_cmd = "mysql -u%s -p%s mysql -e \"create database %s default charset utf8\"" % (DB_USER, DB_PASS, DB_NAME)
 
     subprocess.check_output(_drop_cmd, shell=True)
     subprocess.check_output(_create_cmd, shell=True)
@@ -51,8 +57,8 @@ if __name__ == "__main__":
     from ppmessage.db.models import AdminUser
     
     print "Initialize MDM DB now, please wait..."
-    from ppmessage.db.common.sqlmysql import BaseModel
-    from ppmessage.db.common.dbinstance import getDatabaseEngine
+    from ppmessage.db.sqlmysql import BaseModel
+    from ppmessage.db.dbinstance import getDatabaseEngine
     import codecs
     codecs.register(lambda name: codecs.lookup('utf8') if name == 'utf8mb4' else None)
     _engine = getDatabaseEngine()

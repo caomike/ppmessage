@@ -63,15 +63,15 @@ BOOTSTRAP_CONFIG = {
 
         "ssl": "off", # off/on
         "ssl_listen": "443",
-        "ssl_certificate": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/ppmessage.cn.instant/issue/ssl_bundle.crt",
-        "ssl_certificate_key": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/ppmessage.cn.instant/server.key",
+        "ssl_certificate": "/Users/dingguijin/ppmessage/ppmessage/certs/ppmessage.cn.instant/issue/ssl_bundle.crt",
+        "ssl_certificate_key": "/Users/dingguijin/ppmessage/ppmessage/certs/ppmessage.cn.instant/server.key",
     },
 
     # apns push certificate, dev for developer, pro for production
     "apns": {
         "name": "com.yvertical.mdm.yvio",
-        "dev": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/apnscerts/ppmessage-dev.p12",
-        "pro": "/Users/dingguijin/Documents/ppmessage/ppmessage/certs/apnscerts/ppmessage-pro.p12",
+        "dev": "/Users/dingguijin/ppmessage/ppmessage/certs/apnscerts/ppmessage-dev.p12",
+        "pro": "/Users/dingguijin/ppmessage/ppmessage/certs/apnscerts/ppmessage-pro.p12",
     },
 
     # google cloud message

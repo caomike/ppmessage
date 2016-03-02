@@ -27,7 +27,7 @@ def _randomFile(_suffix):
     return _name
 
 
-def convert2pem(_data):
+def der2pem(_data):
     _p12 = _randomFileWithData(_data, ".p12")
     _cert = _randomFile(".pem")
     _key = _randomFile(".pem")

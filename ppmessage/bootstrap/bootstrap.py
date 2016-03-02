@@ -35,9 +35,11 @@ from ppmessage.db.models import AdminUser
 from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import AppUserData    
 from ppmessage.db.models import APNSSetting
-
 from ppmessage.db.dbinstance import getDBSessionClass
+
 from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import USER_STATUS
+from ppmessage.core.p12converter import der2pem
 
 import os
 import sys
@@ -55,7 +57,7 @@ def _encode(_key):
     return _key
 
 def _check_bootstrap_config():
-    _fields = ["team", "user", "db", "redis", "nginx", "ios"]
+    _fields = ["team", "user", "server", "js", "mysql", "redis", "nginx", "ios"]
     for _field in _fields:
         if _field not in BOOTSTRAP_CONFIG:
             print("%s not provided in BOOTSTAP_CONFIG" % _field)
@@ -64,41 +66,41 @@ def _check_bootstrap_config():
     return _config
 
 def _create_bootstrap_admin_user(_session, _config):
-    _config = _config.get("user")
+    _user_config = _config.get("user")
     _admin = AdminUser(
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
         uuid=str(uuid.uuid1()),
-        user_email=_config.get("user_email"),
-        user_password=hashlib.sha1(_config.get("user_password")).hexdigest(),
-        user_fullname=_config.get("user_fullname"),
-        user_firstname=_config.get("user_firstname"),
-        user_lastname=_config.get("user_lastname"),
-        user_language=_config.get("user_language")
+        user_email=_user_config.get("user_email"),
+        user_password=hashlib.sha1(_user_config.get("user_password")).hexdigest(),
+        user_fullname=_user_config.get("user_fullname"),
+        user_firstname=_user_config.get("user_firstname"),
+        user_lastname=_user_config.get("user_lastname"),
+        user_language=_user_config.get("user_language")
     )
     _session.add(_admin)
     _session.commit()
-    _config["admin_uuid"] = _admin.uuid
+    _user_config["admin_uuid"] = _admin.uuid
     return _config
 
 def _create_bootstrap_first_user(_session, _config):
-    _config = _config.get("user")
+    _user_config = _config.get("user")
     _user = DeviceUser(
         createtime=datetime.datetime.now(),
         updatetime=datetime.datetime.now(),
         uuid=str(uuid.uuid1()),
         user_email=_config.get("user_email"),
-        user_password=hashlib.sha1(_config.get("user_password")).hexdigest(),
-        user_fullname=_config.get("user_fullname"),
-        user_firstname=_config.get("user_firstname"),
-        user_lastname=_config.get("user_lastname"),
-        user_language=_config.get("user_language"),
+        user_password=hashlib.sha1(_user_config.get("user_password")).hexdigest(),
+        user_fullname=_user_config.get("user_fullname"),
+        user_firstname=_user_config.get("user_firstname"),
+        user_lastname=_user_config.get("user_lastname"),
+        user_language=_user_config.get("user_language"),
         user_status=USER_STATUS.OWNER_2,
         is_anonymous_user=False,
     )
     _session.add(_user)
     _session.commit()
-    _config["user_uuid"] = _user.uuid
+    _user_config["user_uuid"] = _user.uuid
     return _config
 
 def _create_bootstrap_first_team(_session, _config):
@@ -159,8 +161,10 @@ def _create_bootstrap_api(_type, _session, _config):
     return _config
 
 def _update_api_uuid_with_ppconsole(_session, _config):
-    _one = _session.query(AppInfo).filter(AppInfo.uuid == _config.get("app_uuid")).scalar()
-    _one.api_uuid = _config.get("ppconsole").get("api_uuid")
+    _app_config = _config.get("team")
+    _one = _session.query(AppInfo).filter(AppInfo.uuid == _app_config.get("app_uuid")).scalar()
+    _ppconsole = _config.get(API_LEVEL.PPCONSOLE)
+    _one.api_uuid = _ppconsole.get("api_uuid")
     _session.commit()
     return _config
 
@@ -181,11 +185,11 @@ def _create_apns_settings(_session, _config):
     
     with open(_dev_path, "rb") as _file:
         _dev_p12 = _file.read()
-        _dev_pem = convert2pem(_dev_p12)
+        _dev_pem = der2pem(_dev_p12)
 
     with open(_pro_path, "rb") as _file:
         _pro_p12 = _file.read()
-        _pro_pem = convert2pem(_pro_p12)
+        _pro_pem = der2pem(_pro_p12)
 
     _dev_p12 = base64.b64encode(_dev_p12)
     _dev_pem = base64.b64encode(_dev_pem)
@@ -273,11 +277,12 @@ def _print_bootstrap_result(_config):
 # NEVER EDIT THIS FILE MANUALLY
 #
     """
-    _password = _config.get("user_password")
-    _config["user_password_hash"] = hashlib.sha1(_password).hexdigest()
+    _user_config = _config.get("user")
+    _password = _user_config.get("user_password")
+    _user_config["user_password_hash"] = hashlib.sha1(_password).hexdigest()
     
     _password = "*" * len(_password)
-    _config["user_password"] = _password
+    _user_config["user_password"] = _password
 
     _this_file_dir = os.path.dirname(os.path.abspath(__file__))
     _data_file_path = _this_file_dir + os.path.sep + "data.py"
@@ -285,7 +290,6 @@ def _print_bootstrap_result(_config):
     _str = _header + "\n" + "BOOTSTRAP_DATA = " + json.dumps(_config, indent=True)
     _f.write(_str)
     _f.close()
-    print(_str)
     return
 
 def _bootstrap():

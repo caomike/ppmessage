@@ -10,7 +10,6 @@ from ppmessage.core.constant import TASK_STATUS
 from ppmessage.core.constant import MESSAGE_STATUS
 from ppmessage.core.constant import MESSAGE_SUBTYPE
 from ppmessage.core.constant import CONVERSATION_STATUS
-from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
 
 from ppmessage.core.redis import row_to_redis_hash
 from ppmessage.core.redis import redis_hash_to_dict
