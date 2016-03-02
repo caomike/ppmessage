@@ -84,7 +84,7 @@ A Open Source Plug & Play Online Customer Service Platform
     > # save 60 10000
 ```
 
-### Config PPMessage
+### Config and prepare PPMessage
 
 > Assuming you have clone ppmessage and under ppmessage directory.
 > In the directory, you can see `dist.sh` `README.md` files and `ppmessage` directory.
@@ -92,7 +92,8 @@ A Open Source Plug & Play Online Customer Service Platform
 ```Bash
     vim ppmessage/bootstrap/config.py
     ...
-    python ppmessage/bootstrap/bootstrap.py
+    python ppmessage/scripts/table.py
+    python ppmessage/scripts/bootstrap.py
 ```
 
 
@@ -127,7 +128,7 @@ A Open Source Plug & Play Online Customer Service Platform
     gulp
 ```
 
-### Run PPMessage
+### Run PPMessage server
 
 ```Bash
     sh dist.sh start
@@ -138,5 +139,7 @@ A Open Source Plug & Play Online Customer Service Platform
 ```Bash
     sh dist.sh log
 ```
+
+
 
 
