@@ -7,18 +7,18 @@
 #
 
 from ppmessage.db.models import FileInfo
-from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 from ppmessage.core.srv.signal import signal_cache_add
 
-from tornado.web import RequestHandler
 from hashlib import sha1
+from tornado.web import RequestHandler
 
 import os
 import stat
 import uuid
-import logging
 import json
 import base64
+import logging
 
 class UploadHandler(RequestHandler):
 
@@ -67,7 +67,11 @@ class UploadHandler(RequestHandler):
 
         _file_sha1 = sha1(_file_body).hexdigest()
         _new_name = str(uuid.uuid1())
-        _new_path = GENERIC_FILE_STORAGE_DIR + "/" + _new_name
+
+        _generic_store = BOOTSTRAP_DATA.get("server")
+        _generic_store = _generic_store.get("generic_store")
+        
+        _new_path = _generic_store + os.path.sep + _new_name
         with open(_new_path, "wb") as _new_file:
             _new_file.write(_file_body)
 

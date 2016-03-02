@@ -14,7 +14,6 @@ from ppmessage.core.downloadhandler import DownloadHandler
 
 from ppmessage.core.constant import REDIS_HOST
 from ppmessage.core.constant import REDIS_PORT
-from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
 
 from tornado.web import Application
 from tornado.web import StaticFileHandler

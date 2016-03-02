@@ -7,7 +7,7 @@
 
 from ppmessage.db.models import FileInfo
 from ppmessage.core.redis import redis_hash_to_dict
-from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
 from tornado.web import RequestHandler
 from shutil import move
@@ -75,7 +75,9 @@ class UploadFileHandler(RequestHandler):
             return 
 
         _fuuid = str(uuid.uuid1())
-        _new_path = GENERIC_FILE_STORAGE_DIR + "/" + _fuuid
+        _server_config = BOOTSTRAP_DATA.get("server")
+        _generic_store = _server_config.get("generic_store")
+        _new_path = _generic_store + os.path.sep + _fuuid
         move(_file_path, _new_path)
 
         _add = {

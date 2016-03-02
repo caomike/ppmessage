@@ -15,7 +15,8 @@ from ppmessage.core.materialfilehandler import MaterialFileHandler
 
 from ppmessage.core.constant import REDIS_HOST
 from ppmessage.core.constant import REDIS_PORT
-from ppmessage.core.constant import GENERIC_FILE_STORAGE_DIR
+
+from ppmessage.bootstrap.data import BOOTSTRAP_DATA
 
 from tornado.web import Application
 from tornado.web import StaticFileHandler
@@ -34,6 +35,9 @@ class PCApp(Application):
         self.redis = redis.Redis(REDIS_HOST, REDIS_PORT, db=1)
         DownloadHandler.set_cls_redis(self.redis)
         _root = os.path.abspath(os.path.dirname(__file__)) + "/ppmessage-pc/www"
+
+        _generic_store = BOOTSTRAP_DATA.get("server")
+        _generic_store = _generic_store.get("generic_store")
         
         handlers = [
             (r"^/$", MainHandler),
@@ -46,8 +50,8 @@ class PCApp(Application):
             (r"/img/(.*)", StaticFileHandler, {"path": _root + "/img"}),
             
             (r"/download/(.*)", DownloadHandler, {"path": "/"}),
-            (r"/icon/([^\/]+)?$", StaticFileHandler, {"path": GENERIC_FILE_STORAGE_DIR+"/"}),
-            (r"/material/([^\/]+)?$", MaterialFileHandler, {"path": GENERIC_FILE_STORAGE_DIR+"/"}),
+            (r"/icon/([^\/]+)?$", StaticFileHandler, {"path": _generic_store + os.path.sep}),
+            (r"/material/([^\/]+)?$", MaterialFileHandler, {"path": _generic_store + os.path.sep}),
             (r"/upload/(.*)", UploadHandler),
         ]
 
