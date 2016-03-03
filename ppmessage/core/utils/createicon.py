@@ -19,18 +19,20 @@ import hashlib
 def _icon_url(_file_name):
     _post = "/identicon/" + _file_name
     _server_name = BOOTSTRAP_DATA.get("server").get("name")
-    _ssl = BOOTSTRAP_DATA.get("nginix").get("ssl")
+    _ssl = BOOTSTRAP_DATA.get("nginx").get("ssl")
     _protocol = "http"
+    _port = BOOTSTRAP_DATA.get("nginx").get("listen")
     if _ssl == "yes":
         _protocol = "https"
-    _url = _protocol + "://" + _server_name + _post
+        _port = BOOTSTRAP_DATA.get("nginx").get("ssl_listen")
+    _url = _protocol + "://" + _server_name + ":" + _port + _post
     return _url
 
 def create_user_icon(_uuid):
     _image = Identicon(_uuid, 64)
     _image = _image.draw_image()
     _file_name = _uuid + ".png"
-    _identicon_store = BOOTSTRAP_DATA.get("nginx").get("identicon_store")
+    _identicon_store = BOOTSTRAP_DATA.get("server").get("identicon_store")
     _path = _identicon_store + os.path.sep + _file_name
     _image.save(_path)
     return _icon_url(_file_name)
@@ -55,7 +57,7 @@ def create_group_icon(_redis, _users):
         logging.error("conversation icon data is None, will not create icon file")
         return None
     _file_name = hashlib.sha1("".join(_users)).hexdigest() + ".png"
-    _identicon_store = BOOTSTRAP_DATA.get("nginx").get("identicon_store")
+    _identicon_store = BOOTSTRAP_DATA.get("server").get("identicon_store")
     _file_path = _identicon_store + os.path.sep + _file_name
     _file = open(_file_path, "wb")
     _file.write(_data)

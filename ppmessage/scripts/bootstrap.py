@@ -41,6 +41,8 @@ from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import USER_STATUS
 from ppmessage.core.p12converter import der2pem
 
+from ppmessage.core.utils.getipaddress import getIPAddress
+
 import os
 import sys
 import json
@@ -219,20 +221,16 @@ def _create_apns_settings(_session, _config):
     _session.commit()
     return _config
 
-def _create_nginx_config(_session, _config):
-    _conf_dir = os.path.dirname(os.path.abspath(__file__))
-    _conf_dir = _conf_dir + os.path.sep + ".." + os.path.sep + "conf"
-    _ssl_template = _conf_dir + os.path.sep + "nginx.conf.ssl.template"
-    _nossl_template = _conf_dir + os.path.sep + "nginx.conf.template"
-    _nginx_config = _config.get("nginx")
-    _ssl = _nginx_config.get("ssl")
-
+def _create_server_config(_session, _config):
     _server_config = _config.get("server")
+    _name = _server_config.get("name")
+    if _name == None or len(_name) == 0:
+        _name = getIPAddress()
+        _server_config["name"] = _name
+
     _generic_store = _server_config.get("generic_store")
     _identicon_store = _server_config.get("identicon_store")
 
-    print(_generic_store)
-    print(_identicon_store)
     if not os.path.exists(_generic_store):
         subprocess.check_output("mkdir -p " + _generic_store, shell=True)
         #os.makedirs(_generic_store)
@@ -241,6 +239,16 @@ def _create_nginx_config(_session, _config):
         subprocess.check_output("mkdir -p " + _identicon_store, shell=True)
         #os.makedirs(_identicon_store)
         os.chmod(_identicon_store, 0777)
+
+    return _config
+                    
+def _create_nginx_config(_session, _config):
+    _conf_dir = os.path.dirname(os.path.abspath(__file__))
+    _conf_dir = _conf_dir + os.path.sep + ".." + os.path.sep + "conf"
+    _ssl_template = _conf_dir + os.path.sep + "nginx.conf.ssl.template"
+    _nossl_template = _conf_dir + os.path.sep + "nginx.conf.template"
+    _nginx_config = _config.get("nginx")
+    _ssl = _nginx_config.get("ssl")
     
     _template = _nossl_template
     if _ssl == "on":
@@ -344,6 +352,7 @@ def _bootstrap():
             _config = _create_bootstrap_api(_level, _session, _config)
         _config = _update_api_uuid_with_ppconsole(_session, _config)
         _config = _create_apns_settings(_session, _config)
+        _config = _create_server_config(_session, _config)
         _config = _create_nginx_config(_session, _config)
     except:
         traceback.print_exc()

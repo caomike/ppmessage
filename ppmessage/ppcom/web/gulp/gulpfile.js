@@ -50,7 +50,7 @@ var watchingPaths = {
     config: ['./build.config.js']
 };
 
-
+gulp.task('default', [mode]);
 gulp.task('css', function(done) {
     gulp.src(buildConfig.cssFiles)
         .pipe(concat('pp-lib.css'))
@@ -94,6 +94,7 @@ gulp.task('dev', ['merge'], function(done) {
 gulp.task('scripts', ['merge'], function(done) {
     gulp.src(buildConfig.scriptFiles)
         .pipe(concat('pp-library.js'))
+        .pipe(replace('{auth}', auth))
         .pipe(replace('{api}', api))
         .pipe(replace('{portal}', portal))
         .pipe(replace('{web_socket_url}', web_socket_url))
