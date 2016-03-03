@@ -7,7 +7,7 @@
 #
 
 from ppmessage.ppkefu.ppkefu import PCApp
-from ppmessage.core.constant import PCAPP_PORT
+from ppmessage.core.constant import PPKEFU_PORT
 
 import tornado.httpserver
 import tornado.ioloop

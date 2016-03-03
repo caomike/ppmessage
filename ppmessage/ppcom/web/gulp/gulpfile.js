@@ -14,7 +14,7 @@ var args = require('get-gulp-args')();
 var os = require('os');
 
 var _get_bootstrap_data = function() {
-    var data = fs.readFileSync("../../../init/bootstrap/data.py", "utf8");
+    var data = fs.readFileSync("../../../bootstrap/data.py", "utf8");
     data = data.slice(data.search("BOOTSTRAP_DATA"));
     data = eval(data);
     return data;
@@ -83,8 +83,8 @@ gulp.task('dev', ['merge'], function(done) {
         .pipe(replace('{file_download_url}', file_download_url))
         .pipe(replace('{file_upload_txt_url}', file_upload_txt_url))
         .pipe(replace('{ppcom_assets_path}', ppcom_assets_path))
-        .pipe(replace('{ppcom_api_key}', bootstrap_data.ppcom.api_key))
-        .pipe(replace('{ppcom_api_secret}', bootstrap_data.ppcom.api_secret))
+        .pipe(replace('{ppcom_api_key}', bootstrap_data.PPCOM.api_key))
+        .pipe(replace('{ppcom_api_secret}', bootstrap_data.PPCOM.api_secret))
         .pipe(gulp.dest(buildConfig.distPath))
         .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest(buildConfig.distPath))
@@ -101,8 +101,8 @@ gulp.task('scripts', ['merge'], function(done) {
         .pipe(replace('{file_download_url}', file_download_url))
         .pipe(replace('{file_upload_txt_url}', file_upload_txt_url))
         .pipe(replace('{ppcom_assets_path}', ppcom_assets_path))
-        .pipe(replace('{ppcom_api_key}', bootstrap_data.ppcom.api_key))
-        .pipe(replace('{ppcom_api_secret}', bootstrap_data.ppcom.api_secret))
+        .pipe(replace('{ppcom_api_key}', bootstrap_data.PPCOM.api_key))
+        .pipe(replace('{ppcom_api_secret}', bootstrap_data.PPCOM.api_secret))
         .pipe(gulp.dest(buildConfig.distPath))
         .pipe(ngmin())
         .pipe(uglify())

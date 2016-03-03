@@ -25,7 +25,7 @@ var watching_paths = {
 };
 
 var _get_bootstrap_data = function() {
-    var data = fs.readFileSync("../../init/bootstrap/data.py", "utf8");
+    var data = fs.readFileSync("../../bootstrap/data.py", "utf8");
     data = data.slice(data.search("BOOTSTRAP_DATA"));
     data = eval(data);
     return data;
@@ -73,9 +73,9 @@ gulp.task('admin-css', function(done) {
 gulp.task('user-scripts', function(done) {
     gulp.src(buildConfig.scriptFiles.user)
         .pipe(concat('ppconsole-user.js'))
-        .pipe(replace('{ppconsole_api_uuid}', bootstrap_data.ppconsole.api_uuid))
-        .pipe(replace('{ppconsole_api_key}', bootstrap_data.ppconsole.api_key))
-        .pipe(replace('{ppmessage_app_uuid}', bootstrap_data.app_uuid))
+        .pipe(replace('{ppconsole_api_uuid}', bootstrap_data.PPCONSOLE.api_uuid))
+        .pipe(replace('{ppconsole_api_key}', bootstrap_data.PPCONSOLE.api_key))
+        .pipe(replace('{ppmessage_app_uuid}', bootstrap_data.team.app_uuid))
         .pipe(replace('{WEB_ROLE}', "user"))
         .pipe(gulp.dest(buildConfig.buildPath))
         .pipe(gulpif(min_js, ngmin()))
@@ -92,8 +92,8 @@ gulp.task('user-scripts', function(done) {
 gulp.task('admin-scripts', function(done) {
     gulp.src(buildConfig.scriptFiles.admin)
         .pipe(concat('ppconsole-admin.js'))
-        .pipe(replace('{ppconsole_api_uuid}', bootstrap_data.ppconsole.api_uuid))
-        .pipe(replace('{ppconsole_api_key}', bootstrap_data.ppconsole.api_key))
+        .pipe(replace('{ppconsole_api_uuid}', bootstrap_data.PPCONSOLE.api_uuid))
+        .pipe(replace('{ppconsole_api_key}', bootstrap_data.PPCONSOLE.api_key))
         .pipe(replace('{WEB_ROLE}', "admin"))
         .pipe(gulp.dest(buildConfig.buildPath))
         .pipe(ngmin())

@@ -50,6 +50,7 @@ import base64
 import hashlib
 import datetime
 import traceback
+import subprocess
 
 def _encode(_key):
     _key = hashlib.sha1(_key).hexdigest()
@@ -218,7 +219,7 @@ def _create_apns_settings(_session, _config):
     _session.commit()
     return _config
 
-def _create_nginx_conf(_session, _config):
+def _create_nginx_config(_session, _config):
     _conf_dir = os.path.dirname(os.path.abspath(__file__))
     _conf_dir = _conf_dir + os.path.sep + ".." + os.path.sep + "conf"
     _ssl_template = _conf_dir + os.path.sep + "nginx.conf.ssl.template"
@@ -229,32 +230,47 @@ def _create_nginx_conf(_session, _config):
     _server_config = _config.get("server")
     _generic_store = _server_config.get("generic_store")
     _identicon_store = _server_config.get("identicon_store")
+
+    print(_generic_store)
+    print(_identicon_store)
     if not os.path.exists(_generic_store):
-        os.makedirs(_generic_store)
+        subprocess.check_output("mkdir -p " + _generic_store, shell=True)
+        #os.makedirs(_generic_store)
         os.chmod(_generic_store, 0777)
     if not os.path.exists(_identicon_store):
-        os.makedirs(_identicon_store)
+        subprocess.check_output("mkdir -p " + _identicon_store, shell=True)
+        #os.makedirs(_identicon_store)
         os.chmod(_identicon_store, 0777)
     
     _template = _nossl_template
     if _ssl == "on":
         _template = _ssl_template
 
-    with open(_template, "rw") as _file:
+    _origin = None
+    with open(_template, "r") as _file:
         _origin = _file.read()
         for _key in _nginx_config:
             _str = "{nginx." + _key + "}"
             if _key == "server_name":
                 _value = _nginx_config.get(_key)
                 if isinstance(_value, list):
-                    _origin.replace(_str, " ".join(_value))
+                    _origin = _origin.replace(_str, " ".join(_value))
                 continue
-            _origin.replace(_str, _nginx_config.get(_key))
-            _file.write(_origin)
+            _origin = _origin.replace(_str, _nginx_config.get(_key))
 
-    _upload_store_dir = _nginx_config.get("upload_store")
-    _upload_store_dir = _upload_store_dir.split(" ")[0]
+    print(_origin)
+    if _origin == None:
+        print("no nginx template found")
+        return _config
+
+    _nginx_conf_path = _nginx_config.get("nginx_conf_path")
+    with open(_nginx_conf_path, "w") as _file:
+        _file.write(_origin)
+
+    _upload_store = _nginx_config.get("upload_store")
+    _upload_store_dir = _upload_store.split(" ")[0]
     _nginx_config["upload_store_dir"] = _upload_store_dir
+    
     if not os.path.exists(_upload_store_dir):
         os.makedirs(_upload_store_dir)
         os.chmod(_upload_store_dir, 0777)
@@ -328,6 +344,7 @@ def _bootstrap():
             _config = _create_bootstrap_api(_level, _session, _config)
         _config = _update_api_uuid_with_ppconsole(_session, _config)
         _config = _create_apns_settings(_session, _config)
+        _config = _create_nginx_config(_session, _config)
     except:
         traceback.print_exc()
     finally:

@@ -88,7 +88,7 @@ function generate_scripts (done) {
         .pipe(replace("{developer_mode}", developer_mode))
         .pipe(replace("{server}", server))
         .pipe(replace("{version}", version))
-        .pipe(replace("{ppkefu_api_key}", bootstrap_data.ppkefu.api_key))
+        .pipe(replace("{ppkefu_api_key}", bootstrap_data.PPKEFU.api_key))
         .pipe(concat("ppmessage.js"))
         .pipe(gulp.dest(dest))
         .pipe(uglify())
