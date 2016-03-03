@@ -40,8 +40,10 @@ A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, y
   ```Bash
     cd ppmessage/api/geolite2
     wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
+    gunzip GeoLite2-City.mmdb.gz
     cd -
   ```
+  > sh ppmessage/scripts/download_geolite2.sh is an alternative scripts way which PPMessage provides.
 
   * Mysql connector python
   ```Bash
@@ -88,6 +90,12 @@ A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, y
 
 > Assuming you have clone ppmessage and under ppmessage directory.
 > In the directory, you can see `dist.sh` `README.md` files and `ppmessage` directory.
+
+Before config PPMessage check the requirement is done or not.
+
+```Bash
+    python ppmessage/scripts/require.py
+```
 
 ```Bash
     vim ppmessage/bootstrap/config.py
@@ -145,4 +153,17 @@ A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, y
 > sh dist.sh proc
 
 
+### Check PPCOM
+
+Use your brower open your server url which has been configed, suggest using Chrome browser.
+
+> PPCONSOLE/PPCOM
+```Bash
+http://server_name:nginx_listen_port
+```
+
+> PPKEFU
+```Bash
+http://server_name:nginx_listen_port/ppkefu
+```
 
