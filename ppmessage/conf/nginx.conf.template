@@ -53,14 +53,6 @@ http {
         server 127.0.0.1:20400;
     }
     
-    upstream dispatcher_backends {
-        server 127.0.0.1:20600;
-    }
-
-    upstream iospush_backends {
-        server 127.0.0.1:20700;
-    }
-
     upstream ppcom_backends {
         server 127.0.0.1:21000;
     }
@@ -87,24 +79,6 @@ http {
     
 # end of backends
 
-# begin servers
-# dispatcher
-    server {
-        listen 8923;
-        location / {
-            proxy_pass http://dispatcher_backends;
-        }
-    }
-
-# iospush
-    server {
-        listen 8932;
-        location / {
-            proxy_pass http://iospush_backends;
-        }
-    }
-
-# user
     server {
         listen {nginx.listen};
         server_name {nginx.server_name};
