@@ -182,14 +182,21 @@ def _create_apns_settings(_session, _config):
 
     if _apns == None or _dev_path == None or _pro_path == None or _name == None:
         return _config
-    
-    with open(_dev_path, "rb") as _file:
-        _dev_p12 = _file.read()
-        _dev_pem = der2pem(_dev_p12)
 
-    with open(_pro_path, "rb") as _file:
-        _pro_p12 = _file.read()
-        _pro_pem = der2pem(_pro_p12)
+    if len(_dev_path) == 0 or len(_pro_path) == 0 or len(_name) == 0:
+        return _config
+
+    try:
+        with open(_dev_path, "rb") as _file:
+            _dev_p12 = _file.read()
+            _dev_pem = der2pem(_dev_p12)
+
+        with open(_pro_path, "rb") as _file:
+            _pro_p12 = _file.read()
+            _pro_pem = der2pem(_pro_p12)
+    except:
+        print("no apns config. iospush will not start.")
+        return _config
 
     _dev_p12 = base64.b64encode(_dev_p12)
     _dev_pem = base64.b64encode(_dev_pem)
@@ -208,7 +215,7 @@ def _create_apns_settings(_session, _config):
         is_production=True
     )
     _session.add(_apns)
-    _session.commit()        
+    _session.commit()
     return _config
 
 def _create_nginx_conf(_session, _config):
@@ -219,6 +226,16 @@ def _create_nginx_conf(_session, _config):
     _nginx_config = _config.get("nginx")
     _ssl = _nginx_config.get("ssl")
 
+    _server_config = _config.get("server")
+    _generic_store = _server_config.get("generic_store")
+    _identicon_store = _server_config.get("identicon_store")
+    if not os.path.exists(_generic_store):
+        os.makedirs(_generic_store)
+        os.chmod(_generic_store, 0777)
+    if not os.path.exists(_identicon_store):
+        os.makedirs(_identicon_store)
+        os.chmod(_identicon_store, 0777)
+    
     _template = _nossl_template
     if _ssl == "on":
         _template = _ssl_template
