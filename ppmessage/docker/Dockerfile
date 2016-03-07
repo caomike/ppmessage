@@ -54,7 +54,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python-dev \
     python-pip \
     redis-server \
-    wget
+    wget \
+    && apt-get clean
 
 ########## step 3: pip install ##########
 RUN pip install -i http://pypi.douban.com/simple \
@@ -101,20 +102,21 @@ WORKDIR /tmp
 RUN wget http://cdn.mysql.com//Downloads/Connector-Python/mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION.tar.gz \
     && tar -xzvf mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION.tar.gz \
     && cd mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION \
-    && python setup.py install
-    # && service mysql start && mysqladmin -uroot password test
+    && python setup.py install \
+    # && service mysql start && mysqladmin -uroot password test \
 
-RUN wget http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz \
+    && cd /tmp \
+    && wget http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz \
     && git clone https://github.com/vkholodkov/nginx-upload-module.git \
     && cd nginx-upload-module && git checkout 2.2 && cd ../ \
     && tar -xzvf nginx-$NGINX_VERSION.tar.gz \
     && cd nginx-$NGINX_VERSION \
     && ./configure --with-http_ssl_module \
                    --add-module=../nginx-upload-module \
-    && make && make install
-ENV PATH=$PATH:/usr/local/nginx/sbin
+    && make && make install \
 
-RUN wget http://ffmpeg.org/releases/ffmpeg-$FFMPEG_VERSION.tar.bz2 \
+    && cd /tmp \
+    && wget http://ffmpeg.org/releases/ffmpeg-$FFMPEG_VERSION.tar.bz2 \
     && tar -xjvf ffmpeg-$FFMPEG_VERSION.tar.bz2 \
     && cd ffmpeg-$FFMPEG_VERSION \
     && ./configure --enable-libopencore-amrnb \
@@ -125,16 +127,21 @@ RUN wget http://ffmpeg.org/releases/ffmpeg-$FFMPEG_VERSION.tar.bz2 \
                    --enable-libmp3lame \
                    --enable-libopus \
                    --enable-libfdk-aac \
-    && make && make install
+    && make && make install \
 
-RUN git clone --recursive https://github.com/maxmind/libmaxminddb \
+    && cd /tmp \
+    && git clone --recursive https://github.com/maxmind/libmaxminddb \
     && cd libmaxminddb \
     && ./bootstrap \
     && ./configure \
-    && make && make install
+    && make && make install \
+
+    && rm -fr /tmp/*
+
+ENV PATH=$PATH:/usr/local/nginx/sbin
 
 # clean up
-RUN apt-get clean && rm -fr /tmp/*
+# RUN apt-get clean && rm -fr /tmp/*
 
 ########## step 5: other docker settings ##########
 EXPOSE 8080

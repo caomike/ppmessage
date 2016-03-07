@@ -1,1 +1,3 @@
-docker build --rm -t hejin/ppmessage .
+#!/bin/bash
+
+docker build --rm -t ppmessage/ppmessage .
