@@ -12,6 +12,7 @@ from ppmessage.db.models import DeviceUser
 from ppmessage.api.error import API_ERR
 
 from ppmessage.core.constant import OS
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import ONLINE_STATUS
 from ppmessage.core.constant import REDIS_PPKEFU_ONLINE_KEY
 
@@ -19,6 +20,7 @@ from ppmessage.core.redis import redis_hash_to_dict
 from ppmessage.db.models import UserOnlineStatusLog
 from ppmessage.pcsocket.pcsocketapp import pcsocket_user_online
 
+import datetime
 import logging
 import json
 import uuid

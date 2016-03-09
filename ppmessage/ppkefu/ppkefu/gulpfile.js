@@ -25,7 +25,7 @@ function _get_ppkefu_version () {
 }
 
 function _get_bootstrap_data () {
-    var data = fs.readFileSync("../../init/bootstrap/data.py", "utf8");
+    var data = fs.readFileSync("../../bootstrap/data.py", "utf8");
     data = data.slice(data.search("BOOTSTRAP_DATA"));
     data = eval(data);
     return data;

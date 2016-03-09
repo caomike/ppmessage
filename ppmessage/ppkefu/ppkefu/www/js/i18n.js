@@ -371,6 +371,7 @@ ppmessageModule.config([
             },
 
             GLOBAL: {
+                ERR_TOKEN: "Can't get access token",
                 ERR_NET: "Can't connect to server",
                 ERR_LOGIN: "Can't login",
                 ERR_USERPASS: "Username or password incorrect",
@@ -857,6 +858,7 @@ ppmessageModule.config([
             },
 
             GLOBAL: {
+                ERR_TOKEN: "无法获取token",
                 ERR_NET: "无法连接服务器",
                 ERR_LOGIN: "无法登录",
                 ERR_USERPASS: "用户名称密码不匹配",

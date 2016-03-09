@@ -60,7 +60,6 @@ class TokenHandler(RequestHandler):
     def _client_credentials(self, _request):
         _api_key = _request.get("client_id")
         _api_secret = _request.get("client_secret")
-
         _redis = self.application.redis
         _key = ApiInfo.__tablename__ + ".api_key." + _api_key
         _api = _redis.get(_key)
@@ -133,7 +132,7 @@ class TokenHandler(RequestHandler):
         _key = DeviceUser.__tablename__ + ".user_email." + _user_email
         _user_uuid = _redis.get(_key)
         if _user_uuid == None:
-            logging.error("only PPKEFU / PPCONSOLE use password mode")
+            logging.error("no such user %s" % _user_email)
             self._write_error()
             return
 
@@ -208,7 +207,6 @@ class TokenHandler(RequestHandler):
 
         if _request_dict.get("redirect_uri") != None:
             # start task to handle http request
-            self.send_error(500)
             self.set_header("Content-Type", "application/json")
             self._header()
             _return = {

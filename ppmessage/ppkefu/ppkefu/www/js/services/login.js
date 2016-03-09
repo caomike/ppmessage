@@ -41,9 +41,9 @@ function ($state, $timeout, $ionicLoading, yvSys, yvAPI, yvNav, yvNoti, yvUser, 
                         self._login_error("app.GLOBAL.ERR_LOGIN");
                     });
                 }, function () {
-                    self._login_error("app.GLOBAL.ERR_NET");
-                }, function () {
                     self._login_error("app.GLOBAL.ERR_USERPASS");
+                }, function () {
+                    self._login_error("app.GLOBAL.ERR_TOKEN");
                 });
             };
 
