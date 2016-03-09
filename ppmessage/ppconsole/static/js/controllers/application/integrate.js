@@ -3,6 +3,7 @@ angular.module("this_app")
 
         $scope.enterprise = {
             link: null,
+            code: null
         };
 
         var _generate_enterprise_link = function() {
@@ -10,18 +11,43 @@ angular.module("this_app")
             if (_team == null) {
                 return;
             }
-
             var _url = location.protocol + "//" + location.host + "/ppcom/enterprise/";
-            var _param = Base64.encode(JSON.stringify(_team));
+            var _param = yvUtil.base64_encode(JSON.stringify(_team));
             $timeout(function() {
                 $scope.enterprise.link = _url + _param;
             });
         };
+
+        var _generate_embedded_code = function() {
+            var _own_team = yvUser.get_team();
+            var _url = null;
+            var _server = location.protocol + "//" + location.host;
+            var _pre = "<script> window.ppSettings = {";
+            _pre = _pre + "app_uuid:";
+            _pre = _pre + "'" + _own_team.uuid + "'};";
+            _pre = _pre + "(function(){var w=window,d=document;function l(){var a=d.createElement('script');a.type='text/javascript';a.async=!0;a.src='{SERVER}/ppcom/assets/pp-library.min.js';var b=d.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b)}w.attachEvent?w.attachEvent('onload',l):w.addEventListener('load',l,!1);})()</script>";
+            _pre = _pre.replace("{SERVER}", _server);
+            $scope.enterprise.code = _pre;
+        };
+
+        var _on_team_ok = function() {
+            _generate_enterprise_link();
+            _generate_embedded_code();
+        };
+        
+        // clip integrate code to clipboard
+        var code_client = new ZeroClipboard(document.getElementById("code_clip_action"));
+        code_client.on("ready", function( readyEvent ) {            
+            code_client.on( "aftercopy", function( event ) {
+                $scope.set_flash_style( 0 );
+                $scope.set_update_string( $scope.lang[ 'application.profile.COPY_SUCCESSFUL_TAG' ] );
+            });
+        } );
         
         // clip integrate code to clipboard
         // The ZeroClipboard library using an invisible Adobe Flash movie and a JavaScript interface.
-        var copyEl = document.getElementById("link_clip_action"),
-            client = new ZeroClipboard( copyEl );
+        var copyEl = document.getElementById("link_clip_action");
+        var client = new ZeroClipboard( copyEl );
         client.on("ready", function( readyEvent ) {
             client.on( "aftercopy", function( event ) {
                 $scope.set_flash_style( 0 );
@@ -29,27 +55,12 @@ angular.module("this_app")
             } );
         } );
         client.on( 'error', function( errorEvent ) {
-            
             angular.element( copyEl ).bind( 'click' , function( e ) {
                 $scope.set_flash_style( 1 );
                 $scope.set_update_string( $scope.lang[ 'application.profile.COPY_FAIL_TAG' ] );    
             } );
-            
         } );
-        
-        $scope.auto_install = function() {
-            $state.go( "app.settings.autoinstall" );
-        };
-
-        $scope.manual_install = function() {
-            $state.go("app.settings.manualinstall");
-        };
-        
-        $scope.get_support = function(user) {
-            //do something
-            console.log(user);
-        };
-        
+                
         var _logined = function() {
             if(yvUser.get_status() != "OWNER_2") {
                 console.error("should not be here");
@@ -60,10 +71,10 @@ angular.module("this_app")
                 var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
                 _get.success(function(data) {
                     yvUser.set_team(data.app);
-                    _generate_enterprise_link();
+                    _on_team_ok();
                 });
             } else {
-                _generate_enterprise_link();
+                _on_team_ok();
             }
         };
 
