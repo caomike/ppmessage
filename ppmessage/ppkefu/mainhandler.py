@@ -13,7 +13,7 @@ import logging
 class MainHandler(RequestHandler):
 
     def get(self):
-        _index = os.path.abspath(os.path.dirname(__file__)) + "/ppmessage-pc/www/index.html";
+        _index = os.path.abspath(os.path.dirname(__file__)) + "/ppkefu/www/index.html";
         with open(_index) as _file:
             _str = _file.read()
             logging.info(_str)

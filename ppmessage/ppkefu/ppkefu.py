@@ -34,7 +34,7 @@ class PCApp(Application):
 
         self.redis = redis.Redis(REDIS_HOST, REDIS_PORT, db=1)
         DownloadHandler.set_cls_redis(self.redis)
-        _root = os.path.abspath(os.path.dirname(__file__)) + "/ppmessage-pc/www"
+        _root = os.path.abspath(os.path.dirname(__file__)) + "/ppkefu/www"
 
         _generic_store = BOOTSTRAP_DATA.get("server")
         _generic_store = _generic_store.get("generic_store")
