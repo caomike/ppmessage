@@ -6,10 +6,24 @@
     <script src="/ppcom/assets/pp-library.min.js" type="text/javascript"></script>
   </head>
 
-  <body style="background-color:white">
+  <body onload="setHeight();" onresize="setHeight();">
 
-    <div style="background: url('/ppcom/assets/img/ppcom-demo-layout.svg') no-repeat center; background-size:cover; width:100%; height:100%;">
+    <!-- <div class="full" style="background: url('/ppcom/assets/img/ppcom-demo-layout.svg') no-repeat center; background-size:cover; width:100%; height:100%;"> -->
+    <!-- </div> -->
+    <div id="full">
+      <img src='/ppcom/assets/img/ppcom-demo-layout.svg' style="witdh:100%; height:100%;"> </img>
     </div>
+
+    <script>
+      function setHeight()
+      {
+      var height = document.documentElement.clientHeight;
+      var width = document.documentElement.clientWidth;
+      var full = document.getElementById('full');
+      full.style.width = width+"px";
+      full.style.height = height+"px";                                      
+      }
+    </script>
 
     <script>
       function showPPCom() {

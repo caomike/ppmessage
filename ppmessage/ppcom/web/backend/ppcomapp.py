@@ -18,6 +18,7 @@ class EnterpriseHandler(tornado.web.RequestHandler):
         _enterprise = base64.b64decode(enterprise_string)
         _enterprise = json.loads(_enterprise)
         logging.info(_enterprise)
+        _enterprise["app_uuid"] = _enterprise["uuid"]
         self.render("enterprise.html", **_enterprise)
         return
 
