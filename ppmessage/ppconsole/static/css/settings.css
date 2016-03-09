@@ -1762,7 +1762,7 @@ img.yv-chat-icon {
     margin-right: 40px;
     cursor: pointer;
     font-size: 18px;
-    background-image: url(/portal/static/yvertical/img/copy.png);
+    background-image: url("../img/copy.png");
     width: 22px;
     height: 22px;
     background-repeat: no-repeat;
@@ -1919,7 +1919,7 @@ img.yv-chat-icon {
     margin-left: 20px;
     float: left;
     margin-top: 7px;
-    background-image: url("/portal/static/yvertical/img/bubble.png");
+    background-image: url("../img/bubble.png");
     background-repeat: no-repeat;
     background-position: center;
 }

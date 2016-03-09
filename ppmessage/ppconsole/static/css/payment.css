@@ -21,7 +21,7 @@
 }
 
 .payment_casher_logo {
-    background-image: url("/portal/static/yvertical/img/payment/casher.png");
+    background-image: url("../img/payment/casher.png");
     background-repeat: no-repeat;
     width: 300px;
     height: 52px;

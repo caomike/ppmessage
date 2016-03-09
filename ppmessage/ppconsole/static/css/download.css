@@ -21,7 +21,7 @@
     width: 50%;
     height: 400px;
     float: left;
-    background-image: url("/portal/static/yvertical/img/download/mbp.png");
+    background-image: url("../img/download/mbp.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 430px;

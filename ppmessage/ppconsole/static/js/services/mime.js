@@ -52,7 +52,7 @@ function $yvMime() {
     
     
     var _mime_icon = function(_mime) {
-        var _prefix = "/static/yvertical/img/";
+        var _prefix = "../img/";
         var _word = _prefix + "document-word.png";
         var _xsl = _prefix + "document-xls.png";
         var _pdf = _prefix + "document-pdf.png";

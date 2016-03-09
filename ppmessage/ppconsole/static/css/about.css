@@ -7,7 +7,7 @@
 }
 
 .team_h .icon_body {
-    background-image: url("/static/yvertical/img/member/ppmessage.png");
+    background-image: url("../img/member/ppmessage.png");
     background-repeat: no-repeat;
     width: 660px;
     height: 140px;

@@ -126,7 +126,7 @@
     width: 74px;
     height: 74px;
     margin: 20px auto 18px auto;
-    background-image: url("/portal/static/yvertical/img/docs/docs_landing-hl-1.png");
+    background-image: url("../img/docs/docs_landing-hl-1.png");
     background-repeat: no-repeat;
     border: 1px solid transparent;
     -webkit-border-radius: 50%;

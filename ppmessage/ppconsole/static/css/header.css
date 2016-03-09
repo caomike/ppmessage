@@ -30,7 +30,7 @@ body {
     height: 62px;
     float: left;
     vertical-align: middle;
-	background:url("/portal/static/yvertical/img/logo-h-t-168.png") no-repeat;
+	background:url("../img/logo-h-t-168.png") no-repeat;
 }
 
 .header .nav_main .slogan {
