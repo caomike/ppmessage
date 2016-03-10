@@ -4,21 +4,29 @@ angular.module("this_app")
         var team_name = "";
         
         $scope.can_delete = false;
-        $scope.team_info = {
-            key: "",
-            secret: "",
-            name: "",
-        };
+        $scope.team_info = {};
 
+        var _reset_team_info = function() {
+            $scope.team_info = {
+                app_uuid: null,
+                app_name: null,
+                ppconsole_thirdparty: {
+                    api_uuid: null,
+                    api_key: null,
+                    api_secret: null,
+                },
+                ppkefu_thirdparty: {
+                    api_uuid: null,
+                    api_key: null,
+                    api_secret: null,
+                },
+            };
+        };
+        
         $scope.show_remove_modal = function() {
             jQuery('#remove_app').modal({show:true});
         };
 
-        var _note = function(index, tag) {
-            $scope.set_flash_style(index);
-            $scope.set_update_string($scope.lang[tag]);
-        };
-        
         $scope.remove_app = function() {
             
             var app_info = {
@@ -33,11 +41,7 @@ angular.module("this_app")
                         _note("flash-notice", "application.profile.REMOVE_APP_SUCCESS_TAG");
                         var team_uuid = '';
                         yvUser.set_team_uuid(team_uuid);
-                        $scope.team_info = {
-                            key: "",
-                            secret: "",
-                            name: "",
-                        };
+                        _reset_team_info()
                     }else if(data.error_code == -1){
                         // params miss
                         _note(1, "application.profile.UPDATE_APP_LACK_PARAMS_TAG");
@@ -59,19 +63,19 @@ angular.module("this_app")
         };
 
         var modify_check = function() {
-            if(team_name == $scope.team_info.name) {
+            if(team_name == $scope.team_info.app_name) {
                 _note("flash-error", "application.profile.NO_CHANGE_TAG");
-                $scope.team_info.name = team_name;
                 return false;
             };
-            if(!yvUtil.regexp_check($scope.team_info.name)) {
+            
+            if(!yvUtil.regexp_check($scope.team_info.app_name)) {
                 _note(1, "application.profile.NOT_REGULAR_WORDS_TAG");
-                $scope.team_info.name = team_name;
+                $scope.team_info.app_name = team_name;
                 return false;
             };
-            if(String($scope.team_info.name).length>63) {
+            if(String($scope.team_info.app_name).length>63) {
                 _note(1, "application.profile.WORDS_OUT_OF_LENGTH_TAG");
-                $scope.team_info.name = team_name;
+                $scope.team_info.app_name = team_name;
                 return false;
             };
             return true;
@@ -84,13 +88,13 @@ angular.module("this_app")
             };
             var update = {
                 "app_uuid": yvUser.get_team().uuid,
-                "app_name": $scope.team_info.name,
+                "app_name": $scope.team_info.app_name,
             };
             yvAjax.update_app_info(update)
                 .success(function(data) {
                     console.log("update team info back",data);
                     if(data.error_code == 0) {
-                        $scope.team_info.name = data.app_name;
+                        $scope.team_info.app_name = data.app_name;
                         team_name = data.app_name;
                         yvUser && yvUser.get_team() && ( yvUser.get_team().app_name = team_name );
                         _note(0, "application.profile.UPDATE_SUCCESSFULLY_TAG");
@@ -114,9 +118,13 @@ angular.module("this_app")
                 console.error("no team info");
                 return;
             }
-            $scope.team_info.key = _own_team.app_key;
-            $scope.team_info.secret = _own_team.app_secret;
-            $scope.team_info.name = _own_team.app_name;
+            $scope.team_info.app_uuid = _own_team.uuid;
+            $scope.team_info.app_name = _own_team.app_name;
+            var _get = yvAjax.get_api_info({app_uuid: _own_team.uuid, user_uuid: yvUser.get_uuid()});
+            _get.success(function(data) {
+                $scope.team_info.ppconsole_thirdparty = data.ppconsole_thirdparty;
+                $scope.team_info.ppkefu_thirdparty = data.ppkefu_thirdparty;
+            });
         };
         
         var _logined = function() {
@@ -134,7 +142,6 @@ angular.module("this_app")
             } else {
                 _team();
             }
-            
         };
 
         var _translate = function() {
@@ -149,6 +156,7 @@ angular.module("this_app")
         };
         
         var _init = function() {
+            _reset_team_info();
             $scope.refresh_settings_menu();
             _translate();
             yvAjax.check_logined(_logined, null);

@@ -244,6 +244,10 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
             return _apiPost('/PP_GET_APP_SERVICE_USER_LIST', requestParams);
         },
 
+        get_api_info: function(requestParams) {
+            return _apiPost('/PP_GET_API_INFO', requestParams);
+        },
+
         ///////////// API_ERR_CODE ////////////////
         API_ERR: API_ERR
         

@@ -1685,6 +1685,12 @@ class ApiInfo(CommonMixin, BaseModel):
         _key = self.__tablename__ + ".api_key." + self.api_key
         _v = json.dumps([self.app_uuid, self.uuid, self.api_level, self.api_secret])
         _redis.set(_key, _v)
+
+        _key = self.__tablename__ + ".app_uuid." + self.app_uuid + \
+               ".user_uuid." + self.user_uuid + ".api_level." + self.api_level
+        _v = json.dumps([self.uuid, self.api_level, self.api_key, self.api_secret])
+        _redis.set(_key, _v)
+        
         return
     
     def delete_redis_keys(self, _redis):
@@ -1693,6 +1699,11 @@ class ApiInfo(CommonMixin, BaseModel):
             return
         _key = self.__tablename__ + ".api_key." + _obj["api_key"]
         _redis.remove(_key)
+
+        _key = self.__tablename__ + ".app_uuid." + _obj["app_uuid"] + \
+               ".user_uuid." + _obj["user_uuid"] + ".api_level." + _obj["api_level"]
+        _redis.remove(_key)
+        
         CommonMixin.delete_redis_keys(self, _redis)
         return
 

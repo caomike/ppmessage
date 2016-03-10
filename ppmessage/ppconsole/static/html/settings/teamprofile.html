@@ -5,17 +5,42 @@
 
       <div class="column">
           <dl class="form">
-            <dt><label for="app_key">团队 key</label></dt>
-            <dd><input id="app_key" class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.key"></dd>
+            <dt><label for="app_uuid">团队UUID (app_uuid)</label></dt>
+            <dd><input id="app_uuid" class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.uuid"></dd>
           </dl>
 
           <dl class="form">
-            <dt><label for="app_secret">团队 secret</label></dt>
-            <dd><input id="app_secret" class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.secret"></dd>
+            <dt><label>客服端 API Key (PPKefu api_key)</label></dt>
+            <dd>
+              <input class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.ppkefu_thirdparty.api_key">
+            </dd>
           </dl>
+
+          
           <dl class="form">
-            <dt><label for="app_key">团队名称</label></dt>
-            <dd><input id="app_name" size="30" type="text" ng-model="team_info.name" tabindex="2"></dd>
+            <dt><label>客服端 API Secret (PPKefu api_secret)</label></dt>
+            <dd><input class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.ppkefu_thirdparty.api_secret"></dd>
+          </dl>
+
+          <dl class="form">
+            <dt><label>管理端 API Key (PPConsole api_key)</label></dt>
+            <dd>
+              <input class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.ppconsole_thirdparty.api_key">
+            </dd>
+          </dl>
+
+          
+          <dl class="form">
+            <dt><label>管理端 API Secret (PPConsole api_secret)</label></dt>
+            <dd>
+              <input class="input-noborder" size="30" type="text" readonly="readonly" ng-model="team_info.ppconsole_thirdparty.api_secret">
+            </dd>
+          </dl>
+
+          
+          <dl class="form">
+            <dt><label for="app_name">团队名称</label></dt>
+            <dd><input id="app_name" size="30" type="text" ng-model="team_info.app_name" tabindex="2"></dd>
           </dl>
           <p><button type="submit" class="btn btn-primary" tabindex="3" >确认修改</button></p>
         </div>
@@ -27,7 +52,7 @@
 <div class="boxed-group dangerzone" ng-if="can_delete">
   <h3>删除团队</h3>
   <div class="boxed-group-inner">
-    <p>删除须知：删除团队是不可逆操作，该操作意味着将永久从本网站删除与该团队有关的所有数据.删除团队所带来的后果及影响由操作者个人承担，本网站不承担任何责任.如有疑问请点击右下角图标咨询客服.</p>
+    <p>删除须知：删除团队是不可逆操作，该操作意味着将永久从本网站删除与该团队有关的所有数据.如有疑问请点击右下角图标咨询客服.</p>
 
     <p><button type="button" class="btn btn-danger" tabindex="4" ng-click="show_remove_modal()">确认删除</button></p>
   </div>

@@ -8,6 +8,7 @@
 from .basehandler import BaseHandler
 
 from ppmessage.core.constant import API_LEVEL
+
 from ppmessage.db.models import AppInfo
 from ppmessage.api.error import API_ERR
 from ppmessage.core.redis import redis_hash_to_dict
@@ -38,6 +39,7 @@ class PPGetAppInfoHandler(BaseHandler):
         _r = self.getReturnData()
         for _i in _data:
             _r[_i] = _data[_i]
+
         return
         
     def _Task(self):
