@@ -1,83 +1,62 @@
 <div class="boxed-group">
-  <h3>基础设置</h3>
+  <h3>界面设置</h3>
   <div class="boxed-group-inner clearfix">
     <form name="basicForm">
       <table class="config_basic">
         <tr>
           <th>
-            <span class="u-icon" data-toggle="tooltip" title="网站用户鼠标移到聊天图标时显示的欢迎信息"></span>欢迎信息：
+            <span class="u-icon" tooltips tooltip-template="网站用户鼠标移到聊天图标时显示的欢迎信息"></span>
           </th>
-          <td><input type="text" placeholder="欢迎信息" class="form-control div" ng-model="current_bubble.welcome.zh_cn"></td>
-        </tr>
-        <tr>
-          
-          <th><span class="u-icon" data-toggle="tooltip" title="所有客服不在线时系统自动回复的内容"></span>自动回复：</th>
-          <td><input type="text" placeholder="自动回复" class="form-control div" ng-model="current_bubble.offline.zh_cn"></td>
           <td>
-            <div class="switch small yan">
-              <input id="auto-reply-offline-msg" type="checkbox" ng-model="enableAutoReply" ng-change="onAutoReplyInputChanged()" >
-              <label for="auto-reply-offline-msg" class="auto-reply-offline-msg" ></label>
-          </div></td>
-          
+            欢迎信息：
+          </td>
+          <td colspan="2"><input type="text" placeholder="欢迎信息" class="form-control div" ng-model="current_bubble.welcome.zh_cn"></td>
+          <td><button class="btn btn-primary" style="margin-left:20px;" type="submit" ng-click="update_team_info(basicForm.$dirty)">保存</button></td>
         </tr>
-      </table>
-      <p class="button-group">
-        <!-- bubble not supported now -->
-        <!-- <a ui-sref="app.glance" target="_blank" href="#/app/glance"><span class="union left">效果预览</span></a> -->
-        <button class="btn btn-primary right" type="submit" ng-click="update_team_info(basicForm.$dirty)">提交</button>
-      </p>
-    </form>
-  </div>
 
-  <h3 style="margin-top:40px;">样式设置</h3>
-  <div class="boxed-group-inner clearfix">
-    <table class="config_basic" style="margin-bottom:10px;">
-      <tr>
-        <th><div class="pad">自动弹出：</div></th>
-        <td>
-          <div class="one_third pad" style="margin-left:10px;">
-            <input type="radio" id="radio1" name="show_ppcom_hover" value="ONCE" ng-model="current_bubble.show_ppcom_hover"/>
+        <tr>
+          <th>
+            <span class="u-icon" tooltips tooltip-template="网页打开时候自动弹出聊天界面"></span>
+          </th>
+          <td>
+            自动弹出：
+          </td>
+          <td>
+            <input style="margin-left:10px;" type="radio" id="radio1" name="show_ppcom_hover" value="ONCE" ng-model="current_bubble.show_ppcom_hover"/>
             <label for="radio1"><span></span>仅首次</label>
-          </div>
-          <div class="one_third pad">
-            <input type="radio" id="radio2" name="show_ppcom_hover" value="NEVER" ng-model="current_bubble.show_ppcom_hover"/>
+          </td>
+          <td>
+            <input style="margin-left:0px;" type="radio" id="radio2" name="show_ppcom_hover" value="NEVER" ng-model="current_bubble.show_ppcom_hover"/>
             <label for="radio2"><span></span>从不弹出</label>
-          </div>
-          <div class="one_third pad">
+          </td>
+          <td>
             <input type="radio" id="radio3" name="show_ppcom_hover" value="ALWAYS" ng-model="current_bubble.show_ppcom_hover" />
             <label for="radio3"><span></span>总是弹出</label>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th><div class="pad">聊天样式：</div></th>
-        <td>
-          <div class="one_third pad" style="margin-left:10px;">
-            <input type="radio" id="radio4" name="ppcom_launcher_style" value="DEFAULT" ng-model="current_bubble.ppcom_launcher_style"/>
-            <label for="radio4"><span></span>默认</label>
-          </div>
-          <div class="one_third pad">
-            <input type="radio" id="radio5" name="ppcom_launcher_style" value="MATERIAL" ng-model="current_bubble.ppcom_launcher_style" />
-            <label for="radio5"><span></span>材料</label>
-          </div>
-          <div class="one_third pad">
-            <input type="radio" id="radio6" name="ppcom_launcher_style" value="ANIMATE" ng-model="current_bubble.ppcom_launcher_style" />
-            <label for="radio6"><span></span>动画</label>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th><div class="pad">图标颜色：</div></th>
-        <td>
-          <div ng-style="get_launcher_style()" class="default_bubble_color" data-toggle="tooltip" title="{{ get_launcher_color_name() }}" id="bubble_color"></div>
-          <div class="color-picker">
-            <input type="text" class="form-control" ng-model="current_bubble.ppcom_launcher_color" yvcolorpicker ng-blur="change_ppcom_color()"/>
-          </div>
-        </td>
-      </tr>
-    </table>    
-  </div>  
+          </td>
+        </tr>
+        
+        <tr>
+          <th>
+            <span class="u-icon" tooltips tooltip-template="聊天启动图标的颜色"></span>
+          </th>
+          <td>
+            图标颜色：
+          </td>
+
+          <td colspan="2">
+            <div class="color-picker" style="margin-left:10px; margin-bottom:20px;">
+              <input type="text" class="form-control" ng-model="current_bubble.ppcom_launcher_color" yvcolorpicker ng-blur="change_ppcom_color()"/>
+            </div>
+          </td>
+
+          <td>
+            <div ng-style="get_launcher_style()" class="default_bubble_color" tooltips tooltip-template="{{ get_launcher_color_name() }}" id="bubble_color">
+            </div>
+          </td>
+          
+        </tr>
+        
+      </table>
+    </form>
+  </div>
 </div>
-  <script>
-    $(function () { $("[data-toggle='tooltip']").tooltip(); });
-  </script>

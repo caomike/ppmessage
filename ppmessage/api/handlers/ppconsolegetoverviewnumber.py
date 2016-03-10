@@ -61,13 +61,14 @@ class PPConsoleGetOverviewNumber(BaseHandler):
         _number["yesterday_customer"] = len(_customers)
 
         _key = AppUserData.__tablename__ + ".app_uuid." + _app_uuid + ".is_service_user.False"
-        _number["all_customer"] = _redis.scard(_key)
+        _number["all_customer"] = _redis.scard(_key) or 0
 
         _key = MessagePushTask.__tablename__ + ".app_uuid." + _app_uuid
-        _number["all_message"] = _redis.get(_key)
+        _number["all_message"] = _redis.get(_key) or 0
 
         _r = self.getReturnData()
         _r["number"] = _number
+
         return
     
     def initialize(self):

@@ -2,6 +2,7 @@
 angular.module("this_app.services", []);
 
 angular.module("this_app", [
+    "720kb.tooltips",
     "base64",
     "ngCookies",
     "angularUtils.directives.dirPagination",
