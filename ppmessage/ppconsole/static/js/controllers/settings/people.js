@@ -346,7 +346,8 @@ angular.module("this_app")
         $scope.page_app_user = function(newPageNumber){
             var search_value = $scope.search_value || "";            
             var page_number = $scope.page_number = newPageNumber || 1;
-            
+
+            console.log(page_number);
             $scope.items_per_page = 12;
 
             yvAppPeopleService.getAppServiceUsersWithPagination( {

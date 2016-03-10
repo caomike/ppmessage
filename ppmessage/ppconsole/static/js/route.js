@@ -48,12 +48,6 @@ angular.module("this_app.route", ["ui.router", "this_app.constants"])
                 controller: "ErrorCtrl"
             })
 
-            .state("app.jobs", {
-                url: "/jobs",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/jobs.html",
-                controller: "JobsCtrl"
-            })
-
             .state("app.checkinbox", {
                 url: "/checkinbox/:email",
                 templateUrl: yvConstants.STATIC_PREFIX + "html/checkinbox.html",
@@ -91,18 +85,6 @@ angular.module("this_app.route", ["ui.router", "this_app.constants"])
                 controller: "PrivacyPolicyCtrl"
             })
 
-            .state("app.blog", {
-                url: "/blog",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/app.blog.html",
-                controller: "BlogCtrl"
-            })
-
-            .state("app.main", {
-                url: "/main",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/main.html",
-                controller: "MainCtrl"
-            })
-
              .state("app.resetpassword", {
                 url: "/resetpassword/:email",
                 templateUrl: yvConstants.STATIC_PREFIX + "html/settings/resetpassword.html",
@@ -117,92 +99,62 @@ angular.module("this_app.route", ["ui.router", "this_app.constants"])
 
             .state("app.settings.teamprofile", {
                 url: "/teamprofile",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/profile.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/teamprofile.html",
                 controller: "ApplicationProfileCtrl"
             })
 
             .state("app.settings.configuration", {
                 url: "/configuration",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/welcome.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/welcome.html",
                 controller: "ApplicationWelcomeCtrl"
             })
 
             .state("app.settings.teamgrouping", {
                 url: "/teamgrouping",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/grouping.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/grouping.html",
                 controller: "GroupingCtrl"
             })
 
             .state("app.glance", {
                 url: "/glance",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/glance.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/glance.html",
                 controller: "GlanceCtrl"
             })
-
-            .state("app.settings.teambilling", {
-                url: "/teambilling",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/billing.html",
-                controller: "ApplicationBillingCtrl"
-            })
-
-            .state("app.settings.teamchooseplan", {
-                url: "/teamchooseplan",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/changeplan.html",
-                controller: "ApplicationChangePlanCtrl"
-            })
-
+        
             .state("app.settings.teampeople", {
                 url: "/teampeople",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/people.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/people.html",
                 controller: "ApplicationPeopleCtrl"
             })
 
             .state("app.settings.messageroute", {
                 url: "/messageroute",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/messageroute.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/messageroute.html",
                 controller: "ApplicationMessageRouteCtrl"
-            })
-
-            .state("app.settings.robot", {
-                url: "/robot",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/robot.html",
-                controller: "ApplicationRobotCtrl"
             })
 
             .state("app.settings.teamstatistics", {
                 url: "/teamstatistics",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/statistics.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/statistics.html",
                 controller: "ApplicationStatisticsCtrl"
             })
 
             .state("app.settings.overview", {
                 url: "/overview",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/overview.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/overview.html",
                 controller: "StatisticsOverviewCtrl"
             })
 
             .state("app.settings.historymessage", {
                 url: "/historymessage",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/historymessage.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/historymessage.html",
                 controller: "StatisticsHistoryMessageCtrl"
             })
 
             .state("app.settings.integrate", {
                 url: "/integrate",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/integrate.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/integrate.html",
                 controller: "IntegrateCtrl"
-            })
-
-            .state("app.settings.autoinstall", {
-                url: "/autoinstall",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/autoinstall.html",
-                controller: "AutoInstallCtrl"
-            })
-
-            .state("app.settings.manualinstall", {
-                url: "/manualinstall",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/application/manualinstall.html",
-                controller: "ManualInstallCtrl"
             })
 
             .state("app.settings", {
@@ -228,17 +180,8 @@ angular.module("this_app.route", ["ui.router", "this_app.constants"])
                 url: "/createteam",
                 templateUrl: yvConstants.STATIC_PREFIX + "html/settings/createapplication.html",
                 controller: "SettingsCreateAppCtrl"
-            })
-
-            .state("app.logout", {
-                controller: "LogoutCtrl"
-            })
-
-             .state("autoinstall", {
-                url: "/autoinstall",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/ppHelper.html",
-                controller: "AutoInstallCtrl"
             });
-        $urlRouterProvider.otherwise("/app/main");
+
+        $urlRouterProvider.otherwise("/app/signin/");
 
     });
