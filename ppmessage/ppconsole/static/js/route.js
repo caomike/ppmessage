@@ -166,7 +166,7 @@ angular.module("this_app.route", ["ui.router", "this_app.constants"])
 
             .state("app.settings.profile", {
                 url: "/profile",
-                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/profile.html",
+                templateUrl: yvConstants.STATIC_PREFIX + "html/settings/userprofile.html",
                 controller: "SettingsProfileCtrl"
             })
 
