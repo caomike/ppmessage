@@ -378,6 +378,7 @@ ppmessageModule.config([
                 ERR_IOSTOKEN: "Failed to get message push identity.",
                 ERR_NO_SERVER: "No server is selected !",
                 ERR_NO_PASSWORD_EMAIL: "No password and email",
+                ERR_NO_ENOUGH_INFO: "Miss parameter to action.",
 
                 CANT_GET_MORE_HISTORY_MESSAGES: "Can't get more history messages",
                 CANT_GET_MORE_CONVERSATIONS: "Can't get more conversations",
@@ -865,6 +866,7 @@ ppmessageModule.config([
                 ERR_IOSTOKEN: "获取推送消息标识出错",
                 ERR_NO_SERVER: "没有选中任何服务器",
                 ERR_NO_PASSWORD_EMAIL: "没有填写邮箱或密码",
+                ERR_NO_ENOUGH_INFO: "提供的参数不够",
 
                 CANT_GET_MORE_HISTORY_MESSAGES: "无法获取更多历史消息",
                 CANT_GET_MORE_CONVERSATIONS: "无法获取更多对话",

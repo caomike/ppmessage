@@ -1,0 +1,62 @@
+<div class="boxed-group">
+  <h3>界面设置</h3>
+  <div class="boxed-group-inner clearfix">
+    <form name="basicForm">
+      <table class="config_basic">
+        <tr>
+          <th>
+            <span class="u-icon" tooltips tooltip-template="网站用户鼠标移到聊天图标时显示的欢迎信息"></span>
+          </th>
+          <td>
+            欢迎信息：
+          </td>
+          <td colspan="2"><input type="text" placeholder="欢迎信息" class="form-control div" ng-model="current_bubble.welcome.zh_cn"></td>
+          <td><button class="btn btn-primary" style="margin-left:20px;" type="submit" ng-click="update_team_info(basicForm.$dirty)">保存</button></td>
+        </tr>
+
+        <tr>
+          <th>
+            <span class="u-icon" tooltips tooltip-template="网页打开时候自动弹出聊天界面"></span>
+          </th>
+          <td>
+            自动弹出：
+          </td>
+          <td>
+            <input style="margin-left:10px;" type="radio" id="radio1" name="show_ppcom_hover" value="ONCE" ng-model="current_bubble.show_ppcom_hover"/>
+            <label for="radio1"><span></span>仅首次</label>
+          </td>
+          <td>
+            <input style="margin-left:0px;" type="radio" id="radio2" name="show_ppcom_hover" value="NEVER" ng-model="current_bubble.show_ppcom_hover"/>
+            <label for="radio2"><span></span>从不弹出</label>
+          </td>
+          <td>
+            <input type="radio" id="radio3" name="show_ppcom_hover" value="ALWAYS" ng-model="current_bubble.show_ppcom_hover" />
+            <label for="radio3"><span></span>总是弹出</label>
+          </td>
+        </tr>
+        
+        <tr>
+          <th>
+            <span class="u-icon" tooltips tooltip-template="聊天启动图标的颜色"></span>
+          </th>
+          <td>
+            图标颜色：
+          </td>
+
+          <td colspan="2">
+            <div class="color-picker" style="margin-left:10px; margin-bottom:20px;">
+              <input type="text" class="form-control" ng-model="current_bubble.ppcom_launcher_color" yvcolorpicker ng-blur="change_ppcom_color()"/>
+            </div>
+          </td>
+
+          <td>
+            <div ng-style="get_launcher_style()" class="default_bubble_color" tooltips tooltip-template="{{ get_launcher_color_name() }}" id="bubble_color">
+            </div>
+          </td>
+          
+        </tr>
+        
+      </table>
+    </form>
+  </div>
+</div>
