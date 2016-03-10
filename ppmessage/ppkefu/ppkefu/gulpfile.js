@@ -45,7 +45,7 @@ var paths = {
 var bootstrap_data = _get_bootstrap_data();
 var server = bootstrap_data.server.name;
 var developer_mode = bootstrap_data.js.min;
-if (developer_mode == "yes") {
+if (developer_mode == "no") {
     developer_mode = true;
 } else {
     developer_mode = false;

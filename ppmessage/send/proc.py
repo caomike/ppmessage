@@ -47,7 +47,7 @@ class Proc():
     
     def __init__(self, _app):
         self._redis = _app.redis
-        self._file_refs = _app.file_refs
+        # self._file_refs = _app.file_refs
         return
 
     def check(self, _body):
