@@ -277,10 +277,26 @@ function ppmessage_app_ios()
 
 function ppmessage_gulp()
 {
-    echo "gulp to generate PPCom/PPKefu/PPConsole js";
+    echo "generate PPCom/PPKefu/PPConsole js";
     cd ppmessage/ppkefu/ppkefu; gulp; cd -;
     cd ppmessage/ppcom/web/gulp; gulp; cd -;
     cd ppmessage/ppconsole/gulp; gulp; cd -;
+}
+
+function ppmessage_bower()
+{
+    echo "install PPCom/PPKefu/PPConsole js bower depends";
+    cd ppmessage/ppcom/web; bower install; cd -;
+    cd ppmessage/ppkefu/ppkefu; bower install; cd -;
+    cd ppmessage/ppconsole; bower install; cd -;
+}
+
+function ppmessage_npm()
+{
+    echo "install PPCom/PPKefu/PPConsole js node depends";
+    cd ppmessage/ppcom/web/gulp; npm install; cd -;
+    cd ppmessage/ppkefu/ppkefu; npm install; cd -;
+    cd ppmessage/ppconsole/gulp; npm install; cd -;
 }
 
 
@@ -350,6 +366,14 @@ case "$1" in
     
     gulp)
         ppmessage_gulp
+        ;;
+
+    bower)
+        ppmessage_bower
+        ;;
+
+    npm)
+        ppmessage_npm
         ;;
 
     app-win32)
