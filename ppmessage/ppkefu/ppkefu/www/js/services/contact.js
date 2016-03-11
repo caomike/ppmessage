@@ -15,6 +15,7 @@ function () {
             Contact.prototype.is_service_user = true;
 
             Contact.prototype.online = false;
+            Contact.prototype.active = false;
         }
     }
 

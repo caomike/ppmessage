@@ -23,13 +23,21 @@ i.toggle-conversation-member {
         @include img-radius(4px);
     }
 
-    &.active, &.active .item-content, &.activated, &.activated .item-content {
+    &.active.platform-browser, &.active.platform-browser .item-content {
+        background-color: #ddd;
+        border-color: #ddd;        
+    }
+
+    &.activated, &.activated .item-content {
         background-color: #ddd;
         border-color: #ddd;
     }
     
     h2 {
         max-width: 140px;
+        &.online {
+            color: green !important;
+        }        
     }
     
     .yv-unread, .yv-timestamp {

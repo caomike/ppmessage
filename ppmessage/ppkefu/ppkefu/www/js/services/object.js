@@ -13,8 +13,12 @@ function () {
             PPObject.prototype.updatetime = 0;
             PPObject.prototype.fullname = "";
             PPObject.prototype.signature = "";
-            PPObject.prototype.online = false;
-            PPObject.prototype.need_update = false;            
+            PPObject.prototype.need_update = false;
+
+            // provide infos about portal user
+            PPObject.prototype.mobile_online = false;
+            PPObject.prototype.browser_online = false;
+            PPObject.prototype.extra_data = null;            
         }
     }
 

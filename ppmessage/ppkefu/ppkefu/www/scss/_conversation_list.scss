@@ -1,18 +1,50 @@
 .yv-conversation-list-view {
-    .status-bar {
+    .filter-bar {
+        border: none;
+        top: 49px;        
         position: absolute;
         width: 100%;
-        top: 49px;
+        height: 49px;
+        margin: 0;
+        background-color: #2e3238;
+        color: #fff;
+        
+        .filter-item {
+            cursor: pointer;
+            font-size: medium;
+            font-weight: 500;
+            margin-right: 9px;
+            input {
+                cursor: pointer;
+                font-size: 100%;
+                margin-left: 4px;
+            }
+        }
+    }
+    
+    .has-filter-bar {
+        top: 98px !important;        
     }
 
     .yv-conversation-list {
         top: 85px !important;
+        transition: all 0.5s linear;        
     }
 }
 
 .yv-sidemenu .yv-conversation-list {
     
-    .yv-conversation-item {
+    &:not(.in-mobile) .yv-conversation-list .yv-conversation-item {
         @include yv-item();
     }
+    
+    &.in-mobile {
+        .filter-bar {
+            top: 44px;
+            background-color: $dark;
+        }
+        .has-filter-bar {
+            top: 93px !important;
+        }         
+    }    
 }

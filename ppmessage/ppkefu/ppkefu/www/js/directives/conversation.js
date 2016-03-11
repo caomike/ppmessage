@@ -17,6 +17,10 @@ function ($state, $timeout, $rootScope, yvSys, yvAPI, yvLog, yvMain, yvLink, yvL
     function link($scope, $element, $attrs) {
         var delegate = yvDelegate.get_list_delegate("conversation-list");
 
+        $scope.isOnline = function (conversation) {
+            return yvMain.is_conversation_online(conversation);
+        };
+
         $scope.getIcon = function (conversation) {
             var icon = null;
             if (conversation.type === yvConstants.CONVERSATION_TYPE.P2S) {
@@ -25,11 +29,6 @@ function ($state, $timeout, $rootScope, yvSys, yvAPI, yvLog, yvMain, yvLink, yvL
                 icon = conversation.icon;
             }
             return yvLink.get_user_icon(icon);
-        };
-
-
-        $scope.getFullname = function (conversation) {
-            return yvBase.get("object", conversation.user_uuid, "fullname");
         };
 
 
@@ -65,29 +64,17 @@ function ($state, $timeout, $rootScope, yvSys, yvAPI, yvLog, yvMain, yvLink, yvL
             return count > 99 ? "99+" : count;
         };
 
-
-        $scope.getConversationClass = function (conversation) {
-            if (yvSys.in_mobile()) {
-                return "";
-            }
+        $scope.deleteConversation = function (conversation, event) {
+            event.stopPropagation();
+            delegate.closeOptionButtons();
             if (conversation === yvBase.active("conversation")) {
-                return "active";
-            }
-            return "";
-        };
-
-
-        $scope.deleteConversation = function (index, event) {
-            yvMain.delete_conversation($scope.conversation);
-            yvAPI.close_conversation($scope.conversation.uuid);
-            if ($scope.conversation === yvBase.active("conversation")) {
                 yvBase.active("conversation", null);
                 if (yvSys.in_pc()) {
                     $rootScope.$broadcast("event:open-conversation", null);
                 }
             }
-            delegate.closeOptionButtons();
-            event.stopPropagation();
+            yvMain.delete_conversation(conversation);
+            yvAPI.close_conversation(conversation.uuid);            
         };
 
 
@@ -98,15 +85,14 @@ function ($state, $timeout, $rootScope, yvSys, yvAPI, yvLog, yvMain, yvLink, yvL
         };
 
 
-        $scope.markAsRead = function (index, event) {
-            yvMain.unread_zero($scope.conversation);
+        $scope.markAsRead = function (conversation, event) {
             event.stopPropagation();
             delegate.closeOptionButtons();
+            yvMain.unread_zero(conversation);
         };
 
 
-        $scope.openConversation = function () {
-            var conversation = $scope.conversation;
+        $scope.openConversation = function (conversation) {
             var _params = {
                 conv_uuid: conversation.uuid,
                 conv_type: conversation.type,
@@ -116,10 +102,8 @@ function ($state, $timeout, $rootScope, yvSys, yvAPI, yvLog, yvMain, yvLink, yvL
             console.log(">>>>> Click conversaiton: ", conversation);
             delegate.closeOptionButtons();
 
-            if (conversation === yvBase.active("conversation")) {
-                if (yvSys.in_pc() && $state.is("app.conversation-list")) {
-                    return;
-                }
+            if (yvSys.in_pc() && $state.is("app.conversation-list") && conversation.active) {
+                return;
             }
 
             yvBase.active("conversation", conversation);

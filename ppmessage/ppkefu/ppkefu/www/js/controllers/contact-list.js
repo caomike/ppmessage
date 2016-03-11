@@ -37,13 +37,6 @@ function ($scope, $timeout, $rootScope, $stateParams, yvSys, yvUser, yvLink, yvB
             });
         }
         
-        $scope.$on("event:online", function(event, params) {
-            console.log("receive online message in contact-list");
-            //params.type: online, params.online: true/false, params.user_uuid: user_uuid
-            console.log("params %o", params);
-            //FIXME: should load contact online which already set in yvObject
-        });
-
     }
 
     _init();

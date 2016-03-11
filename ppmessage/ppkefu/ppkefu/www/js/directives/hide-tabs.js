@@ -20,11 +20,11 @@ function ($state, $timeout, yvSys) {
             $scope.$on('$ionicView.beforeLeave', function () {
                 if (isTabState()) { return; }
                 tabBar.classList.add('slide-away');
-                scroll.classList.add('no-tabs');
+                // scroll.classList.add('no-tabs');
             });
             $scope.$on('$ionicView.beforeEnter', function () {
                 tabBar.classList.remove('slide-away');
-                scroll.classList.remove('no-tabs');
+                // scroll.classList.remove('no-tabs');
             });
         };
     }

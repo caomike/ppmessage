@@ -295,13 +295,20 @@ function ($timeout, $rootScope, yvDB, yvSys, yvAPI, yvLog, yvLink, yvObject, yvM
             if (arguments.length === 1) {
                 return hash.current_active;
             }
+
+            var target = null;
+            var current = hash.current_active;            
+
             if (_prototype(type, itemOrUuid) || !itemOrUuid) {
-                hash.current_active = itemOrUuid;
-                return itemOrUuid;
+                target = itemOrUuid;
+            } else if (hash.dict.hasOwnProperty(itemOrUuid)) {
+                target = hash.dict[itemOrUuid];
             }
-            if (hash.dict.hasOwnProperty(itemOrUuid)) {
-                hash.current_active = hash.dict[itemOrUuid];
-            }
+
+            if (current) current.active = false;
+            if (target) target.active = true;
+            hash.current_active = target;
+
             return hash.current_active;
         },
 

@@ -380,6 +380,9 @@ ppmessageModule.config([
                 ERR_NO_PASSWORD_EMAIL: "No password and email",
                 ERR_NO_ENOUGH_INFO: "Miss parameter to action.",
 
+                ONLINE: "OnLine",
+                OFFLINE: "Offline",
+                
                 NO_AVAILABLE_CONTACT: "No available contacts",
                 NO_AVAILABLE_GROUP: "No available groups",
                 NO_AVAILABLE_SERVANT: "No available service users for this group",
@@ -874,6 +877,9 @@ ppmessageModule.config([
                 ERR_NO_SERVER: "没有选中任何服务器",
                 ERR_NO_PASSWORD_EMAIL: "没有填写邮箱或密码",
                 ERR_NO_ENOUGH_INFO: "提供的参数不够",
+
+                ONLINE: "在线",
+                OFFLINE: "离线",
 
                 NO_AVAILABLE_CONTACT: "没有可添加的联系人",
                 NO_AVAILABLE_GROUP: "没有可用的组",

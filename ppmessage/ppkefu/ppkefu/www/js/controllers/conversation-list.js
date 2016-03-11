@@ -1,6 +1,5 @@
 ppmessageModule.controller("ConversationListCtrl", [
     "$scope",
-    "$state",
     "$timeout",
     "$rootScope",
     "$stateParams",
@@ -9,32 +8,24 @@ ppmessageModule.controller("ConversationListCtrl", [
     "yvAPI",
     "yvBase",
     "yvMain",
-    "yvLink",
     "yvAlert",
     "yvLogin",
-    "yvLocal",
-    "yvMessage",
     "yvDelegate",
     "yvConstants",
-function ($scope, $state, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAPI, yvBase, yvMain, yvLink, yvAlert, yvLogin, yvLocal, yvMessage,
-          yvDelegate, yvConstants) {
+function ($scope, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAPI, yvBase, yvMain, yvAlert, yvLogin, yvDelegate, yvConstants) {
 
-    /* we use collection-repeat, in result conversation could be undefined, must check it when use conversation */
-    var delegate = yvDelegate.get_list_delegate("conversation-list");
-    $scope.conversations = yvBase.get_scope("conversation");
+    var content_delegate = yvDelegate.get_scroll_delegate("conversation-list-scroll");
+
+    $scope.showS2S = true;
+    $scope.showP2S = true;
+    $scope.showOnline = true;
+    $scope.showOffline = true;
+    $scope.showFilterBar = true;
     $scope.eableInfiniteScroll = true;
     $scope.canShowNoConversation = true;
 
-    $scope.$on("event:online", function(event, params) {
-        yvLog.log("receive online message in conversation-list");
-        //params.type: online, params.online: true/false, params.user_uuid: user_uuid
-        yvLog.log("params %o", params);
-        //FIXME: should load converstation online which already set in yvObject
-        //if conversation_type == P2S: care the portal user status
-        //if conversation_type == S2S: ignore it
-        //if show conversation users in the conversation dialog care all online messages
-    });
-
+    $scope.conversations = yvBase.get_scope("conversation");
+    
     $scope.$on("$ionicView.beforeEnter", function (event, currentView) {
         yvLogin.check_session();
         if (yvSys.in_pc() && $stateParams.conv_uuid) {
@@ -43,120 +34,25 @@ function ($scope, $state, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAP
             });
         }
     });
+    
+    $scope.showConversation = function (conversation) {
+        if (!conversation.show) return false;
+        var type_filter = false;
+        var status_filter = false;
 
-    $scope.getIcon = function (conversation) {
-        if (!conversation) {
-            return yvLink.default_user_icon();
+        switch (conversation.type) {
+        case yvConstants.CONVERSATION_TYPE.S2S:
+            if ($scope.showOnline) status_filter = true;
+            if ($scope.showS2S) type_filter = true;
+            break;
+        case yvConstants.CONVERSATION_TYPE.P2S:
+            var status = yvMain.is_conversation_online(conversation);
+            if (($scope.showOnline && status) || ($scope.showOffline && !status)) status_filter = true;
+            if ($scope.showP2S) type_filter = true;
+            break;
         }
-        return yvLink.get_user_icon(conversation.icon);
+        return type_filter && status_filter;
     };
-
-
-    $scope.getConversationName = function (conversation) {
-        if (!conversation) {
-            return "";
-        }
-        if (conversation.type === yvConstants.CONVERSATION_TYPE.P2S) {
-            return yvBase.get("object", conversation.user_uuid, "fullname");
-        } else {
-            return conversation.name;
-        }
-    };
-
-
-    $scope.getTimestamp = function (conversation) {
-        if (!conversation) {
-            return "";
-        }
-        var message = conversation.latest_message;
-        if (!message) {
-            return "";
-        }
-        return yvLocal.format_timestamp(message.timestamp) || "";
-    };
-
-
-    $scope.getTitle = function (conversation) {
-        if (!conversation) {
-            return "";
-        }
-        var message = conversation.latest_message;
-        if (!message) {
-            return "";
-        }
-        return yvMessage.localize_title(message.title) || "";
-    };
-
-
-    $scope.getUnread = function (conversation) {
-        if (!conversation) {
-            return "";
-        }
-        var count = conversation.unread;
-        return count > 99 ? "99+" : count;
-    };
-
-
-    $scope.getConversationClass = function (conversation) {
-        if (yvSys.in_mobile()) {
-            return "";
-        }
-        if (conversation === yvBase.active("conversation")) {
-            return "active";
-        }
-        return "";
-    };
-
-    $scope.markAsRead = function (conversation, event) {
-        yvMain.unread_zero(conversation);
-        event.stopPropagation();
-        delegate.closeOptionButtons();
-    };
-
-    $scope.deleteConversation = function (conversation, event) {
-        if (conversation === yvBase.active("conversation")) {
-            yvBase.active("conversation", null);
-            if (yvSys.in_pc()) {
-                $rootScope.$broadcast("event:open-conversation", null);
-            }
-        }
-        yvMain.delete_conversation(conversation);
-        yvAPI.close_conversation(conversation.uuid);
-        delegate.closeOptionButtons();
-        event.stopPropagation();
-    };
-
-
-    $scope.openConversation = function (conversation) {
-        var _params = {
-            conv_uuid: conversation.uuid,
-            conv_type: conversation.type,
-            user_uuid: conversation.user_uuid
-        };
-
-        delegate.closeOptionButtons();
-
-        if (conversation === yvBase.active("conversation")) {
-            if (yvSys.in_pc() && $state.is("app.conversation-list")) {
-                return;
-            }
-        }
-
-        yvBase.active("conversation", conversation);
-        if (yvSys.in_pc()) {
-            if ($state.is("app.conversation-list")) {
-                $rootScope.$broadcast("event:open-conversation", _params);
-            } else {
-                $state.go("app.conversation-list", _params);
-            }
-        } else {
-            $state.go("app.conversation-list-mobile");
-            $timeout(function () {
-                $state.go("app.conversation-mobile", _params);
-            });
-        }
-    };
-
 
     $scope.loadMoreConversation = function () {
         var page = $scope.conversations.page + 1;
@@ -200,5 +96,28 @@ function ($scope, $state, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAP
             $scope.$broadcast("scroll.refreshComplete");
         });
     };
-    
+
+    $scope.onScroll = function () {
+        var min = yvSys.in_mobile() ? 0 : -5;
+        var max = 5;
+        var position = content_delegate.getScrollPosition();
+        if (position.top <= min) {
+            if ($scope.showFilterBar == false) {
+                $timeout(function () {
+                    $scope.showFilterBar = true;
+                    content_delegate.resize();
+                });
+            }
+            return;
+        }
+        if (position.top >= max) {
+            if ($scope.showFilterBar == true) {
+                $timeout(function () {
+                    $scope.showFilterBar = false;
+                    content_delegate.resize();
+                });
+            }
+        }
+    };
+        
 }]);

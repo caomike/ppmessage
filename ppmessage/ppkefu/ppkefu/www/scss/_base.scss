@@ -236,6 +236,18 @@ body, p, pre, input, h2, textarea, span {
     height: 1px;
 }
 
+.hide-fade {
+    opacity: 1;
+
+    &.ng-hide {
+        opacity: 0;
+    }
+    
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: 0.5s linear all;
+    }
+}
+
 .yv-fade {
     &.ng-enter {
         transition: 0.5s linear all;
