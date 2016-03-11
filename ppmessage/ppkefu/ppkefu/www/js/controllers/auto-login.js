@@ -2,10 +2,11 @@ ppmessageModule.controller("AutoLoginCtrl", [
     "$scope",
     "$state",
     "$stateParams",
+    "$ionicHistory",
     "yvNav",
     "yvMain",
     "yvLogin",
-function ($scope, $state, $stateParams, yvNav, yvMain, yvLogin) {
+function ($scope, $state, $stateParams, $ionicHistory, yvNav, yvMain, yvLogin) {
 
     function login_success() {
         console.log("login successfully...");
@@ -37,6 +38,11 @@ function ($scope, $state, $stateParams, yvNav, yvMain, yvLogin) {
         
         $scope.user.user_email = _body.user_email;
         $scope.user.user_password = _body.user_password;
+        var current_session = yvLogin.current_session();
+        if (current_session && current_session.user_email == _body.user_email) {
+            $ionicHistory.goBack();
+            return;
+        }
         yvMain.init_yvdb(function (user) {
             yvLogin.login($scope.user);
         });
