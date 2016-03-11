@@ -201,6 +201,9 @@ function ($scope, $state, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAP
 
         promise.then(function () {
             yvDelegate.scroll_resize("conversation-list-scroll");
+            if (yvSys.in_pc()) {
+                $rootScope.$broadcast("event:open-conversation", null);
+            }
         }, function () {
             yvAlert.tip("app.GLOBAL.CANT_REFRESH_CONVERSATIONS");
         });
