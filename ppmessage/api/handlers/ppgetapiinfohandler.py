@@ -53,7 +53,7 @@ class PPGetApiInfoHandler(BaseHandler):
                 "api_key": _a[2],
                 "api_secret": _a[3],
             }
-            _r["ppkeu_thirdparty"] = _ppkefu
+            _r["ppkefu_thirdparty"] = _ppkefu
         return
         
     def _Task(self):

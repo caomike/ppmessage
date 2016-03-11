@@ -118,10 +118,12 @@ angular.module("this_app")
                 console.error("no team info");
                 return;
             }
+            
             $scope.team_info.app_uuid = _own_team.uuid;
             $scope.team_info.app_name = _own_team.app_name;
             var _get = yvAjax.get_api_info({app_uuid: _own_team.uuid, user_uuid: yvUser.get_uuid()});
             _get.success(function(data) {
+                console.log(data);
                 $scope.team_info.ppconsole_thirdparty = data.ppconsole_thirdparty;
                 $scope.team_info.ppkefu_thirdparty = data.ppkefu_thirdparty;
             });

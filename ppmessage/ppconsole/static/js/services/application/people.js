@@ -126,7 +126,6 @@
         }
 
         function pagination( settings, users ) {
-
             var pageCount = settings.length,
                 pageNum = settings.start_page,
                 len = users.length,
@@ -140,20 +139,15 @@
                 result.push( user );
             }
 
-            return result;
-            
+            return result;            
         }
 
         function sort( settings, users ) {
-
             if ( !settings.sort ) return users;
-
             return users.sort( compare );
-
             function compare( a, b ) {
                 return a.updatetime > b.updatetime ? -1 : 1;
             }
-            
         }
         
     }
