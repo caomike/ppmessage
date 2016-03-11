@@ -380,6 +380,10 @@ ppmessageModule.config([
                 ERR_NO_PASSWORD_EMAIL: "No password and email",
                 ERR_NO_ENOUGH_INFO: "Miss parameter to action.",
 
+                NO_AVAILABLE_CONTACT: "No available contacts",
+                NO_AVAILABLE_GROUP: "No available groups",
+                NO_AVAILABLE_SERVANT: "No available service users for this group",
+                
                 CANT_GET_MORE_HISTORY_MESSAGES: "Can't get more history messages",
                 CANT_GET_MORE_CONVERSATIONS: "Can't get more conversations",
                 CANT_REFRESH_CONVERSATIONS: "Can't refresh conversations",
@@ -871,6 +875,10 @@ ppmessageModule.config([
                 ERR_NO_PASSWORD_EMAIL: "没有填写邮箱或密码",
                 ERR_NO_ENOUGH_INFO: "提供的参数不够",
 
+                NO_AVAILABLE_CONTACT: "没有可添加的联系人",
+                NO_AVAILABLE_GROUP: "没有可用的组",
+                NO_AVAILABLE_SERVANT: "该组没有可用的客服",
+                
                 CANT_GET_MORE_HISTORY_MESSAGES: "无法获取更多历史消息",
                 CANT_GET_MORE_CONVERSATIONS: "无法获取更多对话",
                 CANT_REFRESH_CONVERSATIONS: "无法刷新对话",
