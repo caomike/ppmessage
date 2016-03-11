@@ -79,6 +79,10 @@ function ($timeout, yvLog, yvSys, yvAPI, yvNoti, yvConstants, yvUploader, yvDele
             }
         };
 
+        $scope.uploadFile = function () {
+            angular.element("input#send-file").click();
+        };
+        
         $scope.sendLocation = function () {
             $scope.$broadcast("event:show-send-location-modal");
         };
