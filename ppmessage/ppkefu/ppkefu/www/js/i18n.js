@@ -478,6 +478,7 @@ ppmessageModule.config([
                 CHECKING_FILE: "Checking file ...",
                 UPLOADING_FILE: "Uploading file ...",
                 SENDING: "Sending Message ...",
+                CANCELED: "Canceled",                
                 TYPING: " is typing ",
 
                 CONVERSATIONS: "Conversations",
@@ -965,6 +966,7 @@ ppmessageModule.config([
                 CHECKING_FILE: "检查文件 ...",
                 UPLOADING_FILE: "上传文件 ...",
                 SENDING: "发送消息 ...",
+                CANCELED: "已取消",                
                 TYPING: "正在输入 ",
                 
                 CONVERSATIONS: "对话",

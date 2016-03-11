@@ -23,7 +23,10 @@ function ($scope, yvDB, yvLog, yvSys, yvNav, yvBase, yvLogin) {
         console.log("appctrl onloaded....");
     });
 
-
+    $scope.isInAndroidApp = function () {
+        return yvSys.in_android_app();
+    };
+    
     $scope.isInMobileNative = function () {
         if (yvSys.in_mobile_app()) {
             return true;

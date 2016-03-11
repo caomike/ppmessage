@@ -132,6 +132,7 @@ ppmessageModule.factory("yvConstants", [function () {
             SEND_CHECKING:  "SEND_CHECKING",
             SEND_UPLOADING: "SEND_UPLOADING",
             SEND_SENDING:   "SEND_SENDING",
+            SEND_CANCELED:   "SEND_CANCELED",            
             SEND_SUCCESS:   "SEND_SUCCESS",
             SEND_ERROR:     "SEND_ERROR"
         },

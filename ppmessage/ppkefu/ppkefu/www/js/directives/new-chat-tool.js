@@ -3,11 +3,12 @@ ppmessageModule.directive("yvNewChatTool", [
     "yvLog",
     "yvSys",
     "yvAPI",
+    "yvUser",
     "yvNoti",
     "yvConstants",
     "yvUploader",
     "yvDelegate",
-function ($timeout, yvLog, yvSys, yvAPI, yvNoti, yvConstants, yvUploader, yvDelegate) {
+function ($timeout, yvLog, yvSys, yvAPI, yvUser, yvNoti, yvConstants, yvUploader, yvDelegate) {
 
     // function _link($scope, $element, $attr) {
     function _controller($scope, $element, $attrs) {
@@ -121,8 +122,8 @@ function ($timeout, yvLog, yvSys, yvAPI, yvNoti, yvConstants, yvUploader, yvDele
             $scope.textarea = {text: ""};
             var _server = yvAPI.get_server();
             $scope.uploaderOptions = {
-                url: yvSys.in_electron() ? _server.protocol + _server.host + "/ppkefu/upload/" : "/ppkefu/upload/",
-                formData: [{upload_type: "file"}]
+                url: _server.upload_url,
+                formData: [{upload_type: "file", user_uuid: yvUser.get("uuid")}]
             };
             $scope.uploader = yvUploader.get_uploader();
             _iframe_onload();

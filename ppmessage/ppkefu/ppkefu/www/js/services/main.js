@@ -851,6 +851,10 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
             _add_message(message, with_ack, callback);
         },
 
+        prepare_send: function (conversation, raw_message, callback) {
+            _prepare_send(conversation, raw_message, callback);
+        },
+        
         send_message: function (conversation, raw_message, callback) {
             _send_message(conversation, raw_message, callback);
         },

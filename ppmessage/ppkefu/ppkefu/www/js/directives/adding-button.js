@@ -2,10 +2,12 @@ ppmessageModule.directive("yvAddingButton", [
     "$rootScope",
     "yvLocal",
     "yvSys",
+    "yvAPI",
+    "yvUser",
     "yvFile",
     "yvUploader",
     "yvConstants",
-function ($rootScope, yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
+function ($rootScope, yvLocal, yvSys, yvAPI, yvUser, yvFile, yvUploader, yvConstants) {
 
     function _link($scope, $element, $attr) {
 
@@ -69,8 +71,8 @@ function ($rootScope, yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
             }
 
             var _uploader_options = {
-                url: "/upload/",
-                formData: [{upload_type: "file"}]
+                url: yvAPI.get_server().upload_url,
+                formData: [{upload_type: "file", user_uuid: yvUser.get("uuid")}]
             };
 
             return _uploader_options;

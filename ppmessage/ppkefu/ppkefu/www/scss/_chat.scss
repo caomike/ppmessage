@@ -141,22 +141,24 @@
             }
             
             .upload-progress-outer {
-                height: 10px;
+                height: 13px;
                 position: absolute;
                 bottom: 0;
                 left: 0;
                 width: 100%;
+                opacity: 0.8;
                 background-color: darkgrey;
             
                 .upload-progress-inner {
-                    width: 50%;
-                    height: 10px;
+                    height: 13px;
                     background-color: seagreen;
                 }
 
                 .cancel-upload {
                     right: 0;
-                    bottom: -4px;
+                    bottom: -5px;
+                    color: dimgrey;
+                    font-size: x-large;
                     position: absolute;
                 }
             }
