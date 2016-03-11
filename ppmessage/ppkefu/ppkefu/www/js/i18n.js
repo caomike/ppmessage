@@ -448,7 +448,8 @@ ppmessageModule.config([
                 LOCATION: "Location",
                 SLACK: "Slack",
                 EVERNOTE: "Evernote",
-
+                MESSAGE_CONTENT: "Message Content",
+                
                 ASSIGN_TO: "Conversation is assigned to: ",
 
                 CANCEL: "Cancel",
@@ -753,6 +754,7 @@ ppmessageModule.config([
                 LOCATION: "位置",
                 SLACK: "Slack",
                 EVERNOTE: "印象笔记",
+                MESSAGE_CONTENT: "消息内容",
 
                 ASSIGN: "分配",
                 TYPE: "类型",

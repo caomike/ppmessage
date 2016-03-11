@@ -1,9 +1,15 @@
 <script id="text-modal.html" type="text/ng-template">
-  <ion-modal-view>
-    <ion-content ng-click="closeModal($event)" style="padding-top:25px; webkit-user-select: auto;" contenteditable="{{ isContentEditable() }}" overflow-scroll="true" data-tap-disabled="true" >
-      <div>
-        <pre style="font-size:28px; line-height:40px; padding: 10px;" ng-bind-html="content"></pre>
+  <ion-modal-view class="text-modal-view">
+    <ion-header-bar>
+      <h1 class="title">{{ "app.GLOBAL.MESSAGE_CONTENT" | translate }}</h1>
+      <div class="buttons">
+        <button class="button button-icon ion-ios-close-empty" ng-click="closeModal()"></button>
       </div>
+    </ion-header-bar>
+    
+    <ion-content>
+      <pre class="text-content" ng-bind-html="content" ng-if="!inMobile" data-tap-disabled="true" overflow-scroll="true"></pre>
+      <pre class="text-content" ng-bind-html="content" ng-if="inMobile"></pre>
     </ion-content>
   </ion-modal-view>
 </script>
