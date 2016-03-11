@@ -1,11 +1,12 @@
 ppmessageModule.factory("yvUploader", [
+    "$timeout",
     "FileUploader",
     "yvAPI",
     "yvSys",
     "yvMain",
     "yvBase",
     "yvConstants",
-function (FileUploader, yvAPI, yvSys, yvMain, yvBase, yvConstants) {
+function ($timeout, FileUploader, yvAPI, yvSys, yvMain, yvBase, yvConstants) {
 
     var _progress = {};
 
@@ -78,7 +79,9 @@ function (FileUploader, yvAPI, yvSys, yvMain, yvBase, yvConstants) {
         function __on_progress(event) {
             if (event.lengthComputable) {
                 var _p = event.loaded / event.total * 100;
-                _set_item_progress(_msg.id, _p);
+                $timeout(function () {
+                    _set_item_progress(_msg.id, _p);
+                });
             }
         }
 

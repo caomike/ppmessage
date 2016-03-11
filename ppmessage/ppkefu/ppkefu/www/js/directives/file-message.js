@@ -81,7 +81,6 @@ function (yvMime, yvSys, yvUploader, yvConstants, yvLocal) {
 
             if (_d === yvConstants.MESSAGE_DIR.DIR_OUT && _s === yvConstants.SEND_STATUS.SEND_UPLOADING) {
                 _p = yvUploader.get_item_progress(message.id);
-                console.log("uploading progress ", _whole, _p);
                 return {"width": _p + "%"};
             }
             return {"width": "0%"};
