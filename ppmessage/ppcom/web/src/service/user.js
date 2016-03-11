@@ -8,7 +8,6 @@ Service.$user = (function() {
         // Get website user info
         getUser: function() {
             if ( !user_uuid ) return null;
-            
             return getUser( user_uuid );
         },
         
@@ -28,6 +27,7 @@ Service.$user = (function() {
             userInfo.device_uuid && // user device_uuid is also ok
             userInfo.is_online && // user really `online` now
             Service.$api.offline( {
+                app_uuid: Service.$ppSettings.getAppUuid(),
                 user_uuid: user_uuid,
                 device_uuid: userInfo.device_uuid
             }, function ( response ) {
@@ -52,6 +52,7 @@ Service.$user = (function() {
                 userInfo.device_uuid &&
                 ( !userInfo.is_online ) &&
                 Service.$api.online( {
+                    app_uuid: Service.$ppSettings.getAppUuid(),
                     user_uuid: user_uuid,
                     device_uuid: userInfo.device_uuid
                 }, function ( response ) {
@@ -79,29 +80,22 @@ Service.$user = (function() {
 
     function getUser ( userId ) {
         if ( !userId ) return;
-
         return Service.$users.getUser( userId );
     }
 
     function getUserInfo ( userId ) {
         if ( !userId ) return;
-
         var user = getUser( userId ),
             userInfo = user && user.getInfo();
-
         return userInfo;
     }
 
     function isOnline ( userId ) {
-
         var userInfo = getUserInfo( userId );
-
         if ( userInfo ) {
             return userInfo.is_online;
         }
-
         return false;
-        
     }
     
 }());

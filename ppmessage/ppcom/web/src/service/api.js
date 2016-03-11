@@ -175,6 +175,7 @@
          */
         this.online = function(data, success, fail) {
             this._post("/PP_ONLINE", {
+                app_uuid: data.app_uuid,
                 user_uuid: data.user_uuid,
                 device_uuid: data.device_uuid
             }, success, fail);
@@ -182,10 +183,10 @@
 
         /*
          * Make user offline
-         * Service.API.offline({user_uuid: '6708b117-4664-11e5-9804-0c4de9b21073', device_uuid: '6708b117-4664-11e5-9804-0c4de9b21073'});
          */
         this.offline = function(data, success, fail) {
             this._post("/PP_OFFLINE", {
+                app_uuid: data.app_uuid,
                 user_uuid: data.user_uuid,
                 device_uuid: data.device_uuid
             }, success, fail);
