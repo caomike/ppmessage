@@ -7,7 +7,9 @@ PPMessage includes a backend system which exposes oauth and web service APIs, a 
 
 PPCom run in customer user side, and can be integrated in Web site via a single line Javascript code or integrated in mobile App with PPCom mobile API. Customer use PPCom to communicate with service user.
 
-PPKefu run in service user side, service user can use PPKefu application to communicate with customer user. PPKefu can run on Windows, Mac OS X, Android, iOS and Web. 
+PPKefu run in service user side, service user can use PPKefu application to communicate with customer user. PPKefu can run on Windows, Mac OS X, Android, iOS and Web.
+
+PPConsole is Web user interface of PPMessage and open sourced. After PPMessage backend running, PPConsole provided a Web interface to help the service team leader to setup the PPMessage system. 
 
  
 > In the following, it is a simple guide to help developer delopy PPMessage backend and generate Web version of PPCom and PPKefu on Mac OS X. Want to know more, please go to [PPMessage Site](http://ppmessage.com) get more detail documents about PPMessage.
