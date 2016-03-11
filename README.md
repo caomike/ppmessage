@@ -1,5 +1,5 @@
 # PPMessage
-A Open Source Plug & Play Online Customer Communication Platform. Base on PPMessage, you can chat with your customer via Web and mobile. PPMessage is the best open source Intercom alternative. Nothing needs change, you can run a SAAS with PPMessage.
+A Open Source Plug & Play Online Customer Communication Platform. On PPMessage, you can chat with your customer via Web or mobile App. As open source Intercom alternative, nothing needs change, you can start a SAAS with PPMessage.
 
 PPMessage targets to be deployed on Linux, Mac OS X and Windows systems. And PPMessage is a clearly API system which could be integrated with any open source web CMS like Wordpress, Drupal and any commercial system like e-commerce system.
 
