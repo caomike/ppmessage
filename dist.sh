@@ -275,6 +275,14 @@ function ppmessage_app_ios()
     
 }
 
+function ppmessage_gulp()
+{
+    echo "gulp to generate PPCom/PPKefu/PPConsole js";
+    cd ppmessage/ppkefu/ppkefu; gulp; cd -;
+    cd ppmessage/ppcom/web/gulp; gulp; cd -;
+    cd ppmessage/ppconsole/gulp; gulp; cd -;
+}
+
 
 ### MAIN ###
 
@@ -340,12 +348,8 @@ case "$1" in
         ppmessage_log
         ;;
     
-    ppmessage)
-        ppmessage_ppmessage
-        ;;
-
-    localhost)
-        ppmessage_localhost
+    gulp)
+        ppmessage_gulp
         ;;
 
     app-win32)
