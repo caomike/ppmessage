@@ -29,9 +29,4 @@ function ($scope, $state, $timeout, yvNav, yvMain, yvLogin) {
         yvLogin.login(_user);
     };
 
-    $scope.clear = function () {
-        $scope.user.user_email = "";
-        $scope.user.user_password = "";
-    };
-
 }]);
