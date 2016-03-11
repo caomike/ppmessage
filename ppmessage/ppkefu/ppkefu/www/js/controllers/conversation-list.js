@@ -119,5 +119,12 @@ function ($scope, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAPI, yvBas
             }
         }
     };
+
+    $scope.toggleShowFilterBar = function () {
+        $timeout(function () {
+            $scope.showFilterBar = !$scope.showFilterBar;
+            content_delegate.resize();
+        });
+    };
         
 }]);
