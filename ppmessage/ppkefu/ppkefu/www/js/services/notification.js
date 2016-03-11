@@ -166,6 +166,7 @@ function ($timeout, $rootScope, yvAPI, yvSys, yvSSL, yvUser, yvLink, yvType, yvA
         var _auth = {
             type: "auth",
             is_service_user: true,
+            api_token: yvUser.get("access_token"),
             user_uuid: yvUser.get("uuid"),
             device_uuid: yvUser.get("device_uuid"),
             app_uuid: yvUser.get("app").uuid

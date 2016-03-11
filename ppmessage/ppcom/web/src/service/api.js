@@ -311,6 +311,10 @@
             return _appUuid;
         };
 
+        this.getApiToken = function() {
+            return _apiToken;
+        };
+
     }
 
     Service.$api = new PPAPI();
