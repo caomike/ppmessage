@@ -1,9 +1,18 @@
 # PPMessage
-A Open Source Plug & Play Online Customer Communication Platform. Base on PPMessage, you can chat with your customer via Web and mobile real time.
+A Open Source Plug & Play Online Customer Communication Platform. Base on PPMessage, you can chat with your customer via Web and mobile. PPMessage is the best open source Intercom alternative. Nothing needs change, you can run a SAAS with PPMessage.
+
+PPMessage targets to be deployed on Linux, Mac OS X and Windows systems. And PPMessage is a clearly API system which could be integrated with any open source web CMS like Wordpress, Drupal and any commercial system like e-commerce system.
+
+PPMessage includes a backend system which exposes oauth and web service APIs, a frontend SDK named PPCom, a frontend App named PPKefu.
+
+PPCom run in customer user side, and can be integrated in Web site via a single line Javascript code or integrated in mobile App with PPCom mobile API. Customer use PPCom to communicate with service user.
+
+PPKefu run in service user side, service user can use PPKefu application to communicate with customer user. PPKefu can run on Windows, Mac OS X, Android, iOS and Web. 
+
+ 
+> In the following, it is a simple guide to help developer delopy PPMessage backend and generate Web version of PPCom and PPKefu on Mac OS X. Want to know more, please go to [PPMessage Site](http://ppmessage.com) get more detail documents about PPMessage.
 
 ## Run PPMessage on Mac OS X
-
-> Want to know more (install PPMessage on other OS platform, configuration etc.), please go to [PPMessage Site](http://ppmessage.com) get more documents about PPMessage.
 
 ### Requirements
 
