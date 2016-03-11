@@ -24,15 +24,8 @@
                 color: #000;
             }
             
-            >input{
-                cursor: pointer;
-                opacity: 0;
-                font-size: 0; /* make 'cursor: pointer' work */
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
+            >input#send-file{
+                display: none;
             }
         }
 
