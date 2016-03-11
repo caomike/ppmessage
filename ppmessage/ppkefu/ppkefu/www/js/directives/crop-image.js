@@ -113,8 +113,12 @@ function (yvLink, yvConstants) {
 
             var data_url = avatar.toDataURL();
             var blob = dataURLtoBlob(data_url);
-            var file = new File([blob], "avatar-blob", {type: blob.type});
-            callback && callback(blob, file);
+            // var file = new File([blob], "avatar-blob", {type: blob.type});
+            // callback && callback(blob, file);
+
+            // NOTICE: Safari, IE, Edge doesn't support File constructor.
+            // So we wont't construct a File, just return blob.
+            callback && callback(blob);
         }
 
         

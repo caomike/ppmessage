@@ -106,12 +106,11 @@ function ($scope, $timeout, FileUploader, $ionicLoading, yvSys, yvAPI, yvUser, y
     }
 
 
-    function cropAvatarCallback(blob, file) {
+    function cropAvatarCallback(blob) {
         if (!fileItem) {
             return;
         }
         fileItem._file = blob;
-        fileItem.file = file;
         fileItem.upload();
         return;
     }
