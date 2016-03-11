@@ -2,7 +2,8 @@ ppmessageModule.directive("yvSearchModal", [
     "$ionicModal",
     "yvBase",
     "yvUser",
-function ($ionicModal, yvBase, yvUser) {
+    "yvConstants",
+function ($ionicModal, yvBase, yvUser, yvConstants) {
 
     function _link($scope, $element, $attr) {
         
@@ -37,6 +38,13 @@ function ($ionicModal, yvBase, yvUser) {
             angular.forEach(yvBase.get_list("conversation"), function (conv) {
                 if (reg.test(conv.name)) {
                     $scope.search.conversations.push(conv);
+                    return;
+                }
+                if (conv.type == yvConstants.CONVERSATION_TYPE.P2S) {
+                    var user_name = yvBase.get("object", conv.user_uuid, "fullname");
+                    if (reg.test(user_name)) {
+                        $scope.search.conversations.push(conv);                        
+                    }
                 } 
             });
             angular.forEach(yvBase.get_list("contact"), function (contact) {
