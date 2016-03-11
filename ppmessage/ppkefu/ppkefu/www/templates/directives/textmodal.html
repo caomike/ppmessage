@@ -7,7 +7,7 @@
       </div>
     </ion-header-bar>
     
-    <ion-content>
+    <ion-content ng-click="clickContent($event)">      
       <pre class="text-content" ng-bind-html="content" ng-if="!inMobile" data-tap-disabled="true" overflow-scroll="true"></pre>
       <pre class="text-content" ng-bind-html="content" ng-if="inMobile"></pre>
     </ion-content>

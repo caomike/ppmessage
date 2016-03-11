@@ -22,6 +22,10 @@ function ($ionicModal, yvSys, yvLink) {
                 $scope.textModal.hide();
         };
 
+        $scope.clickContent = function (event) {
+            yvLink.open_link(event);
+        };
+        
         $scope.$on("event:show-text-modal", function (event, content) {
             $scope.content = content;
             $scope.showModal();
