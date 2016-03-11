@@ -27,14 +27,13 @@
     }
 
     .yv-conversation-list {
-        top: 85px !important;
         transition: all 0.5s linear;        
     }
 }
 
 .yv-sidemenu .yv-conversation-list {
     
-    &:not(.in-mobile) .yv-conversation-list .yv-conversation-item {
+    &:not(.in-mobile) .yv-conversation-item {
         @include yv-item();
     }
     

@@ -9,6 +9,7 @@
     >a.item, >a.activated {
         background-color: $sidemenu-content-bgcolor;
         border: none;
+        padding-right: 72px;
         
         >img {
             @include sized-icon(50px, 4px);
