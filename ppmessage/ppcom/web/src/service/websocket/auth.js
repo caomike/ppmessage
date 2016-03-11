@@ -21,6 +21,7 @@ Service.$notifyAuth = (function() {
                 wsSettings = $notifyService.getWsSettings(),
 
                 // auth params
+                api_token = $api.getApiToken(),
                 user_uuid = wsSettings.user_uuid,
                 device_uuid = wsSettings.device_uuid,
                 app_uuid = wsSettings.app_uuid,
@@ -41,6 +42,7 @@ Service.$notifyAuth = (function() {
             // register webSocket
             $notifyService.write($json.stringify({
                 type: AUTH_TYPE,
+                api_token: api_token,
                 app_uuid: app_uuid,
                 user_uuid: user_uuid,
                 device_uuid: device_uuid,

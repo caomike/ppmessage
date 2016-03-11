@@ -100,9 +100,7 @@ Service.$notification = (function() {
 
         // Close webSocket
         closeWebSocket = function() {
-            
-            if (ws == null) return;
-            
+            if (ws == null) return;            
             ws.close();
         },
 

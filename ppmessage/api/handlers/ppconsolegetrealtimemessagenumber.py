@@ -34,7 +34,7 @@ class PPConsoleGetRealTimeMessageNumber(BaseHandler):
 
         _redis = self.application.redis
         _number = []
-        _today = datatime.datetime.now().strftime("%Y-%m-%d")
+        _today = datetime.datetime.now().strftime("%Y-%m-%d")
         for _i in range(24):
             _data = {}
             _customers = set()

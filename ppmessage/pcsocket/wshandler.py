@@ -7,6 +7,7 @@
 
 from ppmessage.core.constant import OS
 from ppmessage.core.constant import DIS_WHAT
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import ONLINE_STATUS
 from ppmessage.core.constant import MESSAGE_TYPE
 from ppmessage.core.constant import MESSAGE_SUBTYPE
@@ -14,6 +15,7 @@ from ppmessage.core.constant import WEBSOCKET_STATUS
 from ppmessage.core.constant import REDIS_TYPING_KEY
 
 from ppmessage.db.models import DeviceInfo
+from ppmessage.db.models import ApiTokenData
 
 from .error import DIS_ERR
 from .error import get_error_string
@@ -37,6 +39,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         self.device_uuid = None
         self.user_uuid = None
         self.app_uuid = None
+        self.api_token = None
         
         self.extra_data = None
         self.is_service_user = False
@@ -108,14 +111,26 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         return
     
     def _on_auth(self, _body):
+        self.api_token = _body.get("api_token")
         self.app_uuid = _body.get("app_uuid")
         self.device_uuid = _body.get("device_uuid")
         self.user_uuid = _body.get("user_uuid")
         self.is_service_user = _body.get("is_service_user")
         self.extra_data = _body.get("extra_data")
 
+        if self.api_token == None:
+            self.send_ack({"code": DIS_ERR.NOTOKEN, "what": DIS_WHAT.AUTH})
+            return
+
+        _key = ApiTokenData.__tablename__ + ".api_token." + self.api_token
+        _token = self.application.redis.get(_key)
+        _token = json.loads(_token)
+        if _token[1] != API_LEVEL.PPCOM and _token[1] != API_LEVEL.PPKEFU and _token[1] != API_LEVEL.THIRD_PARTY_KEFU:
+            self.send_ack({"code": DIS_ERR.WRLEVEL, "what": DIS_WHAT.AUTH})
+            return
+        
         if self.app_uuid == None or self.user_uuid == None or self.device_uuid == None:
-            self.send_ack({"code":DIS_ERR.NOUUIDS, "what": DIS_WHAT.AUTH})
+            self.send_ack({"code": DIS_ERR.NOUUIDS, "what": DIS_WHAT.AUTH})
             return
         
         if self.is_service_user == None:
@@ -126,7 +141,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         if self.is_service_user == False and self.extra_data == None:
             self.send_ack({"code": DIS_ERR.NOEXTRA, "what": DIS_WHAT.AUTH})
             return
-        
+
         self.send_ack({"code": DIS_ERR.NOERR, "what": DIS_WHAT.AUTH})
 
         if self.device_uuid in self.application.ws_hash:

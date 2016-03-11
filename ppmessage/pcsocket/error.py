@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2010-2016 .
+# Copyright (C) 2010-2016.
 # Guijin Ding, dingguijin@gmail.com
 # All rights reserved
 #
@@ -16,6 +16,8 @@ DIS_ERR = enum(
     "TYPE",
     "JSON",
     "MESSAGE",
+    "NOTOKEN",
+    "WRLEVEL",
 )
 
 def get_error_string(_code):
@@ -28,6 +30,8 @@ def get_error_string(_code):
         DIS_ERR.TYPE: "no type provided or type is unknown.",
         DIS_ERR.JSON: "message data is not JSON.",
         DIS_ERR.MESSAGE: "message content is illegal.",
+        DIS_ERR.NOTOKEN: "no api auth token provided.",
+        DIS_ERR.WRLEVEL: "wrong api auth level.",
     }
     _str = _err.get(_code)
     if _str == None:

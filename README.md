@@ -1,5 +1,5 @@
 # PPMessage
-A Open Source Plug & Play Online Customer Service Platform. Base on PPMessage, you can chat with your customer via Web and mobile real time.
+A Open Source Plug & Play Online Customer Communication Platform. Base on PPMessage, you can chat with your customer via Web and mobile real time.
 
 ## Run PPMessage on Mac OS X
 
