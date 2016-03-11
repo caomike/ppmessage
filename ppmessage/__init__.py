@@ -1,7 +1,7 @@
 import backend
 
 """
-version format, MAIN.SUB.FEATURE.FIX
+version format, MAIN.SUB.HOTFIX.DEV
 
 1.0.0.0:
 Initial to SASS for ppmessage.cn
