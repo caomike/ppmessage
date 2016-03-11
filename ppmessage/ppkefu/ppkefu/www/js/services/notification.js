@@ -284,7 +284,7 @@ function ($timeout, $rootScope, yvAPI, yvSys, yvSSL, yvUser, yvLink, yvType, yvA
 
     function _on_ios_pause() {
         $timeout(function() {
-            __close_socket()
+            __close_socket();
         });
     }
 
@@ -361,6 +361,8 @@ function ($timeout, $rootScope, yvAPI, yvSys, yvSSL, yvUser, yvLink, yvType, yvA
             }
             
             // every platform
+            // force close previous active socket and reconnect interval
+            __close_socket();            
             __open_socket();
         },
 
