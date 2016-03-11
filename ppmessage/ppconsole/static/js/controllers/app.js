@@ -122,7 +122,7 @@ angular.module("this_app")
             if (in_this) {
                 self.location = url;
             } else {
-                window.open(url, "ppmessage");
+                window.open(url, "ppmessage" + "-" + userEmail);
             }
         };
         
