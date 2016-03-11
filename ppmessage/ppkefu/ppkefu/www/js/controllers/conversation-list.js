@@ -48,21 +48,7 @@ function ($scope, $state, $timeout, $rootScope, $stateParams, yvLog, yvSys, yvAP
         if (!conversation) {
             return yvLink.default_user_icon();
         }
-        var icon = null;
-        if (conversation.type === yvConstants.CONVERSATION_TYPE.P2S) {
-            icon = yvBase.get("object", conversation.user_uuid, "icon");
-        } else {
-            icon = conversation.icon;
-        }
-        return yvLink.get_user_icon(icon);
-    };
-
-
-    $scope.getFullname = function (conversation) {
-        if (!conversation) {
-            return "";
-        }
-        return yvBase.get("object", conversation.user_uuid, "fullname");
+        return yvLink.get_user_icon(conversation.icon);
     };
 
 
