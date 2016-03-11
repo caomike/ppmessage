@@ -1,10 +1,11 @@
 ppmessageModule.directive("yvAddingButton", [
+    "$rootScope",
     "yvLocal",
     "yvSys",
     "yvFile",
     "yvUploader",
     "yvConstants",
-function (yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
+function ($rootScope, yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
 
     function _link($scope, $element, $attr) {
 
@@ -50,12 +51,12 @@ function (yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
 
         function _click_file() {
             if (yvSys.in_android_app()) {
-                $scope.$broadcast("event:show-filechooser-modal");
+                $rootScope.$broadcast("event:show-filechooser-modal");
             }
         }
 
         function _click_location() {
-            $scope.$broadcast("event:show-send-location-modal");
+            $rootScope.$broadcast("event:show-send-location-modal");
         }
         
         $scope.prepareImage = function (_data) {

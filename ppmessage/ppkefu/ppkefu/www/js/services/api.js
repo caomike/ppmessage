@@ -208,7 +208,8 @@ function ($rootScope, $timeout, $http, yvLog, yvSys, yvUser, yvFile, yvConstants
         var ft = new FileTransfer();
         var options = new FileUploadOptions();
 
-        if (_file_url.indexOf("file://") !== 0) {
+        // could begin with "file://" or "cdvfile://"
+        if (_file_url.indexOf("file://") !== 0 && _file_url.indexOf("cdvfile://") !== 0) {
             _file_url = yvFile.get_root_dir() + _file_url;
         }
         
