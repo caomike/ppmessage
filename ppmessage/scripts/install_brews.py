@@ -30,11 +30,16 @@ def _install():
     for should_item in basic_list:
         install_cmd = "brew install " + should_item
         _color_print("%s" % install_cmd, "green")
+
+        _missed = []
         try:
             subprocess.check_output(install_cmd, shell=True)
         except:
-            _color_print("failed to run: `brew install %s`" % should_item) 
-            sys.exit()
+            _missed.append(should_item)
+
+    if len(_missed) > 0:
+        _color_print("failed to run: `brew install %s`" % str(_missed)) 
+        sys.exit()
 
     install_cmds = [
         "brew tap homebrew/services",

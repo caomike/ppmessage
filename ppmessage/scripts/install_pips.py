@@ -38,11 +38,17 @@ def _install():
     for should_item in should_list:
         install_cmd = "pip install " + should_item
         _color_print("%s" % install_cmd, "green")
+
+        _missed = []
         try:
             subprocess.check_output(install_cmd, shell=True)
         except:
-            _color_print("failed to run: `pip install %s`" % should_item) 
-            sys.exit()
+            _missed.append(should_item)
+
+    if len(_missed) > 0:
+        _color_print("failed to run: `pip install %s`" % _missed) 
+        sys.exit()
+        
     return
 
 def _check_csr():
