@@ -46,7 +46,10 @@ Commands:
   stop                        Stop ppmessage service.
   restart                     Restart ppmessage service.
   log                         View the ppmessage logs.
-  ppmessage                   Deploy ppmessage.
+  bower                       Install bower components.
+  npm                         Install node components.
+  gulp                        Run all gulp tasks.
+  bootstrap                   Bootstrap PPMessage with config.py.
   app-win32                   Create window desktop app.
   app-win64                   Create window desktop app.
   app-mac                     Create mac os x desktop app.
@@ -299,6 +302,14 @@ function ppmessage_npm()
     cd ppmessage/ppconsole/gulp; npm install; cd -;
 }
 
+function ppmessage_bootstrap()
+{
+    echo "bootstrap will create db tables and config the PPMessage";
+    python ppmessage/scripts/table.py;
+    python ppmessage/scripts/bootstrap.py;
+    python ppmessage/scripts/db2cache.py;
+}
+
 
 ### MAIN ###
 
@@ -308,16 +319,9 @@ ppmessage_options $*
 ppmessage_check_path
 
 case "$1" in
-    init-ppmessage)
-        ppmessage_init ppmessage
-        ;;
 
-    init-cache)
-        ppmessage_init_cache
-        ;;
-
-    local-oauth)
-        ppmessage_local_oauth
+    bootstrap)
+        ppmessage_bootstrap
         ;;
 
     dev)
@@ -406,18 +410,6 @@ case "$1" in
 
     app-scp)
         ppmessage_app_scp
-        ;;
-
-    app-auto-update)
-        ppmessage_app_auto_update
-        ;;
-
-    app-scp-test)
-        ppmessage_app_scp_test
-        ;;
-
-    app-auto-update-test)
-        ppmessage_app_auto_update_test
         ;;
     
     *)

@@ -5,11 +5,11 @@ PPMessage targets to be deployed on Linux, Mac OS X and Windows systems. And PPM
 
 PPMessage includes a backend system which exposes oauth and web service APIs, a frontend SDK named PPCom, a frontend App named PPKefu.
 
-PPCom run in customer user side, and can be integrated in Web site via a single line Javascript code or integrated in mobile App with PPCom mobile API. Customer use PPCom to communicate with service user.
+PPCom run on customer user side, and can be integrated in Web site via a single line Javascript code or integrated in mobile App with PPCom mobile API. Customer use PPCom to communicate with service user.
 
-PPKefu run in service user side, service user can use PPKefu application to communicate with customer user. PPKefu can run on Windows, Mac OS X, Android, iOS and Web.
+PPKefu run on service user side, service user can use PPKefu application to communicate with customer user. PPKefu can run on Windows, Mac OS X, Android, iOS and Web.
 
-PPConsole is Web user interface of PPMessage and open sourced. After PPMessage backend running, PPConsole provided a Web interface to help the service team leader to setup the PPMessage system. 
+PPConsole is Web user interface of PPMessage and open sourced as well. After PPMessage backend running, PPConsole provided a Web interface to help the service team leader to setup the PPMessage system. 
 
  
 > In the following, it is a simple guide to help developer delopy PPMessage backend and generate Web version of PPCom and PPKefu on Mac OS X. Want to know more, please go to [PPMessage Site](http://ppmessage.com) get more detail documents about PPMessage.
@@ -74,7 +74,7 @@ PPConsole is Web user interface of PPMessage and open sourced. After PPMessage b
 
 ### Config mysql and redis
 
-* Mysql user and password (replace DB_PASSWORD with what you want to set as db password)
+* Mysql user and password (replace DB_PASSWORD with what you want to set as mysql password)
 
 ```Bash
     brew services list
@@ -89,62 +89,57 @@ PPConsole is Web user interface of PPMessage and open sourced. After PPMessage b
     brew services list
     brew services start redis
 ```
-  * Config redis 
-```Bash
-    vim /usr/local/etc/redis.conf and comment all save lines
-    > # save 900 1
-    > # save 300 10
-    > # save 60 10000
-```
 
 ### Config and prepare PPMessage
 
 > Assuming you have clone ppmessage and under ppmessage directory.
 > In the directory, you can see `dist.sh` `README.md` files and `ppmessage` directory.
 
-Before config PPMessage check the requirement is done or not.
+#### Check the requirement is done or not.
+
+> require.py needs super user permission
 
 ```Bash
-    python ppmessage/scripts/require.py
+    sudo python ppmessage/scripts/require.py
 ```
+
+#### Use your text editor (vim/emacs/sublime) to edit the config file in PPMessage
 
 ```Bash
     vim ppmessage/bootstrap/config.py
-    ...
-    python ppmessage/scripts/table.py
-    python ppmessage/scripts/bootstrap.py
-    python ppmessage/scripts/db2cache.py
 ```
 
-### Generate PPCom - web version
-
+#### Bootstrap PPMessage based on your customized config.py file
 ```Bash
-    cd ppmessage/ppcom/web
-    bower install
-    cd -
-    cd ppmessage/ppcom/web/gulp
-    npm install
-    gulp
+    sh dist.sh bootstrap
 ```
 
-### Generate PPKefu - web version
+### Generate PPCom/PPKefu/PPConsole - web version
+
+> PPCom has iOS and Android SDK. PPKefu has Android, iOS, Windows PC, Mac OS X PC application.
+
+#### Bower components install
+
+> Install Web javascript libraries via bower.
 
 ```Bash
-    cd ppmessage/ppkefu/ppkefu
-    bower install
-    npm install
-    gulp
+    sh dist.sh bower
 ```
 
-### Generate PPConsole
+#### Node components install
+
+> Install node.js components via npm.
 
 ```Bash
-    cd ppmessage/ppconsole
-    bower install
-    cd -
-    cd ppmessage/ppconsole/gulp
-    npm install
-    gulp
+    sh dist.sh npm
+```
+
+#### Run gulp task
+
+> Use gulp task to generate final PPCom/PPKefu/PPConsole javascript file.
+
+```Bash
+    sh dist.sh gulp
 ```
 
 ### Start/Stop PPMessage server
@@ -160,20 +155,18 @@ Before config PPMessage check the requirement is done or not.
     sh dist.sh log
 ```
 
-> Check PPMessage status
-> sh dist.sh proc
-
-
 ### Check PPCOM
 
-Use your brower open your server url which has been configed, suggest using Chrome browser.
+Use your browser open your server url which has been configed in config.py file.
 
 > PPCONSOLE/PPCOM
+
 ```Bash
 http://server_name:nginx_listen_port
 ```
 
 > PPKEFU
+
 ```Bash
 http://server_name:nginx_listen_port/ppkefu
 ```
