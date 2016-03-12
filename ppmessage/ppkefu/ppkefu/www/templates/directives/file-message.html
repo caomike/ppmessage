@@ -1,16 +1,16 @@
 <div class="yv-chat-file">
   <div class="item item-avatar file-inner">
-    <img ng-src="{{ getFileIcon(message) }}">
+    <img ng-src="{{ fileIcon }}">
     <h2>
-      <a href="" title="{{ getFileName(message) }}">
-        <b class="ng-cloak">{{ getFileName(message) }}</b>
+      <a href="" title="{{ fileName }}">
+        <b class="ng-cloak">{{ fileName }}</b>
       </a>
     </h2>
-    <p class="ng-cloak">{{ getMessageStatus(message) }}</p>
+    <p class="ng-cloak">{{ fileSize }}&nbsp;{{ getMessageStatus(message) }}</p>
+    
     <div class="upload-progress-outer" ng-show="shouldShowProgress(message)">
-      <div class="upload-progress-inner" ng-style="getFileProgress(message)">
-      </div>
-      <!-- <div class="cancel-upload icon ion-ios-close" ng-click="cancelUpload(message)"></div> -->
+      <div class="upload-progress-inner" ng-style="getFileProgress(message)"></div>
+      <div class="cancel-upload icon ion-ios-close" ng-click="cancelUpload(message)"></div>
     </div>
   </div>
 </div>

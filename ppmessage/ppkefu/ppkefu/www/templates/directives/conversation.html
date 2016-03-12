@@ -1,18 +1,14 @@
-<div ng-click="openConversation($event)">
-
-  <ion-item class="item item-avatar yv-conversation-item" style="position: relative;" ng-class="getConversationClass(conversation)">
-    
+<div ng-click="openConversation(conversation)">
+  <ion-item class="item item-avatar yv-conversation-item" ng-class="conversation.active ? 'active' : ''">
     <img ng-src="{{ getIcon(conversation) }}">
-    <h2>{{ getConversationName(conversation) }}</h2>
+    <h2 ng-class="isOnline(conversation) ? 'online' : ''">{{ getConversationName(conversation) }}</h2>
     <p>{{ getTitle(conversation) }}</p>
     <span class="yv-timestamp">{{ getTimestamp(conversation) }}</span>
     <span class="badge badge-assertive yv-unread" ng-if="conversation.unread">{{ getUnread(conversation) }}</span>
-    
-    <ion-option-button class="button-positive" ng-click="markAsRead($index, $event)" ng-if="conversation.unread">
+    <ion-option-button class="button-positive" ng-click="markAsRead(conversation, $event)" ng-if="conversation.unread">
       {{ "app.messages.MARK_AS_READ_TAG" | translate }}
     </ion-option-button>
-
-    <ion-option-button class="button-assertive" ng-click="deleteConversation($index, $event)">
+    <ion-option-button class="button-assertive" ng-click="deleteConversation(conversation, $event)">
       {{ "app.messages.DELETE" | translate }}
     </ion-option-button>
 

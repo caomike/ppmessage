@@ -89,6 +89,22 @@ function ($state, $cookies, $window, yvLog, yvConstants) {
         return device_uuid;
     }
 
+    // should fix the bug: download won't start in firefox
+    // when download link is clicked
+    function _click_download(href, filename) {
+        var link = document.createElement("a");
+        var event = new MouseEvent("click", {
+            "view": window,
+            "bubbles": true,
+            "cancelable": true
+        });
+        if (filename) {
+            link.download = filename;
+        }
+        link.href = href;
+        link.dispatchEvent(event);
+    }
+    
     return {
         // running in a mobile device, iphone, ipad, android, windows phone .etc
         in_mobile: function () {
@@ -407,5 +423,10 @@ function ($state, $cookies, $window, yvLog, yvConstants) {
         get_device_network: function () {
             return navigator.connection.type;
         },
+
+        click_download: function (href, filename) {
+            return _click_download(href, filename);
+        },
+        
     };
 }]);

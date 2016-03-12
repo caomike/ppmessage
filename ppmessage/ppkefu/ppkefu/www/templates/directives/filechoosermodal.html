@@ -1,16 +1,16 @@
 <script id="filechooser-modal.html" type="text/ng-template">
   <ion-modal-view>
-    <!-- <ion-nav-title> -->
-    <!--   {{ getTitle() }} -->
-    <!-- </ion-nav-title> -->
 
     <ion-header-bar class="bar-dark" no-tap-scroll="true">
-      <h1 class="title" >{{ getTitle() }}</h1>
+      <h1 class="title" >{{ title }}</h1>
+      <div class="buttons">
+        <button class="button button-icon ion-ios-close-empty" ng-click="closeModal()"></button>
+      </div>      
     </ion-header-bar>
     
     <ion-content>
       <ion-list>
-        <ion-item ng-repeat="f in files track by $index" ng-click="onEntryClicked(f)">
+        <ion-item ng-repeat="f in files" ng-click="onEntryClicked(f)">
           <div ng-if="f.isDirectory">
             <b><font color="blue">{{f.name}}</font></b>
           </div>

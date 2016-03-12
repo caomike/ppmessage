@@ -1,6 +1,6 @@
 <div class="add-by-contact-content">
   
-  <div class="selected-contacts-scroll" id="selected-scroll">
+  <div class="selected-contacts-scroll" id="selected-scroll" ng-if="display_contacts.length">    
     <ion-scroll>
       <div class="selected-contacts">
         <div class="selected-contact yv-fade-enter cursor-pointer" ng-repeat="contact in all_contacts" ng-if="contact.is_selected"
@@ -18,10 +18,13 @@
         
       </div>
     </ion-scroll>
+    <div class="thin-border-divider"></div>    
   </div>
 
-  <div class="thin-border-divider" id=""></div>
-  
+  <div class="no-available-candidate" ng-if="!display_contacts.length">
+    <p>{{ "app.GLOBAL.NO_AVAILABLE_CONTACT" | translate }}</p>
+  </div>
+
   <div class="display-contacts-scroll" ng-if="display_contacts.length">
     <ion-scroll ng-style="getScrollMaxHeight('#selected-scroll')">
       <div class="display-contacts">
@@ -33,10 +36,9 @@
         </ion-checkbox>
       </div>
     </ion-scroll>
+    <div class="thin-border-divider"></div>
   </div>
   
-  <div class="thin-border-divider" ng-if="display_contacts.length"></div>
-
   <div class="save-button">
     <div class="button button-balanced" ng-click="save()" ng-disabled="disableSave(all_contacts)">
       {{ "app.GLOBAL.SAVE" | translate }}&nbsp;({{ getSelectedNumber(all_contacts) }})

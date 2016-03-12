@@ -1,10 +1,13 @@
 ppmessageModule.directive("yvAddingButton", [
+    "$rootScope",
     "yvLocal",
     "yvSys",
+    "yvAPI",
+    "yvUser",
     "yvFile",
     "yvUploader",
     "yvConstants",
-function (yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
+function ($rootScope, yvLocal, yvSys, yvAPI, yvUser, yvFile, yvUploader, yvConstants) {
 
     function _link($scope, $element, $attr) {
 
@@ -50,12 +53,12 @@ function (yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
 
         function _click_file() {
             if (yvSys.in_android_app()) {
-                $scope.$broadcast("event:show-filechooser-modal");
+                $rootScope.$broadcast("event:show-filechooser-modal");
             }
         }
 
         function _click_location() {
-            $scope.$broadcast("event:show-send-location-modal");
+            $rootScope.$broadcast("event:show-send-location-modal");
         }
         
         $scope.prepareImage = function (_data) {
@@ -68,8 +71,8 @@ function (yvLocal, yvSys, yvFile, yvUploader, yvConstants) {
             }
 
             var _uploader_options = {
-                url: "/upload/",
-                formData: [{upload_type: "file"}]
+                url: yvAPI.get_server().upload_url,
+                formData: [{upload_type: "file", user_uuid: yvUser.get("uuid")}]
             };
 
             return _uploader_options;

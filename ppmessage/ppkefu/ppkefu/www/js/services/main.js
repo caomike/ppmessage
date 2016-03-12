@@ -46,6 +46,36 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
         _update_message_status(message, status);
     });
 
+    scope.$on("event:online", function(event, params) {
+        _handle_online_message(params);
+    });
+   
+    function _handle_online_message(message) {
+        yvLog.log("receive online message", message);
+        var object = yvBase.get("object", message.user_uuid);
+        if (!object) return;
+        $timeout(function () {
+            object.extra_data = message.extra_data;
+            switch (message.browser) {
+            case yvConstants.ONLINE_STATUS.ONLINE:
+                object.browser_online = true;
+                break;
+            case yvConstants.ONLINE_STATUS.OFFLINE:
+                object.browser_online = false;
+            default:
+                // keep unchanged
+            }
+            switch (message.mobile) {
+            case yvConstants.ONLINE_STATUS.ONLINE:
+                object.mobile_online = true;
+                break;
+            case yvConstants.ONLINE_STATUS.OFFLINE:
+                object.mobile_online = false;
+            default:
+                // keep unchanged
+            }
+        });
+    }
 
     function _init_yvdb(callback) {
         if (yvSys.has_db()) {
@@ -246,6 +276,20 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
 
         if (yvSys.has_db()) {
             yvDB.add_contact(contact);
+        }
+    }
+
+
+    function _is_conversation_online (conversation) {
+        switch (conversation.type) {
+        case yvConstants.CONVERSATION_TYPE.S2S:
+            return true;
+        case yvConstants.CONVERSATION_TYPE.P2S:
+            var portal_user = yvBase.get("object", conversation.user_uuid);
+            if (!portal_user) return false;
+            if (portal_user.mobile_online || portal_user.browser_online) return true;
+        default:
+            return false;
         }
     }
 
@@ -843,6 +887,10 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
             _open_conversation(params, callback);
         },
 
+        is_conversation_online: function (conversation) {
+            return _is_conversation_online(conversation);
+        },
+        
         add_conversation_from_api_reserve: function (list, callback) {
             _add_conversation_from_api_reserve(list, callback);
         },
@@ -851,6 +899,10 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
             _add_message(message, with_ack, callback);
         },
 
+        prepare_send: function (conversation, raw_message, callback) {
+            _prepare_send(conversation, raw_message, callback);
+        },
+        
         send_message: function (conversation, raw_message, callback) {
             _send_message(conversation, raw_message, callback);
         },

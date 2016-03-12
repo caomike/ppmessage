@@ -1,11 +1,27 @@
-<ion-view view-title="{{ 'app.messages.CONVERSATIONS_TAG' | translate }}" hide-tab-bar>
+<ion-view view-title="{{ 'app.messages.CONVERSATIONS_TAG' | translate }}" hide-tab-bar class="yv-conversation-list-view in-mobile">
 
   <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-ios-color-filter" ng-click="toggleShowFilterBar()"></button>    
     <button class="button button-icon ion-ios-search" ng-click="openSearchModal()"></button>
   </ion-nav-buttons>
+
+  <div class="item filter-bar hide-fade" ng-show="showFilterBar">
+    <label class="filter-item">
+      <span>S2S<input type="checkbox" ng-model="showS2S"></span>
+    </label>
+    <label class="filter-item">    
+      <span>P2S<input type="checkbox" ng-model="showP2S"></span>
+    </label>
+    <label class="filter-item">
+      <span>{{ "app.GLOBAL.ONLINE" | translate }}<input type="checkbox" ng-model="showOnline"></span>
+    </label>
+    <label class="filter-item">
+      <span>{{ "app.GLOBAL.OFFLINE" | translate }}<input type="checkbox" ng-model="showOffline"></span>
+    </label>
+  </div>
   
-  <ion-content class="yv-sidemenu-left-content yv-conversation-list" delegate-handle="conversation-list-scroll">
-    
+  <ion-content class="yv-sidemenu-left-content yv-conversation-list" ng-class="showFilterBar ? 'has-filter-bar' : ''"
+               delegate-handle="conversation-list-scroll" on-scroll="onScroll()">
     <div class="yv-no-conversation" ng-if="canShowNoConversation && !conversations.list.length">
       <div class="tip-content">
         <div class="tip-icon icon ion-ios-chatbubble"></div>
@@ -18,20 +34,8 @@
     <ion-refresher on-refresh="refreshConversations()"></ion-refresher>
 
     <ion-list can-swipe="true" menu-close delegate-handle="conversation-list">
-      <ion-item class="item item-avatar yv-conversation-item" collection-repeat="conversation in conversations.list" item-height="72" item-width="100%"
-                ng-click="openConversation(conversation)" ng-show="conversation.show">
-        <img ng-src="{{ getIcon(conversation) }}">
-        <h2>{{ getConversationName(conversation) }}</h2>
-        <p>{{ getTitle(conversation) }}</p>
-        <span class="yv-timestamp">{{ getTimestamp(conversation) }}</span>
-        <span class="badge badge-assertive yv-unread" ng-if="conversation.unread">{{ getUnread(conversation) }}</span>
-        <ion-option-button class="button-positive" ng-click="markAsRead(conversation, $event)" ng-if="conversation.unread">
-          {{ "app.messages.MARK_AS_READ_TAG" | translate }}
-        </ion-option-button>
-        <ion-option-button class="button-assertive" ng-click="deleteConversation(conversation, $event)">
-          {{ "app.messages.DELETE" | translate }}
-        </ion-option-button>
-      </ion-item>
+      <yv-conversation ng-repeat="conversation in conversations.list" conversation="conversation" ng-show="showConversation(conversation)">
+      </yv-conversation>
     </ion-list>
 
     <ion-infinite-scroll on-infinite="loadMoreConversation()" immediate-check="false" ng-if="eableInfiniteScroll"></ion-infinite-scroll>

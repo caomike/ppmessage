@@ -62,14 +62,21 @@ function ($window) {
                 fullPath = fullPath.indexOf('/') !== -1 ? dirEntry.fullPath + "../" : "";
 
                 for (i = 0; i < len; i++) {
-                    files[i] = {
+                    // ignore hidden entries
+                    if (entries[i].name && entries[i].name.indexOf(".") == 0) continue;
+                    files.push({
                         name: entries[i].name,
                         isDirectory: entries[i].isDirectory,
                         fullPath: entries[i].fullPath,
                         url: entries[i].toURL()
-                    };
+                    });
                 }
 
+                // sort entries by name
+                files.sort(function (f1, f2) {
+                    return f1.name < f2.name ? -1 : 1;
+                });
+                
                 if (!root) {
                     files.unshift({
                         name: "..",

@@ -67,13 +67,6 @@ function ($scope, $timeout, $rootScope, $stateParams, $ionicLoading, yvAPI, yvSy
         });
     });
 
-    $scope.$on("event:online", function(event, params) {
-        console.log("receive online message in conversation");
-        //params.type: online, params.online: true/false, params.user_uuid: user_uuid
-        console.log("params %o", params);
-        //if conversation users showing care the online messages
-    });
-
     function _stop_loading() {
         $timeout(function () {
             yvDelegate.scroll_bottom("conversation-scroll", true);

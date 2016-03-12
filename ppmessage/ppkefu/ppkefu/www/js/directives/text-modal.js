@@ -11,6 +11,7 @@ function ($ionicModal, yvSys, yvLink) {
             animation: 'slide-in-up'
         }).then(function (modal) {
             $scope.textModal = modal;
+            $scope.inMobile = yvSys.in_mobile();
         });
 
         $scope.showModal = function () {
@@ -18,18 +19,13 @@ function ($ionicModal, yvSys, yvLink) {
         };
 
         $scope.closeModal = function (event) {
-            yvLink.open_link(event, function () {
                 $scope.textModal.hide();
-            });
         };
 
-        $scope.isContentEditable = function () {
-            if (yvSys.in_mobile_app()) {
-                return false;
-            }
-            return true;
+        $scope.clickContent = function (event) {
+            yvLink.open_link(event);
         };
-
+        
         $scope.$on("event:show-text-modal", function (event, content) {
             $scope.content = content;
             $scope.showModal();

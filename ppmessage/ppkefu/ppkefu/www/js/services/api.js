@@ -208,7 +208,8 @@ function ($rootScope, $timeout, $http, yvLog, yvSys, yvUser, yvFile, yvConstants
         var ft = new FileTransfer();
         var options = new FileUploadOptions();
 
-        if (_file_url.indexOf("file://") !== 0) {
+        // could begin with "file://" or "cdvfile://"
+        if (_file_url.indexOf("file://") !== 0 && _file_url.indexOf("cdvfile://") !== 0) {
             _file_url = yvFile.get_root_dir() + _file_url;
         }
         
@@ -462,10 +463,8 @@ function ($rootScope, $timeout, $http, yvLog, yvSys, yvUser, yvFile, yvConstants
         },
 
         download_web_material: function (_material, _name) {
-            var link = document.createElement("a");
-            link.download = _name;
-            link.href = _current_server.pcapp_url + "/material/" + _material + "?file_name=" + _name;
-            link.click();
+            var _href = _current_server.pcapp_url + "/material/" + _material + "?file_name=" + _name;
+            yvSys.click_download(_href, _name);
         },
 
         get_service_user_list: function (_success, _error, _api_error) {

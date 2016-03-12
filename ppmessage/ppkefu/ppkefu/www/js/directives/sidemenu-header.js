@@ -7,7 +7,8 @@ ppmessageModule.directive("yvSidemenuHeader", [
     "yvUser",
     "yvBase",
     "yvLogin",
-function ($rootScope, yvSys, yvAPI, yvMain, yvLink, yvUser, yvBase, yvLogin) {
+    "yvConstants",
+function ($rootScope, yvSys, yvAPI, yvMain, yvLink, yvUser, yvBase, yvLogin, yvConstants) {
 
     function link($scope, $element, $attrs) {
 
@@ -53,6 +54,13 @@ function ($rootScope, yvSys, yvAPI, yvMain, yvLink, yvUser, yvBase, yvLogin) {
             angular.forEach(yvBase.get_list("conversation"), function (conv) {
                 if (reg.test(conv.name)) {
                     $scope.search.conversations.push(conv);
+                    return;
+                }
+                if (conv.type == yvConstants.CONVERSATION_TYPE.P2S) {
+                    var user_name = yvBase.get("object", conv.user_uuid, "fullname");
+                    if (reg.test(user_name)) {
+                        $scope.search.conversations.push(conv);                        
+                    }
                 } 
             });
             angular.forEach(yvBase.get_list("contact"), function (contact) {

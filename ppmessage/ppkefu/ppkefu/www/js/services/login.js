@@ -166,7 +166,10 @@ function ($state, $timeout, $ionicLoading, yvSys, yvAPI, yvNav, yvNoti, yvUser, 
         
         check_session: function () {
             return _check_session();
-        }
+        },
 
+        current_session: function () {
+            return session;
+        }
     };
 }]);

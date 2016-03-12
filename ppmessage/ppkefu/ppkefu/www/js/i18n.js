@@ -380,6 +380,13 @@ ppmessageModule.config([
                 ERR_NO_PASSWORD_EMAIL: "No password and email",
                 ERR_NO_ENOUGH_INFO: "Miss parameter to action.",
 
+                ONLINE: "OnLine",
+                OFFLINE: "Offline",
+                
+                NO_AVAILABLE_CONTACT: "No available contacts",
+                NO_AVAILABLE_GROUP: "No available groups",
+                NO_AVAILABLE_SERVANT: "No available service users for this group",
+                
                 CANT_GET_MORE_HISTORY_MESSAGES: "Can't get more history messages",
                 CANT_GET_MORE_CONVERSATIONS: "Can't get more conversations",
                 CANT_REFRESH_CONVERSATIONS: "Can't refresh conversations",
@@ -448,7 +455,8 @@ ppmessageModule.config([
                 LOCATION: "Location",
                 SLACK: "Slack",
                 EVERNOTE: "Evernote",
-
+                MESSAGE_CONTENT: "Message Content",
+                
                 ASSIGN_TO: "Conversation is assigned to: ",
 
                 CANCEL: "Cancel",
@@ -477,6 +485,7 @@ ppmessageModule.config([
                 CHECKING_FILE: "Checking file ...",
                 UPLOADING_FILE: "Uploading file ...",
                 SENDING: "Sending Message ...",
+                CANCELED: "Canceled",                
                 TYPING: " is typing ",
 
                 CONVERSATIONS: "Conversations",
@@ -753,6 +762,7 @@ ppmessageModule.config([
                 LOCATION: "位置",
                 SLACK: "Slack",
                 EVERNOTE: "印象笔记",
+                MESSAGE_CONTENT: "消息内容",
 
                 ASSIGN: "分配",
                 TYPE: "类型",
@@ -868,6 +878,13 @@ ppmessageModule.config([
                 ERR_NO_PASSWORD_EMAIL: "没有填写邮箱或密码",
                 ERR_NO_ENOUGH_INFO: "提供的参数不够",
 
+                ONLINE: "在线",
+                OFFLINE: "离线",
+
+                NO_AVAILABLE_CONTACT: "没有可添加的联系人",
+                NO_AVAILABLE_GROUP: "没有可用的组",
+                NO_AVAILABLE_SERVANT: "该组没有可用的客服",
+                
                 CANT_GET_MORE_HISTORY_MESSAGES: "无法获取更多历史消息",
                 CANT_GET_MORE_CONVERSATIONS: "无法获取更多对话",
                 CANT_REFRESH_CONVERSATIONS: "无法刷新对话",
@@ -963,6 +980,7 @@ ppmessageModule.config([
                 CHECKING_FILE: "检查文件 ...",
                 UPLOADING_FILE: "上传文件 ...",
                 SENDING: "发送消息 ...",
+                CANCELED: "已取消",                
                 TYPING: "正在输入 ",
                 
                 CONVERSATIONS: "对话",

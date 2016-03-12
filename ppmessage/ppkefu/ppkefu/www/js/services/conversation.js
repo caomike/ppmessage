@@ -14,12 +14,11 @@ function ($rootScope) {
             Conversation.prototype.user_uuid = "";
             Conversation.prototype.group_uuid = "";
             Conversation.prototype.assigned_uuid = "";
-
-            Conversation.prototype.online = false;
             Conversation.prototype.last_chat_text = "";
             Conversation.prototype.latest_message = null;
             Conversation.prototype.need_update = false;
-            Conversation.prototype.show = true;
+            Conversation.prototype.active = false;
+            Conversation.prototype.show = true;            
             
             Conversation.prototype.has_message = function (message) {
                 if (this.messages.indexOf(message) != -1) {
@@ -63,7 +62,7 @@ function ($rootScope) {
             Conversation.prototype._refresh = function () {
                 this.latest_message = this._reorder_messages();
                 _reorder_conversations();
-            }
+            };
         }
 
 

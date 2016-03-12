@@ -15,6 +15,12 @@ ppmessageModule.factory("yvConstants", [function () {
         PORTAL_PORT:              8080,
         OAUTH_PORT:               8930,
 
+        ONLINE_STATUS: {
+            ONLINE: "ONLINE",
+            OFFLINE: "OFFLINE",
+            UNCHANGED: "UNCHANGED"
+        },
+        
         ADDING_TYPE: {
             FILE: "FILE",
             PICTURE: "PICTURE",
@@ -132,6 +138,7 @@ ppmessageModule.factory("yvConstants", [function () {
             SEND_CHECKING:  "SEND_CHECKING",
             SEND_UPLOADING: "SEND_UPLOADING",
             SEND_SENDING:   "SEND_SENDING",
+            SEND_CANCELED:   "SEND_CANCELED",            
             SEND_SUCCESS:   "SEND_SUCCESS",
             SEND_ERROR:     "SEND_ERROR"
         },
@@ -163,7 +170,6 @@ ppmessageModule.factory("yvConstants", [function () {
         APP_MENU_ARRAY: ["messages", "contacts", "settings"],
 
         CONVERSATION_TYPE: {
-            P2S: "P2S",
             S2S: "S2S",
             S2P: "S2P",
             P2S: "P2S"

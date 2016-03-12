@@ -1,6 +1,6 @@
 <div class="add-by-group-content">
   
-  <div class="scroll-outer" id="group-scroll">
+  <div class="scroll-outer" id="group-scroll" ng-if="groups.length">    
     <ion-scroll>
       <div class="all-members">
         <div class="member" ng-repeat="group in groups" ng-click="setGroup(group)">
@@ -10,9 +10,16 @@
         </div>
       </div>
     </ion-scroll>
+    <div class="thin-border-divider"></div>    
   </div>
-  
-  <div class="thin-border-divider"></div>
+
+  <div class="no-available-candidate" ng-if="!groups.length">
+    <p>{{ "app.GLOBAL.NO_AVAILABLE_GROUP" | translate }}</p>
+  </div>
+
+  <div class="no-available-candidate" ng-if="groups.length && !users.length">
+    <p>{{ "app.GLOBAL.NO_AVAILABLE_SERVANT" | translate }}</p>
+  </div>
   
   <div class="display-contacts-scroll yv-fade-leave" ng-if="users.length">
     <ion-scroll ng-style="getScrollMaxHeight('#group-scroll')">
@@ -25,9 +32,8 @@
         </ion-checkbox>
       </div>
     </ion-scroll>
+    <div class="thin-border-divider"></div>    
   </div>
-
-  <div class="thin-border-divider" ng-if="display_contacts.length"></div>
 
   <div class="save-button">
     <div class="button button-balanced" ng-click="save()" ng-disabled="disableSave(users)">
