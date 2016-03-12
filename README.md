@@ -95,7 +95,7 @@ PPConsole is Web user interface of PPMessage and open sourced as well. After PPM
 > Assuming you have clone ppmessage and under ppmessage directory.
 > In the directory, you can see `dist.sh` `README.md` files and `ppmessage` directory.
 
-#### Check the requirement is done or not.
+#### Check the requirements are ready or not.
 
 > require.py needs super user permission
 
