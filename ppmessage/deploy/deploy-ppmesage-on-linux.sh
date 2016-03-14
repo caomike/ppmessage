@@ -96,7 +96,7 @@ cd /tmp
 wget http://cdn.mysql.com//Downloads/Connector-Python/mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION.tar.gz
 tar -xzvf mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION.tar.gz
 cd mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION
-python sudo setup.py install
+sudo python setup.py install
 
 cd /tmp
 wget http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz
