@@ -50,7 +50,7 @@ class PushThreadHandler():
         #_app_uuid = _data.get("app_uuid")
         
         # FIXME: so far not support for every team has APN cert
-        _app_uuid = BOOTSTRAP_DATA.app_uuid
+        _app_uuid = BOOTSTRAP_DATA["team"]["app_uuid"]
         
         if _config == None or _body == None:
             logging.error("Illegal ios push: %s." % str(_data))
