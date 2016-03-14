@@ -102,13 +102,15 @@ function ($timeout, FileUploader, yvLog, yvAPI, yvSys, yvUser, yvMain, yvBase, y
         // if (_file.size > 1024 * 1024 * 20) {
         //     console.log("--------too big");
         //     return;
-        // }
+        // }        
         yvMain.prepare_send(_conv, _raw_message, function (_message) {
             _msg = _message;
             yvMain.update_message_status(_msg, yvConstants.SEND_STATUS.SEND_CHECKING);
-            _worker = new Worker('lib/sha1calculator.js');
-            _worker.onmessage = __on_message;
-            window.hash_file(_file, [_worker]);
+            __not_existed();
+            // the api of checking file repeatability is broken, so send directly.
+            // _worker = new Worker('lib/sha1calculator.js');
+            // _worker.onmessage = __on_message;
+            // window.hash_file(_file, [_worker]);
         });
 
 

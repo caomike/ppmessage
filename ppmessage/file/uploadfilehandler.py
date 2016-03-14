@@ -13,6 +13,7 @@ from tornado.web import RequestHandler
 from shutil import move
 from hashlib import sha1
 
+import os
 import json
 import uuid
 import logging
