@@ -778,8 +778,7 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
 
         $translateProvider.determinePreferredLanguage(function() {
             // return navigator.language;
-            // return "zh-CN"
-            return "en"
+            return "zh-CN"
         });
 
         $translateProvider.fallbackLanguage("en", "zh-CN");
