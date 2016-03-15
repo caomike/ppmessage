@@ -2,24 +2,24 @@
   
   <!-- Change Password -->
   <div class="boxed-group">
-    <h3>修改密码</h3>
+    <h3>{{ "statistics.advanced_settings.CHANGE_PASSWORD_TAG" | translate }}</h3>
     <div class="boxed-group-inner" style="padding-left:20px;">
       <form accept-charset="UTF-8" class="edit_user" ng-submit="changepassword(user)">
         <dl class="form password-confirmation-form">
-          <dt><label for="user_old_password">现有密码</label></dt>
+          <dt><label for="user_old_password">{{ "statistics.advanced_settings.CURRENT_PASSWORD_TAG" | translate }}</label></dt>
           <dd><input id="user_old_password" ng-model="user.oldpassword" required="required" tabindex="1" type="password"></dd>
         </dl>
         <dl class="form password-confirmation-form">
-          <dt><label for="user_new_password">新密码</label></dt>
+          <dt><label for="user_new_password">{{ "statistics.advanced_settings.NEW_PASSWORD_TAG" | translate }}</label></dt>
           <dd><input id="user_new_password" ng-model="user.newpassword" required="required" tabindex="2" type="password"></dd>
         </dl>
         <dl class="form password-confirmation-form">
-          <dt><label for="user_confirm_new_password">确认新密码</label></dt>
+          <dt><label for="user_confirm_new_password">{{ "statistics.advanced_settings.REPEAT_NEW_PASSWORD_TAG" | translate }}</label></dt>
           <dd><input id="user_confirm_new_password"  ng-model="user.confirmnewpassword" required="required" tabindex="3" type="password"></dd>
         </dl>
         <p>
-          <button class="btn btn-primary" tabindex="4">确认修改</button>
-          <span style="margin-left:10px;"><a href="javascript:void(0);" ng-click="resetpassword();">忘记密码</a></span>
+          <button class="btn btn-primary" tabindex="4">{{ "statistics.advanced_settings.SAVE_TAG" | translate }}</button>
+          <span style="margin-left:10px;"><a href="javascript:void(0);" ng-click="resetpassword();">{{ "statistics.advanced_settings.FORGET_PASSWORD_TAG" | translate }}</a></span>
         </p>
       </form>
     </div>

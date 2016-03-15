@@ -1,8 +1,8 @@
 <div class="boxed-group">
-  <h3>嵌入代码</h3>
+  <h3>{{ "settings.menu.APP_INTEGRAGE_TAG" | translate }}</h3>
   <div class="boxed-group-inner">
     <p class="integrate_toast" style="display: inline-block; padding-top: 20px; padding-bottom: 10px; padding-left: 10px; margin:0px;">复制下面的代码并置于&lt;body&gt;&lt;/body&gt;元素之间 </p>
-    <a data-clipboard-target="code_clip_target" data-clipboard-text="clip error!" id="code_clip_action" class="btn btn-primary" style="display: inline-block; float: right; padding-bottom: 10px; padding-right:10px; padding-top:10px; cursor: pointer; margin-left: 0px; margin-right:10px; margin-top: 10px; margin-bottom: 10px;"> 复制到剪贴板 </a>
+    <a data-clipboard-target="code_clip_target" data-clipboard-text="clip error!" id="code_clip_action" class="btn btn-primary" style="display: inline-block; float: right; padding-bottom: 10px; padding-right:10px; padding-top:10px; cursor: pointer; margin-left: 0px; margin-right:10px; margin-top: 10px; margin-bottom: 10px;"> {{ "application.integrate.COPY_TO_CLIPBOARD" | translate }} </a>
    
     <div style="height: auto; width: auto; margin:10px;">
       <textarea id="code_clip_target" style="height:180px; width: 100%">{{ enterprise.code }}</textarea>
@@ -10,15 +10,15 @@
 
   </div>
 
-  <h3 style="margin-top: 30px;">生成链接</h3>
+  <h3 style="margin-top: 30px;">{{ "application.integrate.URL_LINK" | translate }}</h3>
   <div class="boxed-group-inner clearfix">
-    <p class="integrate_toast" style="display: inline-block; padding-top: 20px; padding-bottom: 10px; padding-left: 10px; margin:0px;"> PPMessage已经部署在下面的网页链接上
+    <p class="integrate_toast" style="display: inline-block; padding-top: 20px; padding-bottom: 10px; padding-left: 10px; margin:0px;"> {{ "application.integrate.DEMO_DEPLOY_TO" | translate }}
     </p>
-    <a data-clipboard-target="link_clip_target" data-clipboard-text="clip error!" id="link_clip_action" class="btn btn-primary" style="display: inline-block; float: right; padding-bottom: 10px; padding-right:10px; padding-top:10px; cursor: pointer; margin-left: 0px; margin-right:10px; margin-top: 10px; margin-bottom: 10px;"> 复制到剪贴板 </a>
+    <a data-clipboard-target="link_clip_target" data-clipboard-text="clip error!" id="link_clip_action" class="btn btn-primary" style="display: inline-block; float: right; padding-bottom: 10px; padding-right:10px; padding-top:10px; cursor: pointer; margin-left: 0px; margin-right:10px; margin-top: 10px; margin-bottom: 10px;"> {{ "application.integrate.COPY_TO_CLIPBOARD" | translate }} </a>
     <div style="height: auto; width: auto; margin:10px;">
       <textarea id="link_clip_target" style="height:180px; width: 100%">{{ enterprise.link }}</textarea>
     </div>
-    <a type="button" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 20px; float: right; margin-right: 10px;" ng-href="{{ enterprise.link }}" yv-href-blank >马上看看</a>
+    <a type="button" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 20px; float: right; margin-right: 10px;" ng-href="{{ enterprise.link }}" yv-href-blank >{{ "application.integrate.PREVIEW" | translate }}</a>
   </div>
   
 </div>

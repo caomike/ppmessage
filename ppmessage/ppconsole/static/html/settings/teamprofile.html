@@ -1,5 +1,5 @@
 <div class="boxed-group">
-  <h3>团队信息</h3>
+  <h3>{{ "application.teamprofile.TEAM_INFO" | translate }}</h3>
   <div class="boxed-group-inner clearfix">
     <form accept-charset="UTF-8" class="columns" ng-submit="modify()">
 
@@ -39,10 +39,10 @@
 
           
           <dl class="form">
-            <dt><label for="app_name">团队名称</label></dt>
+            <dt><label for="app_name">{{ "application.teamprofile.TEAM_NAME" | translate }}</label></dt>
             <dd><input id="app_name" size="30" type="text" ng-model="team_info.app_name" tabindex="2"></dd>
           </dl>
-          <p><button type="submit" class="btn btn-primary" tabindex="3" >确认修改</button></p>
+          <p><button type="submit" class="btn btn-primary" tabindex="3" >{{ "application.teamprofile.SAVE" | translate }}</button></p>
         </div>
       </form>
     </div>

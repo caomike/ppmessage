@@ -7,21 +7,22 @@
     <form accept-charset="UTF-8" method="post" ng-submit="login(user)">
 
       <div class="auth-form-header">
-        <h1>登录</h1>
+        <!-- <h1>{{ lang["login.LOGIN_TAG"] }}</h1> -->
+        {{ "login.LOGIN_TAG" | translate }}
       </div>
       <div class="auth-form-body">
         <!-- <label for="login_field"> -->
         <!--   邮箱 -->
         <!-- </label> -->
-        <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="input-block" id="login_field" name="login" tabindex="1" type="text" value="" ng-model="user.email" placeholder="登录邮箱">
-        <input ng-model="user.password" class="input-block" style="margin-bottom:5px;" id="password" name="password" tabindex="2" type="password" placeholder="密码">
+        <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="input-block" id="login_field" name="login" tabindex="1" type="text" value="" ng-model="user.email" placeholder="{{ 'login.LOGIN_EMAIL_PLACEHOLDER_TAG' | translate }}">
+        <input ng-model="user.password" class="input-block" style="margin-bottom:5px;" id="password" name="password" tabindex="2" type="password" placeholder="{{ lang['login.LOGIN_PASSWORD_TAG'] }}">
         <label for="password">
-          没有账号？<a ui-sref="app.signup">请先注册</a>
+          <a ui-sref="app.signup">{{ lang["login.LOGIN_REGISTER_TAG"] }}</a>
         </label>
         <label for="password" style="float:right">
-          <a ui-sref="app.resetpassword">忘记密码</a>
+          <a ui-sref="app.resetpassword">{{ lang['login.LOGIN_FORGET_PASSWORD_TAG'] }}</a>
         </label>
-        <input class="union_btn" name="commit" tabindex="3" type="submit" value="登录"></input>
+        <input class="union_btn" name="commit" tabindex="3" type="submit" value="{{ lang['login.LOGIN_TAG'] }}"></input>
       </div>
     </form>
 

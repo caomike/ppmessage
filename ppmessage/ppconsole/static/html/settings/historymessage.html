@@ -1,6 +1,6 @@
 <div class="boxed-group">
   <h3>
-	历史消息
+	{{ "settings.menu.HISTORY_MSG_TAG" | translate }}
   </h3>
   <div class="boxed-group-inner clearfix">
 	<div class="historynews-mainpage">
@@ -16,7 +16,7 @@
 
 		<div class="right historynews-search">
 		  <form class="input-group">
-			<input class="form-control" type="text" placeholder="搜索..." ng-model="search_target" autocomplete="off">
+			<input class="form-control" type="text" placeholder="{{ 'statistics.historymessages.MESSAGE_LIST_TAG' | translate }}..." ng-model="search_target" autocomplete="off">
 			<span class="input-group-btn">
 			  <button class="btn btn-default" type="submit" ng-click="search_conversations()">
 				<i class="glyphicon glyphicon-search"></i>
@@ -25,11 +25,11 @@
 		  </form>
 		</div>
 	  </div>
-	  <h4 style="margin-top:15px;">消息列表</h4>
+	  <h4 style="margin-top:15px;">{{ "statistics.historymessages.SEARCH_TAG" | translate }}</h4>
 	  <div class="historynews-list list-group">
 	  	
 	  	<div style="width:100%;height:100px;margin-top:80px;text-align:center;" ng-if="news_list.length == 0">
-	  		<h4>没有任何匹配的会话</h4>
+	  		<h4>{{ "statistics.historymessages.EMPTY_LIST_TAG" | translate }}</h4>
 	  	</div>
 		
 		<div class="list-group-item" ng-repeat = "item in news_list | orderBy: '-news_date' ">

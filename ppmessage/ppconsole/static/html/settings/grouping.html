@@ -1,12 +1,12 @@
 <div class="boxed-group">
-  <h3>客服分组</h3>
+  <h3>{{ "settings.menu.SERVICE_GROUP_TAG" | translate }}</h3>
   <div class="boxed-group-inner clearfix">
     <div class="group_header">
-      客服分组管理
+      {{ "application.grouping.SERVICE_GROUP_MANAGER_TAG" | translate }}
       <div class="move">
-        <span class="l">移动到</span>
+        <span class="l">{{ "application.grouping.MOVE_TO" | translate }}</span>
         <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">选择小组
+          <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{ "application.grouping.SELECT_GROUP" | translate }}
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -17,7 +17,7 @@
     </div>
     <div class="con">
       <div class="le">
-        <p id="default_highlight"><a ng-click="get_all_service()">全部客服（{{team.service_user_list.length}}）</a></p>
+        <p id="default_highlight"><a ng-click="get_all_service()">{{ "application.grouping.ALL_SERVICE_USER" | translate }}（{{team.service_user_list.length}}）</a></p>
         <ul>
           <li ng-repeat="group in team.group_list | orderBy: 'createtime' " id="colored_group_{{$index}}" class="not_exist">
             
@@ -28,16 +28,16 @@
           </li>
           <!-- <li id="no_group_list" class="not_exist"><a ng-click="checkout_no_group_user()" >未分组（{{team.no_group_info.user_list.length}}）</a></li> -->
         </ul>
-        <span  ng-click="show_create_group_modal()"><i class="glyphicon glyphicon-plus"></i>新建分组</span>
+        <span  ng-click="show_create_group_modal()"><i class="glyphicon glyphicon-plus"></i>{{ "application.grouping.NEW_GROUP" | translate }}</span>
       </div>
       <div class="ri">
         <table class="table">
           <thead>
             <tr>
-              <th><a ng-click="checkAll()" ng-show="showCheckAllColumn" >全选</a></th>
-              <th>登录邮箱</th>
-              <th>角色</th>
-              <th>分组</th>
+              <th><a ng-click="checkAll()" ng-show="showCheckAllColumn" >{{ "application.grouping.SELECT_ALL" | translate }}</a></th>
+              <th>{{ "application.grouping.LOGIN_EMAIL" | translate }}</th>
+              <th>{{ "application.grouping.ROLE" | translate }}</th>
+              <th>{{ "application.grouping.GROUP_IN" | translate }}</th>
             </tr>
           </thead>
           <tbody>
@@ -52,16 +52,16 @@
       </div>
     </div>
   </div>
-  <h3 style="margin-top:40px;">分组模式配置</h3>
+  <h3 style="margin-top:40px;">{{ "application.grouping.GROUP_MODE_CONFIG" | translate }}</h3>
   <div class="boxed-group-inner clearfix" style="max-height:300px;overflow-x:scroll">
     <table class="table" style="margin-bottom:0px !important">
       <thead>
         <tr>
-          <th class="one_five">是否显示</th>
+          <th class="one_five">{{ "application.grouping.IS_SHOW_GROUP" | translate }}</th>
           <!-- <th class="one_five">显示顺序</th> -->
-          <th class="one_five">组名</th>
+          <th class="one_five">{{ "application.grouping.GROUP_NAME" | translate }}</th>
           <!-- <th class="two_five">服务时间</th> -->
-          <th class="three_zero">分流方式</th>
+          <th class="three_zero">{{ "application.grouping.DISPATCH_WAY" | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -92,25 +92,25 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">
-          <strong>创建分组</strong>
+          <strong>{{ "application.grouping.CREATE_GROUP" | translate }}</strong>
         </h4>
       </div>
       <div class="modal-body">
         <div>
-          <span class="modal-body-email-h">组名:</span>
+          <span class="modal-body-email-h">{{ "application.grouping.GROUP_NAME" | translate }}:</span>
           <input type="text" class="modal-body-email-b" ng-model="new_group_name" tabindex="1" value="new_group_name" name="new_group_name" maxlength="15"/>
           <span class="modal-body-email-bb">*</span>
           <span class="modal-body-email-note" id="created_group_name"> {{ create_group_error.name_error }} </span>
         </div>
         <div style="margin-top:10px;">
-          <span class="modal-body-email-h">描述:</span>
+          <span class="modal-body-email-h">{{ "application.grouping.GROUP_DESC" | translate }}:</span>
           <input type="text" class="modal-body-email-b" ng-model="new_group_desc" tabindex="2" value="new_group_desc" name="new_group_name" maxlength="15"/>
           <span class="modal-body-email-bb">*</span>
           <span class="modal-body-email-note" id="created_group_desc"> {{ create_group_error.desc_error }} </span>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" ng-click="create_group()" tabindex="5" >新建分组</button>
+        <button type="submit" class="btn btn-primary" ng-click="create_group()" tabindex="5" >{{ "application.grouping.CREATE" | translate }}</button>
       </div>
     </div>
   </div>
@@ -121,25 +121,25 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">
-          <strong>修改分组</strong>
+          <strong>{{ "application.grouping.MODIFY_GROUP" | translate }}</strong>
         </h4>
       </div>
       <div class="modal-body">
         <div>
-          <span class="modal-body-email-h">组名:</span>
+          <span class="modal-body-email-h">{{ "application.grouping.GROUP_NAME" | translate }}:</span>
           <input type="text" class="modal-body-email-b" tabindex="1" ng-model="selected_group.group_name"/>
           <span class="modal-body-email-bb">*</span>
           <span class="modal-body-email-note" id="modify_group_name"> {{ update_group_error.name_error }} </span>
         </div>
         <div style="margin-top:10px;">
-          <span class="modal-body-email-h">描述:</span>
+          <span class="modal-body-email-h">{{ "application.grouping.GROUP_DESC" | translate }}:</span>
           <input type="text" class="modal-body-email-b" ng-model="selected_group.group_desc" tabindex="2" maxlength="15"/>
           <span class="modal-body-email-bb">*</span>
           <span class="modal-body-email-note" id="modify_group_desc"> {{ update_group_error.desc_error }} </span>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" ng-click="update_group()" tabindex="5">确认修改</button>
+        <button type="submit" class="btn btn-primary" ng-click="update_group()" tabindex="5">{{ "application.grouping.SAVE" | translate }}</button>
       </div>
     </div>
   </div>

@@ -5,17 +5,17 @@
       <ul class="ul">
         <li class="status choose">
           <h4 class="h4">
-            1 注册
+            1 {{ "signup.SIGNUP_TAG" | translate }}
           </h4>
         </li>
         <li class="status is">
           <h4 class="h4">
-            2 创建客服团队
+            2 {{ "signup.CREATE_TEAM_TAG" | translate }}
           </h4>
         </li>
         <li class="status us">
           <h4 class="h4">
-            3 开始使用
+            3 {{ "signup.START_TAG" | translate }}
           </h4>
         </li>
       </ul>
@@ -23,15 +23,15 @@
     <div class="auth-form">
       <form accept-charset="UTF-8" ng-submit="signup(user)">
         <div class="auth-form-header">
-          <h1>注册</h1>
+          <h1>{{ "signup.SIGNUP_TAG" | translate }}</h1>
         </div>
         <div class="signup-form-body">
-          <input ng-model="user.user_fullname" type="text" name="full_name" placeholder="真实姓名" class="first-name half" style="width:100%;">
-          <input ng-model="user.user_email" type="text" name="email" placeholder="登录邮箱">
-          <input ng-model="user.user_password" type="password" name="password" placeholder="登录密码">
-          <input ng-model="user.user_password_repeat" type="password" name="password" placeholder="确认密码">
-          <p>注册并登录意味着同意本网站 <a ui-sref="app.policy.termofservice" target="_blank">《服务条款》</a>.</p>
-          <button type="submit" class="btn-blue" >注册</button>
+          <input ng-model="user.user_fullname" type="text" name="full_name" placeholder="{{ 'signup.FULLNAME_TAG' | translate }}" class="first-name half" style="width:100%;">
+          <input ng-model="user.user_email" type="text" name="email" placeholder="{{ 'signup.LOGIN_NAME_TAG' | translate }}">
+          <input ng-model="user.user_password" type="password" name="password" placeholder="{{ 'signup.LOGIN_PASSWORD_TAG' | translate }}">
+          <input ng-model="user.user_password_repeat" type="password" name="password" placeholder="{{ 'signup.LOGIN_PASSWORD_REPEAT_TAG' | translate }}">
+          <p>{{ "signup.AGREE_SERVICE_TEAM_TAG" | translate }} <a ui-sref="app.policy.termofservice" target="_blank">《{{ "signup.SERVICE_TEAM_TAG" | translate }}》</a>.</p>
+          <button type="submit" class="btn-blue" >{{ "signup.SIGNUP_TAG" | translate }}</button>
           
         </div>
       </form>

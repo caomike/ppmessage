@@ -8,22 +8,22 @@
       </button>
       
       <ul class="mobile-menu-items" ng-click="click_mobile_items($event)">
-        <li ng-if="!is_logined()"> <a ui-sref="app.signup">注册 </a> </li>
-        <li ng-if="!is_logined()"> <a ui-sref="app.signin">登录 </a> </li>
+        <li ng-if="!is_logined()"> <a ui-sref="app.signup">{{ "app.SIGNIN_TAG" | translate }} </a> </li>
+        <li ng-if="!is_logined()"> <a ui-sref="app.signin">{{ "app.LOGIN_2_TAG" | translate }} </a> </li>
 
         <li ng-if="is_logined()"> <a ui-sref="app.settings.profile"> {{ get_user_fullname() }} </a> </li>
-        <li><a ng-click="logout()"> 退出 </a></li>
+        <li><a ng-click="logout()"> {{ "app.EXIT_APP_TAG" | translate }} </a></li>
       </ul>
       
       <div class="menu">
 
         <span class="register-item" ng-show="!is_logined()">
-          <a ui-sref="app.signup">注册</a>
-          <a ui-sref="app.signin">登录</a>
+          <a ui-sref="app.signup">{{ "app.LOGIN_2_TAG" | translate }}</a>
+          <a ui-sref="app.signin">{{ "app.SIGNIN_TAG" | translate }}</a>
     	</span>
 
         <span class="register-item" ng-show="is_logined()">
-          <a ng-click="start_ppmessage()">开始服务</a>
+          <a ng-click="start_ppmessage()">{{ "app.START_SERVICE_TAG" | translate }}</a>
     	</span>
 
         <span class="dropdown nav-item" ng-show="is_logined()">
@@ -33,10 +33,10 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="account-dropdown">
-            <li class="first"><a ui-sref="app.settings.profile" ng-show="is_owner2_status()"> 个人设置 </a></li>
-            <li class="first"><a ui-sref="app.settings.teamprofile" ng-show="is_owner2_status()"> 团队设置 </a></li>
+            <li class="first"><a ui-sref="app.settings.profile" ng-show="is_owner2_status()"> {{ "app.PRIVATE_CONFIG_TAG" | translate }} </a></li>
+            <li class="first"><a ui-sref="app.settings.teamprofile" ng-show="is_owner2_status()"> {{ "app.TEAM_CONFIG_TAG" | translate }} </a></li>
             <li role="separator" class="divider"></li>
-            <li><a ng-click="logout()"> 退出 </a></li>
+            <li><a ng-click="logout()"> {{ "app.EXIT_APP_TAG" | translate }} </a></li>
           </ul>
         </span>
         
