@@ -21,6 +21,9 @@ var watching_paths = {
     css: [
         '../static/css/*.css'
     ],
+    html: [
+        '../static/html/*.html'
+    ],
     config: ['./build.config.js']
 };
 
@@ -118,4 +121,5 @@ gulp.task('watch', ['default'], function() {
     gulp.watch(watching_paths.css, ['watch-css']);
     gulp.watch(watching_paths.scripts, ['watch-scripts']);
     gulp.watch(watching_paths.config, ['refresh-config', 'default']);
+    gulp.watch(watching_paths.html, ['default']);
 });

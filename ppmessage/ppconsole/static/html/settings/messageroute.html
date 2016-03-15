@@ -1,5 +1,5 @@
 <div class="boxed-group">
-  <h3>分流方式</h3>
+  <h3>{{ "settings.menu.MESSAGE_DISPATCH_TAG" | translate }}</h3>
   <div class="boxed-group-inner clearfix">
     <!-- Using radio buttons – each switch turns off the other two -->
     <div class="type_panel">
@@ -8,7 +8,7 @@
         <input id="radioSwitch1" type="radio" name="testGroup" ng-model="current_app.app_route_policy" value="BROADCAST">
         <label for="radioSwitch1" style="float:left;"></label>
         <div class="line">
-          群发模式
+          {{ "statistics.messageroute.ALL" | translate }}
           <span class="u-icon" data-toggle="tooltip" title="将消息投递给所有客服，无论其在线与否"></span>
         </div>
       </div>
@@ -17,7 +17,7 @@
         <input id="radioSwitch2" type="radio" name="testGroup" ng-model="current_app.app_route_policy" value="SMART">
         <label for="radioSwitch2" style="float:left;"></label>
         <div class="line">
-          智能匹配
+          {{ "statistics.messageroute.SMART" | translate }}
           <span class="u-icon" data-toggle="tooltip" title="按照系统算法投递消息给在线客服，只发给一个在线客服"></span>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <input id="radioSwitch3" type="radio" name="testGroup" ng-model="current_app.app_route_policy" value="GROUP">
         <label for="radioSwitch3" style="float:left;"></label>
         <div class="line">
-          分组模式
+          {{ "statistics.messageroute.GROUP" | translate }}
           <span class="u-icon" data-toggle="tooltip" title="按照客服分组所定义的规则进行消息分流"></span>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <input id="radioSwitch4" type="radio" name="testGroup" ng-model="current_app.app_route_policy" value="ROBOT">
         <label for="radioSwitch4" style="float:left;"></label>
         <div class="line">
-          人工智能
+          {{ "statistics.messageroute.ROBOT" | translate }}
           <span class="u-icon" data-toggle="tooltip" title="按照人工智能所设定的训练结果进行消息自动回复和分流"></span>
         </div>
       </div>

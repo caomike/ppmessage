@@ -15,6 +15,14 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 LOGIN_TAG: "Login",
                 DOWNLOAD: "Download",
                 CONTACT_US:"Contact us",
+
+                START_SERVICE_TAG: "Start service",
+                PRIVATE_CONFIG_TAG: "Private settings",
+                TEAM_CONFIG_TAG: "Team settings",
+                EXIT_APP_TAG: "Log Out",
+                SIGNIN_TAG: "Sign In",
+                LOGIN_2_TAG: "Sign Up"
+                
             },
 
             calendar:{
@@ -82,7 +90,18 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 EMAIL_SENDING_ERROR_TAG: "Sending email encounter an error.please contact us or jusr try again",
                 LENGTH_OUT_OF_RANGE_TAG: "Length out of range",
 
-                ERR_PASSWORD_CONTAINS_WHITESPACE_AT_HEAD_OR_TAIL: 'Password contains whitespace at head or tail'
+                ERR_PASSWORD_CONTAINS_WHITESPACE_AT_HEAD_OR_TAIL: 'Password contains whitespace at head or tail',
+
+                SIGNUP_TAG: "Sign Up",
+                CREATE_TEAM_TAG: "Create Team",
+                START_TAG: "Start",
+                FULLNAME_TAG: "Full Name",
+                LOGIN_NAME_TAG: "Login Email",
+                LOGIN_PASSWORD_TAG: "Password",
+                LOGIN_PASSWORD_REPEAT_TAG: "Password Repeat",
+                SERVICE_TEAM_TAG: "Service Team",
+                AGREE_SERVICE_TEAM_TAG: "Agree with "
+                
             },
 
             createaccount: {
@@ -97,7 +116,14 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 NO_SUCH_USER_TAG: "No such user.",
                 PASSWORD_MISMATCH_TAG: "Incorrect password.",
                 LOGIN_FAILED_TAG: "login failed.",
-                NO_AUTHORITY_LOGIN_TAG: "no authority to log in."
+                NO_AUTHORITY_LOGIN_TAG: "no authority to log in.",
+
+                LOGIN_TAG: "Log In",
+                LOGIN_EMAIL_PLACEHOLDER_TAG: "Email",
+                LOGIN_PASSWORD_TAG: "Password",
+                LOGIN_FORGET_PASSWORD_TAG: "Forget password?",
+                LOGIN_REGISTER_TAG: "Register"
+                
             },
 
             changepassword: {
@@ -108,6 +134,21 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
             },
 
             settings: {
+                menu: {
+                    DATA_ANALYSIS_TAG: "Data analysis",
+                    DATA_OVERVIEW_TAG: "Data overview",
+                    HISTORY_MSG_TAG: "Message historys",
+                    TEAM_CONFIG_TAG: "Team settings",
+                    BASIC_CONFIG_TAG: "Basic info",
+                    USER_INTERFACE_TAG: "User interface",
+                    MESSAGE_DISPATCH_TAG: "Message dispatch",
+                    SERVICE_USER_TAG: "Service users",
+                    SERVICE_GROUP_TAG: "Service users group",
+                    APP_INTEGRAGE_TAG: "App integrate",
+                    ACCOUT_CONFIG_TAG: "Account settings",
+                    ADVANCED_CONFIG_TAG: "Advanced settings"
+                },
+                
                 profile: {
                     UPDATE_SUCCESSFULLY_TAG: "Profile updated successfully.",
                     UPDATE_FAILED_TAG: "Profile updated failed.",
@@ -177,6 +218,11 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     NO_EMAIL_TAG: "Please enter your email.",
                     EMAIL_NOT_MATCH_TAG: "Invalid email. Please enter the correct email.",
                     SERVICE_ERROR_TAG: "Some error occurred. Please retry in a minute",
+
+                    FIND_PASSWORD_TAG: "Find password",
+                    LOGIN_EMAIL_TAG: "Email",
+                    FIND_TAG: "Send email",
+                    
                 },
 
                 welcome: {
@@ -187,6 +233,15 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     COLOR_PICKED_NOT_RIGHT_TAG: "color picked is unregualr value",
                     UPDATE_ENCOUNTER_AN_ERROR_TAG: "encounter an error,please try again",
                     NO_CHANGED_TAG: "No change",
+
+                    WELCOME_INFO_TAG: "Welcome",
+                    SAVE_TAG: "Save",
+                    AUTO_POPUP: "Auto Popup",
+                    POPUP_ONLY_ONCE: "Only once",
+                    POPUP_NEVER: "Never",
+                    POPUP_ALWAYS: "Always",
+                    COLOR: "Color",
+                    
                 },
 
                 grouping: {
@@ -205,6 +260,25 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     GROUP_NAME_EXISTED_TAG: "group name already existed",
                     NO_GROUP_NAME: "group name can't be empty",
                     NO_GROUP_DESC: "group description can't be empty",
+
+                    SERVICE_GROUP_MANAGER_TAG: "Service group manager",
+                    MOVE_TO: "Move to ",
+                    SELECT_GROUP: "Select group",
+                    ALL_SERVICE_USER: "all service users",
+                    NEW_GROUP: "Create",
+                    SELECT_ALL: "Select all",
+                    LOGIN_EMAIL: "Email",
+                    ROLE: "Role",
+                    GROUP_IN: "Group",
+                    GROUP_MODE_CONFIG: "Group config",
+                    IS_SHOW_GROUP: "Show",
+                    GROUP_NAME: "Group name",
+                    DISPATCH_WAY: "Dispatch mode",
+                    CREATE_GROUP: "Create Group",
+                    GROUP_DESC: "Group Infos",
+                    MODIFY_GROUP: "Modify Group",
+                    SAVE: "Save"
+                    
                 },
 
                 people: {
@@ -219,11 +293,40 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     QUOTA_REACH_TO_UPPER_LIMIT_TAG:"Agent quote reach to upper limit.",
                     PARAMS_MISS_TAG: "Params miss",
                     PERMISSION_DENY_TAG: "You are not allow to create team member",
+
+                    CREATE_SERVICE_USER_TAG: "Create service user",
+                    SEARCH_TAG: "Search",
+                    SELECT_ALL_TAG: "Select all",
+                    REMOVE_SERVICE_USER_TAG: "Remove",
+                    OWNER_TAG: "Owner",
+                    SERVICE_USER_TAG: "Service user",
+                    CANCEL_TAG: "Cancel",
+                    OK_TAG: "Ok",
+                    SERVICE_USER_NAME_TAG: "Username",
+                    SERVICE_USER_EMAIL_TAG: "Email",
+                    PASSWORD_TAG: "Password",
+                    CONFIRM_PASSWORD_TAG: "Confirm password",
+                    CREATE_TAG: "Create"
+                    
                 },
 
                 manualinstall: {
                     COPY_SUCCESSFUL_TAG: "Copy to clipboard success!",
                 },
+
+                integrate: {
+                    COPY_TO_CLIPBOARD: "Copy to clipboard",
+                    PREVIEW: "Preview",
+                    URL_LINK: "Url",
+                    DEMO_DEPLOY_TO: "PPMessage has deploy to this website for preview",
+                },
+
+                teamprofile: {
+                    TEAM_INFO: "Team info",
+                    TEAM_NAME: "Team name",
+                    SAVE: "Save"
+                }
+                
             },
 
             statistics: {
@@ -250,7 +353,34 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     MESSAGE_IMAGE_TYPE_TAG: 'Image',
                     MESSAGE_TXT_TYPE_TAG: 'Large text',
                     MESSAGE_GET_ERROR_TAG: "Get history message error.",
-                }
+
+                    SEARCH_TAG: "Search",
+                    MESSAGE_LIST_TAG: "Messages",
+                    EMPTY_LIST_TAG: "Empty"
+                    
+                },
+
+                messageroute:  {
+                    ALL: "ALL",
+                    SMART: "SMART",
+                    GROUP: "GROUP",
+                    ROBOT: "ROBOT"
+                },
+
+                userprofile: {
+                    EMAIL_TAG: "Email",
+                    USER_NAME_TAG: "Username",
+                    SAVE_TAG: "Save",
+                },
+
+                advanced_settings: {
+                    CHANGE_PASSWORD_TAG: "Change Password",
+                    CURRENT_PASSWORD_TAG: "Current password",
+                    NEW_PASSWORD_TAG: "New password",
+                    REPEAT_NEW_PASSWORD_TAG: "New password repeat",
+                    SAVE_TAG: "Save",
+                    FORGET_PASSWORD_TAG: "Forget password"
+                },
                 
             }
 
@@ -265,6 +395,14 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 LOGIN_TAG: "登入",
                 DOWNLOAD: "下载",
                 CONTACT_US:"联系我们",
+
+                START_SERVICE_TAG: "开始服务",
+                PRIVATE_CONFIG_TAG: "个人设置",
+                TEAM_CONFIG_TAG: "团队设置",
+                EXIT_APP_TAG: "退出",
+                SIGNIN_TAG: "注册",
+                LOGIN_2_TAG: "登录"
+                
             },
 
             calendar:{
@@ -330,7 +468,18 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 EMAIL_LOGIN_ERROR_TAG: "系统繁忙，无法登录邮箱发送邮件，请重新发送或者联系我们",
                 EMAIL_SENDING_ERROR_TAG: "邮件发送失败，请重新发送或者联系我们",
                 LENGTH_OUT_OF_RANGE_TAG: "长度超过限制",
-                ERR_PASSWORD_CONTAINS_WHITESPACE_AT_HEAD_OR_TAIL: '密码开头或结尾不允许包含空格'
+                ERR_PASSWORD_CONTAINS_WHITESPACE_AT_HEAD_OR_TAIL: '密码开头或结尾不允许包含空格',
+
+                SIGNUP_TAG: "注册",
+                CREATE_TEAM_TAG: "创建客服团队",
+                START_TAG: "开始使用",
+                FULLNAME_TAG: "真实姓名",
+                LOGIN_NAME_TAG: "登录邮箱",
+                LOGIN_PASSWORD_TAG: "密码",
+                LOGIN_PASSWORD_REPEAT_TAG: "确认密码",
+                SERVICE_TEAM_TAG: "服务条款",
+                AGREE_SERVICE_TEAM_TAG: "注册并登录意味着同意本网站"
+                
             },
 
             createaccount: {
@@ -346,6 +495,13 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 NO_SUCH_USER_TAG: "无此用户。",
                 PASSWORD_MISMATCH_TAG: "密码错误。",
                 LOGIN_FAILED_TAG: "登录失败。",
+
+                LOGIN_TAG: "登录",
+                LOGIN_EMAIL_PLACEHOLDER_TAG: "登录邮箱",
+                LOGIN_PASSWORD_TAG: "密码",
+                LOGIN_FORGET_PASSWORD_TAG: "忘记密码?",
+                LOGIN_REGISTER_TAG: "注册"
+                
             },
 
             changepassword: {
@@ -356,6 +512,21 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
             },
 
             settings: {
+                menu: {
+                    DATA_ANALYSIS_TAG: "数据分析",
+                    DATA_OVERVIEW_TAG: "数据总览",
+                    HISTORY_MSG_TAG: "历史消息",
+                    TEAM_CONFIG_TAG: "团队设置",
+                    BASIC_CONFIG_TAG: "基本信息",
+                    USER_INTERFACE_TAG: "用户界面",
+                    MESSAGE_DISPATCH_TAG: "消息分流",
+                    SERVICE_USER_TAG: "客服人员",
+                    SERVICE_GROUP_TAG: "客服分组",
+                    APP_INTEGRAGE_TAG: "应用集成",
+                    ACCOUT_CONFIG_TAG: "账户设置",
+                    ADVANCED_CONFIG_TAG: "高级设置"
+                },
+                
                 profile: {
                     UPDATE_SUCCESSFULLY_TAG: "更新成功。",
                     UPDATE_FAILED_TAG: "更新失败。",
@@ -424,6 +595,10 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     NO_EMAIL_TAG: "请输入您的邮箱",
                     EMAIL_NOT_MATCH_TAG: "邮箱和此账号不匹配，请输入正确的邮箱",
                     SERVICE_ERROR_TAG: "发生了一些错误，请稍后重试",
+
+                    FIND_PASSWORD_TAG: "找回密码",
+                    LOGIN_EMAIL_TAG: "登录邮箱",
+                    FIND_TAG: "发送找回密码邮件",
                 },
 
                 welcome: {
@@ -434,6 +609,15 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     COLOR_PICKED_NOT_RIGHT_TAG: "颜色取值有问题",
                     UPDATE_ENCOUNTER_AN_ERROR_TAG: "更新遇到一个错误，请重试或者联系客服，谢谢",
                     NO_CHANGED_TAG: "没有任何改变",
+
+                    WELCOME_INFO_TAG: "欢迎信息",
+                    SAVE_TAG: "保存",
+                    AUTO_POPUP: "自动退出",
+                    POPUP_ONLY_ONCE: "仅首次",
+                    POPUP_NEVER: "从不弹出",
+                    POPUP_ALWAYS: "总是弹出",
+                    COLOR: "图标颜色",
+                    
                 },
 
                 grouping: {
@@ -452,6 +636,25 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     GROUP_NAME_EXISTED_TAG: "组名已经存在",
                     NO_GROUP_NAME: "请填写组名",
                     NO_GROUP_DESC: "请填写组的描述信息",
+
+                    SERVICE_GROUP_MANAGER_TAG: "客服分组管理",
+                    MOVE_TO: "移动到",
+                    SELECT_GROUP: "选择小组",
+                    ALL_SERVICE_USER: "全部客服",
+                    NEW_GROUP: "新建分组",
+                    SELECT_ALL: "全选",
+                    LOGIN_EMAIL: "登录邮箱",
+                    ROLE: "角色",
+                    GROUP_IN: "分组",
+                    GROUP_MODE_CONFIG: "分组模式配置",
+                    IS_SHOW_GROUP: "是否显示",
+                    GROUP_NAME: "组名",
+                    DISPATCH_WAY: "分流方式",
+                    CREATE_GROUP: "创建分组",
+                    GROUP_DESC: "描述",
+                    MODIFY_GROUP: "修改分组",
+                    SAVE: "确认修改"
+                    
                 },
                 
                people: {
@@ -466,11 +669,40 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                    QUOTA_REACH_TO_UPPER_LIMIT_TAG:"坐席配额达到上限,请先扩容",
                    PARAMS_MISS_TAG: "参数不足",
                    PERMISSION_DENY_TAG: "只有团队owner才能创建成员",
+
+                   CREATE_SERVICE_USER_TAG: "创建客服人员",
+                   SEARCH_TAG: "搜索",
+                   SELECT_ALL_TAG: "选择全部",
+                   REMOVE_SERVICE_USER_TAG: "移除客服",
+                   OWNER_TAG: "创建者",
+                   SERVICE_USER_TAG: "客服",
+                   CANCEL_TAG: "取消",
+                   OK_TAG: "确定",
+                   SERVICE_USER_NAME_TAG: "客服全名",
+                   SERVICE_USER_EMAIL_TAG: "客服邮箱",
+                   PASSWORD_TAG: "设置密码",
+                   CONFIRM_PASSWORD_TAG: "确认密码",
+                   CREATE_TAG: "创建"
+                   
                },
 
                 manualinstall: {
                     COPY_SUCCESSFUL_TAG: "成功复制到剪贴板.",
                 },
+
+                integrate: {
+                    COPY_TO_CLIPBOARD: "复制到剪贴板",
+                    PREVIEW: "马上看看",
+                    URL_LINK: "生成链接",
+                    DEMO_DEPLOY_TO: "PPMessage已经部署在下面的网页链接上",
+                },
+
+                teamprofile: {
+                    TEAM_INFO: "团队信息",
+                    TEAM_NAME: "团队名称",
+                    SAVE: "确认修改"
+                }
+                
             },
 
             statistics: {
@@ -497,7 +729,34 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     MESSAGE_IMAGE_TYPE_TAG: '图片',
                     MESSAGE_TXT_TYPE_TAG: '文本消息',
                     MESSAGE_GET_ERROR_TAG: "获取历史信息错误",
-                }
+
+                    SEARCH_TAG: "搜索",
+                    MESSAGE_LIST_TAG: "消息列表",
+                    EMPTY_LIST_TAG: "没有任何匹配的会话",
+                    
+                },
+
+                messageroute: {
+                    ALL: "群发模式",
+                    SMART: "智能匹配",
+                    GROUP: "分组模式",
+                    ROBOT: "人工智能"
+                },
+
+                userprofile: {
+                    EMAIL_TAG: "邮箱",
+                    USER_NAME_TAG: "姓名",
+                    SAVE_TAG: "确认修改",
+                },
+
+                advanced_settings: {
+                    CHANGE_PASSWORD_TAG: "修改密码",
+                    CURRENT_PASSWORD_TAG: "现有密码",
+                    NEW_PASSWORD_TAG: "新密码",
+                    REPEAT_NEW_PASSWORD_TAG: "确认新密码",
+                    SAVE_TAG: "确认修改",
+                    FORGET_PASSWORD_TAG: "忘记密码"
+                },
                 
             }
 

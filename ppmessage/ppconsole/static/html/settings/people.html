@@ -3,12 +3,12 @@
     <div class="batch-middle right">
       <a href="javascript:void(0);" class="btn btn-primary" ng-click="show_batch_modal()">
         <i class="glyphicon glyphicon-plus"></i>
-        创建客服人员
+        {{ "application.people.CREATE_SERVICE_USER_TAG" | translate }}
       </a>
     </div>
     <div class="left non-admin-search">
       <div class="auto-search-group">
-        <input class="subnav-search-input input-contrast auto-search-input" type="text" name="query" ng-model="search_value" ng-change="page_app_user(newPageNumber)" placeholder="搜索..." autocomplete="off">
+        <input class="subnav-search-input input-contrast auto-search-input" type="text" name="query" ng-model="search_value" ng-change="page_app_user(newPageNumber)" placeholder="{{ 'application.people.SEARCH_TAG' | translate }}..." autocomplete="off">
         <i class="glyphicon glyphicon-search"></i>
       </div>
     </div>
@@ -18,10 +18,10 @@
       <input type="checkbox" id="select-all-checkbox" ng-model="selectedAll" ng-click="checkAll()">
     </label>
     <label for="select-all-checkbox" class="table-list-header-meta member-list-select-all-label">
-      <span>选择全部</span>
+      <span>{{ "application.people.SELECT_ALL_TAG" | translate }}</span>
     </label>
     <div class="member-toolbar-actions right" ng-show="should_show_remove_button()">
-      <a href="javascript:void(0);" class="btn btn-sm btn-danger" ng-click="show_remove_modal()">移除客服</a>
+      <a href="javascript:void(0);" class="btn btn-sm btn-danger" ng-click="show_remove_modal()">{{ "application.people.REMOVE_SERVICE_USER_TAG" | translate }}</a>
     </div>
   </div>
 
@@ -41,10 +41,10 @@
         </div>
 
         <div class="member-meta table-list-cell" style="font-size:15px;" ng-show="{{member.is_owner_user==1}}">
-          创建者
+          {{ "application.people.OWNER_TAG" | translate }}
         </div>
         <div class="member-meta table-list-cell" style="font-size:15px;" ng-show="{{!member.is_owner_user==1}}">
-          客服
+          {{ "application.people.SERVICE_USER_TAG" | translate }}
         </div>
 
         <div class="member-meta table-list-cell" style="font-size:15px;padding-left:0">
@@ -64,7 +64,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><strong>移除客服人员</strong></h4>
+        <h4 class="modal-title"><strong>{{ "application.people.REMOVE_SERVICE_USER_TAG" | translate }}</strong></h4>
       </div>
       <div class="modal-body" style="color: #D03F3F;">
         <p>该操作会移除您选定的客服人员：</p>
@@ -72,9 +72,9 @@
         <p>如有疑问请查看我们的文档或论坛信息.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">{{ "application.people.CANCEL_TAG" | translate }}</button>
         <button type="button" class="btn btn-danger" style="background-image: linear-gradient(#C16552, #E24215);"
-                ng-click="remove_users(to_be_removed_users)">确定</button>
+                ng-click="remove_users(to_be_removed_users)">{{ "application.people.OK_TAG" | translate }}</button>
       </div>
     </div>
   </div>
@@ -85,35 +85,35 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">
-          <strong>创建客服人员</strong>
+          <strong>{{ "application.people.CREATE_SERVICE_USER_TAG" | translate }}</strong>
         </h4>
       </div>
       <div class="modal-body">
-        <span class="modal-body-email-h">客服全名:</span>
+        <span class="modal-body-email-h">{{ "application.people.SERVICE_USER_NAME_TAG" | translate }}:</span>
         <input type="text" class="modal-body-email-b" ng-model="create_user_direct.name" tabindex="1" />
         <span class="modal-body-email-bb">*</span>
         <span class="modal-body-email-note" id="cud1" > {{ create_user_direct.name_error }} </span>
       </div>
       <div class="modal-body">
-        <span class="modal-body-email-h">客服邮箱:</span>
+        <span class="modal-body-email-h">{{ "application.people.SERVICE_USER_EMAIL_TAG" | translate }}:</span>
         <input type="text" class="modal-body-email-b" placeholder="example@ppmessage.cn" ng-model="create_user_direct.email" tabindex="2" />
         <span class="modal-body-email-bb">*</span>
         <span class="modal-body-email-note" id="cud2"> {{ create_user_direct.email_error }} </span>
       </div>
       <div class="modal-body">
-        <span class="modal-body-email-h">设置密码:</span>
+        <span class="modal-body-email-h">{{ "application.people.PASSWORD_TAG" | translate }}:</span>
         <input type="password" class="modal-body-email-b" ng-model="create_user_direct.password" tabindex="3" />
         <span class="modal-body-email-bb">*</span>
         <span class="modal-body-email-note" id="cud3"> {{ create_user_direct.password_error }} </span>
       </div>
       <div class="modal-body">
-        <span class="modal-body-email-h">确认密码:</span>
+        <span class="modal-body-email-h">{{ "application.people.CONFIRM_PASSWORD_TAG" | translate }}:</span>
         <input type="password" class="modal-body-email-b" ng-model="create_user_direct.password_repeat" tabindex="4" />
         <span class="modal-body-email-bb">*</span>
         <span class="modal-body-email-note" id="cud4"> {{ create_user_direct.password_repeat_error }} </span>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" ng-click="create_user_directly()" tabindex="5">创建客服</button>
+        <button type="submit" class="btn btn-primary" ng-click="create_user_directly()" tabindex="5">{{ "application.people.CREATE_TAG" | translate }}</button>
       </div>
     </div>
   </div>
