@@ -44,4 +44,4 @@ def get_message_count(redis, conversation_uuid):
         return 0
 
     key = MessagePushTask.__tablename__ + ".conversation_uuid." + conversation_uuid
-    return zcard(key)
+    return redis.zcard(key)

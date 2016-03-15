@@ -41,8 +41,12 @@ class PPGetUserDetailHandler(BaseHandler):
             logging.error("Error for no user uuid: %s." % (_request["user_uuid"]))
             return
 
-        # not return the password
-        del _o["user_password"]
+        # not return the password default
+        return_password = False
+        if "return_password" in _request:
+            return_password = _request["return_password"]
+        if not return_password:
+            del _o["user_password"]
         
         _fn = _o.get("user_fullname")
         if not isinstance(_fn, unicode):

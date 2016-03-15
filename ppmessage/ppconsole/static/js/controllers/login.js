@@ -74,7 +74,7 @@ angular.module("this_app")
                         $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_access_token", data.access_token);
                         $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_user_uuid", data.user_uuid);
                         
-                        yvAjax.get_{WEB_ROLE}_detail(data.user_uuid)
+                        yvAjax.get_{WEB_ROLE}_detail_with_password(data.user_uuid)
                             .success(function(data) {
 
                                 console.log(data);

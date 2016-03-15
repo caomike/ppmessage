@@ -42,7 +42,11 @@ class PPGetAdminDetailHandler(BaseHandler):
             return
 
         # not return the password
-        del _o["user_password"]
+        return_password = False
+        if "return_password" in _request:
+            return_password = _request["user_uuid"]
+        if not return_password:
+            del _o["user_password"]
         
         _fn = _o.get("user_fullname")
         if not isinstance(_fn, unicode):

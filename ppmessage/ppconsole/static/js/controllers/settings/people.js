@@ -168,7 +168,7 @@ angular.module("this_app")
                 "app_uuid": yvUser.get_team().uuid,
                 "user_email": $scope.create_user_direct.email,
                 "user_fullname": $scope.create_user_direct.name,
-                "user_password": $scope.create_user_direct.password,
+                "user_password": sha1( $scope.create_user_direct.password ),
             };
 
             yvAppPeopleService.createServiceUser( app_user_info, function( data ) {

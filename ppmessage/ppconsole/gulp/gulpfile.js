@@ -15,8 +15,9 @@ var fs = require("fs");
 
 var watching_paths = {
     scripts: [
-        '../static/scripts/web/js/*.js',
-        '../static/scripts/web/js/**/*.js',
+        '../static/js/*.js',
+        '../static/js/**/*.js',
+	'../static/js/**/**/*.js',
     ],
     css: [
         '../static/css/*.css'
@@ -119,7 +120,7 @@ gulp.task('refresh-config', function(done) {
 
 gulp.task('watch', ['default'], function() {
     gulp.watch(watching_paths.css, ['watch-css']);
-    gulp.watch(watching_paths.scripts, ['watch-scripts']);
+    gulp.watch(watching_paths.scripts, ['default']);
     gulp.watch(watching_paths.config, ['refresh-config', 'default']);
     gulp.watch(watching_paths.html, ['default']);
 });

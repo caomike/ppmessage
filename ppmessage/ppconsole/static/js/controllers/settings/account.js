@@ -51,12 +51,13 @@ angular.module("this_app")
             var _d = {
                 "app_uuid": yvUser.get_team().uuid,
                 "user_uuid": yvUser.get_uuid(),
-                "user_password": user.newpassword,
+                "user_password": sha1( user.newpassword ),
                 "old_password": _pass_hash,
             };
             
             var _update = yvAjax.update_user(_d);
             _update.success(function(data) {
+                
                 if (data.error_code == 0) {
 
                     yvUser.set_password( sha1( user.newpassword ) );

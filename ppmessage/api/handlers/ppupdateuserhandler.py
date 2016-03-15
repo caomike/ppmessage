@@ -55,7 +55,6 @@ class PPUpdateUserHandler(BaseHandler):
         if _old_password != None and _user_password != None:
             _key = DeviceUser.__tablename__ + ".uuid." + _user_uuid
             _ex_password = _redis.hget(_key, "user_password")
-            _ex_password = hashlib.sha1(_ex_password).hexdigest()
             if _ex_password != _old_password:
                 self.setErrorCode(API_ERR.MIS_ERR)
                 return

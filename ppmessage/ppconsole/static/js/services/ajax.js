@@ -63,7 +63,7 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
         }
 
         _user_uuid = _user_uuid.replace(/\"/g, "");
-        var _loggedin = that.get_{WEB_ROLE}_detail(_user_uuid);
+        var _loggedin = that.get_{WEB_ROLE}_detail_with_password(_user_uuid);
 
         var _error = function() {
             $timeout(function() {
@@ -152,8 +152,16 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
             return _apiPost("/PP_GET_USER_DETAIL", {user_uuid: user_uuid});
         },
 
+        get_user_detail_with_password: function(user_uuid) {
+            return _apiPost("/PP_GET_USER_DETAIL", {user_uuid: user_uuid, return_password: true});
+        },
+
         get_admin_detail: function(user_uuid) {
             return _apiPost("/PP_GET_ADMIN_DETAIL", {user_uuid: user_uuid});
+        },
+
+        get_admin_detail_with_password: function(user_uuid) {
+            return _apiPost("/PP_GET_ADMIN_DETAIL", {user_uuid: user_uuid, return_password: true});
         },
 
         create_app: function(user_uuid, app_name) {

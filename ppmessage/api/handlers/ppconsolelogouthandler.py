@@ -9,6 +9,7 @@ from .basehandler import BaseHandler
 
 from ppmessage.core.constant import API_LEVEL
 from ppmessage.db.models import DeviceUser
+from ppmessage.db.models import ApiTokenData
 from ppmessage.api.error import API_ERR
 
 import logging
