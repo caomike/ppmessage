@@ -196,8 +196,8 @@ class AbstractPolicy(Policy):
         if isinstance(self._task.get("body"), unicode):
             _message["bo"] = self._task.get("body").encode("utf-8")
 
-        _message["ts"] = int(time.mktime(self._task["createtime"].timetuple())) 
-        _message["ts"] = round(_message["ts"])
+        _ts = self._task["createtime"]
+        _message["ts"] = time.mktime(_ts.timetuple()) + _ts.microsecond / 1e6
         self._task["message_body"] = _message
 
         _message_body = json.dumps(self._task["message_body"])

@@ -228,20 +228,24 @@ function ($timeout, yvSys, yvUser, yvFile, yvType, yvLocal, yvConstants) {
 
     function _history_message(raw_message) {
         var msg = _new_message(raw_message.uuid);
+        body = angular.fromJson(raw_message.message_body);
+        if (!body) {
+            return msg;
+        }
 
         msg.is_history = true;
-        msg.to_uuid = raw_message.to_uuid;
-        msg.to_type = raw_message.to_type;
+        msg.body = body.bo;
+        msg.type = body.mt;
+        msg.subtype = body.ms;
+        msg.to_uuid = body.ti;
+        msg.to_type = body.tt;
+        msg.from_uuid = body.fi;
         msg.id = yvSys.get_uuid();
-        msg.body = raw_message.body;
-        msg.from_uuid = raw_message.from_uuid;
-        msg.type = raw_message.message_type;
-        msg.subtype = raw_message.message_subtype;
-        msg.conversation_uuid = raw_message.conversation_uuid;
-        msg.timestamp = _string_to_ts(raw_message.createtime);
-        msg.title = _get_raw_title(raw_message.body, raw_message.message_subtype);
+        msg.conversation_uuid = body.ci;
+        msg.timestamp = _string_to_ts(body.ts);
+        msg.title = _get_raw_title(body.bo, body.ms);
         
-        if (raw_message.from_uuid === yvUser.get("uuid") && raw_message.to_type !== yvConstants.CONVERSATION_TYPE.P2S) {
+        if (body.fi === yvUser.get("uuid") && body.tt !== yvConstants.CONVERSATION_TYPE.P2S) {
             msg.direction = yvConstants.MESSAGE_DIR.DIR_OUT;
             msg.status = yvConstants.SEND_STATUS.SEND_SUCCESS;
         } else {

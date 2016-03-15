@@ -350,7 +350,11 @@ function ($rootScope, $timeout, $http, yvLog, yvSys, yvUser, yvFile, yvConstants
 
         get_unacked_messages: function (_success, _error, _api_error) {
             var _url = "/GET_UNACKED_MESSAGES";
-            _api_post(_url, null, null, _success, _error, _api_error);
+            _data = {
+                "from_uuid": yvUser.get("uuid"),
+                "device_uuid": yvUser.get("device_uuid")
+            };
+            _api_post(_url, _data, null, _success, _error, _api_error);
         },
 
         get_unacked_message: function (_id, _success, _error, _api_error) {
