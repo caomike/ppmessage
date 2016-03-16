@@ -20,8 +20,8 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 PRIVATE_CONFIG_TAG: "Private settings",
                 TEAM_CONFIG_TAG: "Team settings",
                 EXIT_APP_TAG: "Log Out",
-                SIGNIN_TAG: "Sign In",
-                LOGIN_2_TAG: "Sign Up"
+                SIGNUP_TAG: "Sign Up",
+                LOGIN_TAG: "Sign In"
                 
             },
 
@@ -400,8 +400,8 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 PRIVATE_CONFIG_TAG: "个人设置",
                 TEAM_CONFIG_TAG: "团队设置",
                 EXIT_APP_TAG: "退出",
-                SIGNIN_TAG: "注册",
-                LOGIN_2_TAG: "登录"
+                SIGNUP_TAG: "注册",
+                LOGIN_TAG: "登录"
                 
             },
 

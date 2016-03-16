@@ -9,7 +9,7 @@
       
       <ul class="mobile-menu-items" ng-click="click_mobile_items($event)">
         <li ng-if="!is_logined()"> <a ui-sref="app.signup">{{ "app.SIGNIN_TAG" | translate }} </a> </li>
-        <li ng-if="!is_logined()"> <a ui-sref="app.signin">{{ "app.LOGIN_2_TAG" | translate }} </a> </li>
+        <li ng-if="!is_logined()"> <a ui-sref="app.signin">{{ "app.LOGIN_TAG" | translate }} </a> </li>
 
         <li ng-if="is_logined()"> <a ui-sref="app.settings.profile"> {{ get_user_fullname() }} </a> </li>
         <li><a ng-click="logout()"> {{ "app.EXIT_APP_TAG" | translate }} </a></li>
@@ -18,8 +18,8 @@
       <div class="menu">
 
         <span class="register-item" ng-show="!is_logined()">
-          <a ui-sref="app.signup">{{ "app.LOGIN_2_TAG" | translate }}</a>
-          <a ui-sref="app.signin">{{ "app.SIGNIN_TAG" | translate }}</a>
+          <a ui-sref="app.signup">{{ "app.SIGNUP_TAG" | translate }}</a>
+          <a ui-sref="app.signin">{{ "app.LOGIN_TAG" | translate }}</a>
     	</span>
 
         <span class="register-item" ng-show="is_logined()">

@@ -2,7 +2,7 @@ angular.module("this_app")
     .controller("SignupCtrl", function($scope, $state, $timeout, $translate, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug) {
 
         $scope.user = {
-            app_uuid: yvConstants.PPMESSAGE_APP.uuid,
+            // app_uuid: yvConstants.PPMESSAGE_APP.uuid,
             user_status: "OWNER_0",
             is_service_user: false,
             user_fullname: "",
