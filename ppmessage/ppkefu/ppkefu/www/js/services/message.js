@@ -242,7 +242,7 @@ function ($timeout, yvSys, yvUser, yvFile, yvType, yvLocal, yvConstants) {
         msg.from_uuid = body.fi;
         msg.id = yvSys.get_uuid();
         msg.conversation_uuid = body.ci;
-        msg.timestamp = _string_to_ts(body.ts);
+        msg.timestamp = body.ts;
         msg.title = _get_raw_title(body.bo, body.ms);
         
         if (body.fi === yvUser.get("uuid") && body.tt !== yvConstants.CONVERSATION_TYPE.P2S) {
@@ -267,7 +267,7 @@ function ($timeout, yvSys, yvUser, yvFile, yvType, yvLocal, yvConstants) {
         _message.subtype = _subtype;
         _message.type = yvConstants.MESSAGE_TYPE.NOTI;
         _message.title = _get_raw_title(_data, _subtype);
-        _message.timestamp = Math.round(Date.now() / 1000);
+        _message.timestamp = Date.now() / 1000;
         _message.direction = yvConstants.MESSAGE_DIR.DIR_OUT;
         _message.status = yvConstants.SEND_STATUS.SEND_PENDING;
 
@@ -425,7 +425,7 @@ function ($timeout, yvSys, yvUser, yvFile, yvType, yvLocal, yvConstants) {
                     to_type: _forward.conv_type,
                     task_uuid: _msg.task_uuid,
                     conversation_uuid: _forward.conv_uuid,
-                    timestamp: Math.round(Date.now() / 1000),
+                    timestamp: Date.now() / 1000,
                     direction: yvConstants.DIR.DIR_OUT,
                     status: yvConstants.SEND_STATUS.SEND_PENDING,
                     type: _msg.type,
