@@ -100,7 +100,17 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 LOGIN_PASSWORD_TAG: "Password",
                 LOGIN_PASSWORD_REPEAT_TAG: "Password Repeat",
                 SERVICE_TEAM_TAG: "Service Team",
-                AGREE_SERVICE_TEAM_TAG: "Agree with "
+                AGREE_SERVICE_TEAM_TAG: "Agree with ",
+                MAKE_NAME_FOR_YOURTEAM: "Make an amazing name for your team !",
+                TEAM_NAME: "Team name",
+                CONGRATULATIONS: "Congratulations! customer service team create success",
+                YOU_WILL_EXPERIENCE: "You will experience",
+                ANY_TRAFFIC: "Any traffic",
+                ANY_MESSAGE: "Any number of messages",
+                YOU_CAN: "Start use, you can: ",
+                DEPLOY_CODE: "Deploy you code",
+                ADD_SERVICE_USER: "Add service user",
+                MODIFY_SETTINGS: "Modify information",
                 
             },
 
@@ -478,7 +488,17 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 LOGIN_PASSWORD_TAG: "密码",
                 LOGIN_PASSWORD_REPEAT_TAG: "确认密码",
                 SERVICE_TEAM_TAG: "服务条款",
-                AGREE_SERVICE_TEAM_TAG: "注册并登录意味着同意本网站"
+                AGREE_SERVICE_TEAM_TAG: "注册并登录意味着同意本网站",
+                MAKE_NAME_FOR_YOURTEAM: "为您的团队起一个响亮的名字吧!",
+                TEAM_NAME: "客服团队名称",
+                CONGRATULATIONS: "恭喜您，客服团队创建成功!",
+                YOU_WILL_EXPERIENCE: "您将体验",
+                ANY_TRAFFIC: "不限流量",
+                ANY_MESSAGE: "不限消息",
+                YOU_CAN: "开始使用，您可以：",
+                DEPLOY_CODE: "代码部署",
+                ADD_SERVICE_USER: "添加客服",
+                MODIFY_SETTINGS: "修改信息",
                 
             },
 

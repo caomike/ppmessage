@@ -113,7 +113,6 @@ class PPPageHistoryMessageHandler(BaseHandler):
         _rdata = self.getReturnData()
         _rdata["return_count"] = len(_task_dicts)
         _rdata["list"] = _task_dicts
-        logging.info(_task_dicts)
         logging.info("pppagehistorymessage return: %d" % len(_task_dicts))
         return
     

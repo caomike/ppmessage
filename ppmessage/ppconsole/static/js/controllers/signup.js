@@ -1,8 +1,10 @@
 angular.module("this_app")
-    .controller("SignupCtrl", function($scope, $state, $timeout, $translate, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug) {
+    .controller("SignupCtrl", function($scope, $state, $timeout, $translate, $cookieStore, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug) {
 
+        var appUUID = yvConstants.PPMESSAGE_APP.uuid;
+        
         $scope.user = {
-            // app_uuid: yvConstants.PPMESSAGE_APP.uuid,
+            app_uuid: appUUID,
             user_status: "OWNER_0",
             is_service_user: false,
             user_fullname: "",
@@ -107,42 +109,70 @@ angular.module("this_app")
             };
 
             disableSubmitButton( true );
-            
-            yvAjax.is_email_valid(user.user_email)
-                .success(function(data) {
-                    if (data.valid) {
-                        yvAjax.create_user(user)
-                            .success(function(data) {
-                                if (data.error_code == 0) {
-                                    user.user_password = sha1(user.user_password);
-                                    yvAjax.login(user).success(function(data) {
+
+            // first try to get token
+            getToken( function(response) {
+                var credentialsToken = response.access_token;
+                // get token ok
+                yvAjax.is_email_valid_with_credentials_token({
+                    user_email: user.user_email,
+                    app_uuid: appUUID
+                }, credentialsToken)
+                    .success(function(data) {
+                        if (data.valid) {
+
+                            // angular.extend(dst, src);
+                            var copyUser = angular.extend(
+                                user,
+                                { user_password: sha1( user.user_password ) }
+                            );
+                            
+                            yvAjax.create_user_with_credentials_token(copyUser, credentialsToken)
+                                .success(function(data) {
+                                    if (data.error_code == 0) {
+                                        yvAjax.login(user).success(function(data) {
+
+                                            if ( data.error_code == 0 ) {
+                                                $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_access_token", data.access_token); // store access_token
+                                                $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_user_uuid", data.user_uuid);
+                                            }
+                                            
+                                            _on_completed();
+                                            yvUser.set_login_data(data);
+                                            $state.go("app.createteam");
+                                            
+                                        }).error(function(data) {
+                                            _on_completed();
+                                            console.error("login error");
+                                            _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
+                                        });
+                                    } else {
                                         _on_completed();
-                                        yvUser.set_login_data(data);
-                                        $state.go("app.createteam");
-                                    }).error(function(data) {
-                                        _on_completed();
-                                        console.error("login error");
                                         _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
-                                    });
-                                } else {
+                                    }
+                                })
+                                .error(function(data) {
                                     _on_completed();
-                                    _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
-                                }
-                            })
-                            .error(function(data) {
-                                _on_completed();
-                                console.error("create portal user error");
-                            });
-                    } else {
+                                    console.error("create portal user error");
+                                });
+                        } else {
+                            _on_completed();
+                            _set_error_string($scope.lang["signup.EMAIL_USED_TAG"]);
+                            console.log("email invalid: %o", data);
+                        }
+                    })
+                    .error(function(data) {
                         _on_completed();
-                        _set_error_string($scope.lang["signup.EMAIL_USED_TAG"]);
-                        console.log("email invalid: %o", data);
-                    }
-                })
-                .error(function(data) {
-                    _on_completed();
-                    _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
-                });
+                        _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
+                    });
+                
+            }, function(error) {
+                
+                // get token error
+                _on_completed();
+                _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
+                
+            } );
 
             function _on_completed() {
                 disableSubmitButton( false );
@@ -166,5 +196,23 @@ angular.module("this_app")
         $scope.init();
 
         yvDebug.attach( 'yvSignupController', { valid_password: _valid_password } );
+
+        // ===========get token====================
+
+        function getToken( onSuccess, onError ) {
+
+            yvAjax.get_credentials_token()
+                .success( function( response ) {
+                    if (response.access_token) {
+                        onSuccess && onSuccess( response );
+                    } else {
+                        onError && onError( response );
+                    }
+                } )
+                .error( function( error ) {
+                    onError && onError( error );
+                } );
+            
+        }
         
     }); // end login ctrl

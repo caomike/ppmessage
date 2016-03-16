@@ -9,11 +9,9 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
         icon: null,
     };
 
-    var _post_auth = function(_data) {
+    var _base_post_auth = function( authString ) {
         var _auth_url = "/ppauth/token";
-        var _auth_data = "grant_type=password&user_email=" + _data.user_email
-            + "&user_password=" + _data.user_password
-            + "&client_id=" + yvConstants.PPCONSOLE_API.key;
+        var _auth_data = authString;
         var _auth_config = {};
         
         _auth_config.url = _auth_url;
@@ -25,14 +23,28 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
         yvLog.d("AUTH POST url: %s, data: %o.", _auth_config.url, _auth_config.data);
         return $http(_auth_config);
     };
-    
-    var _apiPost = function(_url, _data) {
+
+    var _post_auth = function(_data) {
+        var _auth_data = "grant_type=password&user_email=" + _data.user_email
+            + "&user_password=" + _data.user_password
+            + "&client_id=" + yvConstants.PPCONSOLE_API.key;
+        return _base_post_auth( _auth_data );
+    };
+
+    var _get_credentials_token = function() {
+        var _auth_data = "grant_type=client_credentials"
+            + "&client_secret=" + yvConstants.PPCONSOLE_API.secret
+            + "&client_id=" + yvConstants.PPCONSOLE_API.key;
+        return _base_post_auth( _auth_data );
+    };
+
+    var _apiPostWithToken = function(_url, _data, _token) {
         _data = _data || {};
 
         var apiUrl = '/api' + _url;
-        var accessToken = $cookieStore.get("cookie_ppconsole_{WEB_ROLE}_access_token");
+        var accessToken = _token;
         accessToken = accessToken.replace(/\"/g, "");
-    
+        
         yvLog.d(accessToken);
         return $http({
             headers: {
@@ -44,6 +56,10 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
             url: apiUrl,
             data: _data
         });
+    };
+    
+    var _apiPost = function(_url, _data) {
+        return _apiPostWithToken(_url, _data, $cookieStore.get("cookie_ppconsole_{WEB_ROLE}_access_token"));
     };
 
     // default state for unlogined page
@@ -176,8 +192,12 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
             return _apiPost("/PP_LEAVE_APP", {user_list: user_list, app_uuid: app_uuid});
         },
 
-        is_email_valid: function(email) {
-            return _apiPost("/PP_IS_EMAIL_VALID", {user_email: email});
+        is_email_valid: function(requestParams) {
+            return _apiPost("/PP_IS_EMAIL_VALID", requestParams);
+        },
+
+        is_email_valid_with_credentials_token: function(requestParams, credentials_token) {
+            return _apiPostWithToken("/PP_IS_EMAIL_VALID", requestParams, credentials_token);
         },
 
         get_app_owned_by_user: function(user_uuid) {
@@ -190,6 +210,10 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
 
         create_user: function(requestParams) {
             return _apiPost("/PP_CREATE_USER", requestParams);
+        },
+
+        create_user_with_credentials_token: function(requestParams, credentials_token) {
+            return _apiPostWithToken("/PP_CREATE_USER", requestParams, credentials_token);
         },
 
         update_user: function(requestParams) {
@@ -254,6 +278,10 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
 
         get_api_info: function(requestParams) {
             return _apiPost('/PP_GET_API_INFO', requestParams);
+        },
+
+        get_credentials_token: function() {
+            return _get_credentials_token();
         },
 
         ///////////// API_ERR_CODE ////////////////

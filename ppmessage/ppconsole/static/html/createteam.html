@@ -5,17 +5,17 @@
       <ul class="ul">
         <li class="status">
           <h4 class="h4">
-            1 注册
+            1 {{ "signup.SIGNUP_TAG" | translate }}
           </h4>
         </li>
         <li class="status choose white">
           <h4 class="h4">
-            2 创建客服团队
+            2 {{ "signup.CREATE_TEAM_TAG" | translate }}
           </h4>
         </li>
         <li class="status is">
           <h4 class="h4">
-            3 开始使用
+            3 {{ "signup.START_TAG" | translate }}
           </h4>
         </li>
       </ul>
@@ -23,12 +23,12 @@
     <div class="auth-form">
       <form accept-charset="UTF-8" ng-submit="create_team(team_name)">
         <div class="auth-form-header">
-          <h1>创建客服团队</h1>
+          <h1>{{ "signup.CREATE_TEAM_TAG" | translate }}</h1>
         </div>
         <div class="signup-form-body">
-          <p class="team_name">为您的团队起一个响亮的名字吧!</p>
-          <input ng-model="team_name" type="text" name="team" placeholder="客服团队名称" style="margin-bottom:20px;">
-          <button type="submit" class="btn-blue" >创建客服团队</button>
+          <p class="team_name">{{ "signup.MAKE_NAME_FOR_YOURTEAM" | translate }}</p>
+          <input ng-model="team_name" type="text" name="team" placeholder="{{ 'signup.TEAM_NAME' | translate }}" style="margin-bottom:20px;">
+          <button type="submit" class="btn-blue" >{{ "signup.CREATE_TEAM_TAG" | translate }}</button>
         </div>
       </form>
     </div>

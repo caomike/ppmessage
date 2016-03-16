@@ -5,6 +5,11 @@ angular.module("this_app.constants", [])
         PPCONSOLE_API: {
             uuid:    "{ppconsole_api_uuid}",
             key:     "{ppconsole_api_key}",
+            secret:  "{ppconsole_api_secret}"
+        },
+
+        PPMESSAGE_APP: {
+            uuid:    "{ppmessage_app_uuid}"
         },
 
         MAX_TEXT_LEN: 128,
