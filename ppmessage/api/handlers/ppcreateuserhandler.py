@@ -34,6 +34,13 @@ class PPCreateUserHandler(BaseHandler):
     error_code with device user record in ppmessage system
 
     """
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(app_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(app_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        self.addPermission(app_level=API_LEVEL.CONSOLE_BEFORE_LOGIN)
+        return
+
     def _create(self, _request):
         _app_uuid = _request.get("app_uuid")
         _user_email = _request.get("user_email")

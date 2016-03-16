@@ -18,6 +18,13 @@ class PPIsEmailValidHandler(BaseHandler):
     
     Return JSON with `valid`, true or false.
     """
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(app_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(app_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        self.addPermission(app_level=API_LEVEL.CONSOLE_BEFORE_LOGIN)
+        return
+
     def _Task(self):
         super(PPIsEmailValidHandler, self)._Task()
         _request = json.loads(self.request.body)

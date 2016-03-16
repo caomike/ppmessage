@@ -75,12 +75,12 @@ class TokenHandler(RequestHandler):
         _api_level = _api[2]
         # _api[3] is api_secret
 
-        if _api_level != API_LEVEL.PPCOM and _api_level != API_LEVEL.PPCONSOLE:
+        if _api_level != API_LEVEL.PPCOM and _api_level != API_LEVEL.PPCONSOLE and _api_level != API_LEVEL.THIRD_PARTY_CONSOLE:
             self.send_error(400)
             return
         
-        if _api_level == API_LEVEL.PPCONSOLE:
-            api_level = API_LEVEL.PPCONSOLE_NO_LOGIN
+        if _api_level == API_LEVEL.PPCONSOLE or _api_level == API_LEVEL.THIRD_PARTY_CONSOLE:
+            api_level = API_LEVEL.CONSOLE_BEFORE_LOGIN
 
         if _api_secret != _api[3]:
             logging.error("client_secret not match client_id:%s, client_secret:%s, api_scecret:%s" % (_api_key, _api_secret, _api[3]))
