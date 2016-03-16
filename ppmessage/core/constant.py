@@ -35,6 +35,7 @@ API_LEVEL = Enum([
     "PPCOM",
     "PPKEFU",
     "PPCONSOLE",
+    "PPCONSOLE_NO_LOGIN",
     "THIRD_PARTY_KEFU",
     "THIRD_PARTY_CONSOLE",
 ])

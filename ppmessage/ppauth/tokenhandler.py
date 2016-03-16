@@ -27,6 +27,7 @@ class TokenHandler(RequestHandler):
     For ppcom, no intercation process, so if code, then token
     For ppkefu, code with user login success the token would be valid
     For ppconsole, code with user login success the token would be valid
+    For ppconsole no login, code without user login the token would be valid
     
     For third party ppkefu, code with user login success, the token would be valid
     For third party console, code valid, token valid
@@ -74,10 +75,13 @@ class TokenHandler(RequestHandler):
         _api_level = _api[2]
         # _api[3] is api_secret
 
-        if _api_level != API_LEVEL.PPCOM:
+        if _api_level != API_LEVEL.PPCOM and _api_level != API_LEVEL.PPCONSOLE:
             self.send_error(400)
             return
         
+        if _api_level == API_LEVEL.PPCONSOLE:
+            api_level = API_LEVEL.PPCONSOLE_NO_LOGIN
+
         if _api_secret != _api[3]:
             logging.error("client_secret not match client_id:%s, client_secret:%s, api_scecret:%s" % (_api_key, _api_secret, _api[3]))
             self.send_error(400)
