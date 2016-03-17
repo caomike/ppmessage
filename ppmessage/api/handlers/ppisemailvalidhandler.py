@@ -23,7 +23,7 @@ class PPIsEmailValidHandler(BaseHandler):
         self.addPermission(app_uuid=True)
         self.addPermission(api_level=API_LEVEL.PPCONSOLE)
         self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
-        self.addPermission(api_level=API_LEVEL.CONSOLE_BEFORE_LOGIN)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE_BEFORE_LOGIN)
         return
 
     def _Task(self):
