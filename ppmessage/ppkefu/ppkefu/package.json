@@ -65,7 +65,6 @@
     "cordova-plugin-camera",
     "cordova-open",
     "cordova-plugin-app-version",
-    "com.dooble.audiotoggle",
     "https://github.com/keensoft/FullScreenImage-Cordova-Plugin.git",
     "https://github.com/brodysoft/Cordova-SQLitePlugin.git",
     "https://github.com/VersoSolutions/CordovaClipboard.git",
