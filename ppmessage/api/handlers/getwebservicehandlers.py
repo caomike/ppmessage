@@ -87,6 +87,7 @@ from .ppgetuserdetailhandler import PPGetUserDetailHandler
 from .ppgetadmindetailhandler import PPGetAdminDetailHandler
 
 from .ppconsolelogouthandler import PPConsoleLogoutHandler
+from .ppconsolesignuphandler import PPConsoleSignupHandler
 
 from .ppconsolegetoverviewnumber import PPConsoleGetOverviewNumber
 from .ppconsolegetrealtimecustomernumber import PPConsoleGetRealTimeCustomerNumber
@@ -200,6 +201,7 @@ def getWebServiceHandlers():
     handler_list.append((r"/PP_GET_ADMIN_DETAIL", PPGetAdminDetailHandler))
 
     handler_list.append((r"/PPCONSOLE_LOGOUT", PPConsoleLogoutHandler))
+    handler_list.append((r"/PPCONSOLE_SIGNUP", PPConsoleSignupHandler))
 
     handler_list.append((r"/PPCONSOLE_GET_OVERVIEW_NUMBER", PPConsoleGetOverviewNumber))
     handler_list.append((r"/PPCONSOLE_GET_REAL_TIME_CUSTOMER_NUMBER", PPConsoleGetRealTimeCustomerNumber))

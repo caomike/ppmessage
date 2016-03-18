@@ -112,58 +112,48 @@ angular.module("this_app")
 
             // first try to get token
             getToken( function(response) {
+                
                 var credentialsToken = response.access_token;
-                // get token ok
-                yvAjax.is_email_valid_with_credentials_token({
-                    user_email: user.user_email,
-                    app_uuid: appUUID
-                }, credentialsToken)
+
+                // angular.copy(source, [destination]);
+                // angular.extend(dst, src);
+                var copyUser = angular.extend(
+                    angular.copy(user),
+                    { user_password: sha1( user.user_password ) }
+                );
+                
+                yvAjax.signup(copyUser, credentialsToken)
                     .success(function(data) {
-                        if (data.valid) {
+                        
+                        if (data.error_code == 0) {
+                            yvAjax.login(copyUser).success(function(data) {
 
-                            // angular.extend(dst, src);
-                            var copyUser = angular.extend(
-                                user,
-                                { user_password: sha1( user.user_password ) }
-                            );
-                            
-                            yvAjax.create_user_with_credentials_token(copyUser, credentialsToken)
-                                .success(function(data) {
-                                    if (data.error_code == 0) {
-                                        yvAjax.login(user).success(function(data) {
-
-                                            if ( data.error_code == 0 ) {
-                                                $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_access_token", data.access_token); // store access_token
-                                                $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_user_uuid", data.user_uuid);
-                                            }
-                                            
-                                            _on_completed();
-                                            yvUser.set_login_data(data);
-                                            $state.go("app.createteam");
-                                            
-                                        }).error(function(data) {
-                                            _on_completed();
-                                            console.error("login error");
-                                            _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
-                                        });
-                                    } else {
-                                        _on_completed();
-                                        _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
-                                    }
-                                })
-                                .error(function(data) {
-                                    _on_completed();
-                                    console.error("create portal user error");
-                                });
+                                if ( data.error_code == 0 ) {
+                                    $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_access_token", data.access_token); // store access_token
+                                    $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_user_uuid", data.user_uuid);
+                                }
+                                
+                                _on_completed();
+                                yvUser.set_login_data(data);
+                                $state.go("app.createteam");
+                                
+                            }).error(function(data) {
+                                _on_completed();
+                                console.error("login error");
+                                _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
+                            });
                         } else {
                             _on_completed();
-                            _set_error_string($scope.lang["signup.EMAIL_USED_TAG"]);
-                            console.log("email invalid: %o", data);
+                            if (data.error_code == yvAjax.API_ERR.EX_USER) {
+                                _set_error_string($scope.lang["signup.EMAIL_USED_TAG"]);
+                            } else {
+                                _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
+                            }
                         }
                     })
                     .error(function(data) {
                         _on_completed();
-                        _set_error_string($scope.lang["signup.SERVICE_ERROR_TAG"]);
+                        console.error("create portal user error");
                     });
                 
             }, function(error) {

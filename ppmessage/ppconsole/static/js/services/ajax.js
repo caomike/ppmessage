@@ -196,10 +196,6 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
             return _apiPost("/PP_IS_EMAIL_VALID", requestParams);
         },
 
-        is_email_valid_with_credentials_token: function(requestParams, credentials_token) {
-            return _apiPostWithToken("/PP_IS_EMAIL_VALID", requestParams, credentials_token);
-        },
-
         get_app_owned_by_user: function(user_uuid) {
             return _apiPost('/PP_GET_APP_OWNED_BY_USER', {user_uuid: user_uuid});
         },
@@ -210,10 +206,6 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
 
         create_user: function(requestParams) {
             return _apiPost("/PP_CREATE_USER", requestParams);
-        },
-
-        create_user_with_credentials_token: function(requestParams, credentials_token) {
-            return _apiPostWithToken("/PP_CREATE_USER", requestParams, credentials_token);
         },
 
         update_user: function(requestParams) {
@@ -282,6 +274,10 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
 
         get_credentials_token: function() {
             return _get_credentials_token();
+        },
+
+        signup: function(requestParams, credentials_token) {
+            return _apiPostWithToken('/PPCONSOLE_SIGNUP', requestParams, credentials_token);
         },
 
         ///////////// API_ERR_CODE ////////////////

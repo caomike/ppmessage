@@ -329,6 +329,7 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     PREVIEW: "Preview",
                     URL_LINK: "Url",
                     DEMO_DEPLOY_TO: "PPMessage has deploy to this website for preview",
+                    COPY_CODE_TO_BODY: "Copy the code below, and paste between <body></body>"
                 },
 
                 teamprofile: {
@@ -366,7 +367,9 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
 
                     SEARCH_TAG: "Search",
                     MESSAGE_LIST_TAG: "Messages",
-                    EMPTY_LIST_TAG: "Empty"
+                    EMPTY_LIST_TAG: "Empty",
+                    MESSAGES: "Messages",
+                    MESSAGES_PREVIEW: "Messages preview",
                     
                 },
 
@@ -715,6 +718,7 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     PREVIEW: "马上看看",
                     URL_LINK: "生成链接",
                     DEMO_DEPLOY_TO: "PPMessage已经部署在下面的网页链接上",
+                    COPY_CODE_TO_BODY: "复制下面的代码并置于<body></body>元素之间"
                 },
 
                 teamprofile: {
@@ -753,6 +757,8 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                     SEARCH_TAG: "搜索",
                     MESSAGE_LIST_TAG: "消息列表",
                     EMPTY_LIST_TAG: "没有任何匹配的会话",
+                    MESSAGES: "条消息",
+                    MESSAGES_PREVIEW: "消息预览",
                     
                 },
 

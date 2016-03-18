@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("ApplicationProfileCtrl", function($scope, $stateParams, $state, $translate, $timeout, yvTransTags, yvAjax, yvUtil, yvUser, yvDebug) {
+    .controller("ApplicationProfileCtrl", function($scope, $stateParams, $state, $translate, $timeout, yvTransTags, yvAjax, yvUtil, yvUser, yvDebug, yvConstants) {
 
         var team_name = "";
         
@@ -118,10 +118,11 @@ angular.module("this_app")
                 console.error("no team info");
                 return;
             }
-            
-            $scope.team_info.app_uuid = _own_team.uuid;
+
+            var app_uuid = yvConstants.PPMESSAGE_APP.uuid;
+            $scope.team_info.app_uuid = app_uuid;
             $scope.team_info.app_name = _own_team.app_name;
-            var _get = yvAjax.get_api_info({app_uuid: _own_team.uuid, user_uuid: yvUser.get_uuid()});
+            var _get = yvAjax.get_api_info({app_uuid: app_uuid, user_uuid: yvUser.get_uuid()});
             _get.success(function(data) {
                 $scope.team_info.ppconsole_thirdparty = data.ppconsole_thirdparty;
                 $scope.team_info.ppkefu_thirdparty = data.ppkefu_thirdparty;
