@@ -1,32 +1,25 @@
 <ion-view view-title="{{ 'noapp.serverList.SERVER_LIST' | translate }}">
   
   <ion-nav-buttons side="secondary">
-    <button class="button icon ion-ios-plus-empty button-clear" ng-click="add()"></button>
+    <button class="button icon ion-ios-plus-empty button-clear" ui-sref="noapp.add-server"></button>
   </ion-nav-buttons>
-
-  <!--
-  <ion-nav-title>
-    <h1 class="title">{{ 'noapp.serverList.SERVER_LIST' | translate }}</h1>
-  </ion-nav-title>
-  -->
   
   <ion-content>
-    <ion-list show-delete="showDelete"
-              on-delete="onItemDelete(item)"
-              option-buttons="itemButtons">
+    <ion-list show-delete="showDelete" on-delete="onItemDelete(item)" option-buttons="itemButtons">
       
-      <ion-item ng-repeat="server in serverList"
-                item="server"
-                ng-click="select(server)">
+      <ion-item ng-repeat="server in serverList" item="server" ng-click="select(server)">
         <div style="padding-left: 70px;" class="disable-pointer-events">
           <i class="ion-monitor" data-pack="default" data-tags="thunderbolt, screen" style="font-size: 32px; position: absolute; left: 15px;"></i>
           <h2 style="font-family: Helvetica;">{{ server.name }}</h2>
-          <p style="font-family: Helvetica;">{{ server.host }}</p>
+          <p style="font-family: Helvetica;">{{ getServerPath(server) }}</p>
         </div>
 
-        <i class="radio-icon icon ion-checkmark" ng-show="server.is_selected" style="position:absolute; right: 0px;font-size: 24px; padding:13px; top: 0;"></i>
+        <i class="radio-icon icon ion-checkmark" ng-show="server.is_selected" style="position:absolute; right: 0px;font-size: 24px; padding:13px; top: 0;">
+        </i>
         
-        <ion-option-button class="button-assertive" ng-click="deleteService(server, $event)" style="height: 100%; min-height: 42px;">{{ "noapp.switchServer.DELETE_SERVER_TAG" | translate }}</ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="deleteServer(server, $event)" style="height: 100%; min-height: 42px;">
+          {{ "noapp.switchServer.DELETE_SERVER_TAG" | translate }}
+        </ion-option-button>
         
       </ion-item>
     </ion-list>

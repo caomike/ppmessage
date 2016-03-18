@@ -5,6 +5,10 @@ ppmessageModule.controller("SwitchServerCtrl", [
     "yvDB",
 function ($scope, $timeout, $state, yvDB) {
 
+    $scope.serverList = [];
+
+    _reload();
+
     function _reload() {
         yvDB.query_servers(function (_servers) {
             $timeout(function () {
@@ -13,24 +17,25 @@ function ($scope, $timeout, $state, yvDB) {
         });
     }
 
-    $scope.serverList = [];
-
+    $scope.getServerPath = function (server) {
+        var path = server.protocol + server.host;
+        if (server.port) {
+            path = path + ":" + server.port;
+        }
+        return path;
+    };
+    
     $scope.select = function (_server) {
         yvDB.select_server(_server, function () {
             _reload();
         });
     };
 
-    $scope.deleteService = function (_server, $event) {
+    $scope.deleteServer = function (_server, $event) {
         yvDB.delete_server(_server, function () {
             _reload();
         });
         $event.stopPropagation();
     };
 
-    $scope.add = function () {
-        $state.go("noapp.add-server");
-    };
-
-    _reload();
 }]);

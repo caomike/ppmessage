@@ -316,10 +316,10 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
 
 
     function _add_server(_server, _cb) {
-        var _sql0 = "insert into yvdb_servers (name, host, is_selected) values (?,?,?)",
+        var _sql0 = "insert into yvdb_servers (name, host, port, protocol, is_selected) values (?, ?, ?, ?, ?)",
             _sql1 = "update yvdb_servers set is_selected = case when id=? then 1 else 0 end",
             _selected = _server.select ? 1 : 0,
-            _values0 = [_server.name, _server.host, _selected];
+            _values0 = [_server.name, _server.host, _server.port, _server.protocol, _selected];
 
         _exec(_yvdb, _sql0, _values0, function (tx, res) {
             if (_server.select) {

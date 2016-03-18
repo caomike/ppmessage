@@ -1,25 +1,37 @@
 <ion-view view-title="{{ 'noapp.addServer.ADD_SERVER_TAG' | translate }}">
   
   <ion-nav-buttons side="secondary">
-    <button class="button ion-checkmark button-clear" ng-disabled="addDisabled" ng-click="add(server)"></button>
+    <button class="button ion-checkmark button-clear" ng-disabled="shouldDisableAdd()" ng-click="add()"></button>
   </ion-nav-buttons>
   
   <ion-content has-header="true">
     <form novalidate>
-      <div class="list list-inset">
-        <label class="item item-input">
-          <input type="text" style="font-family: Helvetica;" placeholder="{{ 'noapp.addServer.INPUT_SERVER_NAME_TAG' | translate }}" ng-model="server.name" />
-        </label>
-      </div>
-      <div class="list list-inset">
-        <label class="item item-input">
-          <input type="text" style="font-family: Helvetica;" placeholder="{{ 'noapp.addServer.INPUT_SERVER_IP_TAG' | translate }}" ng-model="server.host" />
-        </label>
-      </div>
       <div class="list">
-        <div class="item item-checkbox" style="border: none;">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{ "noapp.addServer.SERVER_NAME" | translate }}</span>
+          <input type="text" placeholder="{{ 'noapp.addServer.SERVER_NAME_NOTE' | translate }}" ng-model="server.name" />
+        </label>
+        
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{ "noapp.addServer.SERVER_PROTOCOL" | translate }}</span>
+          <input type="text" placeholder="{{ 'noapp.addServer.SERVER_PROTOCOL_NOTE' | translate }}" ng-model="server.protocol" />
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{ "noapp.addServer.SERVER_HOST" | translate }}</span>
+          <input type="text" placeholder="{{ 'noapp.addServer.SERVER_HOST_NOTE' | translate }}" ng-model="server.host" />
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">{{ "noapp.addServer.SERVER_PORT" | translate }}</span>          
+          <input type="text" placeholder="{{ 'noapp.addServer.SERVER_PORT_NOTE' | translate }}" ng-model="server.port" />
+        </label>
+
+        <div class="item item-divider"></div>
+        
+        <div class="item item-checkbox" style="border:none;">
           <label class="checkbox">
-            <input type="checkbox" ng-model="server.select" value="true" checked="checked" />
+            <input type="checkbox" ng-model="server.select">
           </label>
           {{ "noapp.addServer.SET_DEFAULT_SERVER_TAG" | translate }}
         </div>

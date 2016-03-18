@@ -33,9 +33,16 @@ ppmessageModule.config([
 
             addServer: {
                 ADD_SERVER_TAG: "Add Server",
-                INPUT_SERVER_NAME_TAG: "Please input server name",
-                INPUT_SERVER_IP_TAG: "Please input server address（domain name or ip address）",
-                SET_DEFAULT_SERVER_TAG: "Set default server"
+                SERVER_NAME: "Name",
+                SERVER_PROTOCOL: "Protocol",
+                SERVER_HOST: "Host",
+                SERVER_PORT: "Port",
+                SERVER_NAME_NOTE: "Any name",
+                SERVER_PROTOCOL_NOTE: "http:// or https://",
+                SERVER_HOST_NOTE: "192.168.0.1, ppmessage.cn",
+                SERVER_PORT_NOTE: "80, 8080",   
+                USE_HTTPS_PROTOCOL: "Use https protocol",
+                SET_DEFAULT_SERVER_TAG: "Set as default server"
             },
 
             loginWithUser: {
@@ -525,8 +532,15 @@ ppmessageModule.config([
 
             addServer: {
                 ADD_SERVER_TAG: "添加服务器",
-                INPUT_SERVER_NAME_TAG: "请输入主机名称",
-                INPUT_SERVER_IP_TAG: "请输入主机地址（域名或IP地址）",
+                SERVER_NAME: "名称",
+                SERVER_PROTOCOL: "协议",
+                SERVER_HOST: "主机",
+                SERVER_PORT: "端口",
+                SERVER_NAME_NOTE: "任意名称",
+                SERVER_PROTOCOL_NOTE: "http:// 或 https://",
+                SERVER_HOST_NOTE: "192.168.0.1，ppmessage.cn",
+                SERVER_PORT_NOTE: "80，8080",
+                USE_HTTPS_PROTOCOL: "使用 https 协议",
                 SET_DEFAULT_SERVER_TAG: "设为默认服务器"
             },
 

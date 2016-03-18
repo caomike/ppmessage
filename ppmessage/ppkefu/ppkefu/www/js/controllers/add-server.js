@@ -4,19 +4,29 @@ ppmessageModule.controller("AddServerCtrl", [
     "yvDB",
 function ($scope, $ionicHistory, yvDB) {
 
-    $scope.server = {select: true};
-    $scope.addDisabled = true;
+    $scope.server = {
+        select: true,
+        protocol: "",
+        host: "",
+        port: "",
+        name: ""
+    };
 
-    $scope.$watchCollection("[server.host, server.name]", function (new_values, old_values, scope) {
-        if (new_values && new_values[0] && new_values[1] && new_values[0].length > 0 && new_values[1].length > 0) {
-            $scope.addDisabled = false;
-        } else {
-            $scope.addDisabled = true;
+    $scope.shouldDisableAdd = function () {
+        if ($scope.server.protocol != "https://" && $scope.server.protocol != "http://") {
+            return true;
         }
-    });
-
-    $scope.add = function (server) {
-        yvDB.add_server(server, function () {
+        if (!$scope.server.host) {
+            return true;
+        }
+        if (!$scope.server.name) {
+            return true;
+        }
+        return false;
+    };
+    
+    $scope.add = function () {
+        yvDB.add_server($scope.server, function () {
             $ionicHistory.goBack();
         });
     };
