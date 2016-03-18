@@ -2,6 +2,11 @@ angular.module("this_app")
     .controller("ApplicationProfileCtrl", function($scope, $stateParams, $state, $translate, $timeout, yvTransTags, yvAjax, yvUtil, yvUser, yvDebug, yvConstants) {
 
         var team_name = "";
+
+        var _note = function(index, tag) {
+            $scope.set_flash_style(index);
+            $scope.set_update_string($scope.lang[tag]);
+        };
         
         $scope.can_delete = false;
         $scope.team_info = {};
