@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# version: 0.1
+# version: 0.2
 # maintainer: Jin He <jin.he@ppmessage.com>
 # description: a shell script to deploy PPMessage on Debian and Ubuntu
 
@@ -8,16 +8,11 @@ NGINX_VERSION=1.8.0
 FFMPEG_VERSION=2.8.5
 MYSQL_CONNECTOR_PYTHON_VERSION=2.1.3
 
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
-
-sudo bash -c "echo deb http://mirrors.163.com/debian/ jessie main non-free contrib > /etc/apt/sources.list"
-sudo bash -c "echo deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib >> /etc/apt/sources.list"
-sudo bash -c "echo deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib >> /etc/apt/sources.list"
-sudo bash -c "echo deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib >> /etc/apt/sources.list"
-
 sudo apt-get update
 
-# relace libjpeg62-turbo-dev with libjpeg8-dev in Ubuntu
+sudo apt-get install -y libjpeg62-turbo-dev # for debian
+sudo apt-get install -y libjpeg8-dev # for ubuntu
+
 sudo apt-get install -y \
     apt-file \
     apt-utils \
@@ -33,7 +28,6 @@ sudo apt-get install -y \
     libffi-dev \
     libfdk-aac-dev \
     libfreetype6-dev \
-    libjpeg62-turbo-dev \
     libmagic1 \
     libmp3lame-dev \
     libncurses5-dev \
@@ -59,12 +53,12 @@ sudo pip install -i http://pypi.douban.com/simple \
     axmlparserpy \
     beautifulsoup4 \
     biplist \
+    cffi \
+    cryptography \
     evernote \
     filemagic \
     geoip2 \
     green \
-    git+https://github.com/senko/python-video-converter.git \
-    hg+https://dingguijin@bitbucket.org/dingguijin/apns-client \
     identicon \
     ipython \
     jieba \
@@ -90,7 +84,9 @@ sudo pip install -i http://pypi.douban.com/simple \
     numpy \
     matplotlib \
     scipy \
-    scikit-learn
+    scikit-learn \
+    git+https://github.com/senko/python-video-converter.git \
+    hg+https://dingguijin@bitbucket.org/dingguijin/apns-client
 
 cd /tmp
 wget http://cdn.mysql.com//Downloads/Connector-Python/mysql-connector-python-$MYSQL_CONNECTOR_PYTHON_VERSION.tar.gz

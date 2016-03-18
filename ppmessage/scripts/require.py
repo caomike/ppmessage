@@ -73,7 +73,7 @@ def _check_debian():
         _color_print("no dpkg command installed, try `aptitude install dpkg`")
         sys.exit()
 
-    dpkg_list = ["apt-file", "git", "mysql-server", "pkg-config", "nginx-extras", "python-pip", "wget", "gcc", "libffi-dev", "python-dev", "redis-server", "libjpeg8-dev", "libpng12-dev", "libfreetype6-dev", "mercurial", "g++", "libopencore-amrwb-dev", "libopencore-amrnb-dev", "libmp3lame-dev", "libopus-dev", "libmagic", "libpcre3", "libpcre3-dev", "openssl", "libssl-dev"]
+    dpkg_list = ["apt-file", "git", "mysql-server", "pkg-config", "python-pip", "wget", "gcc", "libffi-dev", "python-dev", "redis-server", "libjpeg8-dev", "libpng12-dev", "libfreetype6-dev", "mercurial", "g++", "libopencore-amrwb-dev", "libopencore-amrnb-dev", "libmp3lame-dev", "libopus-dev", "libmagic1", "libpcre3", "libpcre3-dev", "openssl", "libssl-dev"]
     
     for dpkg_item in dpkg_list:
         dpkg_cmd = "dpkg -s " + dpkg_item
