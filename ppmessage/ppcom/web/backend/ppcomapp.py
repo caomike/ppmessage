@@ -11,14 +11,15 @@ import logging
 import base64
 import json
 import os
-
+import urllib
 
 class EnterpriseHandler(tornado.web.RequestHandler):
     def get(self, enterprise_string):
         _enterprise = base64.b64decode(enterprise_string)
         _enterprise = json.loads(_enterprise)
-        logging.info(_enterprise)
+        logging.info('enterprise html preview %s', _enterprise)
         _enterprise["app_uuid"] = _enterprise["uuid"]
+        _enterprise["app_name"] = urllib.unquote(str(_enterprise["app_name"]))
         self.render("enterprise.html", **_enterprise)
         return
 

@@ -11,12 +11,16 @@ angular.module("this_app")
             if (_team == null) {
                 return;
             }
-            var _copyTeam = angular.extend( angular.copy( _team ), { uuid: yvConstants.PPMESSAGE_APP.uuid } );
+
+            // `base64_encode` only accept `255 ascill` characters, so we need `escape` here
+            var _appObj = { uuid: yvConstants.PPMESSAGE_APP.uuid,
+                            app_name: encodeURI( _team.app_name || '' ) }; 
             var _url = location.protocol + "//" + location.host + "/ppcom/enterprise/";
-            var _param = yvUtil.base64_encode(JSON.stringify(_copyTeam));
+            var _param = yvUtil.base64_encode(JSON.stringify(_appObj));
             $timeout(function() {
                 $scope.enterprise.link = _url + _param;
             });
+            
         };
 
         var _generate_embedded_code = function() {
@@ -25,7 +29,7 @@ angular.module("this_app")
             var _server = location.protocol + "//" + location.host;
             var _pre = "<script> window.ppSettings = {";
             _pre = _pre + "app_uuid:";
-            _pre = _pre + "'" + _own_team.uuid + "'};";
+            _pre = _pre + "'" + yvConstants.PPMESSAGE_APP.uuid + "'};";
             _pre = _pre + "(function(){var w=window,d=document;function l(){var a=d.createElement('script');a.type='text/javascript';a.async=!0;a.src='{SERVER}/ppcom/assets/pp-library.min.js';var b=d.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b)}w.attachEvent?w.attachEvent('onload',l):w.addEventListener('load',l,!1);})()</script>";
             _pre = _pre.replace("{SERVER}", _server);
             $scope.enterprise.code = _pre;
