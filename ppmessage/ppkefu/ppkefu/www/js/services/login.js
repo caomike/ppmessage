@@ -41,9 +41,9 @@ function ($state, $timeout, $ionicLoading, yvSys, yvAPI, yvNav, yvNoti, yvUser, 
                         self._login_error("app.GLOBAL.ERR_LOGIN");
                     });
                 }, function () {
-                    self._login_error("app.GLOBAL.ERR_USERPASS");
+                    self._login_error("app.GLOBAL.ERR_NET");
                 }, function () {
-                    self._login_error("app.GLOBAL.ERR_TOKEN");
+                    self._login_error("app.GLOBAL.ERR_USERPASS");
                 });
             };
 
@@ -82,9 +82,9 @@ function ($state, $timeout, $ionicLoading, yvSys, yvAPI, yvNav, yvNoti, yvUser, 
     }
 
     
-    function _enter_app() {
+    function _enter_app(offline) {
         yvNoti.init();
-        yvMain.reload(function () {
+        yvMain.reload(offline, function () {
             $timeout(function () {
                 yvNav.go_conversation_list();
                 _stop_loading();
@@ -92,13 +92,24 @@ function ($state, $timeout, $ionicLoading, yvSys, yvAPI, yvNav, yvNoti, yvUser, 
         });
     }
     
-    
     function _login_with_session(user) {
         if (!session) {
             session = new LoginSession();
         }
         session.user_email = user.email;
-        _enter_app();
+        session.access_token = user.access_token;
+        session.device_uuid = user.device_uuid;
+
+        // if api failed because of token, then login with user.
+        // if api failed because of network, enter app without network.
+        // if api success, enter app with network.
+        yvAPI.test_api(function () {
+            _enter_app();
+        }, function () {
+            _enter_app(true);       
+        }, function () {
+            yvNav.login_with_user();
+        });
     }
 
     
@@ -160,8 +171,8 @@ function ($state, $timeout, $ionicLoading, yvSys, yvAPI, yvNav, yvNoti, yvUser, 
             return _after_login();
         },
         
-        enter_app: function () {
-            return _enter_app();
+        enter_app: function (offline) {
+            return _enter_app(offline);
         },
         
         check_session: function () {

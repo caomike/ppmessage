@@ -167,7 +167,7 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
         // uncomment this to force drop tables
         // _exec(_yvdb, "drop table if exists yvdb_login_users", [], null, null);
         var _sql = "CREATE TABLE IF NOT EXISTS yvdb_login_users (id integer primary key, server_id integer, " +
-            " user_uuid text, device_uuid text, session_uuid text, app_uuid text, app_name text, app_key text, " +
+            " user_uuid text, device_uuid text, access_token text, app_uuid text, app_name text, app_key text, " +
             " app_secret text, show_badge integer, mute_notification integer, silence_notification integer, " +
             " is_distributor_user integer, login_time integer, logout_time integer, is_online integer)";
         
@@ -212,10 +212,10 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
 
     function _add_login_user(user, app, cb) {
         var _sql0 = "SELECT id FROM yvdb_login_users WHERE server_id = ? AND user_uuid = ?";
-        var _sql1 = "INSERT INTO yvdb_login_users (server_id, user_uuid, device_uuid, session_uuid, app_uuid, " +
+        var _sql1 = "INSERT INTO yvdb_login_users (server_id, user_uuid, device_uuid, access_token, app_uuid, " +
             " app_name, app_key, app_secret, show_badge, mute_notification, silence_notification, is_distributor_user, " +
             " login_time, is_online) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        var _sql2 = "UPDATE yvdb_login_users SET device_uuid = ?, session_uuid = ?, app_uuid = ?, app_name = ?, " +
+        var _sql2 = "UPDATE yvdb_login_users SET device_uuid = ?, access_token = ?, app_uuid = ?, app_name = ?, " +
             " app_key = ?, app_secret = ?, show_badge = ?, mute_notification = ?, silence_notification = ?, " +
             " is_distributor_user = ?, login_time = ?, is_online = ? WHERE id = ?";
         

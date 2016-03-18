@@ -824,16 +824,18 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
             _get_unack_all();
             callback && callback();
         }, function () {
-            if (yvSys.has_db()) {
-                _load_all_from_database(function () {
-                    callback && callback();
-                });
-            } else {
-                // fixme: something is wrong
-            }
+            _offline_reload(callback);
         });
     }
 
+    function _offline_reload(callback) {
+        if (yvSys.has_db()) {
+            _load_all_from_database(function () {
+                callback && callback();
+            });
+        }
+    }
+    
 
     return {
         init_yvdb: function (callback) {
@@ -880,10 +882,14 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
             return _update_conversations_from_server();
         },
 
-        reload: function (callback) {
-            _reload(callback);
+        reload: function (offline, callback) {
+            if (!!offline) {
+                _offline_reload(callback);
+            } else {
+                _reload(callback);
+            }
         },
-
+        
         open_conversation: function (params, callback) {
             _open_conversation(params, callback);
         },

@@ -11,7 +11,6 @@ function (yvSys, yvConstants) {
         fullname: null,
         signature: null,
         device_uuid: null,
-        session_uuid: null,
         updatetime: null,
         is_online: false,
         access_token: null,
@@ -62,7 +61,7 @@ function (yvSys, yvConstants) {
         user.uuid = item.user_uuid;
         user.is_online = !!item.is_online;
         user.device_uuid = item.device_uuid;
-        user.acess_token = item.session_uuid;
+        user.access_token = item.access_token;
         
         user.app = {
             uuid: item.app_uuid,

@@ -544,5 +544,12 @@ function ($rootScope, $timeout, $http, yvLog, yvSys, yvUser, yvFile, yvConstants
             _args.user_uuid = yvUser.get("uuid");
             return _api_post(_url, _args, null, _success, _error, _api_error);
         },
+
+        test_api: function (_success, _error, _api_error) {
+            var _url = "/PP_GET_USER_INFO";
+            var _data = {user_uuid: yvUser.get("uuid")};
+            var _config = {"timeout": 10000};
+            _api_post(_url, _data, _config, _success, _error, _api_error);            
+        }
     };
 }]);
