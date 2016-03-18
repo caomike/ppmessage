@@ -11,8 +11,9 @@ angular.module("this_app")
             if (_team == null) {
                 return;
             }
+            var _copyTeam = angular.extend( angular.copy( _team ), { uuid: yvConstants.PPMESSAGE_APP.uuid } );
             var _url = location.protocol + "//" + location.host + "/ppcom/enterprise/";
-            var _param = yvUtil.base64_encode(JSON.stringify(_team));
+            var _param = yvUtil.base64_encode(JSON.stringify(_copyTeam));
             $timeout(function() {
                 $scope.enterprise.link = _url + _param;
             });

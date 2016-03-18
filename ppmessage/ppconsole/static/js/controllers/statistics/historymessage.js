@@ -58,9 +58,9 @@ angular.module("this_app")
             },
 
             asyncGetAppConversationList = function(successCB, errorCB) { // request server to get app_conversation_list
-                // get service user all conversations
+                // get service user all conversations                
                 yvAjax.get_app_conversation_list({
-                    app_uuid: yvUser.get_team().uuid
+                    app_uuid: yvConstants.PPMESSAGE_APP.uuid
                 }).success(function(response) {
                     // handle empty case
 
@@ -370,12 +370,6 @@ angular.module("this_app")
                 $scope.toggle_page($scope.pages[0]);
             }
         };
-
-        $timeout(function() {
-            $scope.$watch('news_list', function(newValue, oldValue) {
-                console.log("news_list is+++++", newValue);
-            });
-        }, 1000);
         
         var _init = function() {
             $scope.refresh_settings_menu();

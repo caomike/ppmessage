@@ -49,7 +49,7 @@
 			  {{ item.news_date }}
 			</p>
 			<a href="" data-toggle="modal" data-target="#preview-window" ng-click="show_pre_window(item);">
-			  {{ item.news_count }}条消息
+			  {{ item.news_count }}{{ "statistics.historymessages.MESSAGES" | translate }}
 			</a>
 		  </div>
 		</div>
@@ -61,7 +61,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                   <span>&times;</span>
                 </button>
-                <h4 class="modal-title">消息预览</h4>
+                <h4 class="modal-title">{{ "statistics.historymessages.MESSAGES_PREVIEW" | translate }}</h4>
               </div>
               <div class="modal-body">
 
