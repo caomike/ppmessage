@@ -1,4 +1,13 @@
 module.exports = {
+
+    developer_mode: true,
+    api_key: "MzZjYWI2NzQwOWU0MGUzZmM3ZTAwNjI4ZGUwYTQwNmUyNDBhYTMzYw==",
+    server: {
+        name: "iMac 52",
+        protocol: "http://",
+        host: "192.168.0.52",
+        port: "8080"
+    },
     
     buildCssPath: "www/build/css",
     buildScriptPath: "www/build/js",

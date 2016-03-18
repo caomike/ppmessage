@@ -83,7 +83,8 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
         _current_server.id = server.id;
         _current_server.name = server.name;
         _current_server.host = server.host;
-        _current_server.protocol = location.protocol + "//";
+        _current_server.port = server.port;
+        _current_server.protocol = server.protocol;
         yvAPI.set_server(_current_server);
     }
 
@@ -110,7 +111,7 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
 
 
     function _pick_user(cb) {
-        var _sql0 = "SELECT id, name, host FROM yvdb_servers WHERE is_selected = 1 LIMIT 1";
+        var _sql0 = "SELECT * FROM yvdb_servers WHERE is_selected = 1 LIMIT 1";
         var _sql1 = "SELECT * FROM yvdb_login_users WHERE server_id = ? ORDER BY login_time DESC LIMIT 1";
 
         _exec(_yvdb, _sql0, [], function (tx, res) {
@@ -141,19 +142,21 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
         // uncomment this to force drop tables
         // _exec(_yvdb, "drop table if exists yvdb_servers", [], null, null);
         var _sql0 = "CREATE TABLE IF NOT EXISTS yvdb_servers (id integer primary key, name text UNIQUE, " +
-            " host text UNIQUE, is_selected integer)";
+            " host text UNIQUE, port text, protocol text, is_selected integer)";
         var _sql1 = "SELECT * FROM yvdb_servers WHERE name=? AND host=?";
-        var _sql2 = "INSERT INTO yvdb_servers (name, host, is_selected) VALUES (?, ?, ?)";
-
+        var _sql2 = "UPDATE yvdb_servers SET is_selected = 0";
+        var _sql3 = "INSERT INTO yvdb_servers (name, host, port, protocol, is_selected) VALUES (?, ?, ?, ?, ?)";
         var _servers = [
-            [ppmessage.server, ppmessage.server, 1],
+            [ppmessage.server.name, ppmessage.server.host, ppmessage.server.port, ppmessage.server.protocol, 1],
         ];
 
         _exec(_yvdb, _sql0, [], null, null);
         angular.forEach(_servers, function (server, index) {
             _exec(_yvdb, _sql1, [server[0], server[1]], function (tx, res) {
                 if (res.rows.length === 0) {
-                    tx.executeSql(_sql2, server, null, null);
+                    _exec(_yvdb, _sql2, [], function (tx, res) {
+                        _exec(_yvdb, _sql3, server, null, null);
+                    }, null);
                 }
             }, null);
         });
@@ -176,6 +179,13 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
         var _sql0 = "PRAGMA user_version";
         var _sql1 = "PRAGMA user_version = 1";
         var _sql2 = "PRAGMA user_version = 2";
+
+        if (yvSys.in_electron()) {
+            _create_servers();
+            _create_login_user();
+            cb && cb();
+            return;
+        }
 
         _exec(_yvdb, _sql0, [], function (tx, res) {
             var _v = res.rows.item(0).user_version;
@@ -262,7 +272,7 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
 
     
     function _query_server() {
-        var _sql = "SELECT id, name, host FROM yvdb_servers WHERE is_selected = ?";
+        var _sql = "SELECT * FROM yvdb_servers WHERE is_selected = ?";
 
         _exec(_yvdb, _sql, [1], function (tx, res) {
             var _o = null;
@@ -367,6 +377,11 @@ function ($rootScope, $timeout, yvAPI, yvSys, yvSSL, yvNav, yvUser, yvConstants)
     function _update_userdb(cb) {
         var _sql0 = "PRAGMA user_version";
         var _sql1 = "PRAGMA user_version = 1";
+
+        if (yvSys.in_electron()) {
+            _create_userdb(cb);
+            return;
+        }
 
         _exec(_userdb, _sql0, [], function (tx, res) {
             var version = res.rows.item(0).user_version;

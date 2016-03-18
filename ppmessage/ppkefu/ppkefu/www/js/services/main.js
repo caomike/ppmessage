@@ -146,7 +146,8 @@ function ($q, $timeout, $rootScope, yvDB, yvLog, yvSys, yvAPI, yvNav, yvNoti, yv
         var server = {
             id: 0,
             name: "web",
-            host: window.location.host,
+            host: window.location.hostname,
+            port: window.location.port,
             protocol: window.location.protocol + "//"
         };
         yvAPI.set_server(server);

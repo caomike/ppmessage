@@ -281,9 +281,13 @@ function ($rootScope, $timeout, $http, yvLog, yvSys, yvUser, yvFile, yvConstants
             }
 
             var pre = server.protocol + server.host;
+            if (server.port) {
+                pre = pre + ":" + server.port;
+            }
             _current_server.id = server.id;
             _current_server.name = server.name;
             _current_server.host = server.host;
+            _current_server.port = server.port;
             _current_server.protocol = server.protocol;
 
             _current_server.api_url = pre + "/api";

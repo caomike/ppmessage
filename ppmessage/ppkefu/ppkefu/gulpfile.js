@@ -24,13 +24,6 @@ function _get_ppkefu_version () {
     return object.widget.version;
 }
 
-function _get_bootstrap_data () {
-    var data = fs.readFileSync("../../bootstrap/data.py", "utf8");
-    data = data.slice(data.search("BOOTSTRAP_DATA"));
-    data = eval(data);
-    return data;
-}
-
 var paths = {
     sass: ["./www/scss/*.scss"],
     css: ["./www/css/*.css"],
@@ -41,17 +34,17 @@ var paths = {
     templates: ["./www/templates/*/*.html"],
     config: ["./build.config.js"],
 };
-
-var bootstrap_data = _get_bootstrap_data();
-var server = bootstrap_data.server.name;
-var developer_mode = bootstrap_data.js.min;
-if (developer_mode == "no") {
-    developer_mode = true;
-} else {
-    developer_mode = false;
-}
-
 var version = _get_ppkefu_version();
+
+console.log("------------- ppkefu build configuration --------------")
+console.log("name    \t", buildConfig.server.name);
+console.log("protocol\t", buildConfig.server.protocol);
+console.log("host    \t", buildConfig.server.host);
+console.log("port    \t", buildConfig.server.port);
+console.log("developer mode \t", buildConfig.developer_mode);
+console.log("version \t", version);
+console.log("api key \t", buildConfig.api_key);
+console.log("------------- ppkefu build configuration --------------")
 
 gulp.task("sass", generate_sass);
 gulp.task("lib-css", generate_lib_css);
@@ -85,10 +78,13 @@ function generate_scripts (done) {
     var dest = buildConfig.buildScriptPath;
     
     gulp.src(src)
-        .pipe(replace("{developer_mode}", developer_mode))
-        .pipe(replace("{server}", server))
+        .pipe(replace('"{developer_mode}"', buildConfig.developer_mode))
+        .pipe(replace("{server_name}", buildConfig.server.name))
+        .pipe(replace("{server_protocol}", buildConfig.server.protocol))
+        .pipe(replace("{server_host}", buildConfig.server.host))
+        .pipe(replace("{server_port}", buildConfig.server.port))
+        .pipe(replace("{api_key}", buildConfig.api_key))    
         .pipe(replace("{version}", version))
-        .pipe(replace("{ppkefu_api_key}", bootstrap_data.PPKEFU.api_key))
         .pipe(concat("ppmessage.js"))
         .pipe(gulp.dest(dest))
         .pipe(uglify())

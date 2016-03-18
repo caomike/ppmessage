@@ -207,10 +207,11 @@ function ($timeout, $rootScope, yvAPI, yvSys, yvSSL, yvUser, yvLink, yvType, yvA
     }
 
     function _socket_init() {
-        var _host = yvAPI.get_server().host;
-        var _ws = yvSSL.ws_protocol(_host);
-        var _url = _ws + yvAPI.get_server().host + "/pcsocket/WS";
-        _pc_socket = new WebSocket(_url);
+        var server = yvAPI.get_server();
+        var ws = server.protocol == "https://" ? "wss://" : "ws://";
+        var host = server.port ? server.host + ":" + server.port : server.host;
+        var url = ws + host + "/pcsocket/WS";
+        _pc_socket = new WebSocket(url);
         _pc_socket.onopen = _fn_pc_open;
         _pc_socket.onmessage = _fn_pc_listener;
         _pc_socket.onclose = _fn_pc_close;

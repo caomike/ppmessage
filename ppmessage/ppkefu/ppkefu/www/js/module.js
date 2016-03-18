@@ -1,14 +1,26 @@
 /*
- *  guijin.ding@yvertical.com
- *  2010-2015
+ * window.ppmessage provides addtional below infos. Its value is processed by gulp.
+ * View gulpfile.js and build.config.js for more details.
+ *
+ * api_key: Set ppekfu api_key.
+ * server: Set the default server for mobile-ppkefu and electron-ppkefu, where we can't get server info from window.location.
+ * version: Set browser-ppkefu version, same as mobile-ppkefu version.
+ * developer_mode: Set developer_mode true/false. It influences log and UI.
+ * disableOnbeforeunload: Set disableOnbeforeunload true/false, matters when user refresh web page.
+ *
  */
 
 window.ppmessage = {
-    api_key: '{ppkefu_api_key}',
-    server: '{server}',
-    version: '{version}',
-    developerMode: {developer_mode},
-    disableOnbeforeunload: false
+    "api_key": "{api_key}",
+    "server": {
+        "name": "{server_name}",
+        "protocol": "{server_protocol}",
+        "host": "{server_host}",
+        "port": "{server_port}"
+    },
+    "version": "{version}",
+    "developerMode": "{developer_mode}",
+    "disableOnbeforeunload": false
 };
 
 var ppmessageModule = angular.module("ppmessage", [
@@ -39,7 +51,7 @@ function ($sceProvider, blockUIConfig, $ionicConfigProvider) {
     $ionicConfigProvider.backButton.text("");
 
     if (window.cordova && ionic.Platform.isAndroid()) {
-        ionic.Platform.fullScreen(true, false);
+        // ionic.Platform.fullScreen(true, false);
         $ionicConfigProvider.scrolling.jsScrolling(false);
     }
 }]).run([
