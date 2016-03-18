@@ -10,7 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
-    <preference name="android-windowSoftInputMode" value="stateVisible|adjustPan" />
+    <preference name="android-windowSoftInputMode" value="adjustResize" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="false" />
