@@ -16,6 +16,7 @@ from ppmessage.core.redis import redis_hash_to_dict
 from ppmessage.api.error import API_ERR
 from ppmessage.core.constant import CONVERSATION_TYPE
 from ppmessage.core.constant import CONVERSATION_STATUS
+from ppmessage.core.constant import API_LEVEL
 
 import json
 import time
@@ -103,6 +104,15 @@ class PPGetUserConversationListHandler(BaseHandler):
         _r["list"] = self._get_conversation_list(_l)
         return None
     
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+
     def _Task(self):
         super(PPGetUserConversationListHandler, self)._Task()
         _body = json.loads(self.request.body)

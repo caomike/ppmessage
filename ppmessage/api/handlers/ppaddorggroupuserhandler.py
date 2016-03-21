@@ -35,12 +35,6 @@ def update_group_icon(_redis, _group_uuid):
 
 class PPAddOrgGroupUserHandler(BaseHandler):
 
-    def initialize(self):
-        self.addPermission(api_uuid=True)
-        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
-        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_PPCONSOLE)
-        return
-    
     def _add(self, _group_uuid, _user_uuid):
         _redis = self.application.redis
         _key = OrgUserGroupData.__tablename__ + ".group_uuid." + _group_uuid
@@ -80,6 +74,12 @@ class PPAddOrgGroupUserHandler(BaseHandler):
         update_group_icon(_redis, _group_uuid)
         return
 
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_PPCONSOLE)
+        return
+    
     def _Task(self):
         super(PPAddOrgGroupUserHandler, self)._Task()
         _body = json.loads(self.request.body)

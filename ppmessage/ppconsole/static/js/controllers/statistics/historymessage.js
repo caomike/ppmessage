@@ -60,7 +60,7 @@ angular.module("this_app")
             asyncGetAppConversationList = function(successCB, errorCB) { // request server to get app_conversation_list
                 // get service user all conversations                
                 yvAjax.get_app_conversation_list({
-                    app_uuid: yvConstants.PPMESSAGE_APP.uuid
+                    app_uuid: yvUser.get_team().uuid
                 }).success(function(response) {
                     // handle empty case
 

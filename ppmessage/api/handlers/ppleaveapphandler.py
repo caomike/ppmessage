@@ -14,6 +14,7 @@ from ppmessage.api.error import API_ERR
 from ppmessage.db.models import AppInfo
 from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import AppUserData
+from ppmessage.core.constant import API_LEVEL
 
 from ppmessage.core.redis import redis_hash_to_dict
 
@@ -64,6 +65,12 @@ class PPLeaveAppHandler(BaseHandler):
                 break
         return
         
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+
     def _Task(self):
         super(PPLeaveAppHandler, self)._Task()
         _request = json.loads(self.request.body)

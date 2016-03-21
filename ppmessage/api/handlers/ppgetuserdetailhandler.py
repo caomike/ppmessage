@@ -11,7 +11,7 @@ from ppmessage.db.models import AdminUser
 from ppmessage.db.models import DeviceUser
 
 from ppmessage.api.error import API_ERR
-
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import YVOBJECT
 from ppmessage.core.redis import redis_hash_to_dict
 
@@ -27,6 +27,16 @@ import itertools
 import logging
 
 class PPGetUserDetailHandler(BaseHandler):
+    """
+    discription:
+    receive device user uuid, return device user detail.
+    
+    request:
+    user_uuid, device user uuid
+    
+    response:
+    user detail with error_code
+    """
 
     def _du(self, _request, _rdata):
         if "user_uuid" not in _request:
@@ -58,6 +68,14 @@ class PPGetUserDetailHandler(BaseHandler):
         
         return
     
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+
     def _Task(self):
         super(PPGetUserDetailHandler, self)._Task()
         _request = json.loads(self.request.body)

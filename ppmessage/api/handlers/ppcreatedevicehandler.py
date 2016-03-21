@@ -30,11 +30,7 @@ class PPCreateDeviceHandler(BaseHandler):
     json with error_code
 
     """
-    def initialize(self):
-        self.addPermission(app_uuid=True)
-        self.addPermission(api_level=API_LEVEL.PPCOM)
-        return
-    
+
     """
     Update current devices associated with the user `_user_uuid`
     """
@@ -107,7 +103,14 @@ class PPCreateDeviceHandler(BaseHandler):
             self._device_id = self._ppcom_trace_uuid
 
         return True
-            
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        return
+        
     def _Task(self):
         super(PPCreateDeviceHandler, self)._Task()
         _request = json.loads(self.request.body)

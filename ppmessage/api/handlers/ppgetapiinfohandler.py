@@ -16,12 +16,6 @@ import logging
 
 class PPGetApiInfoHandler(BaseHandler):
 
-    def initialize(self):
-        self.addPermission(app_uuid=True)
-        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
-        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
-        return
-
     def _get(self):
         _redis = self.application.redis
         _app_uuid = self.app_uuid
@@ -56,6 +50,12 @@ class PPGetApiInfoHandler(BaseHandler):
             _r["ppkefu_thirdparty"] = _ppkefu
         return
         
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+
     def _Task(self):
         super(PPGetApiInfoHandler, self)._Task()
         _user_uuid = json.loads(self.request.body).get("user_uuid")

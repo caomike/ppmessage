@@ -44,6 +44,14 @@ function $yvUserService() {
             }
         },
 
+        is_admin_user: function() {
+            // return true;
+        },
+
+        set_admin_user: function( admin_user ) {
+            // set_admin_user
+        },
+
         set_company: function(_company) {
             _user.company = _company;
         },

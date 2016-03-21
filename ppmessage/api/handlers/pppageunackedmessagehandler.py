@@ -11,6 +11,8 @@ from ppmessage.api.error import API_ERR
 from ppmessage.db.models import MessagePush
 from ppmessage.db.models import MessagePushTask
 
+from ppmessage.core.constant import API_LEVEL
+
 import traceback
 import logging
 import json
@@ -35,6 +37,13 @@ class PPPageUnackedMessageHandler(BaseHandler):
         _return = self.getReturnData()
         _return["list"] = copy.deepcopy(_push_list)
         _return["message"] = _m
+        return
+    
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)        
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
         return
     
     def _Task(self):

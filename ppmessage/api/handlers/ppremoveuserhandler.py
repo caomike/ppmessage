@@ -10,6 +10,7 @@ from .basehandler import BaseHandler
 from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import AppInfo
 from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
 
 import json
 import hashlib
@@ -45,6 +46,11 @@ class PPRemoveUserHandler(BaseHandler):
         _row.delete_redis_keys(_redis)
         return
 
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+    
     def _Task(self):
         super(PPRemoveUserHandler, self)._Task()
         _request = json.loads(self.request.body)

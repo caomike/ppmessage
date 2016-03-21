@@ -11,7 +11,7 @@ from ppmessage.db.models import MessagePush
 from ppmessage.db.models import MessagePushTask
 
 from ppmessage.api.error import API_ERR
-
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import YVOBJECT
 from ppmessage.core.constant import MESSAGE_STATUS
 from ppmessage.core.constant import TASK_STATUS
@@ -81,6 +81,14 @@ class PPGetHistoryMessageHandler(BaseHandler):
 
     # no pagination offset
     NO_PAGEINATION_OFFSET = -1
+
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
     
     def _Task(self):
         super(PPGetHistoryMessageHandler, self)._Task()

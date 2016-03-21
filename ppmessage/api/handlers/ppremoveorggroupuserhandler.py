@@ -14,6 +14,8 @@ from ppmessage.db.models import OrgUserGroupData
 from ppmessage.core.redis import redis_hash_to_dict
 from ppmessage.api.handlers.ppaddorggroupuserhandler import update_group_icon
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import logging
 
@@ -73,6 +75,12 @@ class PPRemoveOrgGroupUserHandler(BaseHandler):
                 return
         return
 
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+    
     def _Task(self):
         super(PPRemoveOrgGroupUserHandler, self)._Task()
         _body = json.loads(self.request.body)

@@ -19,6 +19,7 @@ from ppmessage.db.models import DiscussionUserGroupData
 
 from ppmessage.api.error import API_ERR
 
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import YVOBJECT
 from ppmessage.core.redis import redis_hash_to_dict
 
@@ -253,7 +254,14 @@ class GetYVObjectDetailHandler(BaseHandler):
 
         return
 
-
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_PPCONSOLE)
+        return
+    
     def _Task(self):
         super(GetYVObjectDetailHandler, self)._Task()
         _request = json.loads(self.request.body)

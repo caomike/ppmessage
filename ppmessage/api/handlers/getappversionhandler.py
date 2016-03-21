@@ -11,6 +11,8 @@ from ppmessage.core.redis import redis_hash_to_dict
 from ppmessage.db.models import AppPackageInfo
 from ppmessage.api.error import API_ERR
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import traceback
 import logging
@@ -33,6 +35,10 @@ class GetAppVersionHandler(BaseHandler):
 
     def _Before(self):
         return True
+
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        return
     
     def _Task(self):
         super(GetAppVersionHandler, self)._Task()

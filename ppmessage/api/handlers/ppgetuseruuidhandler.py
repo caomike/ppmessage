@@ -9,6 +9,7 @@ from .basehandler import BaseHandler
 
 from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import AppUserData
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import USER_STATUS
 from ppmessage.core.constant import PPMESSAGE_APP
 from ppmessage.core.redis import redis_hash_to_dict
@@ -21,13 +22,18 @@ import uuid
 
 class PPGetUserUUIDHandler(BaseHandler):
     """
-    requst:
-    header
-    user_email
+    description:
+    Receive user_email. If email has not been registered, create a portal user by this email,
+    return his device user uuid. If email has been registered and the user is a service user,
+    throw NO_PORTAL error, else return his device user uuid.
+
+    request:
+    user_email,
+    user_icon,
+    user_fullname,
 
     response:
-    error_code
-
+    user_uuid,
     """
     def _create_third_party(self, _user_email, _user_fullname, _user_icon):
         _redis = self.application.redis
@@ -82,6 +88,11 @@ class PPGetUserUUIDHandler(BaseHandler):
        
         _r = self.getReturnData()
         _r["user_uuid"] = _uuid
+        return
+
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
         return
 
     def _Task(self):

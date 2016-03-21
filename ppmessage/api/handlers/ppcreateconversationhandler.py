@@ -17,6 +17,7 @@ from ppmessage.db.models import ConversationUserData
 from ppmessage.core.redis import redis_hash_to_dict
 
 from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import CONVERSATION_TYPE
 from ppmessage.core.constant import CONVERSATION_STATUS
 
@@ -296,6 +297,13 @@ class PPCreateConversationHandler(BaseHandler):
             return True
 
         return False
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        return
     
     def _Task(self):
         super(PPCreateConversationHandler, self)._Task()

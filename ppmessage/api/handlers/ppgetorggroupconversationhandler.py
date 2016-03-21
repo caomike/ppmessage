@@ -9,7 +9,7 @@ from .basehandler import BaseHandler
 
 from ppmessage.db.models import ConversationInfo
 from ppmessage.api.error import API_ERR
-
+from ppmessage.core.constant import API_LEVEL
 import json
 import logging
 
@@ -38,6 +38,11 @@ class PPGetOrgGroupConversationHandler(BaseHandler):
             return
         _r = self.getReturnData()
         _r["conversation_uuid"] = _uuid
+        return
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
         return
 
     def _Task(self):

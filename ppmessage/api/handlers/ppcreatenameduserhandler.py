@@ -14,6 +14,7 @@ from ppmessage.core.constant import PPMESSAGE_APP
 from ppmessage.core.redis import redis_hash_to_dict
 
 from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
 
 import json
 import logging
@@ -84,6 +85,13 @@ class PPGetUserUUIDHandler(BaseHandler):
         _r["user_uuid"] = _uuid
         return
 
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        return
+        
     def _Task(self):
         super(PPGetUserUUIDHandler, self)._Task()
         _request = json.loads(self.request.body)

@@ -21,7 +21,10 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 TEAM_CONFIG_TAG: "Team settings",
                 EXIT_APP_TAG: "Log Out",
                 SIGNUP_TAG: "Sign Up",
-                LOGIN_TAG: "Sign In"
+                LOGIN_TAG: "Sign In",
+                SLOGAN: "Open Source Plug & Play Customer Communication Platform",
+
+                APPS: "Apps",
                 
             },
 
@@ -414,7 +417,10 @@ angular.module("this_app.i18n", ["pascalprecht.translate"])
                 TEAM_CONFIG_TAG: "团队设置",
                 EXIT_APP_TAG: "退出",
                 SIGNUP_TAG: "注册",
-                LOGIN_TAG: "登录"
+                LOGIN_TAG: "登录",
+                SLOGAN: "开源在线客服平台",
+
+                APPS: "所有团队",
                 
             },
 

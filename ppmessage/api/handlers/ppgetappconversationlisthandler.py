@@ -12,6 +12,8 @@ from ppmessage.api.error import API_ERR
 from ppmessage.db.models import ConversationInfo
 from ppmessage.core.redis import redis_hash_to_dict
 
+from ppmessage.core.constant import API_LEVEL
+
 from ppmessage.core.utils.deviceuserinfoutils import get_device_user_info
 from ppmessage.core.utils.messageutils import get_message_info
 from ppmessage.core.utils.messageutils import get_message_count
@@ -79,6 +81,15 @@ class PPGetAppConversationListHandler(BaseHandler):
         return message count of the `conversation_uuid`
         '''
         return get_message_count(redis, conversation_uuid)
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)        
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)        
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
     
     def _Task(self):
         super(PPGetAppConversationListHandler, self)._Task()

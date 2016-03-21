@@ -12,6 +12,7 @@ from ppmessage.core.utils.createicon import create_user_icon
 
 from ppmessage.db.models import OrgGroup
 from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
 
 import json
 import uuid
@@ -49,6 +50,12 @@ class PPCreateOrgGroupHandler(BaseHandler):
         _r.update(_group)
         return
 
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_PPCONSOLE)
+        return
+        
     def _Task(self):
         super(PPCreateOrgGroupHandler, self)._Task()
         _body = json.loads(self.request.body)

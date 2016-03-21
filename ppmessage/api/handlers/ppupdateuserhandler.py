@@ -12,6 +12,8 @@ from ppmessage.db.models import DeviceUser
 from ppmessage.db.models import AppUserData
 from ppmessage.core.genericupdate import generic_update
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import copy
 import hashlib
@@ -45,7 +47,7 @@ class PPUpdateUserHandler(BaseHandler):
             _key = AppUserData.__tablename__ + ".app_uuid." + _app_uuid + ".user_uuid." + _user_uuid + ".is_service_user.True"
             _uuid = _redis.get(_key)
             if _uuid != None:
-                _udpated = generic_update(_redis, AppUserData, _uuid, {"is_distributor_user": _is_distributor_user})
+                _updated = generic_update(_redis, AppUserData, _uuid, {"is_distributor_user": _is_distributor_user})
                 if not _updated:
                     self.setErrorCode(API_ERR.GENERIC_UPDATE)
                     return
@@ -75,6 +77,15 @@ class PPUpdateUserHandler(BaseHandler):
                 return
         return
 
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
+    
     def _Task(self):
         super(PPUpdateUserHandler, self)._Task()
         self._update()

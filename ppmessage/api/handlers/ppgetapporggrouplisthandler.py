@@ -14,6 +14,8 @@ from ppmessage.db.models import OrgUserGroupData
 from ppmessage.db.models import ConversationInfo
 from ppmessage.core.redis import redis_hash_to_dict
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import logging
 
@@ -56,6 +58,15 @@ class PPGetAppOrgGroupListHandler(BaseHandler):
 
         _r = self.getReturnData()
         _r["list"] = _groups
+        return
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
         return
 
     def _Task(self):

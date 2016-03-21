@@ -14,6 +14,7 @@ from ppmessage.core.utils.datetimestring import string_to_datetime
 from ppmessage.core.constant import DATETIME_FORMAT
 from ppmessage.core.constant import REDIS_MONITOR_KEY
 from ppmessage.core.constant import WEBSOCKET_STATUS
+from ppmessage.core.constant import API_LEVEL
 
 from ppmessage.db.models import OrgUserGroupData
 from ppmessage.db.models import DeviceUser
@@ -120,6 +121,15 @@ class PPGetOrgGroupUserListHandler(BaseHandler):
             _shrinked_users.append(single_user(_redis, _user))
 
         _r["list"] = _shrinked_users
+        return
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
         return
 
     def _Task(self):

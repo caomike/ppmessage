@@ -39,7 +39,6 @@ class GetMessageHistoryHandler(BaseHandler):
     message_1, message_2, message_3,...
     ]}
     """
-    
     def _Task(self):
         super(GetMessageHistoryHandler, self)._Task()
         _request = json.loads(self.request.body)
