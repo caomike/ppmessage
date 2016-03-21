@@ -41,6 +41,7 @@ def _install():
 
     if len(except_list) > 0:
         _color_print("not install: %s" % str(except_list))
+        _color_print("try manual instal with command: `apt-get install %s`" % str(except_list))
         sys.exit()
     return
 
