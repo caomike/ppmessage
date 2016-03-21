@@ -25,11 +25,13 @@ def _color_print(str, color="red"):
     return
 
 def _install():
-    should_list = ["autoconf", "libtool", "gcc", "g++", "git", "mercurial", "apt-file", "pkg-config", "wget",
-                   "redis-server", "mysql-server", "python-pip",
-                   "libffi-dev", "python-dev", "libjpeg8-dev", "libpng12-dev", "libfreetype6-dev",
-                   "libmagic-dev", "libpcre3", "libpcre3-dev", "openssl", "libssl-dev",
-                   "libopencore-amrwb-dev", "libopencore-amrnb-dev", "libmp3lame-dev", "libopus-dev"]
+    should_list = ["autoconf", "libtool", "gcc", "g++", "gfortran", "git", "mercurial", "apt-file", "pkg-config", "libtool",
+                   "wget", "python", "redis-server", "mysql-server", "python-pip", "apt-utils", "automake", "openssl",
+                   "libblas-dev", "liblapack-dev", "libatlas-base-dev", "libffi-dev", "libfdk-aac-dev",
+                   "libfreetype6-dev", "libjpeg8-dev", "libmp3lame-dev", "libncurses5-dev",
+                   "libopencore-amrwb-dev", "libopencore-amrnb-dev", "libopus-dev", "libpng12-dev",
+                   "libpcre3-dev", "libssl-dev", "libffi-dev", "python-dev", "libfreetype6-dev",
+                   "libmagic-dev", "libpcre3-dev"]
     except_list = []
     for should_item in should_list:
         try:
