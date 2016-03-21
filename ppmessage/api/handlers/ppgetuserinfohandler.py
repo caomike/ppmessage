@@ -12,12 +12,28 @@ from ppmessage.db.models import AppUserData
 from ppmessage.core.redis import redis_hash_to_dict
 from ppmessage.api.error import API_ERR
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import logging
 import time
 
 class PPGetUserInfoHandler(BaseHandler):
     """
+    description:
+    receive device user uuid, return device user detail plus app user data detail.
+    
+    request:
+    app_uuid: app that user belongs to
+    user_uuid: device user uuid
+
+    response:
+    device user detail:
+    app user data detail: {
+    "is_owner_user": True/False,
+    "is_service_user": True/False,
+    "is_distributor_user": True/False
+    }
     """
     def _get(self, _app_uuid, _user_uuid):
         _redis = self.application.redis
@@ -40,6 +56,15 @@ class PPGetUserInfoHandler(BaseHandler):
         _r.update(_app_user_data)
         _r["updatetime"] = int(time.mktime(_user["updatetime"].timetuple()))
         _r["createtime"] = int(time.mktime(_user["createtime"].timetuple()))
+        return
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
         return
 
     def _Task(self):

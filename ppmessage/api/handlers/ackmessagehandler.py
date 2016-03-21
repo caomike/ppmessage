@@ -14,6 +14,7 @@ from ppmessage.db.models import MultipleCardMaterialInfo
 
 from ppmessage.api.error import API_ERR
 
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import MESSAGE_TYPE
 from ppmessage.core.constant import MESSAGE_SUBTYPE
 from ppmessage.core.constant import MESSAGE_STATUS
@@ -40,6 +41,12 @@ class AckMessageHandler(BaseHandler):
             if _uuid == None:
                 continue
             self._ack(_uuid)
+        return
+
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
         return
             
     def _Task(self):

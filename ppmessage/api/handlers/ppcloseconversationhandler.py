@@ -11,6 +11,8 @@ from ppmessage.db.models import ConversationUserData
 from ppmessage.core.constant import CONVERSATION_STATUS
 from ppmessage.api.error import API_ERR
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import logging
 
@@ -39,6 +41,15 @@ class PPCloseConversationHandler(BaseHandler):
         _row.update_redis_keys(_redis)
         return
 
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)        
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_PPCONSOLE)
+        return
+    
     def _Task(self):
         super(PPCloseConversationHandler, self)._Task()
         _request = json.loads(self.request.body)

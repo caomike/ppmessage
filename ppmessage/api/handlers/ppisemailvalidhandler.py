@@ -15,12 +15,16 @@ import logging
 
 class PPIsEmailValidHandler(BaseHandler):
     """
-    PP_IS_EMAIL_VALID verify the user_email is valid in PPMESSAGE system or not.
+    description:
+    Receive user_email, verify if the user_email is valid in PPMESSAGE system or not.
     
-    Return JSON with `valid`, true or false.
+    request:
+    user_email,
+
+    response:
+    valid: True/False
     """
     def initialize(self):
-        self.addPermission(app_uuid=True)
         self.addPermission(api_level=API_LEVEL.PPCONSOLE)
         self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
         return

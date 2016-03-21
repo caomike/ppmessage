@@ -11,6 +11,8 @@ from ppmessage.api.error import API_ERR
 from ppmessage.db.models import DeviceInfo
 from ppmessage.db.models import DeviceUser
 
+from ppmessage.core.constant import API_LEVEL
+
 import traceback
 import logging
 import json
@@ -55,6 +57,14 @@ class PPPageOnlinePortalUserHandler(BaseHandler):
                     _user[_label] = _device_dict.get(_user.get(_label + "_uuid"))
 
         return _user_dicts
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
+        return
     
     def _Task(self):
         super(PPPageOnlinePortalUserHandler, self)._Task()

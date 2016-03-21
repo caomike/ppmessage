@@ -11,7 +11,7 @@ from ppmessage.db.models import AdminUser
 from ppmessage.db.models import DeviceUser
 
 from ppmessage.api.error import API_ERR
-
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import YVOBJECT
 from ppmessage.core.redis import redis_hash_to_dict
 
@@ -57,6 +57,11 @@ class PPGetAdminDetailHandler(BaseHandler):
         _rdata["pinyinname0"] = "".join(lazy_pinyin(_fn))
         _rdata["pinyinname1"] = "".join(list(itertools.chain.from_iterable(pinyin(_fn, style=pypinyin.INITIALS))))
 
+        return
+
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_CONSOLE)
         return
     
     def _Task(self):

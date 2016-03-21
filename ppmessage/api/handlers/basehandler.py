@@ -197,6 +197,7 @@ class BaseHandler(RequestHandler):
                 logging.error("no app_uuid is provided")
                 return False
 
+        _api_uuid = _permission.get("api_uuid")
         _app_owned = _permission.get("app_owned")
         if _app_owned == True and _app_uuid == True and _api_uuid == True:
             _key = AppInfo.__tablename__ + ".uuid." + self.app_uuid

@@ -25,11 +25,6 @@ import urllib2
 
 class PPCreateAnonymousHandler(BaseHandler):
     
-    def initialize(self):
-        self.addPermission(app_uuid=True)
-        self.addPermission(api_level=API_LEVEL.PPCOM)
-        return
-
     def _create(self, _ppcom_trace_uuid):
         _redis = self.application.redis
         _key = DeviceUser.__tablename__ + ".ppcom_trace_uuid." + _ppcom_trace_uuid
@@ -129,6 +124,11 @@ class PPCreateAnonymousHandler(BaseHandler):
             return _country_name + _string.get("user")
         
         return _string.get("unknown") + _string.get("user")
+
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        return
 
     def _Task(self):
         super(PPCreateAnonymousHandler, self)._Task()

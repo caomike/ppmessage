@@ -137,6 +137,11 @@ class PPGetDefaultConversationHandler(BaseHandler):
         _sorted = sorted(_unsorted, key=itemgetter("updatetime"), reverse=True)
         return _sorted[0]
     
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        return
+
     def _Task(self):
         super(PPGetDefaultConversationHandler, self)._Task()
         _request = json.loads(self.request.body)

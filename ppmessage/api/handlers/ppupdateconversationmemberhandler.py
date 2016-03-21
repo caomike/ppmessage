@@ -15,6 +15,7 @@ from ppmessage.db.models import ConversationUserData
 
 from ppmessage.api.error import API_ERR
 from ppmessage.core.redis import redis_hash_to_dict
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import CONVERSATION_TYPE
 from ppmessage.core.constant import CONVERSATION_STATUS
 from ppmessage.core.constant import CONVERSATION_MEMBER_ACTION
@@ -77,6 +78,13 @@ class PPUpdateConversationMemberHandler(BaseHandler):
         _row.update_redis_keys(self.application.redis)
         return
         
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        return
+    
     def _Task(self):
         super(PPUpdateConversationMemberHandler, self)._Task()
         _request = json.loads(self.request.body)

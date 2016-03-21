@@ -10,6 +10,7 @@ from ppmessage.db.models import DeviceInfo
 from ppmessage.db.models import DeviceUser
 from ppmessage.core.redis import redis_hash_to_dict
 from ppmessage.core.constant import INVALID_IOS_TOKEN
+from ppmessage.core.constant import API_LEVEL
 
 from ppmessage.api.error import API_ERR
 
@@ -76,7 +77,11 @@ class SetDeviceInfoHandler(BaseHandler):
         _row.async_update()        
         return
 
-    
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
+        return
+        
     def _Task(self):
         super(SetDeviceInfoHandler, self)._Task()
         self._post(json.loads(self.request.body))

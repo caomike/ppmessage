@@ -23,6 +23,8 @@ from ppmessage.db.models import DeviceUser
 
 from ppmessage.api.error import API_ERR
 
+from ppmessage.core.constant import API_LEVEL
+
 import json
 import uuid
 import redis
@@ -84,6 +86,10 @@ class PPCreateAppHandler(BaseHandler):
 
         _r = self.getReturnData()
         _r.update(_app_values)
+        return
+
+    def initialize(self):
+        self.addPermission(api_level=API_LEVEL.PPCONSOLE)
         return
 
     def _Task(self):

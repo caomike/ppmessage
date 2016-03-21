@@ -13,6 +13,7 @@ from ppmessage.db.models import ConversationInfo
 from ppmessage.db.models import ConversationUserData
 
 from ppmessage.api.error import API_ERR
+from ppmessage.core.constant import API_LEVEL
 from ppmessage.core.constant import CONVERSATION_TYPE
 from ppmessage.core.constant import CONVERSATION_STATUS
 from ppmessage.core.utils.datetimestring import string_to_datetime
@@ -164,6 +165,13 @@ class PPPageUserConversationHandler(BaseHandler):
         _rdata["min_uuid"] = self._min_uuid
         _rdata["return_count"] = 0
         _rdata["list"] = []
+        return
+    
+    def initialize(self):
+        self.addPermission(app_uuid=True)
+        self.addPermission(api_level=API_LEVEL.PPCOM)        
+        self.addPermission(api_level=API_LEVEL.PPKEFU)
+        self.addPermission(api_level=API_LEVEL.THIRD_PARTY_KEFU)
         return
     
     def _Task(self):
