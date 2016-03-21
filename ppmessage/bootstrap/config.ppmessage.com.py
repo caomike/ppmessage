@@ -40,7 +40,7 @@ BOOTSTRAP_CONFIG = {
     },
 
     "server": {
-        "name": "", # `` PPMessage use the host ip address otherwise fill it with host name like `ppmessage.com`/`www.ppmessage.com`
+        "name": "ppmessage.com", # `` PPMessage use the host ip address otherwise fill it with host name like `ppmessage.com`/`www.ppmessage.com`
         "identicon_store": "/usr/local/opt/ppmessage/identicon",
         "generic_store": "/usr/local/opt/ppmessage/generic",
     },
