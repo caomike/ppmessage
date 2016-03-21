@@ -124,7 +124,7 @@ angular.module("this_app")
                 return;
             }
 
-            var app_uuid = yvConstants.PPMESSAGE_APP.uuid;
+            var app_uuid = _own_team.uuid;
             $scope.team_info.app_uuid = app_uuid;
             $scope.team_info.app_name = _own_team.app_name;
             var _get = yvAjax.get_api_info({app_uuid: app_uuid, user_uuid: yvUser.get_uuid()});

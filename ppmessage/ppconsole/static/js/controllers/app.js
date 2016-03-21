@@ -10,6 +10,9 @@ angular.module("this_app")
             },
         ];
 
+        // is `ppconsole admin` user
+        $scope.isAdminUser = false;
+
         var _getPreferredLanguage = function() {
             var _p = $translate.use();
             var _l = $scope._languages.length;
@@ -144,6 +147,9 @@ angular.module("this_app")
 
         var _init = function() {            
             //yvAjax.check_logined(function() {}, function() {});
+            if ( yvUser ) {
+                $scope.isAdminUser = yvUser.is_admin_user();
+            }
         };
 
         _init();

@@ -1,10 +1,7 @@
 angular.module("this_app")
     .controller("SignupCtrl", function($scope, $state, $timeout, $translate, $cookieStore, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug) {
-
-        var appUUID = yvConstants.PPMESSAGE_APP.uuid;
         
         $scope.user = {
-            app_uuid: appUUID,
             user_status: "OWNER_0",
             is_service_user: false,
             user_fullname: "",
@@ -119,7 +116,8 @@ angular.module("this_app")
                 // angular.extend(dst, src);
                 var copyUser = angular.extend(
                     angular.copy(user),
-                    { user_password: sha1( user.user_password ) }
+                    { user_password: sha1( user.user_password ),
+                      app_uuid: yvConstants.PPMESSAGE_APP.uuid }
                 );
                 
                 yvAjax.signup(copyUser, credentialsToken)

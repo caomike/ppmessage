@@ -17,12 +17,21 @@
       
       <div class="menu">
 
+        <span class="dropdown" ng-show="isAdminUser" >
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownApps" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{ "app.APPS" | translate }}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownApps">
+          </ul>
+        </span>
+
         <span class="register-item" ng-show="!is_logined()">
           <a ui-sref="app.signup">{{ "app.SIGNUP_TAG" | translate }}</a>
           <a ui-sref="app.signin">{{ "app.LOGIN_TAG" | translate }}</a>
     	</span>
 
-        <span class="register-item" ng-show="is_logined()">
+        <span class="register-item" ng-show="is_logined() && !isAdminUser">
           <a ng-click="start_ppmessage()">{{ "app.START_SERVICE_TAG" | translate }}</a>
     	</span>
 

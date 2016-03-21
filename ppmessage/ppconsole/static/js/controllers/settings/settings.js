@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("SettingsCtrl", function($scope, $rootScope, $cookies, $state, $timeout, $translate, yvAjax, yvUtil, yvUser, yvConstants) {
+    .controller("SettingsCtrl", function($scope, $rootScope, $cookies, $state, $timeout, $translate, yvAjax, yvUtil, yvUser, yvConstants, yvDebug) {
 
         $scope.left_style = null;
         $scope.right_style = null;
@@ -77,7 +77,7 @@ angular.module("this_app")
         };
 
         $scope.refresh_settings_menu = function() {
-            var _j = angular.element(".menu-item")
+            var _j = angular.element(".menu-item");
             for (var i = 0; i < _j.length; i++) {
                 angular.element(_j[i]).removeClass("selected");
             }
