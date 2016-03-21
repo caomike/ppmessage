@@ -11,12 +11,16 @@ angular.module("this_app")
             if (_team == null) {
                 return;
             }
-            var _copyTeam = angular.extend( angular.copy( _team ), { uuid: yvConstants.PPMESSAGE_APP.uuid } );
+
+            // `base64_encode` only accept `255 ascill` characters, so we need `escape` here
+            var _appObj = { uuid: _team.uuid,
+                            app_name: encodeURI( _team.app_name || '' ) }; 
             var _url = location.protocol + "//" + location.host + "/ppcom/enterprise/";
-            var _param = yvUtil.base64_encode(JSON.stringify(_copyTeam));
+            var _param = yvUtil.base64_encode(JSON.stringify(_appObj));
             $timeout(function() {
                 $scope.enterprise.link = _url + _param;
             });
+            
         };
 
         var _generate_embedded_code = function() {
