@@ -37,7 +37,6 @@ def _install():
             install_cmd = "apt-get install " + " ".join(should_intem)
             subprocess.check_output(install_cmd, shell=True)
         except:
-            _color_print("failed to run: %s`" % install_cmd)
             except_list.add(should_item)
 
     if len(except_list) > 0:
