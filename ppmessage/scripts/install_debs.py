@@ -33,6 +33,7 @@ def _install():
     except_list = []
     for should_item in should_list:
         try:
+            _color_print("install %s" % should_item, "green")
             install_cmd = "apt-get install " + " ".join(should_intem)
             subprocess.check_output(install_cmd, shell=True)
         except:
@@ -40,7 +41,7 @@ def _install():
             except_list.add(should_item)
 
     if len(except_list) > 0:
-        _color_print("not install: %s", str(except_list))
+        _color_print("not install: %s" % str(except_list))
         sys.exit()
     return
 
