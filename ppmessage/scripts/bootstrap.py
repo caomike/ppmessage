@@ -98,7 +98,7 @@ def _create_bootstrap_first_user(_session, _config):
         user_firstname=_user_config.get("user_firstname"),
         user_lastname=_user_config.get("user_lastname"),
         user_language=_user_config.get("user_language"),
-        user_status=USER_STATUS.OWNER_2,
+        user_status=USER_STATUS.ADMIN,
         is_anonymous_user=False,
     )
     _session.add(_user)

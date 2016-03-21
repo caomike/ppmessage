@@ -9,6 +9,7 @@
 from ppmessage.api.handlers.basehandler import BaseHandler
 
 from ppmessage.core.constant import API_LEVEL
+from ppmessage.core.constant import USER_STATUS
 from ppmessage.api.error import API_ERR
 from ppmessage.api.handlers.ppcreateuserhandler import create_user
 
@@ -37,10 +38,11 @@ class PPConsoleSignupHandler(BaseHandler):
             "user_fullname": user_fullname,
             "app_uuid": app_uuid,
             "is_service_user": False,
-            "user_status": "OWNER_0"
+            "user_status": USER_STATUS.OWNER_0
         })
 
         self.getReturnData().update(create_user_return_data)
+        return
         
     def _Task(self):
         super(PPConsoleSignupHandler, self)._Task()

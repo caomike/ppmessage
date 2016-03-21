@@ -50,6 +50,7 @@ API_ERR = enum("NO_ERR",
                "NO_APP_USER",
                "PAGE_TOO_LARGE",
                "PAGE_MAX_MIN",
+               "NOT_ADMIN",
                )
 
 API_ERR_DESC = {
@@ -96,6 +97,7 @@ API_ERR_DESC = {
     API_ERR.NO_APP_USER: "app not has this user.",
     API_ERR.PAGE_TOO_LARGE: "page offset is too large.",
     API_ERR.PAGE_MAX_MIN: "should not provide max_uuid and min_uuid in the same time.",
+    API_ERR.NOT_ADMIN: "user is not a admin user.",
 }
 
 def getErrorDesc(code):

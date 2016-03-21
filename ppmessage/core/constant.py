@@ -89,6 +89,11 @@ CACHE_RUN_STATUS = Enum([
 ])
 
 # OWNER and SERVICE are both PPMESSAGE user
+# OWNER_0 is user after signing up
+# OWNER_1 is user after creating first app
+# OWNER_2 is user after launching team
+# owner_3 is ???
+# ADMIN is the admin user
 # ANONYMOUS is PPMESSAGE anonymous + customer's anonymous
 # THIRDPARTY is customer's user
 USER_STATUS = Enum([
@@ -96,6 +101,7 @@ USER_STATUS = Enum([
     "OWNER_1",
     "OWNER_2",
     "OWNER_3",
+    "ADMIN",
     "SERVICE",
     "ANONYMOUS",
     "THIRDPARTY",
