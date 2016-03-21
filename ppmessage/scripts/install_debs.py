@@ -30,7 +30,7 @@ def _install():
                    "libffi-dev", "python-dev", "libjpeg8-dev", "libpng12-dev", "libfreetype6-dev",
                    "libmagic", "libpcre3", "libpcre3-dev", "openssl", "libssl-dev",
                    "libopencore-amrwb-dev", "libopencore-amrnb-dev", "libmp3lame-dev", "libopus-dev"]
-    install_cmd = "aptitude install " + " ".join(should_list)
+    install_cmd = "apt-get install " + " ".join(should_list)
     try:
         subprocess.check_output(install_cmd, shell=True)
     except:
