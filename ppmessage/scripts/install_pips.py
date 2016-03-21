@@ -69,7 +69,8 @@ def _check_uid():
     return
 
 if __name__ == "__main__":
-    _check_csr()
+    if platform.system() == "Darwin":
+        _check_csr()
     _check_uid()
     _install()
 
