@@ -36,7 +36,6 @@ function ppmessage_help()
   $0 <command> [options]
 
 Commands:
-  init-ppmessage              Init ppmessage databases and materials.
   dev                         Install development mode with current working directory.
   undev                       Uninstall development mode.
   status                      Show the status of installation mode.
@@ -78,22 +77,6 @@ function ppmessage_exec()
     else
         $* >/dev/null 2>/dev/null
     fi
-}
-
-function ppmessage_init()
-{
-    case "$1" in
-        ppmessage)
-            ;;
-        *)
-            ppmessage_help
-            return
-            ;;
-    esac
-
-    cd ppmessage/init
-    ppmessage_exec sh ./init-all-$1.sh
-    cd - >/dev/null
 }
 
 function ppmessage_init_cache()
