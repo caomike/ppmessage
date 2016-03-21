@@ -37,7 +37,7 @@ def _install():
             install_cmd = "apt-get install " + " ".join(should_intem)
             subprocess.check_output(install_cmd, shell=True)
         except:
-            except_list.add(should_item)
+            except_list.append(should_item)
 
     if len(except_list) > 0:
         _color_print("not install: %s" % str(except_list))
