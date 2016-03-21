@@ -40,7 +40,7 @@ BOOTSTRAP_CONFIG = {
     },
 
     "server": {
-        "name": "", # `` PPMessage use the host ip address otherwise fill it with host name like `ppmessage.com`/`www.ppmessage.com`
+        "name": "ppmessage.com", # `` PPMessage use the host ip address otherwise fill it with host name like `ppmessage.com`/`www.ppmessage.com`
         "identicon_store": "/usr/local/opt/ppmessage/identicon",
         "generic_store": "/usr/local/opt/ppmessage/generic",
     },
@@ -51,7 +51,7 @@ BOOTSTRAP_CONFIG = {
     
     # nginx conf 
     "nginx": {
-        "nginx_conf_path": "/usr/local/etc/nginx/nginx.conf",
+        "nginx_conf_path": "/usr/local/nginx/conf/nginx.conf",
         "server_name": ["ppmessage.com", "www.ppmessage.com"],
         "listen": "80", #80
 
