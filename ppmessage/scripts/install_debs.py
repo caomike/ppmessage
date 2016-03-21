@@ -30,11 +30,17 @@ def _install():
                    "libffi-dev", "python-dev", "libjpeg8-dev", "libpng12-dev", "libfreetype6-dev",
                    "libmagic-dev", "libpcre3", "libpcre3-dev", "openssl", "libssl-dev",
                    "libopencore-amrwb-dev", "libopencore-amrnb-dev", "libmp3lame-dev", "libopus-dev"]
-    install_cmd = "apt-get install " + " ".join(should_list)
-    try:
-        subprocess.check_output(install_cmd, shell=True)
-    except:
-        _color_print("failed to run: %s`" % install_cmd) 
+    except_list = []
+    for should_item in should_list:
+        try:
+            install_cmd = "apt-get install " + " ".join(should_intem)
+            subprocess.check_output(install_cmd, shell=True)
+        except:
+            _color_print("failed to run: %s`" % install_cmd)
+            except_list.add(should_item)
+
+    if len(except_list) > 0:
+        _color_print("not install: %s", str(except_list))
         sys.exit()
     return
 
