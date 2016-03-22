@@ -54,27 +54,27 @@ http {
     }
     
     upstream ppcom_backends {
-        server 127.0.0.1:21000;
+        server 127.0.0.1:20500;
     }
 
     upstream pcsocket_backends {
-        server 127.0.0.1:21100;
+        server 127.0.0.1:20600;
     }
 
     upstream monitor_backends {
-       server 127.0.0.1:21200;
+       server 127.0.0.1:20700;
     }
 
     upstream pphome_backends {
-       server 127.0.0.1:21300;
+       server 127.0.0.1:20800;
     }
 
     upstream ppauth_backends {
-       server 127.0.0.1:21400;
+       server 127.0.0.1:20900;
     }
 
-    upstream ppconsole_user_backends {
-       server 127.0.0.1:21500;
+    upstream ppconsole_backends {
+       server 127.0.0.1:21000;
     }
     
 # end of backends
@@ -112,11 +112,15 @@ http {
         proxy_set_header Request-Uri $request_uri;
 
         location / {
-            rewrite ^/$ /user permanent;
+            rewrite ^/$ /home permanent;
+        }
+
+        location /home/ {
+            proxy_pass http://pphome_backends/;
         }
 
         location /user/ {
-            proxy_pass http://ppconsole_user_backends/;
+            proxy_pass http://ppconsole_backends/;
         }
 
         location /api/ {

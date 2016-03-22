@@ -1,0 +1,38 @@
+{% extends "basic_with_introduction.html" %}
+
+{% block section-css %}
+<link rel="stylesheet" href="{{ static_url("ppmessage/css/index.css") }}" />
+{% end %}
+
+{% block section %}
+<!-- PAGE: 2 -->
+<div class="feature-open">
+  <div class="content">
+    <div class="title"><h2 class="heading-headline"></h2></div>
+    <img class="column column-left" src="{{ static_url("ppmessage/img/feature_open.png") }}" />
+    <div class="column column-right">
+    </div>
+    <div class="snav"><ul></ul></div>
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+
+<div class="section-download">
+  <div class="content">
+    <div class="section-centered">
+      
+      <div class="one-whole">
+        <img class="logo-small" src="{{ static_url("ppmessage/img/logo_white.png") }}"/>
+        <h1 class="heading-headline">{{ _("get_started_free") }}</h1>
+        <a class="btn-blue maia-button button-download" href="/portal/#/app/signin/">{{ _("get_started") }}</a>  
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% end %}
+
+{% block section-js %}
+<script src="{{ static_url("ppmessage/js/index.js") }}"></script>
+{% end %}

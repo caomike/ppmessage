@@ -1,0 +1,50 @@
+{% extends "basic.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url("ppmessage/css/download.css") }}" />
+{% end %}
+
+{% block content %}
+<div class="section-intro">
+  <div class="content">
+    <img class="column column-left device" src="{{ static_url("ppmessage/img/drive-devices.jpg") }}" />
+    <div class="column column-right" >
+      
+      <h2 class="heading-headline">{{ _("get_ppmessage") }}</h2>
+      <p class="section-body">
+        {{ _("install_ppmessage") }}
+      </p>
+      <div class="download-wrapper">
+        <a class="btn-blue button-download">
+          {{ _("download_ppmessage") }}
+          <span class="arrow-dropdown"></span>
+        </a>
+        <ul class="dropdown-list">
+            <!--
+          <li class="download-mac">
+          <a>Mac</a>
+          </li>
+          <li class="download-win32">
+            <a>Win 32bit</a>
+          </li>
+          <li class="download-win64">
+            <a>Win 64bit</a>
+            </li>
+            -->
+          <li class="download-android">
+            <a class="download-mobile-app">Android</a>
+          </li>
+          <li class="download-ios">
+            <a class="download-mobile-app">iPhone</a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% end %}
+
+{% block js %}
+<script src="{{ static_url("ppmessage/js/download.js") }}"></script>
+{% end %}

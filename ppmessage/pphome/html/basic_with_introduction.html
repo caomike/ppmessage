@@ -1,0 +1,46 @@
+{% extends "basic.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ static_url("ppmessage/css/basic_with_introduction.css") }}" />
+{% block section-css %}
+{% end %}
+{% end %}
+
+{% block content %}
+
+<div class="main" >
+
+  <!-- PAGE: 1 -->
+  <div class="banner section-panel-fullscreen">
+    
+    <div class="section-vertical-align intro">
+
+      {% block slogan %}
+      <h1>{{ _("slogan") }}</h1>
+      {% end %}
+      
+      <a class="btn-blue maia-button button-download" href="/portal/#/app/signin/">{{ _("get_started") }}</a>
+    </div>
+
+    <div class="arrow-hint">
+      <a class="gweb-smoothscroll-control">
+        <div class="icon icon-arrow-hint animated-arrow-1"></div>
+        <div class="icon icon-arrow-hint animated-arrow-2"></div>
+      </a>
+    </div>
+    
+  </div>
+
+  <div id="start">
+    {% block section %}
+    {% end %}
+  </div>
+  
+</div>
+
+{% end %}
+
+{% block js %}
+<script src="{{ static_url("ppmessage/js/basic_with_introduction.js") }}"></script>
+{% block section-js %}{% end %}
+{% end %}

@@ -1,0 +1,148 @@
+.column {
+    width: 50%;
+}
+
+.section-intro .content {
+    max-width: 100%;
+    margin-top: 68px;
+    overflow: auto;
+    padding: 100px;
+    padding-bottom: 150px;
+}
+
+.section-intro .content .column-left {
+    
+}
+
+.section-intro .content .column-right {
+    width: 400px;
+}
+
+.section-intro .content .button-download {
+    display: inline-block;
+    margin-top: 30px;
+    position: relative;
+    padding-right: 44px;
+}
+
+.arrow-dropdown {
+    background-image: url(../img/arrow-hint.png);
+    background-size: contain;
+    height: 8px;
+    width: 12px;
+    margin-top: -6px;
+    position: absolute;
+    right: 18px;
+    top: 56%;
+    pointer-events: none;
+}
+
+.download-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-list {
+    background: #fff;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.dropdown-list a {
+    background-size: 52px 312px;
+    border: 1px solid #e7e7e7;
+    border-width: 0 1px 1px 1px;
+    color: #4c4c4c;
+    display: block;
+    padding: 14px 22px 14px 56px;
+    white-space: nowrap;
+}
+
+.dropdown-list .download-mac a,
+.dropdown-list .download-win32 a,
+.dropdown-list .download-win64 a,
+.dropdown-list .download-android a,
+.dropdown-list .download-ios a {
+    background-image: url(../img/buttons-ss.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.dropdown-list a:visited {
+  color: #4c4c4c;
+}
+
+.dropdown-list a:hover {
+  color: #4386fc;
+  text-decoration: none;
+}
+
+.dropdown-list .download-mac a,
+.dropdown-list .download-win32 a,
+.dropdown-list .download-win64 a {
+    background-position: 0 -104px;
+}
+
+.dropdown-list .download-ios a {
+  background-position: 0 -208px;
+}
+
+.dropdown-list .download-mac a:hover,
+.dropdown-list .download-win32 a:hover,
+.dropdown-list .download-win64 a:hover {
+    background-position: 0 -156px;
+}
+
+.dropdown-list .download-android a:hover {
+  background-position: 0 -52px;
+}
+
+.dropdown-list .download-ios a:hover {
+  background-position: 0 -260px;
+}
+
+@media (min-height: 900px) {
+    .footer {
+        position: fixed;
+        bottom: 0px;
+    }
+}
+
+@media (max-width: 1782px) {
+    .section-intro .content {
+        padding: 100px 0px;
+    }
+    .section-intro .content .column-left {
+        margin-left: 0px;
+        width: 60%;
+    }
+    .section-intro .content .column-right {
+        width: 30%;
+    }
+    .heading-headline {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 948px) {
+    .download-wrapper {
+        margin-bottom: 30px;
+    }
+    .arrow-dropdown {
+        display: none;
+    }
+    .section-intro .content {
+        padding: 0px;
+    }
+    .section-intro .content .button-download {
+        padding-right: 26px;
+    }
+    .section-intro .content .column-left,
+    .section-intro .content .column-right {
+        width: 100%;
+    }
+}

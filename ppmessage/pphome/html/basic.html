@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>{{ _("PPMessage") }}</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="Author" content="PPMessage">
+    {% block meta %}
+    <meta name="description" content="{{ _("site_description") }}"/>
+	<meta name="keywords" content="{{ _("site_keywords") }}"/>
+    {% end %}
+
+    <link rel="stylesheet" href="{{ static_url("bower_components/bootstrap/dist/css/bootstrap.css") }}" />
+    <link rel="stylesheet" href="{{ static_url("ppmessage/css/basic.css") }}" />
+    <link rel="shortcut icon" href="{{ static_url("ppmessage/img/favicon.ico") }}" />
+    <link rel="bookmark" href="{{ static_url("ppmessage/img/favicon.ico") }}" />
+
+    {% block css %}{% end %}
+    
+  </head>
+  
+  <body class="nav-light">
+    
+    {% block header %}
+    <div class="header" >      
+      <a href="index.html">
+        <img src="{{ static_url("ppmessage/img/logo.png") }}" />
+      </a>
+      <span>{{ _("simple_slogan") }}</span>
+      
+      <div class="nav nav-site">
+        <ul>
+          <img class="nav-logo logo-small" src="{{ static_url("ppmessage/img/logo_white.png") }}"/>
+          <li>
+            <a href="index.html">{{ _("menu_main") }}</a>
+          </li>
+          <li>
+            <a href="">{{ _("menu_doc") }}</a>
+          </li>
+          <li>
+            <a href="download.html">{{ _("menu_download") }}</a>
+          </li>
+          <li class="float-in mobile-download-toggle">
+            <a class="btn-blue" href="/portal/#/app/signin/">{{ _("get_started") }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mobile-nav-toggle">
+        <div class="mobile-nav-open"></div>
+        <div class="mobile-nav-close"></div>
+      </div>
+      
+    </div>
+    {% end %}
+
+    {% block content %}
+    {% end %}
+
+    {% block footer %}
+    <div class="footer">
+
+      <div class="site-map">
+
+        <ul>
+          <li><a href="https://github.com/PPMESSAGE/ppmessage" target="_blank">Github</a></li>
+          <li><a href="http://ppmessage.github.io/" target="_blank">{{ _("blog") }}</a></li>
+          <li><a href="http://forum.ppmessage.cn/" target="_blank">{{ _("forum") }}</a></li>
+        </ul>
+        
+      </div>
+
+      <div class="copyright">
+        <div>©2010 - {{ _("today") }} {{ _("company_name") }} All Rights Reserved</div>
+        <div class="law-area">
+          <div>|</div>
+          <a> {{ _("service_terms") }} </a>
+          <div>|</div>
+          <a> {{ _("privacy_policy") }} </a>
+          <div>|</div>
+          <div>
+            <select class="locales">
+              <option value="zh_CN">中文 (Simplified Chinese)</option>
+              <option value="en_US">English</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    {% end %}
+
+    <script src="{{ static_url("bower_components/jquery/dist/jquery.min.js") }}"></script>
+    <script src="{{ static_url("ppmessage/js/basic.js") }}"></script>
+    <script src="/ppcom/assets/pp-library.min.js"> </script>
+    
+    {% block js %}{% end %}
+    
+  </body>
+  
+</html>

@@ -1,0 +1,164 @@
+.section-centered {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 980px;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    width: 100%
+}
+
+.section-panel-fullscreen {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+    left: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    top: 0;
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    width: 100%
+}
+
+.section-panel-fullscreen .section-headline {
+    margin: 0
+}
+
+.section-panel-fullscreen .button-download {
+    margin-top: 30px
+}
+
+.section-panel-fullscreen .arrow-hint {
+    bottom: 0;
+    height: 88px;
+    left: 50%;
+    margin-left: -12px;
+    overflow: hidden;
+    position: absolute;
+    width: 24px
+}
+
+.section-panel-fullscreen .icon-arrow-hint {
+    display: block;
+    margin-bottom: 20px
+}
+
+.section-panel-fullscreen .animated-arrow-1 {
+    -webkit-animation: arrow1 3s infinite ease-out;
+    animation: arrow1 3s infinite ease-out;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0
+}
+
+.section-panel-fullscreen .animated-arrow-2 {
+    -webkit-animation: arrow2 3s infinite ease-in;
+    animation: arrow2 3s infinite ease-in;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1
+}
+
+.section-download {
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* first-page: banner */
+.main .banner {
+    background-image: url(../img/intro-1600.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 1px;
+    
+    width: 100%;
+    text-align: center;
+}
+
+.main .banner .intro {
+    margin-top: -134px;
+}
+
+.main .banner h1 {
+    color: #fff;
+    text-shadow: 0 2px 3px rgba(0,0,0,.4);
+    font-size: 60px;
+    font-weight: 300;
+}
+
+.section-vertical-align {
+    position: relative;
+    top: 50%;
+}
+
+.banner a:visited {
+    color: #66a0fd;
+}
+
+/* second-page: features */
+
+.main .feature-open {
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.one-whole img {
+    height: 77px;
+    margin: 0 auto 20px auto;
+}
+
+.icon-arrow-hint {
+    background-image: url(../img/arrow-hint.png);
+    height: 16px;
+    width: 24px
+}
+
+a.gweb-smoothscroll-control {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .one-whole {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .main .feature-open, .main .section-download {
+        padding: 60px 0;
+    }
+}
+
+@media screen, projection {
+    a.maia-button {
+        color: #fff !important;
+        display: inline-block;
+        text-decoration: none;
+    }   
+}
+
+@media (max-width:1100px) {
+
+    .main .feature-item {
+        float: initial;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width:480px) {
+    .main .banner p {
+        font-size: 24px;
+    }
+}

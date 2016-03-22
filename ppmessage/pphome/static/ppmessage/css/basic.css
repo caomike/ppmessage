@@ -1,0 +1,465 @@
+html {
+   -ms-overflow-style: scrollbar;
+}
+
+body {
+    color: #4c4c4c;
+    font: 400 16px / 1.667 "Open Sans",sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;    
+}
+
+
+/* header */
+.nav-light .header, .nav-dark .header {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 3000;
+}
+
+.nav-light .float-in, .nav-dark .float-in {
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    white-space: nowrap;
+}
+
+.nav-light .logo span, .nav-dark .logo span {
+    font-size: 16px;   
+}
+
+.nav-light .logo span {
+    color: white;
+}
+
+.nav-dark .logo span {
+    color: #a4a4a4;
+}
+
+.nav-dark .header {
+    background: #eee;
+}
+
+.nav-dark .header:before {
+    background: #e7e7e7;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav-light .float-in {
+    max-width: 0px;
+}
+
+.nav-dark .float-in {
+    max-width: 300px;
+}
+
+.nav-dark .nav a,
+.nav-dark .nav a:visited {
+    color: #555
+}
+
+a.highlight {
+    font-weight: 700
+}
+
+.header .logo a:hover,
+a.highlight:hover,
+.btn-blue:hover {
+    text-decoration: none
+}
+
+.nav {
+    float: right;
+}
+
+.nav ul {
+    font-size: 16px;
+    list-style: none;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav a {
+    display: block;
+    line-height: 20px;
+    padding: 24px 13px;
+}
+
+.nav-light .nav a,
+.nav-light .nav a:visited {
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav .nav-logo {
+    display: none;
+}
+
+.btn-blue {
+    background: #4386fc;
+    color: #fff !important;
+    padding-left: 22px;
+    padding-right: 22px;
+    text-decoration: none;
+}
+
+.btn-blue:hover {
+    background: #2263d6;
+}
+
+.button-download {
+    background: #4386fc;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    padding: 16px 26px;
+    text-decoration: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.nav-light .header .logo a {
+    display: inline-block;
+    background-image: url(../img/logo-light.png);
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 68px;
+    float: left;
+}
+
+.nav-dark .header .logo a {
+    display: inline-block;
+    background-image: url(../img/logo-light.png);
+    background-repeat: no-repeat;
+    width: 184px;
+    height: 68px;
+    float: left;
+}
+
+.header .logo img {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    height: 28px;
+    overflow: hidden;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 28px
+}
+
+.content {
+    height: 100%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1040px;
+    min-height: 300px;
+    
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.column {
+    float: left;
+    position: relative;
+}
+
+.column-left {
+    margin-left: 100px;
+}
+
+.column-right {
+    margin-left: 55px;
+    width: 45%;
+}
+
+.heading-headline {
+    color: #404040;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 5px 0;
+}
+
+.section-body {
+    color: #555;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 1.4;
+}
+
+/* footer */
+.footer {
+    background: #f5f5f5;
+    clear: both;
+    overflow: auto;
+    width: 100%;
+}
+
+.footer div,
+.footer p {
+    color: #434e5f;
+    font-size: 16px;
+}
+
+.footer .linkable {
+    cursor: pointer;
+}
+
+.footer ul {
+    list-style: none;
+    text-align: center;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    margin: 0 auto;
+    width: 220px;
+}
+
+.footer ul li {
+    float: left;
+    margin-left: 20px;
+}
+
+.footer ul li a {
+    color: #245dc1;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .site-map {
+    margin: 10px auto 0px auto;
+    overflow: auto;
+}
+
+.footer .copyright {
+    clear: both;
+    text-align: center;
+    margin: 0px 0px 5px 0;
+}
+
+.footer .copyright .law-area {
+    display: inline-block;
+}
+
+.footer .copyright a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;    
+}
+
+.footer .copyright div {
+    display: inline-block;
+    margin: 5px;
+}
+
+.mobile-nav-open {
+    background-image: url(../img/mobile-nav-icon.png);
+    background-position: 0px 46%;
+    background-repeat: no-repeat;
+    
+    height: 22px;
+    width: 30px;
+}
+
+.mobile-nav-close {
+    background-image: url({{ static_url("ppmessage/img/mobile-nav-icon.png") }});
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    
+    height: 20px;
+    width: 24px;
+
+    display: none;
+}
+
+img.logo-small {
+    width: 77px;
+}
+
+@media (max-width: 948px) {
+    .header {
+        background:#fff;
+        height: 48px;
+    }
+    .header:before {
+        background: #e7e7e7;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;   
+    }
+    .header .logo img {
+        height: 48px;
+    }
+    .header .logo span {
+        color: #a4a4a4;    
+    }
+    .header.active {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .mobile-nav-toggle {
+        display: block;
+    }
+    .mobile-download-toggle {
+        display: none;
+    }
+    .header.active .nav {
+        display: block
+    }
+    .header.active .nav .nav-logo {
+        display: inline-block;
+        margin: 24px auto;
+    }
+    .header.active .mobile-nav-open {
+        display: none;
+    }
+    .header.active .mobile-nav-close {
+        display: block;
+    }
+    .nav {
+        bottom: 0;
+        display: none;
+        left: 0;
+        margin: 0;
+        overflow: scroll;
+        padding: 6px 0 16px 0;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        text-align: center;
+    }
+    .nav ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .nav li {
+        float: none;
+        font-size: 21px;
+        margin: 16px 0;
+        text-align: center
+    }
+    .nav a {
+        color: #66a0fd !important;
+        display: inline-block;
+        padding: 12px
+    }
+    .nav a:hover,
+    .nav a:focus {
+        text-decoration: none;
+    }
+    .content {
+        text-align: center;
+        max-width: 86% !important;
+    }
+    .column {
+        float: initial;
+    }
+    .column-left, .column-right {
+        margin-left: 0px;
+        width: initial;
+    }
+    .btn-blue {
+        font-size: 12px;
+    }
+    a.highlight {
+        color: #555 !important;
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 12px;
+    }
+    .main .banner h1 {
+        font-size: 36px !important;
+    }
+    .heading-headline {
+        font-size: 24px;
+    }
+    .nav a {
+        line-height: 20px;
+        padding: 8px;
+    }
+}
+
+/*
+ * http://viewportsizes.com/
+ *
+ * iPhone 3G ~ iPhone 4S: 480
+ * iPhone 5, 5c, 5s: 568
+ * iPhone 6: 667
+ * iPhone 6 Plus: 736
+ * Apple iPad: 768 * 1024
+ * Goolge Nexus 10: 800
+ */
+@media (max-width:800px) {
+    .header .menu-mobile-icon {
+        display: block;
+    }
+    .footer .column {
+        float: initial;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-right: 0px;
+    }
+    .footer .copyright .law-area {
+        display: block;
+    }
+    .footer .copyright .law-area div:first-child {
+        display: none;
+    }
+}
+
+@media (max-width:480px) {
+    .header {
+        height: 50px;
+    }
+    .header .logo {
+        margin-left: 10px;
+        margin-top: 2px;
+    }
+    .header .logo img {
+        width: 126px;
+    }
+    .header .menu-mobile-icon {
+        padding: 10px;
+    }
+    .footer .copyright a {
+        font-size: 12px;
+    }
+}

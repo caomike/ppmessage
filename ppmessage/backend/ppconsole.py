@@ -6,7 +6,7 @@
 #
 #
 
-from ppmessage.core.constant import PPCONSOLE_ADMIN_PORT
+from ppmessage.core.constant import PPCONSOLE_PORT
 from ppmessage.ppconsole.app import App
 
 import tornado.httpserver
@@ -15,7 +15,7 @@ import tornado.options
 
 import logging
 
-tornado.options.define("port", default=PPCONSOLE_ADMIN_PORT, help="", type=int)
+tornado.options.define("port", default=PPCONSOLE_PORT, help="", type=int)
 
 if __name__ == "__main__":
     import sys
@@ -23,10 +23,10 @@ if __name__ == "__main__":
     sys.setdefaultencoding('utf-8')
     tornado.options.parse_command_line()
 
-    _app = App("admin")
+    _app = App("user")
     http_server = tornado.httpserver.HTTPServer(_app)
 
-    logging.info("Starting ppconsole of admin... with port: %d" % tornado.options.options.port)
+    logging.info("Starting ppconsole of user... with port: %d" % tornado.options.options.port)
 
     http_server.listen(tornado.options.options.port)
     loop = tornado.ioloop.IOLoop.instance()

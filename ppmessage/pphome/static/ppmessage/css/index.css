@@ -1,0 +1,80 @@
+.title {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.snav {
+    clear: both;
+    height: 80px;
+    text-align: center;
+}
+
+.snav ul {
+    list-style: none;
+    top: 50%;
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.snav ul li {
+    background-color: #BDBDBD;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-right: 20px;
+    float: left;
+    width: 15px;
+    height: 15px;
+}
+
+.snav ul li.active {
+    background-color: #1D8AFF;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    width: 48px;
+    height: 90px;
+    top: calc( 50% - 45px );
+}
+
+.prev {
+    background: rgba(0, 0, 0, .075) url(../img/prev.png) no-repeat left top;
+}
+
+.next {
+    background: rgba(0, 0, 0, .075) url(../img/next.png) no-repeat left top;
+    right: 0px;
+}
+
+.column-right ul li {
+    text-align: left;
+}
+
+@media (max-width:948px) {
+    .column-right {
+        margin-top: 30px;
+        text-align: left;
+    }
+    /* WeChat-Android not support `calc` */
+    .prev, .next {
+        top: 50%;
+    }
+}
+
+@media (max-width:480px) {
+    .column {
+        max-width: 100%;
+    }
+    .snav ul {
+        width: 100%;
+    }
+    .snav ul li {
+        border-radius: 10px;
+        margin-right: 8px;
+        width: 10px;
+        height: 10px;
+    }
+}

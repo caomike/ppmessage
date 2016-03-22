@@ -1,0 +1,23 @@
+{
+    "name": "pphome",
+    "authors": [
+        "Guijin Ding <guijin.ding@yvertical.com>"
+    ],
+    "description": "",
+    "main": "",
+    "moduleType": [],
+    "license": "MIT",
+    "homepage": "",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "static/bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~1.12.0",
+        "bootstrap": "~3.3.6"
+    }
+}
