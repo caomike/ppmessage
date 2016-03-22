@@ -341,7 +341,7 @@ PPHome.IndexPage = ( function() {
             featureList = feature.features;
         $( '.content .column-left' )
             .animate( { opacity: 0 }, function() {
-                var img = "/home-2/static/ppmessage/img/" + feature.img;
+                var img = "/home/static/ppmessage/img/" + feature.img;
                 $( this ).attr( 'src', img );
             } )
             .animate( { opacity: 1 } );

@@ -42,7 +42,7 @@ class BaseHandler(RequestHandler):
 
     def static_url(self, path, include_host=None, **kwargs):
         self.require_setting("static_path", "static_url")
-        base = "/home-2/static/"
+        base = "/home/static/"
         return base + path
 
 class MainHandler(BaseHandler):
