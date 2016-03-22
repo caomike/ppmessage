@@ -166,16 +166,13 @@ PPHome.Device = ( function() {
 
 PPHome.PPCom = ( function() {
     var PPMESSAGE_APP = {
-        uuid:    "5c36b06e-91b2-11e5-a964-58b035f16bf4",
-        key:     "7a7e3542-91b2-11e5-8db8-58b035f16bf4",
-        secret:  "85c8f661-91b2-11e5-91b4-58b035f16bf4",
+        uuid:    "a600998e-efff-11e5-9d9f-02287b8c0ebf",
     };
 
     $(document).ready(function(){
         if (window.PP) {
             PP.boot({
-                app_key: PPMESSAGE_APP.key,
-                app_secret: PPMESSAGE_APP.secret
+                app_uuid: PPMESSAGE_APP.key
             }, function(isSuccess, errorCode) {
                 console.log("PPCOM boot: ", errorCode);
             });
