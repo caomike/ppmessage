@@ -79,13 +79,6 @@ function ppmessage_exec()
     fi
 }
 
-function ppmessage_init_cache()
-{
-    cd ppmessage/init
-    ppmessage_exec python db2cache.py
-    cd - >/dev/null
-}
-
 function ppmessage_dist()
 {
     if [ -e tmp ];
@@ -287,7 +280,7 @@ function ppmessage_npm()
 
 function ppmessage_bootstrap()
 {
-    echo "bootstrap will create db tables and config the PPMessage";
+    echo "bootstrap will create db tables, config PPMessage, cache db to redis.";
     python ppmessage/scripts/table.py;
     python ppmessage/scripts/bootstrap.py;
     python ppmessage/scripts/db2cache.py;
