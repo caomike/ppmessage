@@ -268,6 +268,7 @@ function ppmessage_bower()
     cd ppmessage/ppcom/web; bower install; cd -;
     cd ppmessage/ppkefu/ppkefu; bower install; cd -;
     cd ppmessage/ppconsole; bower install; cd -;
+    cd ppmessage/pphome; bower install; cd -;
 }
 
 function ppmessage_npm()
