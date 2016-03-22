@@ -5,8 +5,8 @@
 # All rights reserved
 #
 
-from mdm.core.constant import PPHOME_PORT
-from mdm.pphome.app import App
+from ppmessage.core.constant import PPHOME_PORT
+from ppmessage.pphome.app import App
 
 import tornado.httpserver
 import tornado.ioloop
