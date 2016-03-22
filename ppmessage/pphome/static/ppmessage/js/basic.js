@@ -1,6 +1,6 @@
 // PPHome namespace
 var PPHome = PPHome || {
-    version: '0.0.3-dev'
+    version: '0.0.4-dev'
 };
 
 //////////////////////////
@@ -166,13 +166,13 @@ PPHome.Device = ( function() {
 
 PPHome.PPCom = ( function() {
     var PPMESSAGE_APP = {
-        uuid:    "a600998e-efff-11e5-9d9f-02287b8c0ebf",
+        uuid: "a600998e-efff-11e5-9d9f-02287b8c0ebf"
     };
 
     $(document).ready(function(){
         if (window.PP) {
             PP.boot({
-                app_uuid: PPMESSAGE_APP.key
+                app_uuid: PPMESSAGE_APP.uuid
             }, function(isSuccess, errorCode) {
                 console.log("PPCOM boot: ", errorCode);
             });

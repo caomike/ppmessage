@@ -224,7 +224,7 @@
                     if (errorCallback) errorCallback(ErrorHint.ERROR_SERVICE_NOT_AVALIABLE);
                 });
             } else {
-                if (errorCallback) errorCallback(ErrorHint.ERROR_ILLEGAL_APPKEY_OR_SECRET);
+                if (errorCallback) errorCallback(ErrorHint.ERROR_ILLEGAL_APPUUID);
             }
         };
     }

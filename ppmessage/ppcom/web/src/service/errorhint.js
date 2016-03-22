@@ -19,14 +19,14 @@
     function PPErrorHint() {
     }
 
-    PPErrorHint.ERROR_ILLEGAL_APPKEY_OR_SECRET = 10000;
+    PPErrorHint.ERROR_ILLEGAL_APPUUID = 10000;
     PPErrorHint.ERROR_ILLEGAL_USER_EMAIL = 10001;
     PPErrorHint.ERROR_IE9_OR_LOWER_BROWSER = 10002;
     PPErrorHint.ERROR_SERVICE_NOT_AVALIABLE = 10003;
     PPErrorHint.ERROR_ILLEGAL_USER_EMAIL_STYLE = 10004;
 
     PPErrorHint._ERROR_INFO = {
-        10000: 'Illegal appkey or appSecret, please check your appKey or appSecret and try again',
+        10000: 'appUuid not provide, Please check your appUuid and try again',
         10001: 'Can not find user by the user_email, please check your user_email and try again',
         10002: 'Can not run ppMessage on IE 9 or lower version browser',
         10003: 'Service not avaliable',
