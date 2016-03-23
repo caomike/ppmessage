@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("StatisticsHistoryMessageCtrl", function($scope, $state, $timeout, $translate, $stateParams, yvAjax, yvUser, yvConstants, yvLog, yvUtil, yvTransTags) {
+    .controller("StatisticsHistoryMessageCtrl", function($scope, $state, $timeout, $translate, $stateParams, yvAjax, yvUser, yvConstants, yvLog, yvUtil, yvTransTags, yvLogin) {
 
         var DEFAULT_PAGE_SIZE = 10, // default show 10 conversation in each page
             MAX_PAGE_RANGE = 5, // << [5][6][7][8][9] >> max show 5 groups
@@ -9,21 +9,11 @@ angular.module("this_app")
             conversationList = [], // all conversations
 
             _logined = function() { // On logined callback
-                
-                if(yvUser.get_status() != "OWNER_2") {
-                    console.error("should not be here");
-                    return;
-                };
-
-                if(!yvUser.get_team()) {
-                    var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
-                    _get.success(function(data) {
-                        yvUser.set_team(data.app);
-                        asyncGetAppConversationList(onGetAppConversationListSuccessCallback, onGetAppConversationListErrorCallback);
-                    });
-                } else {
+                yvLogin.prepare( function( errorCode ) {
                     asyncGetAppConversationList(onGetAppConversationListSuccessCallback, onGetAppConversationListErrorCallback);
-                }
+                }, { $scope: $scope, onRefresh: function() {
+                    asyncGetAppConversationList(onGetAppConversationListSuccessCallback, onGetAppConversationListErrorCallback);
+                } } );
             },
 
             _translate = function() { // TRANSLATE IT
@@ -374,7 +364,7 @@ angular.module("this_app")
         var _init = function() {
             $scope.refresh_settings_menu();
             _translate();
-            yvAjax.check_logined(_logined, null);
+            _logined();
         };
 
         _init();

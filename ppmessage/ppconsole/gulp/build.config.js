@@ -24,6 +24,8 @@ module.exports = {
             "../static/js/services/application/grouping.js",
             "../static/js/services/application/people.js",
             "../static/js/services/application/callback.js",
+            "../static/js/services/app.js",
+            "../static/js/services/logineduser.js",
 
             "../static/js/controllers/logout.js",
             "../static/js/controllers/login.js",

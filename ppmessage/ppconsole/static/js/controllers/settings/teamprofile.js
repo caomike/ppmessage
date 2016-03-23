@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("ApplicationProfileCtrl", function($scope, $stateParams, $state, $translate, $timeout, yvTransTags, yvAjax, yvUtil, yvUser, yvDebug, yvConstants) {
+    .controller("ApplicationProfileCtrl", function($scope, $stateParams, $state, $translate, $timeout, yvTransTags, yvAjax, yvUtil, yvUser, yvDebug, yvConstants, yvLogin) {
 
         var team_name = "";
 
@@ -135,20 +135,14 @@ angular.module("this_app")
         };
         
         var _logined = function() {
-            if(yvUser.get_status() != "OWNER_2") {
-                console.error("should not be here");
-                return;
-            };
-
-            if(!yvUser.get_team()) {
-                var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
-                _get.success(function(data) {
-                    yvUser.set_team(data.app);
-                    _team();
-                });
-            } else {
+            yvLogin.prepare( function( errorCode ) {
                 _team();
-            }
+            }, {
+                $scope: $scope,
+                onRefresh: function() {
+                    _team();
+                }
+            } );
         };
 
         var _translate = function() {
@@ -166,7 +160,7 @@ angular.module("this_app")
             _reset_team_info();
             $scope.refresh_settings_menu();
             _translate();
-            yvAjax.check_logined(_logined, null);
+            _logined();
         };
         _init();
 

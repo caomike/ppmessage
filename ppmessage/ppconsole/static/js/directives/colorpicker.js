@@ -5,7 +5,7 @@ angular.module("this_app")
             require: 'ngModel',
             
             link: function(scope, element, attrs, model) {
-                console.log("required model ", model);
+
                 element.ColorPickerSliders({
                     //size: "sm",
                     //previewontriggerelement: false,

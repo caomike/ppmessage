@@ -1,5 +1,5 @@
 angular.module("this_app")
-	.controller("IntegrateCtrl", function($scope, $rootScope, $stateParams, $cookies, $state, $timeout, $http, $translate, yvTransTags, yvAjax, yvUtil, yvUser, yvConstants) {
+	.controller("IntegrateCtrl", function($scope, $rootScope, $stateParams, $cookies, $state, $timeout, $http, $translate, yvTransTags, yvAjax, yvUtil, yvUser, yvConstants, yvLogin) {
 
         $scope.enterprise = {
             link: null,
@@ -67,20 +67,9 @@ angular.module("this_app")
         } );
                 
         var _logined = function() {
-            if(yvUser.get_status() != "OWNER_2") {
-                console.error("should not be here");
-                return;
-            };
-
-            if(!yvUser.get_team()) {
-                var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
-                _get.success(function(data) {
-                    yvUser.set_team(data.app);
-                    _on_team_ok();
-                });
-            } else {
+            yvLogin.prepare( function( errorCode ) {
                 _on_team_ok();
-            }
+            }, { $scope: $scope, onRefresh: _on_team_ok } );
         };
 
         var _translate = function() {
@@ -92,7 +81,7 @@ angular.module("this_app")
             };
 
             $scope.translate = function() {
-                console.log($scope.lang);
+                // console.log($scope.lang);
             };
             
             yvUtil.translate($scope, 'lang', _tag_list, $scope.translate);
@@ -101,7 +90,7 @@ angular.module("this_app")
 		var _init = function() {
             _translate();
             $scope.refresh_settings_menu();
-            yvAjax.check_logined(_logined, null);
+            _logined();
         };
 		
 		_init();

@@ -87,7 +87,7 @@ angular.module("this_app")
         
 		var _init = function() {
             _translate();
-            yvAjax.check_logined(_logined, null);
+            _logined();
         };
 		
 		_init();

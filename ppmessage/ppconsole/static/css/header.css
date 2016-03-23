@@ -20,7 +20,7 @@ body {
 }
 
 .header .nav_main {
-	max-width:911px;
+	max-width:1000px;
 	margin:0 auto;
 }
 
@@ -201,7 +201,7 @@ body {
 }
 
 .header .nav_main .menu a {
-    margin-left:10px;
+    /* margin-left:10px; */
     cursor: pointer;
     color: #FFFFFF;
     text-decoration: none !important;
@@ -247,6 +247,11 @@ body {
 .header .nav_main .menu .dropdown-menu {
     margin-top: 15px;
     width: 260px;
+}
+
+.header .nav_main .menu .app-menu {
+    height: 300px;
+    overflow-y: scroll;
 }
 
 .header .nav_main .menu .dropdown-menu-right {

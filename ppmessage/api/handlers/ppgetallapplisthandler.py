@@ -29,7 +29,7 @@ class PPGetAllAppListHandler(BaseHandler):
     response:
     [app1, app2, ...]
     """
-    def _check(self, _user_uuid):
+    def _check_user(self, _user_uuid):
         _redis = self.application.redis
         _user = redis_hash_to_dict(_redis, DeviceUser, _user_uuid)
         if _user == None:
@@ -45,7 +45,7 @@ class PPGetAllAppListHandler(BaseHandler):
     def _get(self, _user_uuid):
         _redis = self.application.redis
         _key = AppInfo.__tablename__ + ".uuid.*"
-        _app_keys = _redis.keys()
+        _app_keys = _redis.keys(_key)
         if len(_app_keys) == 0:
             _r = self.getReturnData()
             _r["app"] = []
@@ -72,7 +72,7 @@ class PPGetAllAppListHandler(BaseHandler):
         if _user_uuid == None:
             self.setErrorCode(API_ERR.NO_PARA)
             return
-        if self._check(_user_uuid) == True:
+        if self._check_user(_user_uuid) == True:
             self._get(_user_uuid)
             return
         return

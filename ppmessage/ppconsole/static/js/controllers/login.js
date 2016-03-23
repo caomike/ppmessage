@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("LoginCtrl", function($scope, $cookieStore, $state, $location, $stateParams, $timeout, $translate, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug, yvLog) {
+    .controller("LoginCtrl", function($rootScope, $scope, $cookieStore, $state, $location, $stateParams, $timeout, $translate, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug, yvLog, yvLogin, yvAppService) {
 
         $scope.user = {
             email: undefined,
@@ -71,34 +71,41 @@ angular.module("this_app")
             yvAjax.login({user_email: $scope.user.email, user_password: password})
                 .success(function(data) {
                     if (data.error_code == 0) {
-                        $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_access_token", data.access_token);
-                        $cookieStore.put("cookie_ppconsole_{WEB_ROLE}_user_uuid", data.user_uuid);
+
+                        yvLogin.updateActiveUserCookieKey( data.user_uuid );
+                        yvLogin.updateLoginedUserCookieKey( data.user_uuid, data.access_token );
                         
                         yvAjax.get_{WEB_ROLE}_detail_with_password(data.user_uuid)
                             .success(function(data) {
 
-                                console.log(data);
+                                yvDebug.d('get_user_detail', data);
                                 if (data.error_code != 0) {
                                     yvLog.w("get detail failed %s", data);
                                     return;
                                 }
-                                yvUser.set_login_data(data);
+                                
+                                yvLogin.updateLoginedUser( angular.copy( data ) );
+                                yvLogin.setLogined( true );
+                                
                                 if(!data.user_status) {
                                     console.log("no user status provided");
                                     _set_error_string("an error occurred when getting the status.");
                                     return;
                                 };
-
-                                if (data.user_status == "ADMIN") {
-                                    $state.go("admin");
-                                    return;
-                                }
                                 
                                 var _url = yvConstants.USER_STATUS[data.user_status];
                                 if(data.user_status == "SERVICE") {
                                     $scope.start_ppmessage(true);
                                     return;
                                 };
+
+                                if (data.user_status == "ADMIN") {
+                                    _url = yvConstants.USER_STATUS["OWNER_2"];
+                                    yvAppService.getApps( function( apps ) {
+                                        $state.go(_url);
+                                    } );
+                                    return;
+                                }
                                 
                                 if(data.user_status == "OWNER_2") {
                                     $state.go(_url);

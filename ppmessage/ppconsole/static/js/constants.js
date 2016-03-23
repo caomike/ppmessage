@@ -12,6 +12,17 @@ angular.module("this_app.constants", [])
             uuid:    "{ppmessage_app_uuid}"
         },
 
+        COOKIE_KEY: {
+            LOGINED_USER_UUID: 'cookie_ppconsole_{WEB_ROLE}_logined_user_uuid',
+            ACTIVE_USER_UUID: 'cookie_ppconsole_{WEB_ROLE}_user_uuid',
+            ACCESS_TOKEN: 'cookie_ppconsole_{WEB_ROLE}_access_token',
+        },
+
+        BROADCAST_EVENT_KEY: {
+            LOGIN_FINISHED: 'event:login:finished',
+            REFRESH_PAGE: 'event:refreshpage'
+        },
+
         MAX_TEXT_LEN: 128,
 
         STATIC_PREFIX: "/{WEB_ROLE}/static/",

@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("StartTeamCtrl", function($scope, $state, $translate, $timeout, yvAjax, yvUtil, yvUser, yvConstants, yvTransTags, yvLogin ) {
+    .controller("StartTeamCtrl", function($scope, $state, $translate, $timeout, yvAjax, yvUtil, yvUser, yvConstants, yvTransTags, yvLogin, yvDebug ) {
 
         $scope.luanch_team = function() {
             //update portal user status
@@ -33,22 +33,6 @@ angular.module("this_app")
             $scope.translate = function() {
             };
             yvUtil.translate($scope, 'lang', _tag_list, $scope.translate);
-
-            yvLogin.prepare( { expect_status: 'OWNER_1' }, function( errorCode ) {
-
-                switch ( errorCode ) {
-                case yvLogin.ERROR_CODE.OK:
-                    break;
-
-                case yvLogin.ERROR_CODE.STATUS_ILLEGAL:
-                    $state.go( yvUser.get_status() ?
-                               yvConstants.USER_STATUS [ yvUser.get_status() ] :
-                               "app.main" );
-                    break;
-                }
-                
-            } );
-
         };
 
         var _unlogined = function() {
@@ -58,7 +42,7 @@ angular.module("this_app")
         };
         
         var _init = function() {
-            yvAjax.check_logined(_logined, _unlogined);
+            yvLogin.checkActiveUser(_logined, _unlogined);
         };
 
         _init();

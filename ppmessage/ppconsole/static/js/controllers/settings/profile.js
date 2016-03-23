@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("SettingsProfileCtrl", function($scope, yvAjax, yvUtil, yvUser, yvTransTags) {
+    .controller("SettingsProfileCtrl", function($scope, yvAjax, yvUtil, yvUser, yvTransTags, yvLogin) {
 
         $scope.change = function(user) {            
         };
@@ -41,15 +41,9 @@ angular.module("this_app")
         };
         
         var _logined = function() {
-            if(!yvUser.get_team()) {
-                var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
-                _get.success(function(data) {
-                    yvUser.set_team(data.app);
-                    _team();
-                });
-            } else {
+            yvLogin.prepare( function( errorCode ) {
                 _team();
-            }
+            }, { $scope: $scope, onRefresh: _team } );
         };
 
         var _translate = function() {
@@ -68,7 +62,7 @@ angular.module("this_app")
         _init = function() {
             $scope.refresh_settings_menu();
             _translate();
-            yvAjax.check_logined(_logined, null);
+            _logined();
         };
         _init();
         

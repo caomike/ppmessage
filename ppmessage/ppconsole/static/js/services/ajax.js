@@ -1,5 +1,5 @@
-$yvAjaxService.$inject = ["$state", "$timeout", "$http", "$cookies", "yvUser", "yvConstants", "yvUtil", "yvLog"];
-function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstants, yvUtil, yvLog) {
+$yvAjaxService.$inject = ["$state", "$timeout", "$http", "$cookies", "yvUser", "yvConstants", "yvUtil", "yvLog", "yvDebug"];
+function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstants, yvUtil, yvLog, yvDebug) {
 
     var _admin = {
         session_uuid: null,
@@ -45,7 +45,6 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
         var accessToken = _token;
         accessToken = accessToken.replace(/\"/g, "");
         
-        yvLog.d(accessToken);
         return $http({
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
@@ -59,61 +58,7 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
     };
     
     var _apiPost = function(_url, _data) {
-        return _apiPostWithToken(_url, _data, $cookieStore.get("cookie_ppconsole_{WEB_ROLE}_access_token"));
-    };
-
-    // default state for unlogined page
-    var _check_logined = function(that, logined, unlogined, state) {
-        var _user_uuid = $cookieStore.get("cookie_ppconsole_{WEB_ROLE}_user_uuid");
-        if (!_user_uuid) {
-            if (unlogined) {
-                unlogined();
-                return
-            }
-            if (state) {
-                $timeout(function() {
-                    $state.go(state);
-                });
-            }
-            return;
-        }
-
-        _user_uuid = _user_uuid.replace(/\"/g, "");
-        var _loggedin = that.get_{WEB_ROLE}_detail_with_password(_user_uuid);
-
-        var _error = function() {
-            $timeout(function() {
-                yvUser.set_logined(false);
-                if (unlogined) {
-                    unlogined();
-                } else {
-                    if (state) {
-                        $timeout(function() {
-                            $state.go(state);
-                        });
-                    }
-                }
-            });
-        };
-        
-        _loggedin.success(function(data) {
-            if (data.error_code == 0) {
-                $timeout(function() {
-                    yvUser.set_login_data(data);
-                    if (logined) {
-                        logined();
-                    }
-                });
-            } else {
-                _error();
-            }
-            return;
-        });
-
-        _loggedin.error(function(data) {
-            _error();
-        });
-
+        return _apiPostWithToken(_url, _data, $cookieStore.get(yvConstants.COOKIE_KEY.ACCESS_TOKEN));
     };
 
     // @see mdm/mdm/api/error.py API_ERR
@@ -126,10 +71,6 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
     return {
         login: function(user) {
             return _post_auth(user);
-        },
-
-        check_logined: function(logined, unlogined, state) {
-            return _check_logined(this, logined, unlogined, state);
         },
 
         ppconsole_get_overview_number : function(app_uuid) {
@@ -278,6 +219,14 @@ function $yvAjaxService($state, $timeout, $http, $cookieStore, yvUser, yvConstan
 
         signup: function(requestParams, credentials_token) {
             return _apiPostWithToken('/PPCONSOLE_SIGNUP', requestParams, credentials_token);
+        },
+
+        get_all_apps: function(requestParams) {
+            return _apiPost('/PP_GET_ALL_APP_LIST', requestParams);            
+        },
+
+        auth: function(user) {
+            return _post_auth(user);
         },
 
         ///////////// API_ERR_CODE ////////////////

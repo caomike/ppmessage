@@ -141,9 +141,7 @@ angular.module("this_app")
         };
 
         var _logined = function() {
-            yvLogin.prepare( {
-                expect_status: 'OWNER_2'
-            }, function( errorCode ) {
+            yvLogin.prepare( function( errorCode ) {
                 switch( errorCode ) {
                     
                 case yvLogin.ERROR_CODE.OK:
@@ -155,7 +153,7 @@ angular.module("this_app")
                     break;
                     
                 }
-            } );
+            });
         };
         
         var _translate = function() {
@@ -180,7 +178,7 @@ angular.module("this_app")
         var _init = function() {
             $scope.refresh_settings_menu();
             _translate();
-            yvAjax.check_logined(_logined, null);
+            _logined();
         };
 
         _init();

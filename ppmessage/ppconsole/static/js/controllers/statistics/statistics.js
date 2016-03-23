@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("ApplicationStatisticsCtrl", function($scope, $state, $timeout, $translate, $stateParams, yvAjax, yvUser, yvConstants) {
+    .controller("ApplicationStatisticsCtrl", function($scope, $state, $timeout, $translate, $stateParams, yvAjax, yvUser, yvConstants, yvLogin) {
 
        	$scope.count = null;
 
@@ -72,7 +72,7 @@ angular.module("this_app")
         var _init = function() {
             $scope.refresh_settings_menu();
             _translate();
-            yvAjax.check_logined(_logined, null);
+            yvLogin.check_logined(_logined, null);
         };
 
         _init();

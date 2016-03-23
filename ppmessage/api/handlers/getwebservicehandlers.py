@@ -99,6 +99,8 @@ from .ppconsolegetmessagenumberbyrange import PPConsoleGetMessageNumberByRange
 
 from .ppgetapiinfohandler import PPGetApiInfoHandler
 
+from .ppgetallapplisthandler import PPGetAllAppListHandler
+
 def getWebServiceHandlers():
     handler_list = []
 
@@ -212,5 +214,8 @@ def getWebServiceHandlers():
     handler_list.append((r"/PPCONSOLE_GET_MESSAGE_NUMBER_BY_RANGE", PPConsoleGetMessageNumberByRange))
 
     handler_list.append((r"/PP_GET_API_INFO", PPGetApiInfoHandler))
+
+    handler_list.append((r"/PP_GET_ALL_APP_LIST", PPGetAllAppListHandler))
+    
     return handler_list
 

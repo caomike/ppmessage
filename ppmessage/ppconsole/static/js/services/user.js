@@ -45,11 +45,7 @@ function $yvUserService() {
         },
 
         is_admin_user: function() {
-            // return true;
-        },
-
-        set_admin_user: function( admin_user ) {
-            // set_admin_user
+            return _user && _user.status === 'ADMIN';
         },
 
         set_company: function(_company) {
@@ -167,6 +163,9 @@ function $yvUserService() {
         set_team: function(_team) {
             if (_user.team == null) {
                 _user.team = {};
+            }
+            if ( !_team ) {
+                _user.team = _team;
             }
             for (var _i in _team) {
                 if (_team.hasOwnProperty(_i)) {

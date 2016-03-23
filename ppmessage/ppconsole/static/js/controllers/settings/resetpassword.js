@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("SettingsResetpasswordCtrl", function($scope, $state, $stateParams, $timeout, $translate, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug ) {
+    .controller("SettingsResetpasswordCtrl", function($scope, $state, $stateParams, $timeout, $translate, yvAjax, yvUtil, yvUser, yvTransTags, yvConstants, yvDebug, yvLogin ) {
         
         var _error_string = "";
 

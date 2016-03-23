@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("StatisticsOverviewCtrl", function($scope, $state, $timeout, $translate, $stateParams, yvUser, yvAjax, yvUtil, yvTransTags, yvConstants) {
+    .controller("StatisticsOverviewCtrl", function($scope, $state, $timeout, $translate, $stateParams, yvUser, yvAjax, yvUtil, yvTransTags, yvConstants, yvLogin) {
 
         $scope.card_number = {};
         var _realtime_line = null;
@@ -181,32 +181,6 @@ angular.module("this_app")
             _get_realtime_number("customer");
         };
 
-        var _team = function() {
-            var _own_team = yvUser.get_team();
-            if (_own_team == null) {
-                console.error("no team info");
-                return;
-            }
-            _draw();
-        };
-
-        var _logined = function() {
-            if(yvUser.get_status() != "OWNER_2") {
-                console.error("should not be here");
-                return;
-            };
-
-            if(!yvUser.get_team()) {
-                var _get = yvAjax.get_app_owned_by_user(yvUser.get_uuid());
-                _get.success(function(data) {
-                    yvUser.set_team(data.app);
-                    _team();
-                });
-            } else {
-                _team();
-            }
-        };
-
         var _translate = function() {
             var _tag_list = [];
             for (var i in yvTransTags.en.statistics.overview) {
@@ -214,7 +188,7 @@ angular.module("this_app")
                 _tag_list.push(_t);
             };
             $scope.translate = function() {
-                console.log($scope.lang);
+                // console.log($scope.lang);
             };
             yvUtil.translate($scope, 'lang', _tag_list, $scope.translate);
         };
@@ -222,7 +196,9 @@ angular.module("this_app")
         var _init = function() {
             _translate();
             $scope.refresh_settings_menu();
-            yvAjax.check_logined(_logined, null);
+            yvLogin.prepare( function( errorCode ) {
+                _draw();
+            }, { $scope: $scope, onRefresh: _draw } );
         };
 
         _init();

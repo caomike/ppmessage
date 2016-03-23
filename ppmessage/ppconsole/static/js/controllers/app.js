@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("AppCtrl", function($scope, $rootScope, $location, $state, $translate, $timeout, $cookies, yvAjax, yvUser, yvUtil) {
+    .controller("AppCtrl", function($window, $scope, $rootScope, $location, $state, $translate, $timeout, $cookies, yvAjax, yvUser, yvUtil, yvDebug, yvLogin, yvAppService, yvConstants, yvLoginedUser) {
 
         $scope._languages = [
             {
@@ -10,8 +10,15 @@ angular.module("this_app")
             },
         ];
 
-        // is `ppconsole admin` user
-        $scope.isAdminUser = false;
+        var isLogin = yvLogin.isLogined();
+
+        $scope.isAdminUser = false; // is `ppconsole admin` user
+        $scope.apps = []; // apps
+        $scope.selectApp = selectApp; // Event: `selectApp`
+        $scope.appStyle = appStyle; // css style
+        $scope.menuStyle = {
+            'margin-top': $scope.isAdminUser ? '12px' : '24px'
+        }; // menu style
 
         var _getPreferredLanguage = function() {
             var _p = $translate.use();
@@ -89,23 +96,19 @@ angular.module("this_app")
         };
         
         $scope.get_user_fullname = function() {
-            return yvUser.get_fullname();
+            return yvLogin.getLoginedUser() ? yvLogin.getLoginedUser().user_fullname : "";
         };
 
         $scope.is_logined = function() {
-            return yvUser.get_logined();
+            return isLogin;
         };
 
         $scope.login = function() {
             $state.go("login");
         };
 
-        $scope.is_owner2_status = function() {
-            if( yvUser.get_status() == "OWNER_2") {
-                return true;
-            }else {
-                return false;
-            };
+        $scope.show_settings_menu = function() {
+            return yvLoginedUser.get() && yvLoginedUser.get().user_status === "OWNER_2";
         };
         
         $scope.start_ppmessage = function(in_this) {
@@ -133,7 +136,14 @@ angular.module("this_app")
             var _logout = yvAjax.logout("user");
             
             $timeout(function() {
-                yvUser.logout();
+
+                yvLogin.logout();
+                isLogin = false;
+                yvAppService.clear();
+                
+                $scope.menuStyle[ 'margin-top' ] = '24px';
+                $scope.isAdminUser = false;
+                
             });
             
             $timeout(function() {
@@ -145,13 +155,62 @@ angular.module("this_app")
             
         });
 
-        var _init = function() {            
-            //yvAjax.check_logined(function() {}, function() {});
-            if ( yvUser ) {
-                $scope.isAdminUser = yvUser.is_admin_user();
-            }
+        var _init = function() {
+
+            // Event: login successful
+            $rootScope.$on( yvConstants.BROADCAST_EVENT_KEY.LOGIN_FINISHED , function( event, args ) {
+
+                isLogin = true;
+                $scope.isAdminUser = args.isAdmin;
+                if ( $scope.isAdminUser === true ) {
+                    
+                    $scope.menuStyle[ 'margin-top' ] = '12px';
+
+                    refreshApps();
+                    
+                }
+                
+            } );
+            
         };
 
         _init();
+
+        // ===========
+        function refreshApps() {
+            fetchApps( function( apps ) {
+                setupAppsDropDownButton( apps );
+            } );            
+        }
+        
+        function fetchApps( callback ) {
+            yvAppService.getApps( callback );
+        }
+        
+        function setupAppsDropDownButton( apps ) {
+            $scope.apps = apps;
+        }
+
+        function selectApp( app ) {
+            yvAppService.selectApp( app, function() {
+
+                refreshApps();
+                $scope.$broadcast( yvConstants.BROADCAST_EVENT_KEY.REFRESH_PAGE );
+                
+            }, function( error ) {
+                
+                yvDebug.d( 'select app error', error );
+                
+            } );
+        }
+
+        function appStyle( app ) {
+            if ( app.is_selected ) {
+                return {
+                    'background-color': 'red'
+                };
+            }
+            return { };
+        }
 
     }); // end app ctrl

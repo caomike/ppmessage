@@ -1,5 +1,5 @@
 angular.module("this_app")
-    .controller("CreateTeamCtrl", function($scope, $state, $timeout, $translate, yvUtil, yvTransTags, yvAjax, yvUser, yvConstants) {
+    .controller("CreateTeamCtrl", function($scope, $state, $timeout, $translate, yvUtil, yvTransTags, yvAjax, yvUser, yvConstants, yvLogin, yvDebug) {
 
         $scope.team = null;
 
@@ -56,6 +56,7 @@ angular.module("this_app")
                         console.log(update);
                         yvAjax.update_user(update)
                             .success(function(data) {
+                                
                                 _on_completed();
                                 if(data.error_code == 0) {
                                     $state.go("app.startteam");
@@ -94,6 +95,7 @@ angular.module("this_app")
             };
             yvUtil.translate($scope, 'lang', _tag_list, $scope.translate);
             if(yvUser.get_status() != "OWNER_0") {
+
                 if(yvUser.get_status()) {
                     $state.go(yvConstants.USER_STATUS[yvUser.get_status()]);
                 }else {
@@ -109,7 +111,7 @@ angular.module("this_app")
         };
 
         var _init = function() {
-            yvAjax.check_logined(_logined, _unlogined);
+            yvLogin.checkActiveUser(_logined, _unlogined);
         };
 
         _init();
